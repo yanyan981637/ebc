@@ -1,0 +1,68 @@
+		
+.card-hover {
+	background-color: #FFF;
+	padding: 0;
+	vertical-align: top;
+	border-bottom: 0;
+	border-radius: 4px;
+	-webkit-transform-origin: 50% 50% 0px;
+		transform-origin: 50% 50% 0px;
+	-webkit-transition: all 250ms cubic-bezier(.02, .01, .5, 1);
+		-o-transition: all 250ms cubic-bezier(.02, .01, .5, 1);
+			transition: all 250ms cubic-bezier(.02, .01, .5, 1);
+}
+
+.card-hover:hover {
+	box-shadow: 0 20px 20px rgba(0,0,0,.08);
+	-webkit-transform: translate(0, -8px);
+		-ms-transform: translate(0, -8px);
+			-o-transform: translate(0, -8px);
+				transform: translate(0, -8px);
+	
+}
+
+.embedded_type{
+	background-color:#004898;
+	opacity: 0.9;
+	padding:0.2rem 2rem;
+	color:#fff;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	text-transform: capitalize;
+	border-radius: 0px 0px 0px 60px;
+	z-index:4;
+}
+
+.card-label-new {
+	background-color:#e60012;
+	opacity: 0.9;
+	padding:0.2rem 2rem;
+	color:#fff;
+	position: absolute;
+	top: 0.5rem;
+	left: 10px;
+	text-transform: capitalize;
+	border-radius: 0px 20px 20px 0px;
+	z-index:4;
+}
+
+.card-label-cs {
+	background-color:#25b8fa;
+	opacity: 0.9;
+	padding:0.2rem 2rem;
+	color:#fff;
+	position: absolute;
+	top: 2rem;
+	left: 10px;
+	text-transform: capitalize;
+	border-radius: 0px 20px 20px 0px;
+	z-index:4;
+}
+
+
+
+
+#left-m .list-group-item {padding:1.2rem 1.5rem; background-color: #f9f9f9}
+#left-m .on {background-color:#004898; font-weight:bold; color:#fff; border-radius: 30px;}
+#left-m li:hover{cursor: pointer; background-color:#004898; color:#fff; border-top:1px solid #fff; border-bottom:1px solid #fff; border-radius: 30px;}

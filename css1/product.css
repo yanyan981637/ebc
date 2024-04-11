@@ -1,0 +1,44 @@
+
+	/**product spec table**/
+    table.pro_spec
+    {    font-size:1rem;
+        color:#313131;
+        background:#ffffff;
+        border-collapse:collapse;
+        width:100%; border-bottom:1px solid #c0c0c0;
+    }
+    table.pro_spec th{ font-size: 1rem; padding:7px 14px; text-align:left; border-bottom:1px dotted #c0c0c0; }
+    table.pro_spec th.greentext{ font-size: 1rem; padding:7px 14px; text-align:left; color:#004898;}
+    table.pro_spec td{padding:7px 14px; border-bottom:1px dotted #c0c0c0;}
+    table.pro_spec tbody:nth-child(even) {background-color:rgba(243,243,243,0.3);	border-bottom:1px dotted #c0c0c0;}
+    table.pro_spec tbody.greybg{background-color:rgba(243,243,243,0.3);}
+    table.pro_spec colgroup.greybg{background-color:rgba(242,242,242,0.6);}
+    
+    table.pro_spec td.dot01 {
+        font-weight: 600;
+    }
+    
+    table.pro_spec thead th{font-size:1.5rem;border-bottom:2px solid #c0c0c0;  color:#004898;}
+  
+    
+    table.pro_spec th a{color:#000000; text-decoration:none}
+    table.pro_spec th a:hover{color:#333333}
+    
+    table.group_skus
+    {    font-size:1rem;
+        color:#313131;
+        background:#ffffff;
+        border-collapse:collapse;
+        width:100%;
+    }
+    table.group_skus thead {cursor:default}
+    table.group_skus thead tr:hover{background:none}
+    table.group_skus thead th{font-size:1.2rem;   color:#004898; text-align:center }
+    table.group_skus th{ padding:1% ;   }
+    table.group_skus td{ padding:1%; }
+    table.group_skus tbody.greybg{ 
+    background-color:rgba(238,238,238,0.4);	border-bottom:1px solid #c0c0c0; text-align:center; border-top:2px solid #c0c0c0;}
+    table.group_skus tbody th{text-align:center}
+    table.group_skus tr{ border-bottom:1px dotted #c0c0c0; }
+    table.group_skus tbody.con{  cursor: default;}
+    table.group_skus tr:hover{background-color:rgba(238,238,238,0.4);}	

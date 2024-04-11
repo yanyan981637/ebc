@@ -1,0 +1,24 @@
+ErrorDocument 404 /404.htm
+
+<IfModule mod_headers.c>
+# Allow some urls, block all others; whitelisting
+#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
+#    Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.
+#</LocationMatch>
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$ 
+RewriteRule .* - [F]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule ^([^./]+)/$ $1.php [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)=Search/?$ $1.php?info=$2 [QSA,L]
+
+Options All -Indexes
+Order Deny,Allow
+Allow from all

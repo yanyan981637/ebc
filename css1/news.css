@@ -1,0 +1,136 @@
+
+
+
+
+#slider {
+	background: rgb(0,212,255);
+background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(0,66,138,1) 35%, rgba(0,85,153,1) 66%, rgba(0,212,255,1) 100%);
+}
+
+#slider h1 {color:#fff}
+
+
+#news-nav {
+	margin-top: -4rem
+}
+
+#news-nav:hover {
+cursor: pointer;
+}
+
+#news-nav h3 {color:#00428a}
+#news-nav i {font-size:2rem; color:#00428a}
+
+
+
+
+.entry-title h3 {
+	text-transform: none;
+	letter-spacing: 0;
+	font-weight: 500;
+	font-size: 25px;
+}
+
+.entry-title.title-sm h2,
+.entry-title.title-sm h3,
+.entry-title.title-xs h2,
+.entry-title.title-xs h3 {
+	font-size: 1.25rem;
+	line-height: 1.6;
+}
+.entry-title.title-xs h2,
+.entry-title.title-xs h3,
+.entry-title h4 {
+	font-size: 1.15rem;
+}
+
+.entry-title h4 {
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.entry-title h2 a,
+.entry-title h2 a:hover,
+.entry-title h3 a,
+.entry-title h3 a:hover,
+.entry-title h4 a:hover  { color: #222 !important; }
+
+.entry-meta {
+	display: block;
+	float: none;
+	margin: 0 0 8px 0 !important;
+	
+}
+.posts-md .entry-meta,
+.posts-md .entry-meta a {
+	font-size: 14px;
+}
+.posts-md .entry:not(:first-child) .grid-inner {
+	padding-top: 2rem;
+	border-top: 1px solid #E5E5E5;
+}
+
+
+
+.color-underline {
+	background-image: linear-gradient(rgba(var(--themecolorrgba, 56, 204, 250), 0.6), rgba(var(--themecolorrgba, 56, 204, 250), 0.6));
+	background-repeat: no-repeat;
+	background-size: 0 8px;
+	background-position: 0 82%;
+	padding: 0 2px 2px 0;
+	transition: background .6s cubic-bezier(.19,1,.22,1);
+}
+
+.color-underline:hover { background-size: 100% 8px; }
+
+
+.gradient-underline {
+	background-image: linear-gradient(rgba(var(--themecolorrgba, 56, 204, 250), 0.6), rgba(var(--themecolorrgba, 56, 204, 250), 0.6));
+	background-repeat: no-repeat;
+	background-size: 100% 0.5em;
+	background-position: 0 81%; padding: 0 2px 8px 0; font-size: 1.5rem
+}
+
+
+span .gradient-underline {
+	background-image: linear-gradient(rgba(var(--themecolorrgba, 56, 204, 250), 0.6), rgba(var(--themecolorrgba, 56, 204, 250), 0.6));
+	background-repeat: no-repeat;
+	background-size: 100% 0.5em;
+	background-position: 0 81%; padding: 0 2px 8px 0; font-size: 1.5rem
+}
+
+
+
+
+
+
+
+
+.border-between > [class*='col-']::before {
+	   background: #E5E5E5;
+	   bottom: 0;
+	   content: " ";
+	   left: 0;
+	   position: absolute;
+	   width: 1px;
+	   top: 0;
+	}
+
+	.dark .border-between > [class*='col-']::before { background: rgba(255, 255, 255, 0.2); }
+
+	.border-between > [class*='col-']:first-child::before { display: none; }
+
+	/* Re-Edit Bootstrap */
+	.border-between > [class*='col-'],
+	.border-between .container,
+	.border-between .container-fluid {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+
+	.border-between.row {
+		margin-right: -30px;
+		margin-left: -30px;
+	}
+}
+
