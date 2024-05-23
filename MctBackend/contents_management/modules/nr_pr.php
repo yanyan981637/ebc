@@ -2,6 +2,7 @@
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
+ini_set('display_errors', 1);
 
 require "../../config.php";
 include_once('../../page.class.php');
@@ -108,10 +109,10 @@ if($check_itemST=='1'){
    {
      $UploadPath = "../../../images/pressroom_pic/";
      $flag = copy($_FILES['myFileA']['tmp_name'], $UploadPath.$_FILES['myFileA']['name']);
-     if($flag) echo ""; 
-     $urlA="images/pressroom_pic/";   
-   }else{   
-     $urlA="";   
+     if($flag) echo "";
+     $urlA="images/pressroom_pic/";
+   }else{
+     $urlA="";
    }
 
 $str_n="SELECT `ID` from `nr_pressroom` order by `ID` desc limit 1";
@@ -207,26 +208,26 @@ if($check_itemST_M=='1'){
    {
      $UploadPath = "../../../images/pressroom_pic/";
      $flag = copy($_FILES['myFile']['tmp_name'], $UploadPath.$_FILES['myFile']['name']);
-     if($flag) echo ""; 
-     $url="images/pressroom_pic/";   
-   }else{   
-     $url="";   
+     if($flag) echo "";
+     $url="images/pressroom_pic/";
+   }else{
+     $url="";
    }
 
 //putenv("TZ=Asia/Taipei");
 $now=date("Y/m/d H:i:s");
-   
+
 if($check_itemST_M=='1'){
    if($myFile!=''){
-   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`IMG`='$url$myFile',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."',`STATUS`='".$pr_status."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01;   
+   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`IMG`='$url$myFile',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."',`STATUS`='".$pr_status."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01;
    }else{
-   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."',`STATUS`='".$pr_status."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01; 
+   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."',`STATUS`='".$pr_status."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01;
    }
 }else if($check_itemSH_M=='2'){
    if($myFile!=''){
-   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`IMG`='$url$myFile',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01;   
+   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`IMG`='$url$myFile',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01;
    }else{
-   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01; 
+   $str_upd="UPDATE `nr_pressroom` SET `TITLE`='".$pr1."',`CONTENT`='".$pr2."',`DETAIL`='".$editor2."',`NEWSDATE`='".$PDate."',`MODEL`='".$relProd_mval."',`LANG`='".$pr_lang."',`UPDATE_USER`='admin',`UPDATE_DATE`='".$now."', `sDate`='".$sDTM."', `eDate`='".$eDTM."', `Redirect`='".$e_redirect."' where `ID`=".$prid01;
    }
 }
 
@@ -240,20 +241,20 @@ exit();
   $s_search=trim($_REQUEST['s_search']);
   //$s_search=preg_replace("['\"\$ \r\n\t;<>\*%\?]", '', $_REQUEST['s_search']);
     if(isset($_REQUEST['slang'])<>''){
-     $slang=trim($_REQUEST['slang']);	
+     $slang=trim($_REQUEST['slang']);
 	 $str1="select count(*) from `nr_pressroom` where (`TITLE` like '%".$s_search."%' or `CONTENT` like '%".$s_search."%' or `DETAIL` like '%".$s_search."%') and (`LANG`='".$slang."')";
     }else{
 	 $str1="select count(*) from `nr_pressroom` where (`TITLE` like '%".$s_search."%' or `CONTENT` like '%".$s_search."%' or `DETAIL` like '%".$s_search."%')";
     }
   }else{
-    
-	if(isset($_REQUEST['slang'])<>''){		  
-     $slang=trim($_REQUEST['slang']);		  
-     $str1="SELECT count(*) from `nr_pressroom` where (`LANG`='".$slang."')";		   
-	}else{	 
+
+	if(isset($_REQUEST['slang'])<>''){
+     $slang=trim($_REQUEST['slang']);
+     $str1="SELECT count(*) from `nr_pressroom` where (`LANG`='".$slang."')";
+	}else{
 	 $str1="select count(*) from `nr_pressroom`";
 	}
-	
+
   }
   $list1=mysqli_query($link_db,$str1);
   list($public_count)=mysqli_fetch_row($list1);
@@ -419,7 +420,7 @@ function HS_setDate(inputObj){
 <script type="text/javascript">
 $(function() {
 
-  $("#check_itemST").click(function() {  
+  $("#check_itemST").click(function() {
    if($('input[id="check_itemST"]:checked').val()=='1'){
     $('input[name="check_itemSH"][value="2"]').prop("checked",false);
     $('#pr_statusA').prop('disabled', false);
@@ -429,8 +430,8 @@ $(function() {
 	$('#eTime').prop('disabled', true);
    }
   });
-  
-  $("#check_itemSH").click(function() {  
+
+  $("#check_itemSH").click(function() {
    if($('input[id="check_itemSH"]:checked').val()=='2'){
     $('input[name="check_itemST"][value="1"]').prop("checked",false);
     $('#pr_statusA').prop('disabled', true);
@@ -440,8 +441,8 @@ $(function() {
 	$('#eTime').prop('disabled', false);
    }
   });
-  
-  $("#check_itemST_M").click(function() {  
+
+  $("#check_itemST_M").click(function() {
    if($('input[id="check_itemST_M"]:checked').val()=='1'){
     $('input[name="check_itemSH_M"][value="2"]').prop("checked",false);
     $('#pr_status').prop('disabled', false);
@@ -451,8 +452,8 @@ $(function() {
 	$('#sTimeM').prop('disabled', true);
    }
   });
-  
-  $("#check_itemSH_M").click(function() {  
+
+  $("#check_itemSH_M").click(function() {
    if($('input[id="check_itemSH_M"]:checked').val()=='2'){
     $('input[name="check_itemST_M"][value="1"]').prop("checked",false);
     $('#pr_status').prop('disabled', true);
@@ -462,10 +463,10 @@ $(function() {
 	$('#eTimeM').prop('disabled', false);
    }
   });
-  
+
   $("#sear_txt").keypress(function (event) {
 	if (event.keyCode == 13) {
-	self.location.href = document.getElementById('SEL_SLang').value + "&s_search=" + document.getElementById('sear_txt').value;	
+	self.location.href = document.getElementById('SEL_SLang').value + "&s_search=" + document.getElementById('sear_txt').value;
 	}
   });
 });
@@ -475,28 +476,28 @@ $(function() {
     function MM_SL(selObj){
 	   window.open(document.getElementById('SEL_SLang').options[document.getElementById('SEL_SLang').selectedIndex].value,"_self");
 	}
-	
+
 	function MM_o(selObj){
        window.open(document.getElementById('PressRelease_page').options[document.getElementById('PressRelease_page').selectedIndex].value,"_self");
     }
-	
+
 	function search_value(){
 	var slang;
     //self.location = "?s_search=" + document.form3.sear_txt.value;
 	slang=document.getElementById('SEL_SLang').value;
     self.location = slang + "&s_search=" + document.getElementById('sear_txt').value;
     return false;
-    }	
-	
+    }
+
 	function doEnter(event){
     var keyCodeEntered = (event.which) ? event.which : window.event.keyCode;
      if (keyCodeEntered == 13){
        if(confirm('Are you sure you want to search this word?')) {
-	   document.location.href = document.getElementById('SEL_SLang').value + "&s_search=" + document.getElementById('sear_txt').value;	   
-	   }   
+	   document.location.href = document.getElementById('SEL_SLang').value + "&s_search=" + document.getElementById('sear_txt').value;
+	   }
      }
     }
-	
+
 	function show_add(){
 	  $('#nrpr_add').show();
 	  $('#nrpr_edit').hide();
@@ -506,17 +507,17 @@ $(function() {
 	  //#('#nrpr_add_').hide();
 	  self.location = "nr_pr.php";
 	}
-	
+
 	function show_edit(){
 	  $('#nrpr_edit').show();
 	  $('#nrpr_add').hide();
 	}
-	
+
 	function hiden_edit(){
 	  self.location = "nr_pr.php";
-	}	
+	}
     </script>
-	
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/*
@@ -705,7 +706,7 @@ include("menus.php");
 
 <div class="clear"></div>
 <div id="Search" >
-<h2>Contents &nbsp;&gt;&nbsp;  <a href="../modules.php">Modules</a>  &nbsp;&gt;&nbsp; (Newsroom) Press Release</h2> 
+<h2>Contents &nbsp;&gt;&nbsp;  <a href="../modules.php">Modules</a>  &nbsp;&gt;&nbsp; (Newsroom) Press Release</h2>
 </div>
 
 <div id="content">
@@ -724,7 +725,7 @@ include("menus.php");
 <option value="nr_pr.php?slang=zh-TW" <?php if($slang=='zh-TW'){ echo "selected";} ?>>繁體</option>
 <option value="nr_pr.php?slang=ja-JP" <?php if($slang=='ja-JP'){ echo "selected";} ?>>日文</option>
 </select> <input id="sear_txt" name="sear_txt" type="text" size="20" value="" /> <input type="button" value="Search" onclick="search_value();" />
-</form> 
+</form>
 <span style="color:#0F0">**Key word search: "PR Title" & "Related Products" & "Outline" & "Contents" 欄位 </span>
 </p>
 
@@ -740,29 +741,29 @@ include("menus.php");
       }else{
       $page="1";
       }
-      
+
       if(empty($page))$page="1";
-      
+
       $read_num="10";
-      $start_num=$read_num*($page-1); 
-      
+      $start_num=$read_num*($page-1);
+
         if(isset($_REQUEST['s_search'])!=''){
 		//$s_search=preg_replace("['\"\$ \r\n\t;<>\*%\?]", '', $_REQUEST['s_search']);
-          if(isset($_REQUEST['slang'])<>''){ 
-		   $slang=trim($_REQUEST['slang']); 
+          if(isset($_REQUEST['slang'])<>''){
+		   $slang=trim($_REQUEST['slang']);
 		   $str="SELECT `ID`, `TITLE`, `CONTENT`, `DETAIL`, `NEWSDATE`, `NOTES`, `MODEL`, `LANG`, `UPDATE_USER`, `UPDATE_DATE`, `STATUS`, `sDate`, `eDate` FROM `nr_pressroom` where (`TITLE` like '%".$s_search."%' or `CONTENT` like '%".$s_search."%' or `DETAIL` like '%".$s_search."%') and (`LANG`='".$slang."') ORDER BY `ID` DESC limit $start_num,$read_num;";
           }else{
 		   $str="SELECT `ID`, `TITLE`, `CONTENT`, `DETAIL`, `NEWSDATE`, `NOTES`, `MODEL`, `LANG`, `UPDATE_USER`, `UPDATE_DATE`, `STATUS`, `sDate`, `eDate` FROM `nr_pressroom` where (`TITLE` like '%".$s_search."%' or `CONTENT` like '%".$s_search."%' or `DETAIL` like '%".$s_search."%') ORDER BY `ID` DESC limit $start_num,$read_num;";
           }
 		}else{
-		  
-		  if(isset($_REQUEST['slang'])<>''){		  
-           $slang=trim($_REQUEST['slang']);   
+
+		  if(isset($_REQUEST['slang'])<>''){
+           $slang=trim($_REQUEST['slang']);
 		   $str="SELECT `ID`, `TITLE`, `CONTENT`, `DETAIL`, `NEWSDATE`, `NOTES`, `MODEL`, `LANG`, `UPDATE_USER`, `UPDATE_DATE`, `STATUS`, `sDate`, `eDate` FROM `nr_pressroom` where (`LANG`='".$slang."') ORDER BY `ID` DESC limit $start_num,$read_num;";
-		  }else{		  
+		  }else{
 		   $str="SELECT `ID`, `TITLE`, `CONTENT`, `DETAIL`, `NEWSDATE`, `NOTES`, `MODEL`, `LANG`, `UPDATE_USER`, `UPDATE_DATE`, `STATUS`, `sDate`, `eDate` FROM `nr_pressroom` ORDER BY `ID` DESC limit $start_num,$read_num;";
 		  }
-		}        
+		}
       $result=mysqli_query($link_db,$str);
       $i=0;
 	  while(list($ID, $TITLE, $CONTENT, $DETAIL, $NEWSDATE, $NOTES, $MODEL, $LANG, $UPDATE_USER, $UPDATE_DATE, $STATUS, $sDate, $eDate)=mysqli_fetch_row($result))
@@ -786,7 +787,7 @@ include("menus.php");
         $all_page=ceil($public_count/$read_num);
         $pageSize=$page;
 		$total=$all_page;
-		pageft($total,$pageSize,1,0,0,15);       
+		pageft($total,$pageSize,1,0,0,15);
     ?>
     </td>
   </tr>
@@ -808,13 +809,13 @@ for($j=1;$j<=$total;$j++){
 <p >&nbsp;</p><p >&nbsp;</p>
   <P style="color:#0F0">
   - "PR Title" 只show 前100個characters<br >
-  - "Related Products" show 只要有被勾選的SKU 的 Model，重覆的 Model 只show 一筆<br >  
+  - "Related Products" show 只要有被勾選的SKU 的 Model，重覆的 Model 只show 一筆<br >
   - "Status" 決定此則PR是否online<br >
   - click "Del" 要popup a confirmation window to proceed<br >
   - * 表可sorting<br >- List 順序：新至舊
   </p>
 <p class="clear">&nbsp;</p>
-<!--Click Edit and add -->							
+<!--Click Edit and add -->
 <div id="nrpr_add" class="subsettings" style="display:none">
 <form id="form1" name="form1" method="post" action="?kinds=add_nrpr" enctype="multipart/form-data" onsubmit="return Final_Check();">
 <h1>Add a PR:</h1>
@@ -873,7 +874,7 @@ for($j=1;$j<=$total;$j++){
 <th>Status/Schedule:</th>
 <td>
 <input type="radio" id="check_itemST" name="check_itemST" value="1" checked />
- 
+
 <select id="pr_statusA" name="pr_statusA">
 <option selected value="1">Online</option>
 <option value="0">Offline</option>
@@ -946,14 +947,14 @@ return true;
 </div>
 <?php
 if(isset($_REQUEST['prid'])!=''){
-  
+
   $prid=intval($_REQUEST['prid']);
   $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
   mysqli_query($link_db, 'SET NAMES utf8');
   //$select=mysqli_select_db($dataBase);
   $str_m="SELECT `ID`, `TITLE`, `CONTENT`, `DETAIL`, `NEWSDATE`, `NOTES`, `MODEL`, `LANG`, `IMG`, `UPDATE_USER`, `UPDATE_DATE`, `STATUS`, `sDate`, `eDate`, `Redirect` FROM `nr_pressroom` where `ID`=".$prid;
   $mresult=mysqli_query($link_db,$str_m);
-  $mdata=mysqli_fetch_row($mresult);  
+  $mdata=mysqli_fetch_row($mresult);
 
 ?>
 
@@ -1015,7 +1016,7 @@ if(isset($_REQUEST['prid'])!=''){
 <th>Status/Schedule:</th>
 <td>
 <input type="radio" id="check_itemST_M" name="check_itemST_M" value="1" checked />
- 
+
 <select id="pr_status" name="pr_status">
 <option value="1" <?php if($mdata[11]=='1'){ echo "selected"; } ?>>Online</option>
 <option value="0" <?php if($mdata[11]=='0'){ echo "selected"; } ?>>Offline</option>

@@ -1,0 +1,33 @@
+User-agent: Google
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /MctBackend/
+Disallow: /MCTWEBMGT/
+Disallow: /support_center/
+Allow: /
+Allow: /sitemap.xml
+Sitemap: http://www.mitacmct.com/sitemap.xml
+
+User-agent: Googlebot
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /MctBackend/
+Disallow: /MCTWEBMGT/
+Disallow: /support_center/
+Allow: /
+Allow: /sitemap.xml
+Sitemap: http://www.mitacmct.com/sitemap.xml
+
+User-agent: *
+Disallow: /
+Disallow: /*.aspx$
+Disallow: /MctBackend/
+Disallow: /MCTWEBMGT/
+Disallow: /schedule-meeting/
+Disallow: /support_center/support-side/
+Disallow: /support_center/
+
+User-agent: baiduspider
+Disallow: /
