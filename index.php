@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -35,7 +35,7 @@ if($_COOKIE["status"]==""){
 	<meta name="company" content="MiTAC Computing Technology">
 	<meta name="description" content="Industry leader of embedded, panel PC, kiosks, motherboards, OCP for 5G, edge computing, AI, automation solutions">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="Industry leader of embedded, panel PC, kiosks, motherboards, OCP for 5G, edge computing, AI, automation solutions" /> 
+	<meta property="og:description" content="Industry leader of embedded, panel PC, kiosks, motherboards, OCP for 5G, edge computing, AI, automation solutions" />
 	<meta property="og:title" content="MiTAC Computing Technology | 5G, OCP, panel PC, embedded motherboards" />
 	<meta name="google-site-verification" content="eQiyhhgLcF1f4G-nh1RdOZz8egds53Ztgk-hbW_JsEY" />
     <link rel="shortcut icon" href="images/ico/favicon.ico">
@@ -51,13 +51,13 @@ if($_COOKIE["status"]==""){
 	<link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/home.css " type="text/css" />
-	
+
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
 	<title>MiTAC Computing Technology | 5G, OCP, panel PC, embedded motherboards</title>
 
-	<?php 
+	<?php
 	//************ google analytics ************
 	if($s_cookie!=2){
 	  include_once("analyticstracking.php");
@@ -79,17 +79,17 @@ if($_COOKIE["status"]==""){
 	?>
 	<!--end Header logo & global top menu-->
 
-	<!-- middles1 -->	  
+	<!-- middles1 -->
 	<?php
   include("middles1.htm");
 	?>
-	<!-- middles1 end -->	  
-	
-	<!-- FOOTER -->	  
+	<!-- middles1 end -->
+
+	<!-- FOOTER -->
 	<?php
   include("foot1.htm");
 	?>
-	<!-- FOOTER end -->	  
+	<!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -99,7 +99,7 @@ if($_COOKIE["status"]==""){
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -107,7 +107,7 @@ if($_COOKIE["status"]==""){
 	<script src="js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="js1/top.js"></script>
 
 </body>

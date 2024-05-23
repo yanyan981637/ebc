@@ -40,6 +40,8 @@ function get_client_ip(){
   
   if($system_kind=='spec_creation_tool'){
   $weburl="./spec_creation_tool";
+  }else if($system_kind=='contact_us'){
+  $weburl="../MctBackend/contact_us";
   }else if($system_kind=='contents_management'){
   $weburl="../MctBackend/contents_management";
   }else{

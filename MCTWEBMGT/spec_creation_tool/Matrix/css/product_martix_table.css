@@ -1,0 +1,84 @@
+body{background:#ffffff; font-family:Verdana, Geneva, sans-serif; font-size:12px; margin:0px; padding:0px;}
+p{line-height:1.5em}
+img{border:0px; vertical-align:middle}
+select, option, input{font-family: Verdana, Geneva, sans-serif; padding: 2px; font-size: 12px; color:#333 }
+h1.product_matrix{color: #339; 	font-weight:bolder; line-height:2em; font-size: 14px; padding-left:5px}
+.clear{clear:both}
+
+a:link{color:#000000}
+a:visited{color:#959595}
+a:hover{color:#ccc; text-decoration:none} 
+a:active{color:#ccc; text-decoration:none}
+
+#pm_header{position: fixed; top: 0; left:0; width:100%; height:150px; text-align:left; background:#000; color:#fff; margin:0px; padding:0px;  }
+#pm_header a{color:#00a0e9; font-size:14px; font-weight:bolder;}
+#pm_header  a:hover{ color:#ffffff;}
+
+#pm_header .nav1{float:left; margin-top:20px}
+#pm_header .nav2 {background:#e1e1e2;  padding:5px 20px; color:#000000; font-weight:bolder;}
+
+
+#pm_footer{width:100%; margin:0 auto; border-top:1px solid #535353; text-align:center; padding:10px 0px; font-size:10px; line-height:1.5em; color:#535353}
+#pm_footer .gotop{position:fixed; bottom:0; right:0; cursor:pointer; padding:5px 10px; background-color: rgba(85,149,15,0.8); color:#fff; border-top-left-radius: 10px; 	-moz-border-radius-topleft: 10px;}
+
+
+
+
+
+
+
+#product_matrix
+{
+	font-family: font-family:Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	margin: 0px;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse; border-bottom: 1px solid #e8edff; border-left: 1px solid #e8edff;
+}
+#product_matrix th
+{
+	font-size: 11px;
+	font-weight:bolder; 
+	padding: 8px;
+	color: #fff; text-align: center;
+	background:#00a0e9; border-right:1px solid #fff; 
+}
+#product_matrix th.main_A{background:#99cc00; color: #039; }
+#product_matrix th.sub{background:#dee4fe; color: #039; }
+#product_matrix th.sub_A{background:#ccffcc; color: #039; }
+
+#product_matrix td
+{
+	padding: 10px 15px;
+	color: #535353;
+	border-top: 1px solid #e8edff; border-right: 1px solid #e8edff;
+}
+
+#product_matrix tr:hover td
+{
+	color: #339;
+	background: #f7f8fe; cursor:pointer;
+}
+
+#product_matrix a:link{color:#015b83}
+#product_matrix a:visited{color:#015b83}
+#product_matrix a:hover{color:#039} 
+#product_matrix a:active{color:#039}
+  
+#product_matrix td a:link span{display: none;}
+#product_matrix td a:visited span{display: none;} 
+#product_matrix td a:hover span {
+  position: absolute;
+  margin:15px 0px 0px 20px;
+  background-color: #f7f9ff;
+  max-width:250px;
+  padding: 4px 10px;
+  border: 1px solid #dee4fe;
+  font: normal 10px verdana;
+  color: #000;
+  text-align:left;
+  display: block;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  }

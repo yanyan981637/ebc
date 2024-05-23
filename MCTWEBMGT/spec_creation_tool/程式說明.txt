@@ -1,0 +1,2 @@
+edit_spec_old.php //一次Save寫入
+edit_spec.php //可先Matrix 各自新增參數寫入導入該位置 ,最後Save在寫入

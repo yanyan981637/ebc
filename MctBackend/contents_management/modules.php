@@ -86,7 +86,35 @@ exit();
 	<!--<tr class="order" onclick="javascript:location.href='modules/catalog.html'" >
 		<td>Catalog Page Module <b>(do coding)</b></td>      		             
 	</tr>-->
-	
+	<!--DSG Modules-->		
+
+	<tr>
+		<th>DSG Modules</th>	
+	</tr>
+	<tr class="order">
+		<td><a href="modules/DSG_Security_Advisories.php" />DSG Security Advisories</a></td>       		              
+	</tr>
+	<tr class="order">
+		<td><a href="modules/doc_mgt_dsg.php">Docs Management</a></td>       		              
+	</tr>
+	<tr class="order">
+		<td><a href="modules/article_mgt.php">Article Management</a></td>       		              
+	</tr>
+	<tr class="order">
+		<td><a href="modules/EULA_mgt.php" />EULA</a></td>       		              
+	</tr>
+	<tr class="order" >
+		<td><a href="modules/download_module_dsg.php" />Product Download Management</a></td>   		               
+	</tr>
+	<tr class="order" >
+		<td><a href="modules/PCN_mgt.php" />PCN</a></td>   		               
+	</tr>
+	<tr class="order" >
+		<td><a href="modules/accessory_mgt.php" />Accessories</a></td>   		               
+	</tr>
+	 
+		
+	<!--end DSG Modules-->	
 </table>			
 <!--end of datatable-->	
 </div>

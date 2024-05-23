@@ -1,13 +1,15 @@
 <?php
-   $db_host="localhost:3306";
-   $db_user="root";
-   $db_pwd="";
-   $dataBase="cbuweb2";
+$pdo = 'mysql:dbname=tony_ebc;host=10.88.26.74;port=3306';
 
-$Config["DB_HOST"]="localhost:3306";
-$Config["DB_USER"]="root";
-$Config["DB_PWD"]="";
-$Config["DB_NAME"]="cbuweb2";
+$db_host="10.88.26.74:3306";
+$db_user="sa";
+$db_pwd="Kazumi2008";
+$dataBase="tony_ebc";
+
+$Config["DB_HOST"]="10.88.26.74:3306";
+$Config["DB_USER"]="sa";
+$Config["DB_PWD"]="Kazumi2008";
+$Config["DB_NAME"]="tony_ebc";
 
 class CDB
 {
@@ -30,13 +32,13 @@ class CMysql
       // connecting to database
       $this->conn = $this->CMysql();
     }
- 
+
 	function CMysql()
 	{
 		global $Config;
 		$db = mysqli_connect($Config["DB_HOST"], $Config["DB_USER"], $Config["DB_PWD"], $Config["DB_NAME"]) or die ("Could not Connect:" . mysqli_error());
 		mysqli_query($db,"SET NAMES utf8");
-		//mysqli_select_db($Config["DB_NAME"]);		
+		//mysqli_select_db($Config["DB_NAME"]);
 		return $db;
 	}
 	function CMysqlClose()

@@ -1,0 +1,932 @@
+<?php
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header('Content-Type: text/html; charset=utf-8');
+
+require "../config.php";
+include_once('../page.class.php');
+
+session_start();
+if(empty($_SESSION['user']) || empty($_SESSION['password']) || empty($_SESSION['login_time'])){
+echo "<script language='JavaScript'>location='../login.php'</script>";
+exit();
+}
+
+$link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
+mysqli_query($link_db,'SET NAMES utf8');
+mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
+mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
+//$select=mysqli_select_db($dataBase);
+
+$SEL_method="";$SEL_Source="";$slang="";$sDate="";$s_search="";
+
+if(isset($_REQUEST['tranfer'])=='Y'){
+$out01=$_POST['out01'];
+$val01=$_POST['val01'];
+
+//echo $out01."<br />";
+$str_t="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` ".$val01;
+$t_cmd=mysqli_query($link_db,$str_t);
+$output="";
+while($t_data=mysqli_fetch_row($t_cmd)){
+ //$output.=$t_data[0].",".$t_data[1].",".$t_data[2].",".$t_data[3].",".$t_data[4].",".$t_data[5].",".$t_data[6]."\r\n";
+ $output.=$t_data[1].",".$t_data[2].",".$t_data[3].",".$t_data[4].",".$t_data[5].",".$t_data[6]."\r\n";
+}
+$fp = fopen("report.csv","w");
+fwrite($fp, "\xEF\xBB\xBF".$output);
+echo "<script language='Javascript'>show_csv();</script>\n";
+}
+
+if(isset($_REQUEST['sear'])=='ok'){
+
+
+  if(isset($_REQUEST['sear_txt'])!=''){
+  $s_search=$_REQUEST['sear_txt'];
+  }else{
+  $s_search=$_POST['sear_txt'];
+  }
+  
+  if(isset($_REQUEST['SEL_method'])!=''){
+  $SEL_method=$_REQUEST['SEL_method'];
+  }else{
+  $SEL_method=$_POST['SEL_method'];
+  }
+  
+  if(isset($_REQUEST['SEL_Source'])!=''){
+  $SEL_Source=$_REQUEST['SEL_Source'];
+  }else if(isset($_POST['SEL_Source'])){
+  $SEL_Source=$_POST['SEL_Source'];
+  }
+  
+  if(isset($_REQUEST['SEL_SLang'])!=''){
+  $slang=$_REQUEST['SEL_SLang'];
+  }else if(isset($_POST['SEL_SLang'])){
+  $slang=$_POST['SEL_SLang'];
+  }
+  
+  if(isset($_REQUEST['sDate'])!=''){
+  $sDate=$_REQUEST['sDate'];
+  }else{
+  $sDate=$_POST['sDate'];
+  }
+  $eDate="";
+  if(isset($_REQUEST['eDate'])!=''){
+  $eDate=trim($_REQUEST['eDate']);
+  }else{
+  $eDate=trim($_POST['eDate']);
+  }
+  //echo $s_search." ".$SEL_method."  ".$SEL_Source."  ".$slang."  ".$sDate."  ".$eDate."<br />";
+  
+  if($s_search<>''){    
+  
+     //$s_search=preg_replace("['\"\$ \r\n\t;<>\*%\?]", '', $_REQUEST['s_search']);
+     if($SEL_method<>''){
+	 
+		if($SEL_Source<>''){
+			if($slang<>'')
+			{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%')";
+			  }
+			}else{			  
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%')";
+			  }			  
+			}
+			
+		}else{
+		    if($slang<>'')
+			{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%')";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_smail` like '%".$s_search."%')";
+			  }
+			}
+		}
+	   
+	 }else{
+	    
+		if($SEL_Source<>'')
+		{
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%')";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%')";
+			  }
+			}
+		}else{
+		    if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%')";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where (`per_smail` like '%".$s_search."%')";
+			  }
+			}
+		}
+		
+	 }
+	 
+  }else{
+  /*
+  
+  */
+	if($SEL_method<>''){
+	 
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."'";
+			  }
+			}
+		}else{
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."'";
+			  }
+			}
+		}
+	   
+	 }else{
+	    
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."'";
+			  }
+			}
+		}else{
+		    if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list`";
+			  }
+			}
+		}
+		
+	 }
+
+  }
+}else{
+
+	if($SEL_method<>''){
+	 
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."'";
+			  }
+			}
+		}else{
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."'";
+			  }
+			}
+		}
+	   
+	 }else{
+	    
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_IsFB`='".$SEL_Source."'";
+			  }
+			}
+		}else{
+		    if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list` where `per_lang`='".$slang."'";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str1="select count(*) from `nr_subscription_list` where (`per_Subscription_time` between '".$sDate."' and '".$eDate."')";
+			  }else{
+			  $str1="select count(*) from `nr_subscription_list`";
+			  }
+			}
+		}
+		
+	 }
+  
+}
+
+  $list1 =mysqli_query($link_db,$str1);
+  list($public_count) = mysqli_fetch_row($list1);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Website Contents Management - Newsletters: Subscription</title>
+<link rel="stylesheet" type="text/css" href="../backend.css">
+<link rel="stylesheet" type="text/css" href="../css/css.css" />
+<script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="../source/jquery.fancybox.js?v=2.0.6"></script>
+<link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.0.6" media="screen" />
+<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-buttons.css?v=1.0.2" />
+<script type="text/javascript" src="../source/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
+
+<script type="text/javascript">
+function HS_DateAdd(interval,number,date){
+	number = parseInt(number);
+	if (typeof(date)=="string"){var date = new Date(date.split("-")[0],date.split("-")[1],date.split("-")[2])}
+	if (typeof(date)=="object"){var date = date}
+	switch(interval){
+	case "y":return new Date(date.getFullYear()+number,date.getMonth(),date.getDate()); break;
+	case "m":return new Date(date.getFullYear(),date.getMonth()+number,checkDate(date.getFullYear(),date.getMonth()+number,date.getDate())); break;
+	case "d":return new Date(date.getFullYear(),date.getMonth(),date.getDate()+number); break;
+	case "w":return new Date(date.getFullYear(),date.getMonth(),7*number+date.getDate()); break;
+	}
+}
+function checkDate(year,month,date){
+	var enddate = ["31","28","31","30","31","30","31","31","30","31","30","31"];
+	var returnDate = "";
+	if (year%4==0){enddate[1]="29"}
+	if (date>enddate[month]){returnDate = enddate[month]}else{returnDate = date}
+	return returnDate;
+}
+function WeekDay(date){
+	var theDate;
+	if (typeof(date)=="string"){theDate = new Date(date.split("-")[0],date.split("-")[1],date.split("-")[2]);}
+	if (typeof(date)=="object"){theDate = date}
+	return theDate.getDay();
+}
+function HS_calender(){
+	var lis = "";
+	var style = "";
+	style +="<style type='text/css'>";
+	style +=".calender { width:170px; height:auto; font-size:12px; margin-right:14px; background:url(calenderbg.gif) no-repeat right center #fff; border:1px solid #397EAE; padding:1px}";
+	style +=".calender ul {list-style-type:none; margin:0; padding:0;}";
+	style +=".calender .day { background-color:#EDF5FF; height:20px;}";
+	style +=".calender .day li,.calender .date li{ float:left; width:14%; height:20px; line-height:20px; text-align:center}";
+	style +=".calender li a { text-decoration:none; font-family:Tahoma; font-size:11px; color:#333}";
+	style +=".calender li a:hover { color:#f30; text-decoration:underline}";
+	style +=".calender li a.hasArticle {font-weight:bold; color:#f60 !important}";
+	style +=".lastMonthDate, .nextMonthDate {color:#bbb;font-size:11px}";
+	style +=".selectThisYear a, .selectThisMonth a{text-decoration:none; margin:0 2px; color:#000; font-weight:bold}";
+	style +=".calender .LastMonth, .calender .NextMonth{ text-decoration:none; color:#000; font-size:18px; font-weight:bold; line-height:16px;}";
+	style +=".calender .LastMonth { float:left;}";
+	style +=".calender .NextMonth { float:right;}";
+	style +=".calenderBody {clear:both}";
+	style +=".calenderTitle {text-align:center;height:20px; line-height:20px; clear:both}";
+	style +=".today { background-color:#ffffaa;border:1px solid #f60; padding:2px}";
+	style +=".today a { color:#f30; }";
+	style +=".calenderBottom {clear:both; border-top:1px solid #ddd; padding: 3px 0; text-align:left}";
+	style +=".calenderBottom a {text-decoration:none; margin:2px !important; font-weight:bold; color:#000}";
+	style +=".calenderBottom a.closeCalender{float:right}";
+	style +=".closeCalenderBox {float:right; border:1px solid #000; background:#fff; font-size:9px; width:11px; height:11px; line-height:11px; text-align:center;overflow:hidden; font-weight:normal !important}";
+	style +="</style>";
+	var now;
+	if (typeof(arguments[0])=="string"){
+		selectDate = arguments[0].split("-");
+		var year = selectDate[0];
+		var month = parseInt(selectDate[1])-1+"";
+		var date = selectDate[2];
+		now = new Date(year,month,date);
+	}else if (typeof(arguments[0])=="object"){
+		now = arguments[0];
+	}
+	var lastMonthEndDate = HS_DateAdd("d","-1",now.getFullYear()+"-"+now.getMonth()+"-01").getDate();
+	var lastMonthDate = WeekDay(now.getFullYear()+"-"+now.getMonth()+"-01");
+	var thisMonthLastDate = HS_DateAdd("d","-1",now.getFullYear()+"-"+(parseInt(now.getMonth())+1).toString()+"-01");
+	var thisMonthEndDate = thisMonthLastDate.getDate();
+	var thisMonthEndDay = thisMonthLastDate.getDay();
+	var todayObj = new Date();
+	today = todayObj.getFullYear()+"-"+todayObj.getMonth()+"-"+todayObj.getDate();
+	for (i=0; i<lastMonthDate; i++){  // Last Month's Date
+		lis = "<li class='lastMonthDate'>"+lastMonthEndDate+"</li>" + lis;
+		lastMonthEndDate--;
+	}
+	for (i=1; i<=thisMonthEndDate; i++){ // Current Month's Date
+		if(today == now.getFullYear()+"-"+now.getMonth()+"-"+i){
+			var todayString = now.getFullYear()+"-"+(parseInt(now.getMonth())+1).toString()+"-"+i;
+			lis += "<li><a href=javascript:void(0) class='today' onclick='_selectThisDay(this)' title='"+now.getFullYear()+"-"+(parseInt(now.getMonth())+1)+"-"+i+"'>"+i+"</a></li>";
+		}else{
+			lis += "<li><a href=javascript:void(0) onclick='_selectThisDay(this)' title='"+now.getFullYear()+"-"+(parseInt(now.getMonth())+1)+"-"+i+"'>"+i+"</a></li>";
+		}
+	}
+	var j=1;
+	for (i=thisMonthEndDay; i<6; i++){  // Next Month's Date
+		lis += "<li class='nextMonthDate'>"+j+"</li>";
+		j++;
+	}
+	lis += style;
+	var CalenderTitle = "<a href='javascript:void(0)' class='NextMonth' onclick=HS_calender(HS_DateAdd('m',1,'"+now.getFullYear()+"-"+now.getMonth()+"-"+now.getDate()+"'),this) title='Next Month'>»</a>";
+	CalenderTitle += "<a href='javascript:void(0)' class='LastMonth' onclick=HS_calender(HS_DateAdd('m',-1,'"+now.getFullYear()+"-"+now.getMonth()+"-"+now.getDate()+"'),this) title='Previous Month'>«</a>";
+	CalenderTitle += "<span class='selectThisYear'><a href='javascript:void(0)' onclick='CalenderselectYear(this)' title='Click here to select other year' >"+now.getFullYear()+"</a></span>年<span class='selectThisMonth'><a href='javascript:void(0)' onclick='CalenderselectMonth(this)' title='Click here to select other month'>"+(parseInt(now.getMonth())+1).toString()+"</a></span>月";
+	if (arguments.length>1){
+		arguments[1].parentNode.parentNode.getElementsByTagName("ul")[1].innerHTML = lis;
+		arguments[1].parentNode.innerHTML = CalenderTitle;
+	}else{
+		var CalenderBox = style+"<div class='calender'><div class='calenderTitle'>"+CalenderTitle+"</div><div class='calenderBody'><ul class='day'><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul><ul class='date' id='thisMonthDate'>"+lis+"</ul></div><div class='calenderBottom'><a href='javascript:void(0)' class='closeCalender' onclick='closeCalender(this)'>×</a><span><span><a href=javascript:void(0) onclick='_selectThisDay(this)' title='"+todayString+"'>Today</a></span></span></div></div>";
+		return CalenderBox;
+	}
+}
+function _selectThisDay(d){
+	var boxObj = d.parentNode.parentNode.parentNode.parentNode.parentNode;
+		boxObj.targetObj.value = d.title;
+		boxObj.parentNode.removeChild(boxObj);
+}
+function closeCalender(d){
+	var boxObj = d.parentNode.parentNode.parentNode;
+		boxObj.parentNode.removeChild(boxObj);
+}
+function CalenderselectYear(obj){
+		var opt = "";
+		var thisYear = obj.innerHTML;
+		for (i=1970; i<=2020; i++){
+			if (i==thisYear){
+				opt += "<option value="+i+" selected>"+i+"</option>";
+			}else{
+				opt += "<option value="+i+">"+i+"</option>";
+			}
+		}
+		opt = "<select onblur='selectThisYear(this)' onchange='selectThisYear(this)' style='font-size:11px'>"+opt+"</select>";
+		obj.parentNode.innerHTML = opt;
+}
+function selectThisYear(obj){
+	HS_calender(obj.value+"-"+obj.parentNode.parentNode.getElementsByTagName("span")[1].getElementsByTagName("a")[0].innerHTML+"-1",obj.parentNode);
+}
+function CalenderselectMonth(obj){
+		var opt = "";
+		var thisMonth = obj.innerHTML;
+		for (i=1; i<=12; i++){
+			if (i==thisMonth){
+				opt += "<option value="+i+" selected>"+i+"</option>";
+			}else{
+				opt += "<option value="+i+">"+i+"</option>";
+			}
+		}
+		opt = "<select onblur='selectThisMonth(this)' onchange='selectThisMonth(this)' style='font-size:11px'>"+opt+"</select>";
+		obj.parentNode.innerHTML = opt;
+}
+function selectThisMonth(obj){
+	HS_calender(obj.parentNode.parentNode.getElementsByTagName("span")[0].getElementsByTagName("a")[0].innerHTML+"-"+obj.value+"-1",obj.parentNode);
+}
+function HS_setDate(inputObj){
+	var calenderObj = document.createElement("span");
+	calenderObj.innerHTML = HS_calender(new Date());
+	calenderObj.style.position = "absolute";
+	calenderObj.targetObj = inputObj;
+	inputObj.parentNode.insertBefore(calenderObj,inputObj.nextSibling);
+}
+</script>
+	
+	<script language="Javascript">
+	function search_value(){
+    //self.location = "?s_search=" + document.form3.sear_txt.value;
+    self.location = "?sear=ok&sear_txt=" + document.getElementById('sear_txt').value + "&SEL_method=" + document.getElementById('SEL_method').value + "&SEL_Source=" + document.getElementById('SEL_Source').value + "&sDate=" + document.getElementById('sDate').value + "&eDate=" + document.getElementById('eDate').value;
+	return false;
+    }
+	
+	function doEnter(event){
+    var keyCodeEntered = (event.which) ? event.which : window.event.keyCode;
+     if (keyCodeEntered == 13){
+     //alert(keyCodeEntered);
+     //search_value();     
+       if(confirm('Are you sure you want to search this word?')) {
+		 document.location.href = "?sear=ok&sear_txt=" + document.getElementById('sear_txt').value + "&SEL_method=" + document.getElementById('SEL_method').value + "&SEL_Source=" + document.getElementById('SEL_Source').value + "&sDate=" + document.getElementById('sDate').value + "&eDate=" + document.getElementById('eDate').value;
+	   }
+	 }
+    }
+	
+	function show_csv(){
+	$('.view_csv').show();
+	}
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.fancybox').fancybox();
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedIn : 500,
+						opacity : 0.95
+					}
+				}
+			});
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background-color' : '#eee'
+						}
+					}
+				}
+			});
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+<a name="top"></a>
+<div >
+<div class="left"><h1>&nbsp;&nbsp;Website Backends - Website Contents Management - Newsletters: Subscription</h1></div>
+
+<div id="logout">Hi <?=str_replace("@mic.com.tw", "", $_SESSION['user']);?> <a href="./logo.php">Log out &gt;&gt;</a></div>
+</div>
+
+<div class="clear"></div>
+<div id="menu">
+<ul>
+<li ><a href="default.php">Products</a>
+
+</li>
+<li> <a href="modules.php">Contents</a> 
+      <ul>
+		<li><a href="modules.php">Modules</a></li>	  
+      </ul>
+</li>
+<li ><a href="newsletter.php">Newsletters</a>
+<ul><li><a href="subscribe.php">Subscription</a></li></ul>
+</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div id="Search" >
+<h2> <a href="newsletter.php">Newsletters </a> &nbsp;&gt;&nbsp;  Subscription </h2> 
+</div>
+
+<div id="content">
+<br />
+<h3> Subscription List:</h3>
+<div class="clear"></div>
+<div class="right">
+<form id="form1" name="form1" method="post" action="subscribe.php" onsubmit="return false;">
+<select id="SEL_method" name="SEL_method">
+<option value="">All</option>
+<option value="Y" selected>Subscribers</option>
+<option value="N">Unsubscribers</option>
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select id="SEL_Source" name="SEL_Source">
+<option value="" selected>All</option>
+<option value="N">Website</option>
+<option value="Y">Facebook</option>
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select id="SEL_SLang" name="SEL_SLang">
+<option value="">All</option>
+<option value="en-US">English</option>
+<option value="zh-CN">簡體</option>
+<option value="zh-TW">繁體</option>
+<option value="ja-JP">日文</option>
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="sDate" name="sDate" type="text" size="10" value="" onfocus="HS_setDate(this)" /> ~ <input id="eDate" name="eDate" type="text" size="10" value="" onfocus="HS_setDate(this)" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="sear_txt" name="sear_txt" type="text" size="20" value="" onkeydown="doEnter(event);" />
+<input type="button" value="Search" onclick="search_value();" />
+</form>
+</div>
+
+<p class="clear"><br /></p>
+<div>
+<div class="pagination left">Total: <span class="w14bblue"><?=$public_count;?></span> records </div>
+<div class="right">
+<form id="form2" name="form2" method="post" action="subscribe.php?tranfer=Y">
+<select id="out01" name="out01">
+<!--<option value="0" selected>txt</option>-->
+<option value="1">csv</option></select>
+<input name="val01" type="hidden" value="<?=str_replace('select count(*) ', '', $str1);?>">
+<input name="b2" type="submit" value="Export" /> <span class="view_csv" style="display:''"><a href="./report.csv" target="_blank">Download</a></span>
+</div>
+</div>
+
+<table class="list_table">
+  <tr>
+    <th>*Status</th><th>*E-mail</th><th>*Language</th><th>*Subscription date</th><th>*Source</th>
+  </tr>
+  <?php
+  if(isset($_REQUEST['page'])==""){
+  $page="1";
+  }else{
+  $page=intval($_REQUEST['page']);
+  }
+      
+  if(empty($page))$page="1";
+      
+  $read_num="10";
+  $start_num=$read_num*($page-1);   
+  if($s_search!=''){
+	  
+	  /*
+	  $s_search=$_POST['sear_txt'];
+	  
+	  if($_REQUEST['SEL_method']!=''){
+      $SEL_method=$_REQUEST['SEL_method'];
+	  }
+	  if($_REQUEST['SEL_Source']!=''){
+      $SEL_Source=$_REQUEST['SEL_Source'];
+	  }
+	  if($_REQUEST['SEL_SLang']!=''){
+      $slang=$_REQUEST['SEL_SLang'];
+	  }
+	  if($_REQUEST['sDate']!=''){
+	  $sDate=$_REQUEST['sDate'];
+	  }
+	  if($_REQUEST['eDate']!=''){
+      $eDate=$_REQUEST['eDate'];
+	  }
+	  */
+	  
+     //$s_search=preg_replace("['\"\$ \r\n\t;<>\*%\?]", '', $_REQUEST['s_search']);
+     if($SEL_method<>''){
+	 
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }
+			}
+		}else{
+		    if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num";
+			  }
+			}
+		}
+	   
+	 }else{
+	    
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}
+		}else{
+		    if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_lang`='".$slang."' and (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where (`per_smail` like '%".$s_search."%') and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where (`per_smail` like '%".$s_search."%') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}
+		}
+		
+	 }
+	 
+  }else{
+  if(isset($_REQUEST['SEL_method'])){
+  $SEL_method=$_REQUEST['SEL_method'];
+  }
+  if(isset($_REQUEST['SEL_Source'])){
+  $SEL_Source=$_REQUEST['SEL_Source'];
+  }
+  if(isset($_REQUEST['SEL_SLang'])){
+  $slang=$_REQUEST['SEL_SLang'];
+  }
+	if($SEL_method<>''){
+	 
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_IsFB`='".$SEL_Source."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}
+		}else{
+		    if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and `per_lang`='".$slang."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsSubscribers`='".$SEL_method."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}
+		}
+	   
+	 }else{
+	    
+		if($SEL_Source<>''){
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and `per_lang`='".$slang."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_IsFB`='".$SEL_Source."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}
+		}else{
+			if($slang<>''){
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_lang`='".$slang."' and (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_id` limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where `per_lang`='".$slang."' order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}else{
+			  if($sDate<>'' && $eDate<>''){
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` where (`per_Subscription_time` between '".$sDate."' and '".$eDate."') order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }else{
+			  $str="select `per_id`, `per_smail`, `per_lang`, `per_Subscription_time`, `per_IsFB`, `per_Audit`, `per_IsSubscribers` FROM `nr_subscription_list` order by `per_Subscription_time` desc limit $start_num,$read_num;";
+			  }
+			}
+		}
+		
+	 }
+
+  }       
+
+	  $result=mysqli_query($link_db,$str);
+	  $i=0;
+      while(list($per_id, $per_smail, $per_lang, $per_Subscription_time, $per_IsFB, $per_Audit, $per_IsSubscribers)=mysqli_fetch_row($result))
+      {
+      $i=$i+1;
+      putenv("TZ=Asia/Taipei");
+  ?>
+  <tr>
+    <td ><?php if($per_IsSubscribers=='Y'){ echo "Subscribers"; } else if($per_IsSubscribers=='N'){ echo "Unsubscribers"; } ?> </td><td><?=$per_smail;?></td><td><?=$per_lang;?></td><td><?php if($per_Subscription_time!='0000-00-00 00:00:00'){ echo $per_Subscription_time; };?></td><td><?php if($per_IsFB=='Y'){ echo "facebook"; }else if($per_IsFB=='N'){ echo "website"; } ?></td>
+  </tr>
+  <?php
+	  }
+  ?>
+  <tr>
+    <td colspan="5">
+    <?php
+        $all_page=ceil($public_count/$read_num);
+        $pageSize=$page;
+		$total=$all_page;
+		pageft($total,$pageSize,1,0,0,15);       
+    ?>
+    </td>
+  </tr>
+</table>
+
+<div class="sabrosus"><span class="w14bblue"><?=$read_num?></span> Records Per Page &nbsp;&nbsp;| &nbsp;&nbsp;Page: &nbsp;
+<select id="subscribe_page" name="subscribe_page" onChange="MM_o(this)">
+<?php
+for($j=1;$j<=$total;$j++){
+?>
+<option value="?page=<?=$j?>&s_search=<?=$s_search?>" <?php if($page==$j){ echo "selected"; } ?>><?=$j?></option>
+<?php
+}
+?>
+</select>&nbsp;&nbsp;
+<?php echo $pagenav;?>
+</div>
+<p >&nbsp;</p><p >&nbsp;</p>
+  <P style="color:#0F0">
+  - Default load 最新subscribe的10筆、Total show 全部筆數<br />
+  - * 表可sorting<br >
+  - search 的條件：subscribe / unsubscribe、語言、subscription date、email 糢糊比對。若全不不設定，直接click search 則show 全部名單
+  <br >- export 為search 完的結果table<br >
+  -export 可選擇要輸出那種格式：csv, text<br >
+  </p>
+
+<p class="clear">&nbsp;</p>
+</div>
+
+<div id="footer">	Copyright &copy; 2014 Company Co. All rights reserved.
+<div class="gotop" onClick="location='#top'">Top</div>
+</div>
+</body>
+</html>

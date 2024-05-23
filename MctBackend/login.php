@@ -88,7 +88,9 @@ onselectstart="event.returnValue=false" onload="cookie_data()">
       <option selected="selected" class="bigdropdown" value="">Please Select...</option>
       <option class="bigdropdown" value="spec_creation_tool">SPEC Creation Tool</option>
       <option class="bigdropdown" value="contents_management">Website Contents Management</option>
-
+      <option class="bigdropdown" value="contact_us">Contact Us</option>
+      <option class="bigdropdown" value="contact_us_DSG">Contact Us – DSG</option>
+      <option class="bigdropdown" value="catalog_emails">Catalog Emails</option>
     </select>
     <span class="error"></span><span id="ip_val"></span></p>
   <p>ID / E-mail: <br />

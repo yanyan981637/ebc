@@ -1,0 +1,1921 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  padding-top: 50px;
+  padding-bottom: 0px;
+  color: #5a5a5a;
+  margin-bottom: 150px;
+  background-color: #efefef;
+  font-family:  Optima, Segoe, "微軟正黑體", "Microsoft JhengHei",'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  word-wrap: break-word;
+  word-break: break-all;
+  /*background: url("../assets/img/sketch/index.png") no-repeat;*/
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+#footer {
+	position: absolute;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+  /*height: 60px;*/
+	background-color: #000000;
+	text-align: center;
+	bottom: -230px;
+	
+}
+#footer .container{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+#footer .banner-box{border-bottom: 1px #b4b4b4 solid;
+}
+#footer .banner{
+	width: 320px;
+	min-height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#footer .banner .banner-1{
+	width: 100%;
+	display: block;
+	text-align: left;
+	margin-left: 0%;
+ }
+
+#footer .banner a{
+	text-decoration: none;
+	width: 47%;
+	display: block;
+	height: 75px;
+	float: left;
+}
+#footer .banner a+a:after{
+	content: '|';
+	color: #919191;
+}
+#footer .banner .last:after,#footer .banner .last2:after{
+	display: none;
+}
+#footer .banner img{
+  /*border-left: 1px solid #b4b4b4;*/
+}
+/*miffe-0406修*/
+@media (max-width:620px){
+	#footer .banner a+a:after{content: '|';
+	color: #919191;
+	}
+	#footer .banner a{
+	width: 50%;
+}}
+	
+@media (max-width:320px){
+	#footer .banner{
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#footer .banner a+a:after{
+display: none;	}
+}
+#footer .banner a {width: 48%;}
+#footer .text-muted {
+	margin-top: 20px;
+	margin-right: 5%;
+	margin-bottom: 20px;
+	color: #b4b4b4;
+	width: 90%;
+	margin-left: 5%;
+}
+
+#footer .tel{
+  /*border-left: 1px solid #b4b4b4;*/
+  /*margin-left: 30px;*/
+  /*padding-left: 30px;*/
+}
+/*miffe-0406修*/
+@media (max-width:500px){
+#footer .text-muted .l{
+	display: none;
+}	
+#footer .tel{
+	display: block;
+	width: 100%;
+}
+}
+#gotop {
+	display: none;
+	text-decoration: none;
+	position: fixed;
+	bottom: 230px;
+	right: 20px;
+	width: 61px;
+	height: 62px;
+	border: 1px solid rgba(34,24,20,0.5);
+	text-indent: 100%;
+	background-image: url(../img/icon_top.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	cursor: pointer;
+	z-index: 9999;
+	background-color: rgba(200, 200, 200, 0.2);
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
+.navbar-inverse .navbar-nav>li>a {
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	color: #7f7e7f;
+	padding-left: 25px;
+	padding-top: 10px;
+}
+
+.navbar-inverse .navbar-nav>li>a.active,
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #000000;
+}
+.navbar-inverse .navbar-nav li>a{
+	background-color: #DDDDDD;
+	margin-top: 2px;
+}
+.navbar-inverse .navbar-nav li>a:hover{
+	background-color: #fff;
+}
+.navbar-collapse {
+	background-color: rgba(0,0,0,1);
+}
+.fans_page{
+	width: 100%;
+	height: 50px;
+	background-image: url(../img/f.png);
+	background-repeat: no-repeat;
+	background-position: 15px center;
+}
+.fans_page:hover{
+	background-image: url(../img/f-on.png);
+}
+.navbar-toggle{
+	background-color: rgba(25,5,0,0);
+	border:0px solid rgba(25,0,0,0);
+}
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+#myCarousel {display: none;}
+
+/* Carousel base class */
+.carousel {
+  min-height: 100%;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 10;
+	background-color: rgba(20,5,0,0.8);
+	text-align: left;
+	right: 0;
+	bottom:0px;
+	left: 0%;
+	padding-top: 10px;
+	padding-right: 5%;
+	padding-bottom: 5px;
+	padding-left: 5%;
+	min-height: 30%;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+	min-height: 280px;
+	height: auto;
+	background-color: #777;
+}
+.carousel-inner > .item > img {
+	position: relative;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Bump up size of carousel content */
+  .carousel-caption p {
+	margin-bottom: 0px;
+	font-size: 1em;
+	line-height: 1.7;
+	font-weight: lighter;
+  }
+
+  .carousel-caption h1 {
+        font-size: 1.3em;
+  }
+
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+.navbar-inverse {
+	background-color: #dddddd;
+	border-color: #dddddd;
+	height: 50px;
+}
+.navbar-inverse .navbar-nav>li>a {
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	color: #7f7e7f;
+	padding-left: 25px;
+	padding-top: 10px;
+}
+.navbar-inverse .navbar-nav>li>a.active {
+  color: #000000;
+}
+
+.logo {
+	float: left;
+	padding: 0px;
+}
+.logo img{
+	width: auto;
+	height: 50px;
+}
+.navbar-brand {
+  max-height: 50px;
+}
+.navbar-nav {
+  font-size: 1.4em;
+}
+.navbar-fixed-top {
+  border-width: 0px;
+}
+
+.navbar-header {
+	margin-right: 10px;
+}
+
+
+.main-menu{
+  margin-top: 5px;
+}
+/*miffe-0406修*/
+@media screen and (max-width:768px){
+.main-menu{margin-top: -1px;}
+}
+.carousel-indicators {
+  bottom: -50px;
+}
+.carousel-indicators li {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	/*margin: 1px;*/
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #000\9;
+	background-color: rgba(0,0,0,0);
+	border: 1px solid #7f7f7f;
+	border-radius: 0px;
+	margin-left: 15px;
+}
+.carousel-indicators .active {
+	width: 13px;
+	height: 13px;
+	margin-left: 15px;
+	background-color: #7f7f7f;
+}
+
+/* work-talk */
+#work-talk.container-fluid{
+	width: 100%;
+	padding: 0px;
+	max-width: 1100px;
+}
+#work-talk.container-fluid .row{
+	padding-right: 0px;
+}
+#work-talk .col-sm-5{
+	width:100%
+}
+#work-talk .col-md-5{
+	width:100%}
+#work-talk .item{
+	width:100%;
+	padding-top: 0px;
+	padding-bottom: 8px;
+    position: relative;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: inline-block;
+	float: left;
+}
+.item-content{
+	color: #ffffff;
+	background-color: rgba(0,0,0,0.0);
+	width: 100%;
+	position: static;
+	margin-bottom: 1px;
+	display: block;
+	margin-top: 10px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.item-content .item-en-title::after{
+	content: '>';
+	margin-left: 5px;
+}
+.item-content .item-ch-title,
+.item-content .item-en-title
+{
+  font-size: 11pt;
+  color: #000000;
+  font-weight: bold;
+  margin-top: 0px;
+}
+ 
+#work-talk .item-content .item-desc{
+	font-size: 11pt;
+	color: #898989;
+	margin-top: 5px;
+}
+
+#work-talk .talk .talk-title,#work-talk .talk .talk-desc{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+/*======================================
+#work-talk .item{
+	padding-top: 0px;
+	padding-bottom: 8px;
+	position: relative;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#work-talk .talk a.thumbnail{
+}
+
+.item-content{
+	color: #ffffff;
+	background-color: rgba(0,0,0,0.8);
+	width: 100%;
+	padding: 9%;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	display: none;
+	border-right: 8px solid #efefef;
+	border-bottom: 4px solid #efefef;
+	margin-bottom: 4px;
+}
+.item-content .item-ch-title,
+.item-content .item-en-title
+{
+	font-size: 18pt;
+	letter-spacing: 0.05em;
+}
+ 
+#work-talk .item-content .item-desc{
+	margin-top: 30px;
+	font-size: 14pt;
+	font-weight: lighter;
+}
+======================================*/
+
+#work-talk .talk-title{
+  font-size: 14px;
+  color: #000000;
+  font-weight: bold;
+  font-family:  "微軟正黑體", "Microsoft JhengHei",;
+  margin-top: 10px;
+}
+
+#work-talk .talk-desc{
+	font-size: 11pt;
+	color: #898989;
+}
+
+#work-talk .col-sm-2{
+}
+
+a.thumbnail:hover{
+  text-decoration: none;
+}
+
+/* about */
+#about-us .container-fluid{
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+#about-us{
+  background-color: #ffffff;
+  margin-top: 230px;
+  width: 100%;
+}
+#about-us .row .col-md-12{
+	padding-top: 5%;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#about-us .row{
+	max-width: 1000px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: -200px;
+	width: 100%;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+#about-us .title,#our-service .title{
+	text-align: center;
+	font-size: 18pt;
+	font-weight: 300;
+	color: #000000;
+}
+#about-us .title hr,#our-service .title hr{
+  width: 60px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#000000;
+  color:#000000
+}
+#about-us .photo {
+	text-align: center;
+	margin-top: 45px;
+	margin-bottom: 0px;
+}
+#about-us .about-desc{
+	width: 100%;
+	font-size: 1.3em;
+	margin-top: 80px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 80px;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-align: left; /*　Firefox到此即可對齊　*/
+	text-justify: auto; /*　IE需再加上此行　*/
+	color: rgba(34,24,20,0.6);
+
+	padding-right: 15px;/*miffe-0406修*/
+	padding-left: 15px;/*miffe-0406修*/
+}
+#about-us .about-desc p:first-child{
+	margin-bottom: 25px;
+	
+}
+#about-us .photo > img {
+	/*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+	width: 100%;
+	margin-left: 0px;
+}
+#about-us .photo-caption{
+	position: relative;
+	z-index: 10;
+	background-color: rgba(89,87,87,0.9);
+	padding: 60px;
+	text-align: left;
+	bottom: 0px;
+	width: 100%;
+	color: #dadada;
+	font-size: 14pt;
+	margin-left: 0%;
+}
+/*miffe-0406修*/
+@media (max-width:768px){
+#about-us .photo-caption{padding: 45px;}
+}
+#about-us .photo-caption p{
+	word-break: break-all;
+	line-height: 1.7em;
+	font-weight: lighter;
+}
+ 
+#about-us .photo-caption hr{
+  width: 60px;
+  border:0;
+  height:1px;
+  background-color:#dadada;
+  color: #dadada;
+  margin-left: 0px;
+}
+#our-service{
+  width: 100%;
+  margin-top: 50px;
+  color: #000000;
+  max-width:830px;
+}
+#our-service .service-item{
+  /*padding: 25px;*/
+  margin-top: 30px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+70,e5e5e5+100 */
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0.5) 70%, rgba(229,229,229,0.5) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0.5) 70%,rgba(229,229,229,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(255,255,255,0.5) 70%,rgba(229,229,229,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+#our-service .service-item .item-title{
+	padding: 35px 25px 25px 25px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#our-service .service-item .item-title span{
+	font-weight: normal;
+}
+#our-service .service-item .item-desc{
+  padding: 35px 25px 15px 25px;
+  font-size: 1.5em;
+}
+
+#our-service .service-item .title-container{
+  border-top: 2px solid #cfcfcf;
+  border-right: 4px solid #eeeeee;
+  height: 100%;
+  min-height: 250px;
+
+}
+/*miffe-0406修*/
+@media (max-width:768px){
+  #our-service .service-item .title-container{
+  border-right: 0px solid #eeeeee;
+  min-height: 130px;
+}
+#our-service .service-item .item-title{
+	padding: 35px 25px 0px 25px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#our-service .service-item .item-desc{
+  padding: 0px 25px 15px 25px;
+}
+}
+
+
+
+
+/* ==== work =====================================*/
+#work-branding .item-content,#work-logo .item-content,#work-web .item-content{margin-top: 0px;}	
+
+#work-branding .item-content .item-en-title::after,
+#work-logo .item-content .item-en-title::after,
+#work-web .item-content .item-en-title::after
+{
+	content: '>';
+	margin-left: 5px;
+}
+
+#work-branding .item-content .item-ch-title,
+#work-web .item-content .item-ch-title,
+#work-logo .item-content .item-ch-title,
+#work-branding .item-content .item-en-title,
+#work-web .item-content .item-en-title,
+#work-logo .item-content .item-en-title
+{
+	font-size: 12pt;
+	color: #000000;
+	font-family: "微軟正黑體", "Microsoft JhengHei",;
+	margin-top: 20px;
+	font-weight: bold;
+	line-height: 0px;
+}
+#work-branding .item-content .item-en-title,
+#work-web .item-content .item-en-title,
+#work-logo .item-content .item-en-title{
+	margin-bottom: 10px;
+}
+
+#work-branding .item-content .item-desc,
+#work-web .item-content .item-desc,
+#work-logo .item-content .item-desc
+{   margin-top: 15px;
+	font-size: 11pt;
+	color: #898989;
+}
+
+/* ====work branding =====================================*/
+#work-branding.container-fluid{
+	width: 100%;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 30px;
+	max-width: 900px;
+
+}
+
+#work-branding.container-fluid .row{
+	/*margin-right: 0px;*/
+  /*margin-left: 0px;*/
+	margin-left: 0px;
+}
+
+#work-branding .item{
+	padding: 0px 4px 8px 4px;
+	/*float: left;*/
+	position: relative;
+}
+
+
+/*
+#work-branding .item-content{
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  padding: 40px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: none;
+  border-right: 8px solid #efefef;
+  border-bottom: 4px solid #efefef;
+}
+
+#work-branding .item-content .item-desc{
+	margin-top: 30px;
+	font-size: 14pt;
+}*/
+
+#b2t{
+  position: fixed;
+  right: 30px;
+  bottom: 150px;
+}
+
+
+
+#work-menu.container-fluid {
+  padding: 0px;
+  margin-top: 60px;
+}
+#work-nav{
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+}
+
+/*miffe-0406修*/
+@media (max-width:768px){
+ #work-menu.container-fluid {margin-top: 40px;}
+#work-nav{margin-bottom: 0px;}
+}
+
+#work-nav a{
+    color: #000000;
+}
+
+#work-nav a{
+  color: #000000;
+  text-decoration: none;
+}
+
+#logo-list.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#work-nav .item hr{
+  width: 40px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+#work-nav .item hr {
+  width: 40px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#777777;
+  margin-bottom: 0px;
+}
+#work-nav .item{
+	margin-bottom: 20px;	
+}
+#work-nav .item a:hover,#work-nav .item.active a{
+	color: #848484;
+}
+
+/* work logo */
+#work-logo.container-fluid{
+	width: 100%;
+	padding: 0px;
+	margin-top: 30px;
+	max-width:900px;
+}
+#work-logo.container{
+  /*width: 90%;*/
+  padding: 0px;
+  margin-top: 30px;
+  /*margin-left: 10%;*/
+}
+#work-logo .col-md-2{
+	width: 100%;
+	float: left;
+	max-width: 700px;
+}
+#work-logo .col-md-2 img{
+	width: 100%;
+	
+}
+#work-logo .item{
+  padding: 0px 4px 8px 4px;
+  /*float: left;*/
+  position: relative;
+}
+
+
+
+
+/* work web */
+/*@media (min-width: 992px) {
+  #work-web .web-list .item{
+    width: 49%;
+  }
+}*/
+#work-web.container-fluid{
+	width: 100%;
+	padding: 0px;
+	margin-top: 30px;
+	max-width:900px;}
+	
+#work-web.container{
+  /*width: 80%;*/
+  margin-top: 30px;
+}
+
+#work-web .web-list{
+  /*width: 98%;*/
+  /*margin-left: 10%;*/
+}
+
+.web-list.row{
+  margin-right: -3px;
+  margin-left: -3px;
+}
+
+#work-web .item{
+  padding: 0px 8px 16px 8px;
+  /*float: left;*/
+  position: relative;
+}
+
+/*@media (min-width: 992px) {
+  #work-web #web-list .item{
+    width: 49%;
+  }
+}*/
+
+
+
+/* contact */
+#contact-us{
+  background-color: #ffffff;
+  margin-top: 250px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+#contact-us .row{
+  margin-top: -200px;
+}
+#contact-us .title{
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;
+}
+
+#contact-us .title hr{
+  width: 40px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#000000;
+  color:#000000
+}
+
+#contact-us .map{
+	text-align: center;
+	margin-top: 45px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#contact-us .map iframe{
+  max-width:1000px;
+  min-height:280px;
+}
+
+#contact-us .desc{
+	color: #000000;
+	margin-top: 80px;
+	width: 90%;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	letter-spacing: 0.1em;
+	font-weight: normal;
+}
+#contact-us .desc h3{
+	font-size: 16pt;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+#contact-us .desc p{
+	font-size: 12pt;
+	margin-bottom: 20px;
+  }
+#contact-us .desc span{
+  color: #9f9fa0;
+  
+}
+
+#contact-us .desc p:first-child{
+  font-size: 25pt;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* contact-form */
+
+
+#contact-form.container-fluid{
+	width: 88%;
+	max-width: 990px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+#contact-form{
+	
+	margin-top: 55px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#contact-form .row{
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	
+}
+#contact-form .row .col-md-2{
+	height:20px;
+	width: 100%;
+}
+
+#contact-form .row .col-md-10{
+	height: 60px;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#contact-form label{
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14pt;
+}
+
+#contact-form .form-control {
+	font-size: 16pt;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	height: 55px;
+	border-style: none;
+	border-radius: 0px;
+	margin-left: 0px;
+}
+
+#contact-form .captcha label{font-size: 13pt;
+}
+#contact-form .captcha label span{
+	font-size: 21pt;
+	margin-left: 10px;
+	margin-right: 10px;
+	letter-spacing: 5px;
+}
+
+#contact-form button {
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	font-size: 18pt;
+	color: #ffffff;
+	background-color: #7f7f7f;
+	width: 100px;
+	height: 40px;
+	border: none;
+	margin-left: 10px;
+	margin-bottom: 100px;
+
+}
+#contact-form .col-md-2,#contact-form .col-md-10,#contact-form .col-md-5{
+	margin-bottom: 7px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+#contact-form .textarea1{
+	height: 170px;
+	display: block;
+}
+#contact-form .col-md-5{
+	height: 0px;
+	margin-top: 100px;
+}
+
+
+/* work detail */
+#work-detail.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 150px;
+	/*padding-bottom: 100px;*/
+	width: 100%;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ffffff;
+}
+#work-detail .row{
+	margin-top: -100px;
+	margin-left: 5px;
+	margin-right: 5px;
+	
+}
+#work-detail .col-md-12{
+	padding-left: 0px;
+	padding-right: 0px;
+	}
+#work-detail .title{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+#work-detail .title hr{
+  width: 40px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#000000;
+  color:#000000
+}
+
+#work-detail .desc{
+	background-color: #90c424;
+	color: #ffffff;
+	padding: 70px;
+	font-size: 1.4em;
+	text-align: justify;
+	width: 100%;
+	line-height: 30px;
+	letter-spacing: 2px;  /*text-align: justify; /!*　Firefox到此即可對齊　*!/*/  /*text-justify: auto; /!*　IE需再加上此行　*!/*/
+}
+/*miffe-0406修*/
+@media (max-width:768px){
+	#work-detail .desc{
+	padding: 45px;
+}
+}
+
+
+#work-detail .photo{
+  margin-top: 45px;
+}
+
+#work-detail .photo img, #work-detail .content img{
+	width: 100%;
+	font-weight: normal;
+	
+}
+ #work-detail .content hr{/*miffe-0412修*/
+	width: 100%;
+	height: 6px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+ }
+
+
+#work-detail .desc hr{
+  width: 60px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#ffffff;
+  color:#ffffff
+}
+
+#work-detail .nav,#talk .nav{
+	width: 180px;/*miffe-0406修*/  
+}
+#work-detail .nav,#talk .nav{
+	/*text-align: center;*/
+	margin-top: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 80px;
+}
+
+#work-detail .fb-share,#talk .fb-share{
+	float: left;
+	text-align: center;
+	margin-left: 15px;/*miffe-0406修*/  
+	margin-right: 15px;/*miffe-0406修*/  
+  }
+  
+/*miffe-0406修*/  
+#work-detail .fb-share img,#talk .fb-share img,
+#work-detail .b2l img,#talk .b2l img{
+	width: 50px;  
+}
+
+.fb-xfbml-parse-ignore{
+	display: none;
+}
+
+#work-detail .b2l,#talk .b2l{
+	float: left;
+	text-align: center;
+	margin-left: 25px;/*miffe-0406修*/  
+	margin-right: 5px;/*miffe-0406修*/  
+}
+
+
+
+#work-detail .fb-share img,#work-detail .b2l img,
+#talk .fb-share img,#talk .b2l img{
+	display: block;
+	margin-bottom: 10px;
+}
+#work-detail .fb-share a,#work-detail .b2l a,
+#talk .fb-share a,#talk .b2l a{
+  font-size: 1.2em;
+  color: #888;
+  font-family: "微軟正黑體", "Microsoft JhengHei", "新細明體", "PMingLiU", "細明體", "MingLiU", "標楷體", "DFKai-sb", serif;
+}
+#work-detail .fb-share a:hover,#work-detail .b2l a:hover,
+#talk .fb-share a:hover,#talk .b2l a:hover{
+  text-decoration: none;
+}
+#work-detail blockquote,#talk blockquote{
+	font-size: 1.35em;
+}
+#work-detail .fb,#talk .fb{
+	margin-top: 50px;
+	text-align: center;
+	display: none;/*miffe0412修*/
+}
+#work-detail .fb{width: 101%;margin-left: -5px;}
+#talk .fb{width: 100%;}
+
+/* talk ---------------------------------------*/
+#talk.container-fluid{
+	width: 100%;
+	max-width: 1600px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+#talk{
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: -170px;
+}
+
+#talk .row {
+	min-height: 1000px;
+}
+#talk .col-md-2{
+	max-width: 770px;
+	width: 100%;
+
+}
+#talk .col-md-8{
+	width: 100%;
+}
+#talk .side-menu {
+	padding-top: 50px;
+	padding-left: 5%;
+	padding-right: 5%;
+	color: #000000;
+	padding-bottom: 200px;
+}
+#talk .content{
+  padding-top: 50px;
+  background-color: #ffffff;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 0px;
+
+}
+
+.search_input{
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	background: url("../img/search.png") no-repeat #ffffff 98%;
+	border: none;
+	padding: 8px;
+	width: 95%;
+	margin-top: 15px;
+}
+
+.talk_category{
+  margin-top: 100px;
+}
+.talk_category_title{
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+ font-size: 16pt;
+}
+.talk_category_title hr{
+  width: 60px;
+  margin-left: 0px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#000000;
+  color:#000000
+}
+.talk_category_list a{
+	color: #000000;
+	font-family: Optima, Segoe,"微軟正黑體", "Microsoft JhengHei", 'Segoe UI',serif;
+	display: block;
+	font-size: 1.3em;
+}
+.talk_category_list a:hover{
+	text-decoration: none;
+	color: #888;
+}
+.talk_category_list ul{
+	list-style: none;
+	padding: 0;
+	margin-top: 30px;
+}
+.talk_category_list ul li{
+	height: 20px;
+	margin-bottom: 15px;
+}
+.talk_category_list .archives li > a:after {
+	content: url(../img/arrow-01.png);
+	margin-left: 15px;
+}
+.talk_category_list .archives .active a:after {
+	content: url(../img/arrow-02.png);
+}
+.talk_category_list .archives ul li a:after{content:normal;}
+
+.talk_category_list ul ul {
+	margin-bottom: 40px;  
+}
+.talk_category_list ul ul li a {
+	font-size: 1em;
+	padding-left: 0px;
+}
+
+.article_list{
+	margin-bottom: 50px;
+}
+
+.article_list hr{
+  width: 60px;
+  margin-left: 0px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#000000;
+  color:#000000
+}
+
+.article_list a{
+  color: rgb(90, 90, 90);
+  letter-spacing: 1px;
+}
+.article_list a:hover{
+  text-decoration: none;
+}
+
+.article_list .title{
+	font-size: 1.75em;
+	letter-spacing: 3px;
+	line-height: 1.5em;/*miffe-0406修*/
+}
+.article_list .title span{
+	color: #888;
+}
+.article_list .date{
+  margin-top: 20px;color: #888;letter-spacing: 1px;
+}
+.article_list .posted{
+  margin-top: 20px;
+}
+.article_list .desc{
+	font-size: 1.3em;
+	margin-top: 40px;
+	text-align: justify; /*　Firefox到此即可對齊　*/
+	text-justify: auto; /*　IE需再加上此行　*/
+	line-height: 30px;
+	font-weight: lighter;
+}
+.article_list .desc p{
+	line-height: 1.5em;/*miffe-0406修*/
+	margin-top: 0.7em;
+	font-weight: normal;/*miffe-0406修*/
+}
+.article_list .photo{
+  margin-top: 20px;
+  text-align: center;
+  
+}
+.article_list .photo img{
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+@media (max-width: 700px) {.article_list .photo img{width: 100%;}}
+.article_list .photo .comment{
+	margin-top: 20px;
+	color: #999;
+	text-align: left;
+}
+.article_list .photo .comment a{
+	font-size: 10pt;
+	color: #999;
+	letter-spacing: 1px
+
+}
+.article_list .more{
+	margin-top: 20px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.thumbnail {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+}
+.thumbnail a>img, .thumbnail>img {
+	margin: 0px;
+	width: 100%;
+}
+
+
+/* talk detail */
+
+
+#talk-detail{
+  width: 100%;
+  font-size: 16px;
+}
+
+#talk-detail .row {
+  min-height: 1200px;
+}
+
+#talk-detail .side-menu {
+  padding-top: 50px;
+  padding-left: 35px;
+  color: #000000;
+}
+#talk-detail .content{
+  padding-top: 50px;
+  background-color: #ffffff;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+/* common */
+.page_title {
+	text-align: center;
+	font-size: 18pt;
+	font-weight: 300;
+	color: #000000;
+}
+
+.page_title hr{
+	width: 60px;
+	margin-top: 15px;
+	border: 0;
+	height: 1px;
+	background-color: #000000;
+	color: #000000
+}
+
+.fb-icon{
+	background-image: url(../img/fb-share.png);
+	height: 48px;
+	width: 120px;
+	padding-top: 10px;
+	font-size: 1.3em;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 45px auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.fb-icon a{
+	color: #888888;
+	display: block;
+
+}
+.fb-icon a:hover{
+	color: #375492;
+	line-height: normal;
+}
+.fb-icon:hover{
+	background-image: url(../img/fb-share_on.png);
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 620px) {
+#footer .banner{
+	width: 100%;
+	min-height: 160px;
+	max-width:620px
+}
+#footer .banner .banner-1{
+	width: 100%;
+	display: block;
+	text-align: left;
+	margin-left: 0%;
+ }
+
+#footer .banner a{
+	text-decoration: none;
+	width: 25%;
+	display: inline;
+	height: 75px;
+	float: none;
+}
+#footer .banner .last2:after{
+	display: inline;
+}
+
+}
+
+@media (min-width:768px){
+	
+/*work-talk-item=====================*/
+#work-talk .col-sm-5,#work-talk .col-md-5{
+	width:40%}
+#work-talk .col-sm-2, #work-talk .col-md-2{width:19%;
+}
+
+.col-md-4{width:33.33333333%;float: left;}
+
+#work-talk .item{
+	top: 0px;
+	padding-top: 0px;
+	padding-bottom: 8px;
+	position: relative;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#work-talk .talk a.thumbnail{
+}
+.item-content{
+	color: #ffffff;
+	background-color: rgba(0,0,0,0.8);
+	width: 100%;
+	padding: 9%;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	display: none;
+	border-right: 8px solid #efefef;
+	border-bottom: 4px solid #efefef;
+	margin-bottom: 4px;
+	margin-top: 0px;
+}
+
+.item-content .item-en-title::after{
+	content: '>';
+	margin-left: 5px;
+	display: none;
+}
+
+
+.item-content .item-ch-title,
+.item-content .item-en-title
+{   color: #ffffff;
+	font-size: 18pt;
+	letter-spacing: 0.05em;
+	font-weight: lighter;
+
+}
+
+#work-talk .item-content .item-desc{
+	color: #ffffff;
+	margin-top: 30px;
+	font-size: 14pt;
+	font-weight: lighter;
+}
+#work-talk .talk .talk-title,#work-talk .talk .talk-desc{
+	padding-left: 0%;
+	padding-right: 0%;
+}
+	
+	
+#footer .banner{
+	width: 100%;
+	min-height: 80px;
+	max-width:820px
+}
+#footer .banner .banner-1{
+	width: 100%;
+	display: inline;
+	text-align: left;
+	margin-left: auto;
+ }
+
+#footer .banner a{
+	text-decoration: none;
+	width: 25%;
+	display: inline;
+	height: 75px;
+	float: none;
+}	
+
+
+  /* Navbar positioning foo */
+  .navbar-nav {
+  font-size: 1.15em;
+}
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .fans_page{
+	width: 60px;
+	height: 50px;
+	background-image: url(../img/f.png);
+	background-repeat: no-repeat;
+	background-position: 0px center;
+}
+.fans_page:hover{
+	background-image: url(../img/f-on.png);
+}
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+  .navbar-inverse .navbar-nav li{
+	background-color: transparent;
+	margin-top: 0px;
+}
+.navbar-inverse .navbar-nav li>a{
+	background-color: #DDDDDD;
+	margin-top: 0px;
+	line-height: 1.2em;
+}
+.navbar-inverse .navbar-nav li>a:hover{
+	background-color: transparent;
+	color: rgba(255,255,255,1.00);
+}
+.navbar-collapse {
+	background-color: #DDDDDD;
+	margin: 0px;
+}
+
+
+
+/* 輪播圖文字框Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 10;
+	background-color: rgba(20,5,0,0.9);
+	text-align: left;
+	right: 0;
+	bottom: 10%;
+	left: 60%;
+	padding-top: 40px;
+	padding-right: 40px;
+	padding-bottom: 30px;
+	padding-left: 45px;
+	min-height:30%;
+	max-height:80%;
+}
+/* 輪播圖Declare heights because of positioning of img element */
+#myCarousel {
+	display: block;
+}
+.carousel .item {
+	height: auto;
+	background-color: #777;
+}
+.carousel-inner > .item > img {
+	position: relative;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+}
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+	margin-bottom: 50px;
+	font-size: 20px;
+	line-height: 1.7;
+	font-weight: lighter;
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.75em;
+  }
+
+  /* common */
+  .page_title {
+	font-size: 22pt;
+   }
+  
+
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+  #about-us{
+  margin-top: 200px;
+ }
+   #about-us .col-md-12{
+	padding: 0% ;
+}	
+ #about-us .title,#our-service .title{
+	font-size: 22pt;
+}
+#about-us .about-desc{
+	width: 100%;
+	margin-top: -280px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 80px;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-align: justify; /*　Firefox到此即可對齊　*/
+	　text-justify: auto; /*　IE需再加上此行　*/
+}
+#about-us .caption{
+	position: relative;
+	z-index: 10;
+	background-color: rgba(89,87,87,0.9);
+	padding: 50px;
+	text-align: left;
+	bottom: 300px;
+	width: 65%;
+	color: #dadada;
+	font-size: 16pt;
+	margin-left: 45%;
+	
+}
+#about-us .photo-caption{
+	width: 70%;
+	bottom: 330px;
+	margin-left: 32%;
+}
+/* #work ===================================*/
+#work-branding .item-content,#work-logo .item-content,#work-web .item-content{margin-top: 0px;}	
+
+#work-branding .item-content .item-en-title::after,
+#work-logo .item-content .item-en-title::after,
+#work-web .item-content .item-en-title::after
+{
+	content: '>';
+	margin-left: 5px;	display: none;
+}
+
+#work-branding .item-content .item-ch-title,
+#work-web .item-content .item-ch-title,
+#work-logo .item-content .item-ch-title,
+#work-branding .item-content .item-en-title,
+#work-web .item-content .item-en-title,
+#work-logo .item-content .item-en-title
+{
+	color: #ffffff;
+	font-size: 18pt;
+	letter-spacing: 0.05em;
+	font-weight: lighter;
+	margin-top: 10px;
+	line-height: 20px;
+}	
+
+#work-branding .item-content .item-desc,
+#work-web .item-content .item-desc,
+#work-logo .item-content .item-desc{
+	margin-top: 30px;
+	font-size: 14pt;
+	color: #fff;
+	font-weight: lighter;
+}
+	
+#work-branding.container-fluid,
+#work-logo.container-fluid,
+#work-web.container-fluid{
+	width: 100%;
+	padding: 0px;
+	margin-top: 30px;
+	max-width:1300px;
+}  
+ /* #work-branding---------------------- */
+#work-branding .item-content{
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  padding: 40px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: none;
+  border-right: 8px solid #efefef;
+  border-bottom: 4px solid #efefef;
+}
+ /* #work-logo---------------------- */
+#work-logo .col-md-2{
+	width: 50%;
+	float: left;
+	max-width:500px;
+} 
+#work-logo .item-content{
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: none;
+  border-right: 8px solid #efefef;
+  border-bottom: 4px solid #efefef;
+}
+#work-logo .item-content .item-ch-title,
+#work-logo .item-content .item-en-title{
+	font-size: 1.3em;
+	line-height: 1.6em;
+}
+
+
+/* work-web ---------------------*/
+
+#work-web .item-content{
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  padding: 40px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: none;
+  border-right: 16px solid #efefef;
+  border-bottom: 12px solid #efefef;
+}
+
+
+/* work detail ---------------------*/
+#work-detail{
+  width: 100%;
+}
+#work-detail.container-fluid {
+	margin-bottom: -170px;
+}
+
+/*== contact-us ===================================*/
+
+#contact-us .map iframe{
+  min-height:550px;
+}
+
+#contact-form.container-fluid{
+	width: 90%;
+	max-width:1000px;
+	}
+#contact-form .row .col-md-2{
+ float: left;
+  width: 15%;
+  height:60px;}
+  
+#contact-form .row .col-md-2 label{
+	margin-top: 7px;
+}
+#contact-form .row .col-md-10{
+ float: left;
+  width: 85%;}
+#contact-form .col-md-5{
+	float: left;
+	margin-top: 120px;
+	width: 42.5%;
+	
+}
+  
+#contact-form label{
+	height: 50px;
+}
+
+#contact-form .col-md-5 .form-input .pull-right{
+	margin-right: 0px;
+	padding-right: 0px;
+	float: right;
+}
+#contact-form .col-md-2,#contact-form .col-md-10,#contact-form .col-md-5{
+	margin-bottom: 2px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+/* #talk ===================================*/
+
+#talk .row{
+	max-width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#talk .col-md-2{
+	width: 25%;
+	min-width: 150px;
+	max-width: 300px;
+	float: left;
+	margin-left: -100%;
+}
+#talk .col-md-8{
+	width: 75%;
+	min-width:100px;
+	max-width:1000px;
+	float: left;
+	margin-left: 25%;
+
+}
+.search_input{
+	background: url("../img/search.png") no-repeat #ffffff 95%;
+	width: 100%;
+}
+
+
+#gotop {
+	display: none;
+	bottom: 170px;
+	right: 40px;
+	background-color: rgba(200, 200, 200, 0.1);
+}
+
+
+}
+
+@media (min-width: 992px) {
+#contact-form .col-md-5{
+	width: 42.5%;
+}
+	
+ .featurette-heading {
+    margin-top: 120px;
+  }
+ #about-us .about-desc{
+	margin-top: -280px;} 
+ #about-us .caption{
+	position: relative;
+	z-index: 10;
+	background-color: rgba(89,87,87,0.9);
+	padding: 50px;
+	text-align: left;
+	bottom: 370px;
+	width: 60%;
+	color: #dadada;
+	font-size: 16pt;
+	margin-left: 40%;
+}
+#about-us .photo-caption{
+	width: 70%;
+	margin-left: 35%;
+}
+
+/* #work-logo */
+#work-logo .col-md-2{
+	width: 20%;
+	max-width:258px;
+}
+/* #work-web */
+#work-web .col-md-5{
+	width: 50%;
+}
+/* #talk */
+
+#talk .col-md-2{
+	width: 20%;
+	margin-left: -100%;
+	
+}
+#talk .col-md-8{
+	width: 80%;
+	max-width:1000px;
+	margin-left: 20%;
+}
+#our-service .service-item .item-title{
+	padding: 25px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#our-service .service-item .item-desc{
+  padding: 25px;
+  font-size: 1.5em;}
+  
+#work-nav .item hr {
+	color: rgba(160,160,160,00);
+	background-color:rgba(160,160,160,00);
+}
+#work-nav .item.active hr,#work-nav .item:hover hr {
+  width: 40px;
+  margin-top: 15px;
+  border:0;
+  height:1px;
+  background-color:#A0A0A0;
+  color:#A0A0A0;
+  margin-bottom: 0px;
+}
+
+
+
+}
+
+@media (min-width: 1280px) {
+#about-us .photo-caption{
+	width: 70%;
+	margin-left: 40%;
+}
+}
+
+#work-nav .col-md-2 {
+  display:inline-block;
+}

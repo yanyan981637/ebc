@@ -1,0 +1,89 @@
+ErrorDocument 404 /404.htm
+ErrorDocument 403 /404.htm
+ErrorDocument 404 /404.htm
+ErrorDocument 500 /404.htm
+
+<IfModule mod_headers.c>
+Header set X-Frame-Options SAMEORIGIN
+# Allow some urls, block all others; whitelisting
+	#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
+	#Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.	
+	#</LocationMatch>
+	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+	Header set Cache-Control "max-age=604800, public"
+	</FilesMatch>
+</IfModule>
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule .* - [F]
+
+
+RewriteRule ^(.*)\.html$ $1.php [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^BEemail_mapping$ /partner-backend/BE_email_mapping.php [QSA,L]
+RewriteRule ^(.*)@BEemail_mapping$ /partner-backend/BE_email_mapping.php?Search=$1 [QSA,L]
+RewriteRule ^mappingProcess? /partner-backend/mapping_process.php [QSA,L]
+RewriteRule ^addemail_mapping? /partner-backend/add_email_mapping.php [QSA,L]
+RewriteRule ^editemail_mapping@(.*)? /partner-backend/edit_email_mapping.php?ID=$1 [QSA,L]
+RewriteRule ^BEuser_accounts? /partner-backend/BE_user_accounts.php [QSA,L]
+RewriteRule ^userAccount? /partner-backend/user_account_process.php [QSA,L]
+RewriteRule ^BEleads? /partner-backend/BE_leads.php [QSA,L]
+RewriteRule ^leadsProcess? /partner-backend/leads_process.php [QSA,L]
+RewriteRule ^BEcontents? /partner-backend/BE_contents.php [QSA,L]
+RewriteRule ^AddAnnouncement? /partner-backend/add_announcement.php [QSA,L]
+RewriteRule ^AnnProcess? /partner-backend/announcement_process.php [QSA,L]
+RewriteRule ^EditAnnouncement@(.*)? /partner-backend/edit_announcement.php?ID=$1 [QSA,L]
+RewriteRule ^BEfilesMgt? /partner-backend/BE_files_mgt.php [QSA,L]
+RewriteRule ^addFile? /partner-backend/add_file.php [QSA,L]
+RewriteRule ^filesProcess? /partner-backend/files_process.php [QSA,L]
+RewriteRule ^editFile@(.*)? /partner-backend/edit_file.php?ID=$1 [QSA,L]
+RewriteRule ^BEclient_accounts? /partner-backend/BE_client_accounts.php [QSA,L]
+RewriteRule ^addClient? /partner-backend/add_client.php [QSA,L]
+RewriteRule ^clientAccounts? /partner-backend/client_accounts_process.php [QSA,L]
+RewriteRule ^clientsAccountDetails@(.*)? /partner-backend/clients_account_details.php?CID=$1 [QSA,L]
+RewriteRule ^AddclientMembers@(.*)? /partner-backend/add_client_members.php?CID=$1 [QSA,L]
+RewriteRule ^EditclientMembers@(.*)? /partner-backend/edit_client_members.php?UID=$1 [QSA,L]
+RewriteRule ^BEproducts? /partner-backend/BE_products.php [QSA,L]
+RewriteRule ^ProductProcess? /partner-backend/product_process.php [QSA,L]
+RewriteRule ^BEmyproducts? /partner-backend/BE_myproducts.php [QSA,L]
+RewriteRule ^addProduct? /partner-backend/add_product.php [QSA,L]
+RewriteRule ^MyProductProcess? /partner-backend/myproducts_process.php [QSA,L]
+RewriteRule ^editProduct@(.*)? /partner-backend/edit_product.php?ID=$1 [QSA,L]
+RewriteRule ^BEprojects? /partner-backend/BE_projects.php [QSA,L]
+RewriteRule ^addQuotation? /partner-backend/add_quotation.php [QSA,L]
+RewriteRule ^editQuotation@(.*)? /partner-backend/edit_quotation.php?QTID=$1 [QSA,L]
+RewriteRule ^QuotationProcess? /partner-backend/quotation_process.php [QSA,L]
+RewriteRule ^approvalQuote@(.*)? /partner-backend/approval_quote.php?QTID=$1 [QSA,L]
+RewriteRule ^quoteProcess? /partner-backend/quote_process.php [QSA,L]
+RewriteRule ^quoteDetails@(.*)? /partner-backend/quote_details.php?QTID=$1 [QSA,L]
+RewriteRule ^login$ /partner-backend/BE_login.php [QSA,L]
+RewriteRule ^captcha@([a-zA-Z0-9_-]+)? /partner-backend/authimg.php?id=$1 [QSA,L]
+RewriteRule ^loginProcess? /partner-backend/login_process.php [QSA,L]
+RewriteRule ^BEpassword@([a-zA-Z0-9_-]+)$ /partner-backend/BE_password.php?ID=$1 [QSA,L]
+RewriteRule ^BEdashboard$ /partner-backend/BE_dashboard.php [QSA,L]
+RewriteRule ^pwProcess$ /partner-backend/pw_process.php [QSA,L]
+RewriteRule ^BEreport$ /partner-backend/BE_report.php [QSA,L]
+RewriteRule ^reExcel$ /partner-backend/excel.php [QSA,L]
+RewriteRule ^FAQ$ /partner-backend/FAQ.php [QSA,L]
+RewriteRule ^BEgroupsMgt$ /partner-backend/BE_groups_mgt.php [QSA,L]
+RewriteRule ^BEaddGroup$ /partner-backend/BE_add_group.php [QSA,L]
+RewriteRule ^groupProcess$ /partner-backend/group_process.php [QSA,L]
+RewriteRule ^BEeditGroup@([a-zA-Z0-9_-]+)$ /partner-backend/BE_edit_group.php?FileID=$1 [QSA,L]
+
+
+Options All -Indexes
+Order deny,allow
+#Allow from all
+Allow from 10.99
+Deny from all

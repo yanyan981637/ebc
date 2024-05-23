@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -47,8 +47,8 @@ function dowith_sql($str){
 
 if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_REQUEST['PLang']));
-  $PLang_si=str_replace(".php","",$PLang_si);  
-  
+  $PLang_si=str_replace(".php","",$PLang_si);
+
   if($PLang_si=="en-US" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -76,16 +76,16 @@ $cmd1=mysqli_query($link_db,$str1);
 $public_count=mysqli_num_rows($cmd1);
 $total=$public_count;
 
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($total/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $Previous="";$Next="";
@@ -136,7 +136,7 @@ while ($result=mysqli_fetch_array($strDate_cmd)) {
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="Press release for 5G edge computing, OCP, embedded systems, AI, automation from MiTAC.">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="Press release for 5G edge computing, OCP, embedded systems, AI, automation from MiTAC." /> 
+<meta property="og:description" content="Press release for 5G edge computing, OCP, embedded systems, AI, automation from MiTAC." />
 <meta property="og:title" content="News - Press Release  | MiTAC Computing Technology" />
   <link rel="shortcut icon" href="images/ico/favicon.ico">
 
@@ -160,7 +160,7 @@ while ($result=mysqli_fetch_array($strDate_cmd)) {
 ============================================= -->
 <title>News - Press Release  | MiTAC Computing Technology</title>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
@@ -183,7 +183,7 @@ if($s_cookie!=2){
 
 
 
-	
+
 		<!-- Slider
 		============================================= -->
 		<section id="slider" class="slider-element">
@@ -241,7 +241,7 @@ if($s_cookie!=2){
 								<ul class="pagination pagination-transparent pagination-circle">
 									<li class="page-item <?=$Previous;?>"><a class="page-link" href="<?=$PLang_si?>@PRLIST~plist~<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 									<?php
-									for($i=1;$i<=$pages_totle;$i++) { 
+									for($i=1;$i<=$pages_totle;$i++) {
 										$pagenum=6;
 										$last=$page+10;
 										$first=$page-10;
@@ -349,7 +349,7 @@ if($s_cookie!=2){
 								<ul class="pagination pagination-transparent pagination-circle">
 									<li class="page-item <?=$Previous;?>"><a class="page-link" href="<?=$PLang_si?>@PRLIST~plist~<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 									<?php
-									for($i=1;$i<=$pages_totle;$i++) { 
+									for($i=1;$i<=$pages_totle;$i++) {
 										$pagenum=6;
 										$last=$page+10;
 										$first=$page-10;
@@ -394,16 +394,16 @@ if($s_cookie!=2){
 			</div>
 		</section>
 
-		
+
 
 		<div class="clear mb-6"></div>
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 

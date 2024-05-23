@@ -6,7 +6,7 @@ if($_SESSION['FEuser']=="" || $_SESSION['FEID']==""){
 }elseif($now > $_SESSION['expire']){
   session_destroy();
   //setcookie("IN", "", time()-3600, '/', "mitacmct.com");
-  echo "<script language='javascript'>self.location='/'</script>";
+  echo "<script language='javascript'>self.location = '/'</script>";
   exit();
 }
 $userName=filter_var($_SESSION['FEuser']);
@@ -36,7 +36,7 @@ function dowith_sql01($str){
    //$str = str_replace("%","",$str);
    $str = str_replace("0x02BC","",$str);
    $str = str_replace("<script>","",$str);
-   $str = str_replace("</script>","",$str);
+    $str = str_replace("</script>","",$str);
    $str = str_replace("javascript","",$str);
    //$str = str_replace("bar","",$str);
    $str = str_replace("foo","",$str);
@@ -54,89 +54,89 @@ function dowith_sql01($str){
 
 
 $SelectEN_Url="";$SelectJP_Url="";$SelectCN_Url="";$SelectZH_Url="";
-if(trim(getenv('REQUEST_URI'))=='/'){					
-	$SelectEN_Url=getenv('REQUEST_URI');
-	$SelectJP_Url=getenv('REQUEST_URI')."index/JP/";
-	$SelectCN_Url=getenv('REQUEST_URI')."index/CN/";
-	$SelectZH_Url=getenv('REQUEST_URI')."index/ZH/";
+if(trim(getenv('REQUEST_URI'))=='/'){
+    $SelectEN_Url=getenv('REQUEST_URI');
+    $SelectJP_Url=getenv('REQUEST_URI')."index/JP/";
+    $SelectCN_Url=getenv('REQUEST_URI')."index/CN/";
+    $SelectZH_Url=getenv('REQUEST_URI')."index/ZH/";
 }else if(trim(getenv('REQUEST_URI'))=='/index/EN/'){
-	$SelectEN_Url=str_replace("/index/EN/","",getenv('REQUEST_URI'));
-	$SelectJP_Url=str_replace("/EN/","/JP/",getenv('REQUEST_URI'));
-	$SelectCN_Url=str_replace("/EN/","/CN/",getenv('REQUEST_URI'));
-	$SelectZH_Url=str_replace("/EN/","/ZH/",getenv('REQUEST_URI'));
+    $SelectEN_Url=str_replace("/index/EN/","",getenv('REQUEST_URI'));
+    $SelectJP_Url=str_replace("/EN/","/JP/",getenv('REQUEST_URI'));
+    $SelectCN_Url=str_replace("/EN/","/CN/",getenv('REQUEST_URI'));
+    $SelectZH_Url=str_replace("/EN/","/ZH/",getenv('REQUEST_URI'));
 }else if(count(explode('_',getenv('REQUEST_URI'),-1))==2 && count(explode('/',getenv('REQUEST_URI'),-1))<3){
-	$SelectEN_Url=getenv('REQUEST_URI');
-	$SelectJP_Url="JP_".str_replace("/","",getenv('REQUEST_URI'));
-	$SelectCN_Url="CN_".str_replace("/","",getenv('REQUEST_URI'));
-	$SelectZH_Url="ZH_".str_replace("/","",getenv('REQUEST_URI'));
-}else if(strpos(getenv('REQUEST_URI'),"/EN/")!='' || strpos(getenv('REQUEST_URI'),"/EN/")===0){					
-	$SelectEN_Url=getenv('REQUEST_URI');
-	$SelectJP_Url=str_replace("/EN/","/JP/",getenv('REQUEST_URI'));
-	$SelectCN_Url=str_replace("/EN/","/CN/",getenv('REQUEST_URI'));
-	$SelectZH_Url=str_replace("/EN/","/ZH/",getenv('REQUEST_URI'));
+    $SelectEN_Url=getenv('REQUEST_URI');
+    $SelectJP_Url="JP_".str_replace("/","",getenv('REQUEST_URI'));
+    $SelectCN_Url="CN_".str_replace("/","",getenv('REQUEST_URI'));
+    $SelectZH_Url="ZH_".str_replace("/","",getenv('REQUEST_URI'));
+}else if(strpos(getenv('REQUEST_URI'),"/EN/")!='' || strpos(getenv('REQUEST_URI'),"/EN/")===0){
+    $SelectEN_Url=getenv('REQUEST_URI');
+    $SelectJP_Url=str_replace("/EN/","/JP/",getenv('REQUEST_URI'));
+    $SelectCN_Url=str_replace("/EN/","/CN/",getenv('REQUEST_URI'));
+    $SelectZH_Url=str_replace("/EN/","/ZH/",getenv('REQUEST_URI'));
 }else if(strpos(getenv('REQUEST_URI'),"/en-US@") || strpos(getenv('REQUEST_URI'),"/en-US@")===0){
-	$SelectEN_Url=getenv('REQUEST_URI');
-	/*
-	$SelectJP_Url=str_replace("/en-US@","/ja-JP@",getenv('REQUEST_URI'));
-	$SelectCN_Url=str_replace("/en-US@","/zh-CN@",getenv('REQUEST_URI'));
-	$SelectZH_Url=str_replace("/en-US@","/zh-TW@",getenv('REQUEST_URI'));
-	*/
-	$SelectJP_Url="/index/JP/";
-	$SelectCN_Url="/index/CN/";
-	$SelectZH_Url="/index/ZH/";
+    $SelectEN_Url=getenv('REQUEST_URI');
+    /*
+    $SelectJP_Url=str_replace("/en-US@","/ja-JP@",getenv('REQUEST_URI'));
+    $SelectCN_Url=str_replace("/en-US@","/zh-CN@",getenv('REQUEST_URI'));
+    $SelectZH_Url=str_replace("/en-US@","/zh-TW@",getenv('REQUEST_URI'));
+    */
+    $SelectJP_Url="/index/JP/";
+    $SelectCN_Url="/index/CN/";
+    $SelectZH_Url="/index/ZH/";
 }else{
-			
-	if((strpos(getenv('REQUEST_URI'),'@en-US@')!='') || (strpos(getenv('REQUEST_URI'),'@ja-JP@')!='') || (strpos(getenv('REQUEST_URI'),'@zh-CN@')!='') || (strpos(getenv('REQUEST_URI'),'@zh-TW@')!='')){
-		$SelectEN_Url="/index/EN/";
-		$SelectJP_Url="/index/JP/";
-		$SelectCN_Url="/index/CN/";
-		$SelectZH_Url="/index/ZH/";
-	}else{
 
-		//$REQUEST_URI=str_replace("&","",getenv('REQUEST_URI'));
-		$REQUEST_URI=getenv('REQUEST_URI');
-		//$REQUEST_URI=$_SERVER["REQUEST_URI"];
-		$REQUEST_URI=str_replace("%3C","",$REQUEST_URI);
-		$REQUEST_URI=str_replace("%3E","",$REQUEST_URI);
-		$REQUEST_URI=str_replace('"',"",$REQUEST_URI);
-		$REQUEST_URI=str_replace("%27","",$REQUEST_URI);
-		$REQUEST_URI=str_replace("<script>","",$REQUEST_URI);
-		$REQUEST_URI=str_replace("'","",$REQUEST_URI);
-		$REQUEST_URI=str_replace(";","",$REQUEST_URI);
-		$REQUEST_URI=str_replace("/","",$REQUEST_URI);
-		$REQUEST_URI=str_replace("</script>","",$REQUEST_URI);	
-		$REQUEST_URI=str_replace("alert","",$REQUEST_URI);					
+    if((strpos(getenv('REQUEST_URI'),'@en-US@')!='') || (strpos(getenv('REQUEST_URI'),'@ja-JP@')!='') || (strpos(getenv('REQUEST_URI'),'@zh-CN@')!='') || (strpos(getenv('REQUEST_URI'),'@zh-TW@')!='')){
+        $SelectEN_Url="/index/EN/";
+        $SelectJP_Url="/index/JP/";
+        $SelectCN_Url="/index/CN/";
+        $SelectZH_Url="/index/ZH/";
+    }else{
 
-		$SelectEN_Url=$REQUEST_URI;
+        //$REQUEST_URI=str_replace("&","",getenv('REQUEST_URI'));
+        $REQUEST_URI=getenv('REQUEST_URI');
+        //$REQUEST_URI=$_SERVER["REQUEST_URI"];
+        $REQUEST_URI=str_replace("%3C","",$REQUEST_URI);
+        $REQUEST_URI=str_replace("%3E","",$REQUEST_URI);
+        $REQUEST_URI=str_replace('"',"",$REQUEST_URI);
+        $REQUEST_URI=str_replace("%27","",$REQUEST_URI);
+        $REQUEST_URI=str_replace("<script>","",$REQUEST_URI);
+        $REQUEST_URI=str_replace("'","",$REQUEST_URI);
+        $REQUEST_URI=str_replace(";","",$REQUEST_URI);
+        $REQUEST_URI=str_replace("/","",$REQUEST_URI);
+        $REQUEST_URI=str_replace("</script>","",$REQUEST_URI);
+        $REQUEST_URI=str_replace("alert","",$REQUEST_URI);
 
-		$SelectJP_Url=str_replace("=en-US","=ja-JP",$REQUEST_URI);
-		$SelectJP_Url=str_replace("EN_","JP_",$SelectJP_Url);
-		$SelectJP_Url=str_replace("@EN?","@JP?",$SelectJP_Url);
-		$SelectJP_Url=str_replace("=EN","=JP",$SelectJP_Url);
-		$SelectJP_Url=str_replace("%3DEN","%3DJP",$SelectJP_Url);					
-		$SelectJP_Url=str_replace("~EN","~JP",$SelectJP_Url);
-		$SelectJP_Url=str_replace("/EN/","/JP/",$SelectJP_Url);
-		$SelectJP_Url=str_replace("2%3Ddescription%3DEN","2%3Ddescription%3DJP",$SelectJP_Url);
+        $SelectEN_Url=$REQUEST_URI;
 
-		$SelectCN_Url=str_replace("=en-US","=zh-CN",$REQUEST_URI);
-		$SelectCN_Url=str_replace("EN_","CN_",$SelectCN_Url);
-		$SelectCN_Url=str_replace("@EN?","@CN?",$SelectCN_Url);
-		$SelectCN_Url=str_replace("=EN","=CN",$SelectCN_Url);
-		$SelectCN_Url=str_replace("%3DEN","%3DCN",$SelectCN_Url);
-		$SelectCN_Url=str_replace("~EN","~CN",$SelectCN_Url);
-		$SelectCN_Url=str_replace("/EN/","/CN/",$SelectCN_Url);
-		$SelectCN_Url=str_replace("2%3Ddescription%3DEN","2%3Ddescription%3DCN",$SelectCN_Url);
+        $SelectJP_Url=str_replace("=en-US","=ja-JP",$REQUEST_URI);
+        $SelectJP_Url=str_replace("EN_","JP_",$SelectJP_Url);
+        $SelectJP_Url=str_replace("@EN?","@JP?",$SelectJP_Url);
+        $SelectJP_Url=str_replace("=EN","=JP",$SelectJP_Url);
+        $SelectJP_Url=str_replace("%3DEN","%3DJP",$SelectJP_Url);
+        $SelectJP_Url=str_replace("~EN","~JP",$SelectJP_Url);
+        $SelectJP_Url=str_replace("/EN/","/JP/",$SelectJP_Url);
+        $SelectJP_Url=str_replace("2%3Ddescription%3DEN","2%3Ddescription%3DJP",$SelectJP_Url);
 
-		$SelectZH_Url=str_replace("=en-US","=zh-TW",$REQUEST_URI);
-		$SelectZH_Url=str_replace("EN_","ZH_",$SelectZH_Url);
-		$SelectZH_Url=str_replace("@EN?","@ZH?",$SelectZH_Url);
-		$SelectZH_Url=str_replace("=EN","=ZH",$SelectZH_Url);
-		$SelectZH_Url=str_replace("%3DEN","%3DZH",$SelectZH_Url);
-		$SelectZH_Url=str_replace("~EN","~ZH",$SelectZH_Url);
-		$SelectZH_Url=str_replace("/EN/","/ZH/",$SelectZH_Url);
-		$SelectZH_Url=str_replace("2%3Ddescription%3DEN","2%3Ddescription%3DZH",$SelectZH_Url);
+        $SelectCN_Url=str_replace("=en-US","=zh-CN",$REQUEST_URI);
+        $SelectCN_Url=str_replace("EN_","CN_",$SelectCN_Url);
+        $SelectCN_Url=str_replace("@EN?","@CN?",$SelectCN_Url);
+        $SelectCN_Url=str_replace("=EN","=CN",$SelectCN_Url);
+        $SelectCN_Url=str_replace("%3DEN","%3DCN",$SelectCN_Url);
+        $SelectCN_Url=str_replace("~EN","~CN",$SelectCN_Url);
+        $SelectCN_Url=str_replace("/EN/","/CN/",$SelectCN_Url);
+        $SelectCN_Url=str_replace("2%3Ddescription%3DEN","2%3Ddescription%3DCN",$SelectCN_Url);
 
-	}
+        $SelectZH_Url=str_replace("=en-US","=zh-TW",$REQUEST_URI);
+        $SelectZH_Url=str_replace("EN_","ZH_",$SelectZH_Url);
+        $SelectZH_Url=str_replace("@EN?","@ZH?",$SelectZH_Url);
+        $SelectZH_Url=str_replace("=EN","=ZH",$SelectZH_Url);
+        $SelectZH_Url=str_replace("%3DEN","%3DZH",$SelectZH_Url);
+        $SelectZH_Url=str_replace("~EN","~ZH",$SelectZH_Url);
+        $SelectZH_Url=str_replace("/EN/","/ZH/",$SelectZH_Url);
+        $SelectZH_Url=str_replace("2%3Ddescription%3DEN","2%3Ddescription%3DZH",$SelectZH_Url);
+
+    }
 }
 
 $ZH_Url=explode("?",$SelectZH_Url);
@@ -152,108 +152,123 @@ $SelectCN_Url=dowith_sql01($CN_Url[0]);
 if($userName!=""){
   $partnerLink="<a href='/PartnerZone/FEdashboard' style=color:#fff><i class='icon-line2-user me-1 position-relative' style='top: 1px;'></i><span class='d-none d-sm-inline-block font-primary fw-medium'>".$userName."</span></a>";
 }else{
-	$partnerLink="<a href='#modal-register' data-lightbox='inline' style=color:#fff><i class='icon-line2-user me-1 position-relative' style='top: 1px;'></i><span class='d-none d-sm-inline-block font-primary fw-medium'>Partner Zone</span></a>";
+    $partnerLink="<a href='#modal-register' data-lightbox='inline' style=color:#fff><i class='icon-line2-user me-1 position-relative' style='top: 1px;'></i><span class='d-none d-sm-inline-block font-primary fw-medium'>Partner Zone</span></a>";
 
 }
 
 
 ?>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M596MQJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M596MQJ" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- Login Modal -->
 <div class="modal1 mfp-hide" id="modal-register">
-	<div class="card mx-auto" style="max-width: 540px;">
-		<!--<div class="card-header py-3 bg-transparent center">
-			<h3 class="mb-0 fw-normal">Partner Zone Log In</h3>
-		</div>-->
-		<div class="card-body mx-auto py-5" style="max-width: 70%;">
-		
-		
-			<!--LOGIN FORM--> 
-			<div id="loginDiv" style="">
-			<div class="py-3 center">
-			<h3 class="mb-1 fw-semibold">Log In Partner Zone</h3>
-			</div>
-			<form id="login-form" name="login-form" class="mb-0 row">
+    <div class="card mx-auto" style="max-width: 540px;">
+        <!--<div class="card-header py-3 bg-transparent center">
+            <h3 class="mb-0 fw-normal">Partner Zone Log In</h3>
+        </div>-->
+        <div class="card-body mx-auto py-5" style="max-width: 70%;">
 
-				<div class="col-12">
-					<input type="text" id="topMail" name="topMail" value="" class="form-control not-dark" placeholder="E-mail" />
-					<div id="err_Email" name="err_Email" class="alert alert-danger mb-1" role="alert" style="display:none">
-          Please enter a valid email.
-        	</div>
-				</div>
-				
-				<div class="col-12 mt-4">
-					<input type="password" id="topPW" name="topPW" value="" class="form-control not-dark" placeholder="Password" />
-					<div id="errMsg" name="err_Password" class="alert alert-danger mb-1" role="alert" style="display:none" >
-            Sorry. Email / password combination is wrong.
-          </div>
-				</div>
-				<div class="col-12">
-					<a href="" id="FPW" name="FPW" class="float-end text-dark fw-light mt-2" onclick="return false">Forgot Password?</a>
-				</div>
-				<div class="col-12 mt-4">
-				<div id="vals-img" style="width: 100px;">
-				<img src="/captcha@1" id="rand-img" border="0" width="150" style="cursor: pointer; cursor: hand;">
-				</div> 
-				<a href="" id="refresh" onclick="return false">Refresh</a><br>
-				<input type="text" id="topChecknum" name="topChecknum" class="form-control not-dark required" placeholder="Type the text from image">
-				<div id="err_captacha" class="alert alert-danger mb-1" role="alert" style="display:none">Incorrect Captcha.</div>
 
-				</div>
-				<div class="col-12  mt-4">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="keepIn" name="keepIn" value="1">
-					<label class="form-check-label" for="">Keep me logged in</label>
-				</div>
-				</div>
-				<div class="col-12 mt-4">
-					<button id="topLogin" name="topLogin" type="button" class="button w-100 m-0 button-circle button-blue"  value="login">Login</button>
-				</div>
-			</form>
-			</div>
-			<!--END LOGIN FORM-->
-			
-			<!--Forgot Password-->
-			<div id="FPWDiv" style="display:none">
-			<div class="py-3 center">
-			<h3 class="mb-1 fw-semibold">Reset Password</h3>
-			</div>
-			
-			<form id="reset-form" name="reset-form" class="mb-0 row" onclick="return false">
-				<p>Please enter your email address. We'll send you an email with your new password.</p>
-				<div class="col-12 mb-1">
-				<input type="text" id="FPW_mail" name="FPW_mail" value="" class="form-control not-dark" placeholder="E-mail" />
-				</div>
-				<!--error msg-->
-				<div class="style-msg errormsg">
-					<div id="rest_errMsg" class="sb-msg" style="display:none"><i class="icon-question-sign"></i>Sorry! You are not the member of partner zone.</div>
-				</div>
-				<!--error msg-->
-				<!--success msg-->
-				<div class="style-msg infomsg">
-					<div id="rest_sucMsg" class="sb-msg" style="display:none"><i class="icon-email2"></i>Done. Please check your email for the new password.</div>
-				</div>
-				<!--success msg-->
-				
-				<div class="col-12 mt-4">
-					<button id="resetPW" name="resetPW" class="button m-1 button-circle button-blue button-mini" value="">Reset my password</button>
-					<button id="B_login" name="B_login" class="button m-1 button-circle button-mini  button-border button-dark" value="">Back to login</button>
-				</div>
-			</form>
-			
-			
-			
-			
-			</div>
-			<!--End Forgot Password-->
-			
-			
-		</div>
-	</div>
+            <!--LOGIN FORM-->
+            <div id="loginDiv" style="">
+                <div class="py-3 center">
+                    <h3 class="mb-1 fw-semibold">Log In Partner Zone</h3>
+                </div>
+                <form id="login-form" name="login-form" class="mb-0 row">
+
+                    <div class="col-12">
+                        <input type="text" id="topMail" name="topMail" value="" class="form-control not-dark"
+                            placeholder="E-mail" />
+                        <div id="err_Email" name="err_Email" class="alert alert-danger mb-1" role="alert"
+                            style="display:none">
+                            Please enter a valid email.
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <input type="password" id="topPW" name="topPW" value="" class="form-control not-dark"
+                            placeholder="Password" />
+                        <div id="errMsg" name="err_Password" class="alert alert-danger mb-1" role="alert"
+                            style="display:none">
+                            Sorry. Email / password combination is wrong.
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <a href="" id="FPW" name="FPW" class="float-end text-dark fw-light mt-2"
+                            onclick="return false">Forgot Password?</a>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <div id="vals-img" style="width: 100px;">
+                            <img src="/captcha@1" id="rand-img" border="0" width="150"
+                                style="cursor: pointer; cursor: hand;">
+                        </div>
+                        <a href="" id="refresh" onclick="return false">Refresh</a><br>
+                        <input type="text" id="topChecknum" name="topChecknum" class="form-control not-dark required"
+                            placeholder="Type the text from image">
+                        <div id="err_captacha" class="alert alert-danger mb-1" role="alert" style="display:none">
+                            Incorrect Captcha.</div>
+
+                    </div>
+                    <div class="col-12  mt-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="keepIn" name="keepIn" value="1">
+                            <label class="form-check-label" for="">Keep me logged in</label>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <button id="topLogin" name="topLogin" type="button"
+                            class="button w-100 m-0 button-circle button-blue" value="login">Login</button>
+                    </div>
+                </form>
+            </div>
+            <!--END LOGIN FORM-->
+
+            <!--Forgot Password-->
+            <div id="FPWDiv" style="display:none">
+                <div class="py-3 center">
+                    <h3 class="mb-1 fw-semibold">Reset Password</h3>
+                </div>
+
+                <form id="reset-form" name="reset-form" class="mb-0 row" onclick="return false">
+                    <p>Please enter your email address. We'll send you an email with your new password.</p>
+                    <div class="col-12 mb-1">
+                        <input type="text" id="FPW_mail" name="FPW_mail" value="" class="form-control not-dark"
+                            placeholder="E-mail" />
+                    </div>
+                    <!--error msg-->
+                    <div class="style-msg errormsg">
+                        <div id="rest_errMsg" class="sb-msg" style="display:none"><i
+                                class="icon-question-sign"></i>Sorry! You are not the member of partner zone.</div>
+                    </div>
+                    <!--error msg-->
+                    <!--success msg-->
+                    <div class="style-msg infomsg">
+                        <div id="rest_sucMsg" class="sb-msg" style="display:none"><i class="icon-email2"></i>Done.
+                            Please check your email for the new password.</div>
+                    </div>
+                    <!--success msg-->
+
+                    <div class="col-12 mt-4">
+                        <button id="resetPW" name="resetPW" class="button m-1 button-circle button-blue button-mini"
+                            value="">Reset my password</button>
+                        <button id="B_login" name="B_login"
+                            class="button m-1 button-circle button-mini  button-border button-dark" value="">Back to
+                            login</button>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+            <!--End Forgot Password-->
+
+
+        </div>
+    </div>
 </div>
 
 
@@ -261,57 +276,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- cbu catalog Modal -->
 <div class="modal1 mfp-hide" id="modal-cbu-catalog">
-	<div class="card mx-auto" style="max-width: 540px;">
-		<div class="card-body mx-auto py-5" style="max-width: 70%;">
-			<!-- <form id="login-form" name="login-form" class="mb-0 row" action="#" method="post"> -->
-			Please fill out the form to download it.
-			<div class="col-12 mt-4">
-				<input type="text" id="c_name" name="c_name" value="" class="form-control not-dark required" placeholder="Name" />
-				<div style="margin:5px; color:#c00; display:none" id="c_err_Name">Required field!</div>
-			</div>
-			<div class="col-12 mt-4">
-				<input type="text" id="c_company" name="c_company" value="" class="form-control not-dark required" placeholder="Company Name" />
-				<div style="margin:5px; color:#c00; display:none" id="c_err_cName" >Required field!</div>
-			</div>
-			<div class="col-12 mt-4">
-				<input type="text" id="c_email" name="c_email" value="" class="form-control not-dark required" placeholder="E-mail" />
-				<div style="margin:5px; color:#c00; display:none" id="c_err_Email">Invalid e-mail address!</div>
-			</div>
-			<div class="col-12 mt-4">
-				<select class="form-select required" name="c_sel_reg" id="c_sel_reg">
-					<option value="">-- Select Your Region --</option>
-					<option value="NA">North America</option>
-					<option value="SA">Central / South America</option>
-					<option value="EUR">Europe</option>
-					<option value="ME">Middle East / Africa</option>
-					<option value="ASIA">Asia</option>
-					<option value="Oceania">Oceania</option>
-				</select>
-				<div style="margin:5px; color:#c00; display:none" id="c_err_nlang" >Please select your region.</div>
-			</div>
-			<div class="col-12 mt-4">
-				<input type="checkbox" class="form-check-input" id="c_check_news" checked>
-				<label class="form-check-label" for="exampleCheck1">Subscribe me to newsletter</label>
-			</div>
-			<div class="col-12 mt-4">
-				<div id="vals-img" style="width: 100px;">
-					<img src="/captcha@1" id="rand-img" border="0" width="150" style="cursor: pointer; cursor: hand;">
-				</div> 
-				<a href="#" id="re_catelog">Refresh</a><br>
-				<input type="text" name="c_checknum" id="c_checknum" class="form-control not-dark required" placeholder="Type the text from image">
-			</div>
-			<div class="col-12 mt-4 text-smaller">Clicking <strong>"DOWNLOAD"</strong>, you agree to the <a href="/EN/legal/terms_of_use" target="terms" />Terms of Service</a> and <a href="/EN/legal/privacy_policy" target="terms" />Privacy Policy</a>, including <a href="/EN/legal/cookie_policy/" target="terms" />Cookie Policy</a>.</div>
+    <div class="card mx-auto" style="max-width: 540px;">
+        <div class="card-body mx-auto py-5" style="max-width: 70%;">
+            <!-- <form id="login-form" name="login-form" class="mb-0 row" action="#" method="post"> -->
+            Please fill out the form to download it.
+            <div class="col-12 mt-4">
+                <input type="text" id="c_name" name="c_name" value="" class="form-control not-dark required"
+                    placeholder="Name" />
+                <div style="margin:5px; color:#c00; display:none" id="c_err_Name">Required field!</div>
+            </div>
+            <div class="col-12 mt-4">
+                <input type="text" id="c_company" name="c_company" value="" class="form-control not-dark required"
+                    placeholder="Company Name" />
+                <div style="margin:5px; color:#c00; display:none" id="c_err_cName">Required field!</div>
+            </div>
+            <div class="col-12 mt-4">
+                <input type="text" id="c_email" name="c_email" value="" class="form-control not-dark required"
+                    placeholder="E-mail" />
+                <div style="margin:5px; color:#c00; display:none" id="c_err_Email">Invalid e-mail address!</div>
+            </div>
+            <div class="col-12 mt-4">
+                <select class="form-select required" name="c_sel_reg" id="c_sel_reg">
+                    <option value="">-- Select Your Region --</option>
+                    <option value="NA">North America</option>
+                    <option value="SA">Central / South America</option>
+                    <option value="EUR">Europe</option>
+                    <option value="ME">Middle East / Africa</option>
+                    <option value="ASIA">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+                <div style="margin:5px; color:#c00; display:none" id="c_err_nlang">Please select your region.</div>
+            </div>
+            <div class="col-12 mt-4">
+                <input type="checkbox" class="form-check-input" id="c_check_news" checked>
+                <label class="form-check-label" for="exampleCheck1">Subscribe me to newsletter</label>
+            </div>
+            <div class="col-12 mt-4">
+                <div id="vals-img" style="width: 100px;">
+                    <img src="/captcha@1" id="rand-img" border="0" width="150" style="cursor: pointer; cursor: hand;">
+                </div>
+                <a href="#" id="re_catelog">Refresh</a><br>
+                <input type="text" name="c_checknum" id="c_checknum" class="form-control not-dark required"
+                    placeholder="Type the text from image">
+            </div>
+            <div class="col-12 mt-4 text-smaller">Clicking <strong>"DOWNLOAD"</strong>, you agree to the <a
+                    href="/EN/legal/terms_of_use" target="terms" />Terms of Service</a> and <a
+                    href="/EN/legal/privacy_policy" target="terms" />Privacy Policy</a>, including <a
+                    href="/EN/legal/cookie_policy/" target="terms" />Cookie Policy</a>.</div>
 
-			<div class="col-12 mt-4">
-				<button class="button w-100 m-0 button-circle button-blue" id="catalogOK" name="catalogOK" type="button" onclick="catalog('c','5G_Edge_OCP_Cloud_DM')" >
-					<i class="icon-line2-cloud-download"></i>Download
-				</button>
-				<input id="cbuurl" type="hidden" value="">
-				<input id="c_cateName" type="hidden" value="">
-			</div>
-			<!-- </form>-->
-		</div>
-	</div>
+            <div class="col-12 mt-4">
+                <button class="button w-100 m-0 button-circle button-blue" id="catalogOK" name="catalogOK" type="button"
+                    onclick="catalog('c','5G_Edge_OCP_Cloud_DM')">
+                    <i class="icon-line2-cloud-download"></i>Download
+                </button>
+                <input id="cbuurl" type="hidden" value="">
+                <input id="c_cateName" type="hidden" value="">
+            </div>
+            <!-- </form>-->
+        </div>
+    </div>
 </div>
 
 
@@ -319,52 +342,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ebu catalog Modal -->
 <div class="modal1 mfp-hide" id="modal-ebu-catalog">
-	<div class="card mx-auto" style="max-width: 540px;">
-		<div class="card-body mx-auto py-5" style="max-width: 70%;">
-			<!-- <form id="login-form" name="login-form" class="mb-0 row" action="#" method="post"> -->
-			Please fill out the form to download it.
-			<div class="col-12 mt-4">
-				<input type="text" id="e_name" name="e_name" value="" class="form-control not-dark required" placeholder="Name" />
-				<div style="margin:5px; color:#c00; display:none" id="e_err_Name">Required field!</div>
-			</div>
-			<div class="col-12 mt-4">
-				<input type="text" id="e_company" name="e_company" value="" class="form-control not-dark required" placeholder="Company Name" />
-				<div style="margin:5px; color:#c00; display:none" id="e_err_cName" >Required field!</div>
-			</div>
-			<div class="col-12 mt-4">
-				<input type="text" id="e_email" name="e_email" value="" class="form-control not-dark required" placeholder="E-mail" />
-				<div style="margin:5px; color:#c00; display:none" id="e_err_Email">Invalid e-mail address!</div>
-			</div>
-			<div class="col-12 mt-4">
-				<select class="form-select required" name="e_sel_reg" id="e_sel_reg">
-					<option value="">-- Select Your Region --</option>
-					<option value="NA">North America</option>
-					<option value="SA">Central / South America</option>
-					<option value="EUR">Europe</option>
-					<option value="ME">Middle East / Africa</option>
-					<option value="ASIA">Asia</option>
-					<option value="Oceania">Oceania</option>
-				</select>
-			</div>
-			<div style="margin:5px; color:#c00; display:none" id="e_err_nlang" >Please select your region.</div>
-			
-			<div class="col-12 mt-4">
-				<div id="vals-img" style="width: 100px;">
-					<img src="/captcha@1" id="e_rand-img" border="0" width="150" style="cursor: pointer; cursor: hand;">
-				</div> 
-				<a href="#" id="re_catelog_E">Refresh</a><br>
-				<input type="text" name="e_checknum" id="e_checknum" class="form-control not-dark required" placeholder="Type the text from image">
-			</div>
-			<div class="col-12 mt-4 text-smaller">Clicking <strong>"DOWNLOAD"</strong>, you agree to the <a href="/EN/legal/terms_of_use" target="terms" />Terms of Service</a> and <a href="/EN/legal/privacy_policy" target="terms" />Privacy Policy</a>, including <a href="/EN/legal/cookie_policy/" target="terms" />Cookie Policy</a>.</div>
+    <div class="card mx-auto" style="max-width: 540px;">
+        <div class="card-body mx-auto py-5" style="max-width: 70%;">
+            <!-- <form id="login-form" name="login-form" class="mb-0 row" action="#" method="post"> -->
+            Please fill out the form to download it.
+            <div class="col-12 mt-4">
+                <input type="text" id="e_name" name="e_name" value="" class="form-control not-dark required"
+                    placeholder="Name" />
+                <div style="margin:5px; color:#c00; display:none" id="e_err_Name">Required field!</div>
+            </div>
+            <div class="col-12 mt-4">
+                <input type="text" id="e_company" name="e_company" value="" class="form-control not-dark required"
+                    placeholder="Company Name" />
+                <div style="margin:5px; color:#c00; display:none" id="e_err_cName">Required field!</div>
+            </div>
+            <div class="col-12 mt-4">
+                <input type="text" id="e_email" name="e_email" value="" class="form-control not-dark required"
+                    placeholder="E-mail" />
+                <div style="margin:5px; color:#c00; display:none" id="e_err_Email">Invalid e-mail address!</div>
+            </div>
+            <div class="col-12 mt-4">
+                <select class="form-select required" name="e_sel_reg" id="e_sel_reg">
+                    <option value="">-- Select Your Region --</option>
+                    <option value="NA">North America</option>
+                    <option value="SA">Central / South America</option>
+                    <option value="EUR">Europe</option>
+                    <option value="ME">Middle East / Africa</option>
+                    <option value="ASIA">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </div>
+            <div style="margin:5px; color:#c00; display:none" id="e_err_nlang">Please select your region.</div>
 
-			<div class="col-12 mt-4">
-				<button class="button w-100 m-0 button-circle button-blue" id="catalogOK" name="catalogOK" type="button" onclick="catalog('e','5G_Edge_OCP_Cloud_DM')"><i class="icon-line2-cloud-download"></i>Download</button>
-			</div>
-			<input id="ebuurl" type="hidden" value="">
-			<input id="e_cateName" type="hidden" value="">
-			<!-- </form> -->
-		</div>
-	</div>
+            <div class="col-12 mt-4">
+                <div id="vals-img" style="width: 100px;">
+                    <img src="/captcha@1" id="e_rand-img" border="0" width="150" style="cursor: pointer; cursor: hand;">
+                </div>
+                <a href="#" id="re_catelog_E">Refresh</a><br>
+                <input type="text" name="e_checknum" id="e_checknum" class="form-control not-dark required"
+                    placeholder="Type the text from image">
+            </div>
+            <div class="col-12 mt-4 text-smaller">Clicking <strong>"DOWNLOAD"</strong>, you agree to the <a
+                    href="/EN/legal/terms_of_use" target="terms" />Terms of Service</a> and <a
+                    href="/EN/legal/privacy_policy" target="terms" />Privacy Policy</a>, including <a
+                    href="/EN/legal/cookie_policy/" target="terms" />Cookie Policy</a>.</div>
+
+            <div class="col-12 mt-4">
+                <button class="button w-100 m-0 button-circle button-blue" id="catalogOK" name="catalogOK" type="button"
+                    onclick="catalog('e','5G_Edge_OCP_Cloud_DM')"><i
+                        class="icon-line2-cloud-download"></i>Download</button>
+            </div>
+            <input id="ebuurl" type="hidden" value="">
+            <input id="e_cateName" type="hidden" value="">
+            <!-- </form> -->
+        </div>
+    </div>
 </div>
 
 
@@ -374,340 +406,325 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Header
 ============================================= -->
 <header id="header" class="full-header transparent-header semi-transparent dark" style="border-bottom:0px">
-	<div id="header-wrap">
-		<div class="container">
-			<div class="header-row">
+    <div id="header-wrap">
+        <div class="container">
+            <div class="header-row">
 
-				<!-- Logo
-				============================================= -->
-				<div id="logo" style="border-right:0px">
-							<a href="/" class="logo-default" data-dark-logo="/images/mct-logo-dark.png" data-mobile-logo="/images/mct-logo-dark.png" data-sticky-logo="/images/mct-logo-dark.png"><img src="/images/mct-logo-dark.png" alt="MiTAC Computing Technology logo"></a>
-							<!--<a href="/" class="retina-logo" data-dark-logo="/images/mct-logo-dark@2x.png" data-mobile-logo="/images/mct-logo-dark@2x.png" data-sticky-logo="/images/mct-logo-dark@2x.png"><img src="/images/mct-logo-dark@2x.png" alt="MiTAC Computing Technology logo"></a>-->
-				</div>
-				
-				
-				
-				<!-- #logo end -->
-
-				<div class="header-misc">
-
-					<!-- Top Search bar
-					============================================= -->
-					<div id="top-account" class="px-1 fw-normal text-smaller">
-						<a href="#" id="compare_process"  style="color:#fff"></a>
-					</div>
-					<div id="top-account" class="px-1  fw-normal text-smaller">&nbsp;&nbsp;
-						<a href="/RFQ" id="RFQnum"  style="color:#fff"></a>
-					</div>
-					<div id="top-account" class=" fw-normal text-smaller">&nbsp;&nbsp;&nbsp;
-						<?php echo $partnerLink;?>
-					</div>
+                <!-- Logo
+                ============================================= -->
+                <div id="logo" style="border-right:0px">
+                    <a href="/" class="logo-default" data-dark-logo="/images/mct-logo-dark.png"
+                        data-mobile-logo="/images/mct-logo-dark.png" data-sticky-logo="/images/mct-logo-dark.png"><img
+                            src="/images/mct-logo-dark.png" alt="MiTAC Computing Technology logo"></a>
+                    <!--<a href="/" class="retina-logo" data-dark-logo="/images/mct-logo-dark@2x.png" data-mobile-logo="/images/mct-logo-dark@2x.png" data-sticky-logo="/images/mct-logo-dark@2x.png"><img src="/images/mct-logo-dark@2x.png" alt="MiTAC Computing Technology logo"></a>-->
+                </div>
 
 
-					<!-- Top Search
-					============================================= -->
-					<div id="top-search" class="header-misc-icon">
-						<a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
-					</div><!-- #top-search end -->
-					
-					
-				</div>
 
-				<div id="primary-menu-trigger">
-					<svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
-				</div>
+                <!-- #logo end -->
 
-				<!-- Primary Navigation
-				============================================= -->
-				
-				
-				<nav class="primary-menu me-lg-auto">
+                <div class="header-misc">
 
-					<ul class="menu-container">
-					
-						
-						<li class="menu-item  mega-menu mega-menu-full">
-							<a class="menu-link" href="#"><div style="font-size:1.2rem">Products</div></a>
-							<div class="mega-menu-content mega-menu-style-2">
-								<div class="container-fluid">
-									<div class="row">
-										<ul class="sub-menu-container mega-menu-column col">
-											<li class="menu-item">
-												<div class="row clearfix">
-													<div class="col-lg-1"></div>
-													<div class="col-lg-2">
-													<a href="https://datacentersolutions.mitacmct.com/" target="_blank"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">DSG System</h4></a>
-														<div class="row">
-															<div class="col">
-															<ul class="sub-menu-container">
-															<li class="menu-item">Single Node Servers</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://datacentersolutions.mitacmct.com/Intel-Server-M50FCP-Family" target="_blank"><div>Intel® Server M50FCP Family</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://datacentersolutions.mitacmct.com/Intel-Server-M50CYP-Family" target="_blank"><div>Intel® Server M50CYP Family</div></a>
-															</li>
-															<li class="menu-item">Multi-Node Servers</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://datacentersolutions.mitacmct.com/Intel-Server-D50DNP-Family" target="_blank"><div>Intel® Server D50DNP Family</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://datacentersolutions.mitacmct.com/Intel-Server-D50TNP-Family" target="_blank"><div>Intel® Server D50TNP Family</div></a>
-															</li>
-															<li class="menu-item">Server Boards</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://datacentersolutions.mitacmct.com/Intel-Server-Board-S2600WFR" target="_blank"><div>Intel® Server Board S2600WFR Family</div></a>
-															</li>
-															</ul>
-															</div>
-														</div>
-													</div>
-													<div class="col-lg-2">
-													<a href="https://www.tyan.com/" target="_blank"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">TYAN Server</h4></a>
-														<div class="row">
-															<div class="col">
-															<ul class="sub-menu-container">
-															<li class="menu-item">Motherboards</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://www.tyan.com/EN_Intel-Motherboard" target="_blank"><div>Intel</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://www.tyan.com/EN_AMD-Motherboard" target="_blank"><div>AMD</div></a>
-															</li>
-															<li class="menu-item">Barebones</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://www.tyan.com/EN_Intel-Servers" target="_blank"><div>Intel</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="https://www.tyan.com/EN_AMD-Servers" target="_blank"><div>AMD</div></a>
-															</li>
-															</ul>
-															</div>
-														</div>
-													</div>
-													<div class="col-lg-2">
-													<a href="/EN/products/5G_edge_computing_platform/"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">5G Server</h4></a>
-														<div class="row">
-															<div class="col">
-															<ul class="sub-menu-container">
-															<li class="menu-item">Edge Server</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/5GEdgeComputing_FS2D11_FS2D11"><div>FS2D11</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/5GEdgeComputing_WS1S01_WS1S01"><div>WS1S01</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/5GEdgeComputing_WS1S12_WS1S12"><div>WS1S11</div></a>
-															</li>
-															<li class="menu-item">Multi Node Server</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/5GEdgeComputing_AD211_AD1S01"><div>AD211</div></a>
-															</li>
-															</ul>
-															</div>
-														</div>
-													</div>
-													<div class="col-lg-2">
-													<a href="/EN/products/OCP/"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">OCP Server</h4></a>
-														<div class="row">
-															<div class="col">
-															<ul class="sub-menu-container">
-															<li class="menu-item">Intel Server</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/OCPserver_GS1D01_GS1D01-U"><div>GS1D01</div></a>
-															</li>
-															<!--<li class="menu-item">
-															<a class="menu-link" href="/OCPserver_E7278_E7278-U"><div>E7278</div></a>
-															</li>-->
-															<li class="menu-item">AMD Server</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/OCPserver_CP2S11_CP2S11-U"><div>CP2S11</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/OCPserver_E8020_E8020-U"><div>E8020</div></a>
-															</li>
-															</ul>
-															</div>
-														</div>
-													</div>
-													<div class="col-lg-2">
-													<h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">Embedded</h4>
-													
-															<div class="row">
-															<!--one column-->
-															<div class="col">
-															<ul class="sub-menu-container">
-															<li class="menu-item">
-															<a class="menu-link" href="/EN/products/industrial_motherboard/"><div>Industrial Motherboard</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/EN/products/embedded_system/"><div>Embedded System</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/EN/products/Industrial_Panel_PC/"><div>Industrial Panel PC</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/EN/products/standard-kiosks/"><div>Interactive Kiosk</div></a>
-															</li>
-															<li class="menu-item">
-															<a class="menu-link" href="/EN/products/Rugged_Tablet/"><div>Rugged Tablet</div></a>
-															</li>
-															</ul>
-															</div><!--end one column-->
-															</div>
-													</div>
-
-													
-													
-													<div class="col-lg-1"></div>
-													
-										
-												</div>
-												
-											</li>
-										</ul>
-										
-										
-									</div>
-									<div class="row mt-4" style="border-top:1px solid #626262">
-										<ul class="sub-menu-container mega-menu-column col">
-											<li class="menu-item">
-												<div class="row clearfix">
-													<div class="col-lg-1"></div>
-													<div class="col-lg-10"><a href="/catalogs"><h5><i class="icon-cloud-download" style="font-size:1rem;"></i>&nbsp;&nbsp;&nbsp;Download Catalogs</h5></a></div>
-													<div class="col-lg-1"></div>
-												</div>
-											</li>
-										</ul>
-									
-									
-									</div>
-									
-									
-									
-									
-									
-								</div>
-							</div>
-						</li>
-						
-						
-						<li class="menu-item mega-menu mega-menu-small">
-						<a class="menu-link" href="#"><div style="font-size:1.2rem">Solutions</div></a>
-									<div class="mega-menu-content mega-menu-style-2">
-										<div class="container">
-											<div class="row">
-												<ul class="sub-menu-container mega-menu-column col-lg-6">
-													<li class="menu-item mega-menu-title"><div>Data Center</div>
-														<ul class="sub-menu-container">
-															<li class="menu-item"><a class="menu-link" href="/EN/solution/5G_edge_computing_solution"><div>5G RAN / Edge Computing</div></a></li>
-															<li class="menu-item"><a class="menu-link" href="/EN/solution/liquid_cooling/"><div>Liquid Cooling</div></a></li>
-															<li class="menu-item"><a class="menu-link" href="/EN/solution/immersion_cooling/"><div>Immersion Cooling</div></a></li>
-															<li class="menu-item"><a class="menu-link" href="/EN/solution/rack_integration"><div>Rack Integration</div></a></li>
-															<li class="menu-item"><a class="menu-link" href="/EN/solution/ESA_Kit/"><div>ESA Kit</div></a></li>
-															<li class="menu-item"><a class="menu-link" href="https://www.tyan.com/EN/TSM/" target="_blank"><div>Tyan System Manager</div></a></li>
-														</ul>
-													</li>
-												</ul>
-												<ul class="sub-menu-container mega-menu-column col-lg-6">
-													<li class="menu-item mega-menu-title"><div>IoT</div>
-														<ul class="sub-menu-container">
-															<li class="menu-item">
-																<a class="menu-link" href="/EN/solution/retail_automation"><div>Retail Automation</div></a>
-															</li>
-															<li class="menu-item">
-																<a class="menu-link" href="/EN/solution/factory_automation"><div>Factory Automation</div></a>
-															</li>
-															<li class="menu-item">
-																<a class="menu-link" href="/EN/solution/intelligent_transportation"><div>Intelligent Transportation System</div></a>
-															</li>
-															<li class="menu-item">
-																<a class="menu-link" href="/EN/solution/edge_ai"><div>Edge AI</div></a>
-															</li>
-														</ul>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-						
-						
-						
-						
-						<li class="menu-item">
-							<a class="menu-link" href="#"><div style="font-size:1.2rem">Support</div></a>
-							<ul class="sub-menu-container">
-								<li class="menu-item">
-									<a class="menu-link" href="/archiveProducts"><div>Archived Products</div></a>
-								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="/EN/contact/"><div>Contact Us</div></a>
-								</li>
-							</ul>
-						</li>
-						
-						
-						<li class="menu-item">
-							<a class="menu-link" href="/EN/about_mitac/"><div style="font-size:1.2rem">About Us</div></a>
-							<ul class="sub-menu-container">
-								<li class="menu-item">
-									<a class="menu-link" href="/EN/about_mitac/"><div>About MiTAC</div></a>
-								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="/EN/about_mitac/#milestones"><div>Innovation Milestone</div></a>
-								</li>
-								<!--<li class="menu-item">
-									<a class="menu-link" href="#"><div>Sustainability</div></a>
-								</li>-->
-								<li class="menu-item">
-									<a class="menu-link" href="https://www.mitac.com/en-global/Careers/index" target="_blank"><div>Join Team MiTAC</div></a>
-								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="https://www.mitac.com/en-global/company_affiliates/index" target="_blank"><div>MiTAC-Synnex Group</div></a>
-								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="/EN/about_mitac/#Office"><div>Worldwide Offices</div></a>
-								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="/EN/solution/ecosystem_partners"><div>Ecosystem Partners</div></a>
-								</li>
-							</ul>
-						</li>
-						
-					</ul>
-
-				</nav>
-				
-				
-
-				
-				<!-- #primary-menu end -->
-				<form class="top-search-form" name="form_search" method="post" action="/en-US@RSU~SearchRE">
-					<input id="txtInput" name="txtInput" type="text" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
-				</form>
-
-			</div>
-		</div>
-	</div>
-	<div class="header-wrap-clone"></div>
-	<!--compare alert modal-->
+                    <!-- Top Search bar
+                    ============================================= -->
+                    <div id="top-account" class="px-1 fw-normal text-smaller">
+                        <a href="#" id="compare_process" style="color:#fff"></a>
+                    </div>
+                    <div id="top-account" class="px-1  fw-normal text-smaller">&nbsp;&nbsp;
+                        <a href="/RFQ" id="RFQnum" style="color:#fff"></a>
+                    </div>
+                    <div id="top-account" class=" fw-normal text-smaller">&nbsp;&nbsp;&nbsp;
+                        <?php echo $partnerLink;?>
+                    </div>
 
 
-<div id="compare-msg1" class="modal fade compare-alert-modal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h1 class="modal-title" id="myModalLabel"><i class="icon-line-info" style="color:#c00"></i></h1>
-				<p class="mb-0">&nbsp;&nbsp;Only products of the same type can be compared.</p>
-				<button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
-			</div>
-		</div>
-	</div>
-</div>
-<!--end compare alert modal-->
+                    <!-- Top Search
+                    ============================================= -->
+                    <div id="top-search" class="header-misc-icon">
+                        <a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i
+                                class="icon-line-cross"></i></a>
+                    </div><!-- #top-search end -->
+
+
+                </div>
+
+                <div id="primary-menu-trigger">
+                    <svg class="svg-trigger" viewBox="0 0 100 100">
+                        <path
+                            d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
+                        </path>
+                        <path d="m 30,50 h 40"></path>
+                        <path
+                            d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20">
+                        </path>
+                    </svg>
+                </div>
+
+                <!-- Primary Navigation
+                ============================================= -->
+
+
+                <nav class="primary-menu me-lg-auto">
+
+                    <ul class="menu-container">
+
+
+                        <li class="menu-item  mega-menu mega-menu-full">
+                            <a class="menu-link" href="#">
+                                <div style="font-size:1.2rem">Products</div>
+                            </a>
+                            <div class="mega-menu-content mega-menu-style-2">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <ul class="sub-menu-container mega-menu-column col">
+                                            <li class="menu-item">
+                                                <div class="row clearfix">
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-2">
+                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
+                                                            <a class="menu-link" href="/EN/products/industrial_motherboard/">
+                                                                <div>Industrial Motherboard</div>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="row">
+                                                            <!--one column-->
+                                                            <div class="col">
+                                                                <ul class="sub-menu-container">
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@1=Search">
+                                                                            <div>Micro ATX</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@2=Search">
+                                                                            <div>Thin Mini-iTX</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@3=Search">
+                                                                            <div>Mini-iTX</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@4=Search">
+                                                                            <div>3.5" SBC</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@5=Search">
+                                                                            <div>2.5" SBC</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@97=Search">
+                                                                            <div>COMe</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/industrial_motherboard@118=Search">
+                                                                            <div>AI Acceleration Card</div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!--end one column-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
+                                                            <a class="menu-link" href="/EN/products/embedded_system/">
+                                                                <div>Embedded System</div>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="row">
+                                                            <!--one column-->
+                                                            <div class="col">
+                                                                <ul class="sub-menu-container">
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/embedded_system@89=Search">
+                                                                            <div>Rugged & Modularized</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/embedded_system@90=Search">
+                                                                            <div>Industrial & Compact</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/embedded_system@91=Search">
+                                                                            <div>Performance & Multifunctional</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/embedded_system@112=Search">
+                                                                            <div>Rackmount</div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!--end one column-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
+                                                            <a class="menu-link" href="/EN/products/Industrial_Panel_PC/">
+                                                                <div>Industrial Panel PC</div>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="row">
+                                                            <!--one column-->
+                                                            <div class="col">
+                                                                <ul class="sub-menu-container">
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/Industrial_Panel_PC@92=Search">
+                                                                            <div>Standalone Series</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/Industrial_Panel_PC@93=Search">
+                                                                            <div>Panel Mount Series</div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!--end one column-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
+                                                            <a class="menu-link" href="javascript:void();">
+                                                                <div>Tablet/Kiosk</div>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="row">
+                                                            <!--one column-->
+                                                            <div class="col">
+                                                                <ul class="sub-menu-container">
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/Rugged_Tablet/">
+                                                                            <div>Rugged Tablet</div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a class="menu-link" href="/EN/products/standard-kiosks/">
+                                                                            <div>Kiosk</div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!--end one column-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="row mt-4" style="border-top:1px solid #626262">
+                                        <ul class="sub-menu-container mega-menu-column col">
+                                            <li class="menu-item">
+                                                <div class="row clearfix">
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-10"><a href="/catalogs">
+                                                            <h5><i class="icon-cloud-download"
+                                                                    style="font-size:1rem;"></i>&nbsp;&nbsp;&nbsp;Download
+                                                                Catalogs</h5>
+                                                        </a></div>
+                                                    <div class="col-lg-1"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="menu-item mega-menu mega-menu-small">
+                            <a class="menu-link" href="#">
+                                <div style="font-size:1.2rem">Solutions</div>
+                            </a>
+                            <div class="mega-menu-content mega-menu-style-2">
+                                <div class="container">
+                                    <div class="row">
+                                        <ul class="sub-menu-container mega-menu-column col-lg-6">
+                                            <li class="menu-item mega-menu-title">
+                                                <ul class="sub-menu-container">
+                                                    <li class="menu-item">
+                                                        <a class="menu-link" href="/EN/solution/retail_automation">
+                                                            <div>Retail Automation</div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a class="menu-link" href="/EN/solution/factory_automation">
+                                                            <div>Factory Automation</div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a class="menu-link"
+                                                            href="/EN/solution/intelligent_transportation">
+                                                            <div>Intelligent Transportation System</div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a class="menu-link" href="/EN/solution/edge_ai">
+                                                            <div>Edge AI</div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="#">
+                                <div style="font-size:1.2rem">Support</div>
+                            </a>
+                            <ul class="sub-menu-container">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="/archiveProducts">
+                                        <div>Archived Products</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="/EN/contact/">
+                                        <div>Contact Us</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- #primary-menu end -->
+                <form class="top-search-form" name="form_search" method="post" action="/en-US@RSU~SearchRE">
+                    <input id="txtInput" name="txtInput" type="text" class="form-control" value=""
+                        placeholder="Type &amp; Hit Enter.." autocomplete="off">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="header-wrap-clone"></div>
+    <!--compare alert modal-->
+
+
+    <div id="compare-msg1" class="modal fade compare-alert-modal" tabindex="-1" role="dialog"
+        aria-labelledby="centerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="myModalLabel"><i class="icon-line-info" style="color:#c00"></i></h1>
+                    <p class="mb-0">&nbsp;&nbsp;Only products of the same type can be compared.</p>
+                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end compare alert modal-->
 </header><!-- #header end -->
-
-
-

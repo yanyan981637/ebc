@@ -622,21 +622,9 @@ $(function() {
 </div>
 
 <div class="clear"></div>
-<div id="menu">
-<ul>
-<li ><a href="../default.php">Products</a>
-
-</li>
-<li> <a href="../modules.php">Contents</a> 
-      <ul>
-		<li><a href="../modules.php">Modules</a></li>	  
-      </ul>
-</li>
-<li ><a href="../newsletter.html">Newsletters</a>
-<ul><li><a href="../subscribe.html">Subscription</a></li></ul>
-</li>
-</ul>
-</div>
+<?php
+include("menus.php");
+?>
 
 <div class="clear"></div>
 

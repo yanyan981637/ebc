@@ -19,7 +19,7 @@ mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
 
 if(isset($_REQUEST['methods'])!=''){
 if(trim($_REQUEST['methods'])=='upd_pro'){
-	
+
 if(isset($_REQUEST['s_search'])!=''){
 $spage="?s_search=".trim($_REQUEST['s_search']);
 }else{
@@ -32,7 +32,7 @@ $pid01=1;
 }
 if(isset($_POST['lang01'])!=''){
   $lang01=trim($_POST['lang01']);
-  
+
   if($lang01=="EN," || $lang01==""){
 	  $PLang_si01="EN";
 	  $PLang_si="en-US";
@@ -58,9 +58,9 @@ if(isset($_POST['lang01'])!=''){
 	  $Foot_Block="<?php include('../foot_zh.htm'); ?>";
 	  $memo_PType="<?php include('../PT_Sorting_zh.htm'); ?>";
   }
-  
+
 }else{
-$lang01="";	
+$lang01="";
 }
 $SEL_PTYPE="";$categ_val="";
 if(isset($_POST['SEL_PTYPE'])!=''){
@@ -80,7 +80,7 @@ $cate_pinfo01="";
 if(isset($_POST['SKU_value'])!=''){
 $SKU_value=trim($_POST['SKU_value']);
 }else{
-$SKU_value="";	
+$SKU_value="";
 }
 $Model_value=trim($_POST['Model_value']);
 $stat01=trim($_POST['stat01']);
@@ -167,6 +167,10 @@ if($SEL_PTYPE==1){
  $PT1=113;
 }else if($SEL_PTYPE==53){
  $PT1=114;
+}else if($SEL_PTYPE==54){
+ $PT1=115;
+}else if($SEL_PTYPE==55){
+ $PT1=116;
 }
 
 $str_type_n1="SELECT ProductTypeID, ProductTypeName FROM producttypes_las where ProductTypeID=".$SEL_PTYPE;
@@ -215,7 +219,7 @@ mysqli_query($link_db, 'SET NAMES utf8');
 $cmd41=mysqli_query($link_db,$str41);
 $Data_record41_num=mysqli_num_rows($cmd41);
 if($Data_record41_num==0):
-  
+
 else:
 $CPUSORT_CHK="Embedded";
 endif;
@@ -274,6 +278,17 @@ else:
 $CPUSORT_CHK="5GEdgeComputing";
 endif;
 
+//IntelDSG
+$str101="SELECT IntelDSGID, CONCAT(MODELNAME,'(',MODELCODE,')') as MODEL,STATUS,Remark FROM p_b_main_inteldsg" .
+      " WHERE ((MODELNAME like '%".$Model_value."%' ) OR (MODELCODE like '%".$Model_value."%')) AND (LANG = 'en-US') ORDER BY 1";
+mysqli_query($link_db, 'SET NAMES utf8');
+$cmd101=mysqli_query($link_db,$str101);
+$Data_record101_num=mysqli_num_rows($cmd101);
+if($Data_record101_num==0):
+else:
+$CPUSORT_CHK="IntelDSG";
+endif;
+
 if(isset($_FILES['ProFile']['name'])!=''){
 $ProFile=trim($_FILES['ProFile']['name']);
 }else{
@@ -324,14 +339,14 @@ $P_File_S="";
 $str_pinfoVal01="";$str_pinfoVal02="";$str_pinfoVal03="";$str_pinfoVal04="";$str_pinfoVal05="";$str_pinfoVal06="";
 $str_pinfoVal07="";$str_pinfoVal08="";$str_pinfoVal09="";$str_pinfoVal10="";$str_pinfoVal11="";
 if(isset($_POST['FFactor_val'])!=''){
- 
+
  if(trim($_POST['FFactor_val'])!=''){
- $FFactor_val=trim($_POST['FFactor_val']);  
-  
+ $FFactor_val=trim($_POST['FFactor_val']);
+
    $str_pinfoVal01="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where concat(',',a.PIV_id,',') like '%,".$FFactor_val."%'";
    $pinfoVal01_cmd=mysqli_query($link_db,$str_pinfoVal01);
    $pinfoVal01_data=mysqli_fetch_row($pinfoVal01_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal01_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal01_data[0].",")===0){
      $FFactor_val_name="<th style='font-size:10px;'>".$pinfoVal01_data[1]."</th>";
    }else{
@@ -346,14 +361,14 @@ if(isset($_POST['FFactor_val'])!=''){
 }
 
 if(isset($_POST['MBprocessor_val'])!=''){
-	
+
  if(trim($_POST['MBprocessor_val'])!=''){
  $MBprocessor_val=trim($_POST['MBprocessor_val']);
-   
+
    $str_pinfoVal02="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where concat(',',a.PIV_id,',') like '%,".$MBprocessor_val."%'";
    $pinfoVal02_cmd=mysqli_query($link_db,$str_pinfoVal02);
    $pinfoVal02_data=mysqli_fetch_row($pinfoVal02_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal02_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal02_data[0].",")===0){
      $MBprocessor_name="<th style='font-size:10px;'>".$pinfoVal02_data[1]."</th>";
    }else{
@@ -368,14 +383,14 @@ if(isset($_POST['MBprocessor_val'])!=''){
 }
 
 if(isset($_POST['LAN_val'])!=''){
-	
+
  if(trim($_POST['LAN_val'])!=''){
  $LAN_val=trim($_POST['LAN_val']);
-   
+
    $str_pinfoVal03="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where concat(',',a.PIV_id,',') like '%,".$LAN_val."%'";
    $pinfoVal03_cmd=mysqli_query($link_db,$str_pinfoVal03);
    $pinfoVal03_data=mysqli_fetch_row($pinfoVal03_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal03_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal03_data[0].",")===0){
      $LAN_val_name="<th style='font-size:10px;'>".$pinfoVal03_data[1]."</th>";
    }else{
@@ -390,14 +405,14 @@ if(isset($_POST['LAN_val'])!=''){
 }
 
 if(isset($_POST['COM_val'])!=''){
-	
+
  if(trim($_POST['COM_val'])!=''){
  $COM_val=trim($_POST['COM_val']);
- 
+
    $str_pinfoVal04="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where concat(',',a.PIV_id,',') like '%,".$COM_val."%'";
    $pinfoVal04_cmd=mysqli_query($link_db,$str_pinfoVal04);
    $pinfoVal04_data=mysqli_fetch_row($pinfoVal04_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal04_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal04_data[0].",")===0){
      $COM_val_name="<th style='font-size:10px;'>".$pinfoVal04_data[1]."</th>";
    }else{
@@ -412,13 +427,13 @@ if(isset($_POST['COM_val'])!=''){
 }
 
 if(isset($_POST['USB_val'])!=''){
- 
+
  if(trim($_POST['USB_val'])!=''){
-  $USB_val=trim($_POST['USB_val']);    
+  $USB_val=trim($_POST['USB_val']);
    $str_pinfoVal05="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$USB_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal05_cmd=mysqli_query($link_db,$str_pinfoVal05);
    $pinfoVal05_data=mysqli_fetch_row($pinfoVal05_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal05_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal05_data[0].",")===0){
       $USB_val_name="<th style='font-size:10px;'>".$pinfoVal05_data[1]."</th>";
    }else{
@@ -433,16 +448,16 @@ if(isset($_POST['USB_val'])!=''){
 }
 
 if(isset($_POST['SATA_val'])!=''){
-	
+
  if(trim($_POST['SATA_val'])!=''){
  $SATA_val=trim($_POST['SATA_val']);
-   
+
    $str_pinfoVal06="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$SATA_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal06_cmd=mysqli_query($link_db,$str_pinfoVal06);
    $pinfoVal06_data=mysqli_fetch_row($pinfoVal06_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal06_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal06_data[0].",")===0){
-      $SATA_val_name="<th style='font-size:10px;'>".$pinfoVal06_data[1]."</th>"; 
+      $SATA_val_name="<th style='font-size:10px;'>".$pinfoVal06_data[1]."</th>";
    }else{
    }
  }else{
@@ -455,14 +470,14 @@ if(isset($_POST['SATA_val'])!=''){
 }
 
 if(isset($_POST['M2Slot_val'])!=''){
-	
+
  if(trim($_POST['M2Slot_val'])!=''){
  $M2Slot_val=trim($_POST['M2Slot_val']);
-   
+
    $str_pinfoVal07="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$M2Slot_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal07_cmd=mysqli_query($link_db,$str_pinfoVal07);
    $pinfoVal07_data=mysqli_fetch_row($pinfoVal07_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal07_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal07_data[0].",")===0){
       $M2Slot_val_name="<th style='font-size:10px;'>".$pinfoVal07_data[1]."</th>";
    }else{
@@ -477,14 +492,14 @@ if(isset($_POST['M2Slot_val'])!=''){
 }
 
 if(isset($_POST['MiniPCIe_val'])!=''){
- 
+
  if(trim($_POST['MiniPCIe_val'])!=''){
  $Mini_PCIe_val=trim($_POST['MiniPCIe_val']);
-   
+
    $str_pinfoVal08="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$Mini_PCIe_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal08_cmd=mysqli_query($link_db,$str_pinfoVal08);
    $pinfoVal08_data=mysqli_fetch_row($pinfoVal08_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal08_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal08_data[0].",")===0){
       $Mini_PCIe_val_name="<th style='font-size:10px;'>".$pinfoVal08_data[1]."</th>";
    }else{
@@ -499,14 +514,14 @@ if(isset($_POST['MiniPCIe_val'])!=''){
 }
 
 if(isset($_POST['PCIeSlot_val'])!=''){
- 
+
  if(trim($_POST['PCIeSlot_val'])!=''){
  $PCIeSlot_val=trim($_POST['PCIeSlot_val']);
-   
+
    $str_pinfoVal09="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$PCIeSlot_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal09_cmd=mysqli_query($link_db,$str_pinfoVal09);
    $pinfoVal09_data=mysqli_fetch_row($pinfoVal09_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal09_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal09_data[0].",")===0){
       $PCIeSlot_val_name="<th style='font-size:10px;'>".$pinfoVal09_data[1]."</th>";
    }else{
@@ -521,13 +536,13 @@ if(isset($_POST['PCIeSlot_val'])!=''){
 }
 
 if(isset($_POST['MBpower_val'])!=''){
- 
+
  if(trim($_POST['MBpower_val'])!=''){
  $MBpower_val=trim($_POST['MBpower_val']);
-   
+
    $str_pinfoVal10="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$MBpower_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal10_cmd=mysqli_query($link_db,$str_pinfoVal10);
-   $pinfoVal10_data=mysqli_fetch_row($pinfoVal10_cmd);   
+   $pinfoVal10_data=mysqli_fetch_row($pinfoVal10_cmd);
    if(strpos(",".$cate_pinfo01,",".$pinfoVal10_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal10_data[0].",")===0){
       $MBpower_val_name="<th style='font-size:10px;'>".$pinfoVal10_data[1]."</th>";
    }else{
@@ -542,14 +557,14 @@ if(isset($_POST['MBpower_val'])!=''){
 }
 
 if(isset($_POST['Fanless_val'])!=''){
- 
+
  if(trim($_POST['Fanless_val'])!=''){
  $Fanless_val=trim($_POST['Fanless_val']);
-   
+
    $str_pinfoVal11="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$Fanless_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal11_cmd=mysqli_query($link_db,$str_pinfoVal11);
    $pinfoVal11_data=mysqli_fetch_row($pinfoVal11_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal11_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal11_data[0].",")===0){
       $Fanless_val_name="<th style='font-size:10px;'>".$pinfoVal11_data[1]."</th>";
    }else{
@@ -564,14 +579,14 @@ if(isset($_POST['Fanless_val'])!=''){
 }
 
 if(isset($_POST['Modularized_IO_val'])!=''){
-	
- if(trim($_POST['Modularized_IO_val'])!=''){	
+
+ if(trim($_POST['Modularized_IO_val'])!=''){
  $Modularized_IO_val=trim($_POST['Modularized_IO_val']);
-   
+
    $str_pinfoVal12="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$Modularized_IO_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal12_cmd=mysqli_query($link_db,$str_pinfoVal12);
    $pinfoVal12_data=mysqli_fetch_row($pinfoVal12_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal12_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal12_data[0].",")===0){
       $Modularized_IO_val_name="<th style='font-size:10px;'>".$pinfoVal12_data[1]."</th>";
    }else{
@@ -586,14 +601,14 @@ if(isset($_POST['Modularized_IO_val'])!=''){
 }
 
 if(isset($_POST['WidgetTemperature_val'])!=''){
- 
+
  if(trim($_POST['WidgetTemperature_val'])!=''){
  $WidgetTemperature_val=trim($_POST['WidgetTemperature_val']);
-   
+
    $str_pinfoVal13="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$WidgetTemperature_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal13_cmd=mysqli_query($link_db,$str_pinfoVal13);
    $pinfoVal13_data=mysqli_fetch_row($pinfoVal13_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal13_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal13_data[0].",")===0){
       $WidgetTemperature_val_name="<th style='font-size:10px;'>".$pinfoVal13_data[1]."</th>";
    }else{
@@ -601,28 +616,28 @@ if(isset($_POST['WidgetTemperature_val'])!=''){
  }else{
 	  $WidgetTemperature_val=NULL;
     $WidgetTemperature_val_name="";
- } 
+ }
 }else{
  $WidgetTemperature_val=NULL;
  $WidgetTemperature_val_name="";
 }
 
 if(isset($_POST['PanelSize_val'])!=''){
- 
+
  if(trim($_POST['PanelSize_val'])!=''){
  $PanelSize_val=trim($_POST['PanelSize_val']);
-   
+
    $str_pinfoVal14="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$PanelSize_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal14_cmd=mysqli_query($link_db,$str_pinfoVal14);
    $pinfoVal14_data=mysqli_fetch_row($pinfoVal14_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal14_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal14_data[0].",")===0){
       $PanelSize_val_name="<th style='font-size:10px;'>".$pinfoVal14_data[1]."</th>";
    }else{
    }
  }else{
 	  $PanelSize_val=NULL;
-    $PanelSize_val_name=""; 
+    $PanelSize_val_name="";
  }
 }else{
  $PanelSize_val=NULL;
@@ -630,14 +645,14 @@ if(isset($_POST['PanelSize_val'])!=''){
 }
 
 if(isset($_POST['EmbeddedPower_val'])!=''){
- 
+
  if(trim($_POST['EmbeddedPower_val'])!=''){
  $EmbeddedPower_val=trim($_POST['EmbeddedPower_val']);
-   
+
    $str_pinfoVal15="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$EmbeddedPower_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal15_cmd=mysqli_query($link_db,$str_pinfoVal15);
    $pinfoVal15_data=mysqli_fetch_row($pinfoVal15_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal15_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal15_data[0].",")===0){
       $EmbeddedPower_val_name="<th style='font-size:10px;'>".$pinfoVal15_data[1]."</th>";
    }else{
@@ -658,21 +673,21 @@ if(isset($_POST['Legend1_val'])!=''){
 }
 
 if(isset($_POST['PanelPCPower_val'])!=''){
- 
+
  if(trim($_POST['PanelPCPower_val'])!=''){
  $Panel_PC_Power_val=trim($_POST['PanelPCPower_val']);
-   
+
    $str_pinfoVa116="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$Panel_PC_Power_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal16_cmd=mysqli_query($link_db,$str_pinfoVa116);
    $pinfoVal16_data=mysqli_fetch_row($pinfoVal16_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal16_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal16_data[0].",")===0){
       $Panel_PC_Power_val_name="<th style='font-size:10px;'>".$pinfoVal16_data[1]."</th>";
    }else{
    }
  }else{
     $Panel_PC_Power_val=NULL;
-    $Panel_PC_Power_val_name=""; 
+    $Panel_PC_Power_val_name="";
  }
 }else{
  $Panel_PC_Power_val=NULL;
@@ -680,21 +695,21 @@ if(isset($_POST['PanelPCPower_val'])!=''){
 }
 
 if(isset($_POST['EmbeddedProcessor_val'])!=''){
- 
+
  if(trim($_POST['EmbeddedProcessor_val'])!=''){
  $EmbeddedProcessor_val=trim($_POST['EmbeddedProcessor_val']);
-   
+
    $str_pinfoVa117="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$EmbeddedProcessor_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal17_cmd=mysqli_query($link_db,$str_pinfoVa117);
    $pinfoVal17_data=mysqli_fetch_row($pinfoVal17_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal17_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal17_data[0].",")===0){
       $EmbeddedProcessor_val_name="<th style='font-size:10px;'>".$pinfoVal17_data[1]."</th>";
    }else{
    }
  }else{
     $EmbeddedProcessor_val=NULL;
-    $EmbeddedProcessor_val_name=""; 
+    $EmbeddedProcessor_val_name="";
  }
 }else{
  $EmbeddedProcessor_val=NULL;
@@ -702,21 +717,21 @@ if(isset($_POST['EmbeddedProcessor_val'])!=''){
 }
 
 if(isset($_POST['PanelPCProcessor_val'])!=''){
- 
+
  if(trim($_POST['PanelPCProcessor_val'])!=''){
  $Panel_PC_Processor_val=trim($_POST['PanelPCProcessor_val']);
-   
+
    $str_pinfoVa118="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$Panel_PC_Processor_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal18_cmd=mysqli_query($link_db,$str_pinfoVa118);
    $pinfoVal18_data=mysqli_fetch_row($pinfoVal18_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal18_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal18_data[0].",")===0){
       $Panel_PC_Processor_val_name="<th style='font-size:10px;'>".$pinfoVal18_data[1]."</th>";
    }else{
    }
  }else{
     $Panel_PC_Processor_val=NULL;
-    $Panel_PC_Processor_val_name=""; 
+    $Panel_PC_Processor_val_name="";
  }
 }else{
  $Panel_PC_Processor_val=NULL;
@@ -724,21 +739,21 @@ if(isset($_POST['PanelPCProcessor_val'])!=''){
 }
 
 if(isset($_POST['EmbeddedType_val'])!=''){
- 
+
  if(trim($_POST['EmbeddedType_val'])!=''){
  $EmbeddedType_val=trim($_POST['EmbeddedType_val']);
-   
+
    $str_pinfoVa119="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$EmbeddedType_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal19_cmd=mysqli_query($link_db,$str_pinfoVa119);
    $pinfoVal19_data=mysqli_fetch_row($pinfoVal19_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal19_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal19_data[0].",")===0){
       $EmbeddedType_val_name="<th style='font-size:10px;'>".$pinfoVal19_data[1]."</th>";
    }else{
    }
  }else{
     $EmbeddedType_val=NULL;
-    $EmbeddedType_val_name=""; 
+    $EmbeddedType_val_name="";
  }
 }else{
  $EmbeddedType_val=NULL;
@@ -746,21 +761,21 @@ if(isset($_POST['EmbeddedType_val'])!=''){
 }
 
 if(isset($_POST['PanelPCType_val'])!=''){
- 
+
  if(trim($_POST['PanelPCType_val'])!=''){
  $PanelPCType_val=trim($_POST['PanelPCType_val']);
-   
+
    $str_pinfoVa120="SELECT distinct a.PI_id, b.PI_Name FROM product_infovalue_las a inner join product_info_las b on a.PI_id=b.PI_id where ',".$PanelPCType_val."' like concat('%,',a.PIV_id,',%')";
    $pinfoVal20_cmd=mysqli_query($link_db,$str_pinfoVa120);
    $pinfoVal20_data=mysqli_fetch_row($pinfoVal20_cmd);
-   
+
    if(strpos(",".$cate_pinfo01,",".$pinfoVal20_data[0].",")!='' || strpos(",".$cate_pinfo01,",".$pinfoVal20_data[0].",")===0){
       $PanelPCType_val_name="<th style='font-size:10px;'>".$pinfoVal20_data[1]."</th>";
    }else{
    }
  }else{
     $PanelPCType_val=NULL;
-      $PanelPCType_val_name=""; 
+      $PanelPCType_val_name="";
  }
 }else{
  $PanelPCType_val=NULL;
@@ -773,12 +788,12 @@ if(isset($_POST['PanelPCType_val'])!=''){
   $iconvals_valALL="";
   $iconvals_split=explode(',',$iconvals,-1);
   foreach($iconvals_split as $iconvals_val){
-    
+
 	$str_chkico="SELECT id FROM c_sp_icon where replace(img,'./images/logo/','')='".$iconvals_val."'";
 	$chkico_cmd=mysqli_query($link_db,$str_chkico);
 	$chkico_data=mysqli_fetch_row($chkico_cmd);
 	$iconvals_valALL.=$chkico_data[0].",";
-  
+
   }
 //********** icons top end *********
 
@@ -786,12 +801,12 @@ if(isset($_POST['PanelPCType_val'])!=''){
   $iconvals_b_valALL="";
   $iconvals_b_split=explode(',',$iconvals_b,-1);
   foreach($iconvals_b_split as $iconvals_b_val){
-    
+
   $str_chkico="SELECT id FROM c_sp_icon where replace(img,'./images/logo/','')='".$iconvals_b_val."'";
   $chkico_cmd=mysqli_query($link_db,$str_chkico);
   $chkico_data=mysqli_fetch_row($chkico_cmd);
   $iconvals_b_valALL.=$chkico_data[0].",";
-  
+
   }
 //********** icons bottom end *********
 
@@ -799,24 +814,24 @@ if(isset($_POST['PanelPCType_val'])!=''){
 $spic="";$opic="";$MMurl="";$BBurl="";$CHSurl="";$HBAurl="";$JBDurl="";$TPMurl="";$NICurl="";
 if($CPUSORT_CHK=="MM"){
   $MMurl="~/images/systemboards/";
-  if($ProFile!="none" && $ProFile!=''){   
+  if($ProFile!="none" && $ProFile!=''){
     $UploadPath = "../../images/systemboards/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
-    if($flag) echo "";   
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
+    if($flag) echo "";
     $spic=",IMG='$MMurl$ProFile'";
   }else if($ProFile=="none" && $ProFile==''){
     $spic="";
   }
-  if($ProFile_S!="none" && $ProFile_S!=''){   
+  if($ProFile_S!="none" && $ProFile_S!=''){
     $UploadPath = "../../images/systemboards/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
-    if($flag) echo "";  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
+    if($flag) echo "";
     $opic=",SMALLIMG='$MMurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
   }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/systemboards/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
@@ -825,36 +840,36 @@ if($CPUSORT_CHK=="MM"){
 }else if($CPUSORT_CHK=="BB"){
   $spic='';
   $BBurl="~/images/serverbarebones/";
-  if($ProFile!="none" && $ProFile!=''){   
+  if($ProFile!="none" && $ProFile!=''){
     $UploadPath = "../../images/serverbarebones/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
-    if($flag) echo "";   
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
+    if($flag) echo "";
     $spic=",IMG='$BBurl$ProFile'";
   }else if($ProFile=="none" && $ProFile==''){
     $spic="";
   }
   $opic='';
-  if($ProFile_S!="none" && $ProFile_S!=''){   
+  if($ProFile_S!="none" && $ProFile_S!=''){
     $UploadPath = "../../images/serverbarebones/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
-    if($flag) echo "";  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
+    if($flag) echo "";
     $opic=",SMALLIMG='$BBurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
   }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/serverbarebones/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
 
   $str_CPUSORTupd="update p_b_main_serverbarebones set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="Chassis"){  
+}else if($CPUSORT_CHK=="Chassis"){
   $CHSurl="~/images/serverbarebones/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/serverbarebones/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$CHSurl$ProFile'";
@@ -864,15 +879,15 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/serverbarebones/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$CHSurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/serverbarebones/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
@@ -883,7 +898,7 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/PanelPc/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$HBAurl$ProFile'";
@@ -893,26 +908,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/PanelPc/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$HBAurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/PanelPc/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
 
   $str_CPUSORTupd="update p_b_main_panelpc set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="Embedded"){  
+}else if($CPUSORT_CHK=="Embedded"){
   $JBDurl="~/images/product/Embedded/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/Embedded/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$JBDurl$ProFile'";
@@ -922,26 +937,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/Embedded/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$JBDurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/Embedded/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
 
   $str_CPUSORTupd="update p_b_main_embedded set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="IndustriaMB"){	
+}else if($CPUSORT_CHK=="IndustriaMB"){
   $TPMurl="~/images/product/IndustriaMB/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/IndustriaMB/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$TPMurl$ProFile'";
@@ -951,7 +966,7 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/IndustriaMB/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$TPMurl$ProFile_S'";
@@ -959,18 +974,18 @@ if($CPUSORT_CHK=="MM"){
     $opic="";
   }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
      $UploadPath = "../../images/product/IndustriaMB/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
 
   $str_CPUSORTupd="update p_b_main_industriamb set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="OCPserver"){  
+}else if($CPUSORT_CHK=="OCPserver"){
   $JBDurl="~/images/product/OCPserver/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/OCPserver/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$JBDurl$ProFile'";
@@ -980,26 +995,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/OCPserver/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$JBDurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/OCPserver/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
 
   $str_CPUSORTupd="update p_b_main_ocpserver set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="OCPMezz"){  
+}else if($CPUSORT_CHK=="OCPMezz"){
   $OcpMurl="~/images/product/OCPMezz/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/OCPMezz/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$OcpMurl$ProFile'";
@@ -1009,26 +1024,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/OCPMezz/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$OcpMurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/OCPMezz/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
 
   $str_CPUSORTupd="update p_b_main_ocpmezz set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="JBOD / JBOF"){  
+}else if($CPUSORT_CHK=="JBOD / JBOF"){
   $Jbodfurl="~/images/product/JBODJBOF/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/JBODJBOF/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$Jbodfurl$ProFile'";
@@ -1038,26 +1053,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/JBODJBOF/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$Jbodfurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/JBODJBOF/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
-  
+
   $str_CPUSORTupd="update p_b_main_jbodjbof set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="OCP Rack"){  
+}else if($CPUSORT_CHK=="OCP Rack"){
   $OCPrackurl="~/images/product/OCPrack/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/OCPrack/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$OCPrackurl$ProFile'";
@@ -1067,26 +1082,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/OCPrack/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$OCPrackurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/OCPrack/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
-  
+
   $str_CPUSORTupd="update p_b_main_ocprack set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="POS"){  
+}else if($CPUSORT_CHK=="POS"){
   $POSrackurl="~/images/product/POS/";
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/POS/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$POSrackurl$ProFile'";
@@ -1096,26 +1111,26 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/POS/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$POSrackurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/POS/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
-  
+
   $str_CPUSORTupd="update p_b_main_pos set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
-}else if($CPUSORT_CHK=="5GEdgeComputing"){  
+}else if($CPUSORT_CHK=="5GEdgeComputing"){
   $POSrackurl="~/images/product/5G/"; //5GEdgeComputing
   if($ProFile!="none" && $ProFile!=''){
 
     $UploadPath = "../../images/product/5G/";
-    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);  
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
     if($flag) echo "";
 
     $spic=",IMG='$POSrackurl$ProFile'";
@@ -1125,20 +1140,49 @@ if($CPUSORT_CHK=="MM"){
   if($ProFile_S!="none" && $ProFile_S!=''){
 
     $UploadPath = "../../images/product/5G/";
-    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);  
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
     if($flag) echo "";
 
     $opic=",SMALLIMG='$POSrackurl$ProFile_S'";
   }else if($ProFile_S=="none" && $ProFile_S==''){
     $opic="";
-  }  
+  }
 
-  if($ProFile_com!="none" && $ProFile_com!=''){   
+  if($ProFile_com!="none" && $ProFile_com!=''){
     $UploadPath = "../../images/product/5G/";
     $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
   }
-  
+
   $str_CPUSORTupd="update p_b_main_5G set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
+}else if($CPUSORT_CHK=="IntelDSG"){
+  $POSrackurl="~/images/product/IntelDSG/"; //IntelDSG
+  if($ProFile!="none" && $ProFile!=''){
+
+    $UploadPath = "../../../IntelDSG/images/product/IntelDSG/";
+    $flag = copy($_FILES['ProFile']['tmp_name'], $UploadPath.$_FILES['ProFile']['name']);
+    if($flag) echo "";
+
+    $spic=",IMG='$POSrackurl$ProFile'";
+  }else if($ProFile=="none" && $ProFile==''){
+    $spic="";
+  }
+  if($ProFile_S!="none" && $ProFile_S!=''){
+
+    $UploadPath = "../../../IntelDSG/images/product/IntelDSG/";
+    $flag = copy($_FILES['ProFile_S']['tmp_name'], $UploadPath.$_FILES['ProFile_S']['name']);
+    if($flag) echo "";
+
+    $opic=",SMALLIMG='$POSrackurl$ProFile_S'";
+  }else if($ProFile_S=="none" && $ProFile_S==''){
+    $opic="";
+  }
+
+  if($ProFile_com!="none" && $ProFile_com!=''){
+    $UploadPath = "../../../IntelDSG/images/product/IntelDSG/";
+    $flag = copy($_FILES['ProFile_com']['tmp_name'], $UploadPath.$_FILES['ProFile_com']['name']);
+  }
+
+  $str_CPUSORTupd="update p_b_main_inteldsg set CPUSORT='".$iconvals_valALL."'$spic$opic where MODELCODE='".$Model_value."'";
 }
 
 $CPUSORTupd_cmd=mysqli_query($link_db,$str_CPUSORTupd);
@@ -1163,7 +1207,7 @@ if($ProFile!='' || $ProFile_S!=''){
     $str_icoupd="UPDATE contents_product_skus SET Product_Icons='".$iconvals."', Product_Icons_b='".$iconvals_b."' WHERE Product_SContents_Auto_ID=".$pid01;
 
 }else if($ProFile=='' && $ProFile_S==''){
-  
+
     $str_upd="UPDATE contents_product_skus SET CategoryModuID='".$categ_val."',ProductTypeID='".$SEL_PTYPE."',SKU='".$SKU_value."',MODELCODE='".$Model_value."',STATUS='".$stat01."',slang='".$str_lang."',Product_Info='".$PINFO_list."',".$bpic_val."".$P_File."Product_dsc='".$desc."',Relate_enable='".$relate_enable."',Relate_Prod='".$relProd_val."',Compat_enable='".$compat_enable."',Compat_Prod='".$compacProd_val."',upd_d='".$now."',upd_u='1706',IsnewUp='".$new_logo01."',ProductTypeID_SKU='".$PT1."', LandingTitle='".$LandTitle."',Coming_Soon='".$comingSoon."', ".$P_File_S." ProductFileCom='".$ProFile_com."', ";
     $str_upd.="FormFactor_val='".$FFactor_val."', MBprocessor_val='".$MBprocessor_val."', LAN_val='".$LAN_val."', COM_val='".$COM_val."', USB_val='".$USB_val."', SATA_val='".$SATA_val."', M2_Slot_val='".$M2Slot_val."', Mini_PCIe_val='".$Mini_PCIe_val."', PCIeSlot_val='".$PCIeSlot_val."', MBpower_val='".$MBpower_val."', Fanless_val='".$Fanless_val."', Modularized_IO_val='".$Modularized_IO_val."', WidgetTemperature_val='".$WidgetTemperature_val."', PanelSize_val='".$PanelSize_val."', EmbeddedPower_val='".$EmbeddedPower_val."', legend_val='".$Legend1_val01."', Panel_PC_Power_val='".$Panel_PC_Power_val."', EmbeddedProcessor_val='".$EmbeddedProcessor_val."', Panel_PC_Processor_val='".$Panel_PC_Processor_val."', EmbeddedType_val='".$EmbeddedType_val."', PanelPCType_val='".$PanelPCType_val."' ";
     $str_upd.="WHERE Product_SContents_Auto_ID=".$pid01." and slang='".$lang01."'";
@@ -1260,15 +1304,15 @@ $str_tbl1="SELECT SKU, FormFactor_val, MBprocessor_val, LAN_val, COM_val, USB_va
 $str_tbl1.=" FROM contents_product_skus where CategoryModuID=".$categ_val." and slang='".$str_lang."' and STATUS='1' order by crea_d desc";
 $tbl1_cmd=mysqli_query($link_db,$str_tbl1);
 while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
-		
+
 		$str_MB="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID" .
 			   " WHERE (a.ProductTypeID_SKU between 101 and 102) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
-			   " order by a.Product_SContents_Auto_ID";	
+			   " order by a.Product_SContents_Auto_ID";
 		mysqli_query($link_db, 'SET NAMES utf8');
 		$MB_cmd=mysqli_query($link_db,$str_MB);
 		$MB_data=mysqli_fetch_row($MB_cmd);
 		$Data_MBrecord_num=mysqli_num_rows($MB_cmd);
-		if(ord($MB_data[8])=='1'){			
+		if(ord($MB_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1278,26 +1322,26 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}else{
 		$IsnewUp01="";
 		}
-		if($Data_MBrecord_num>0){			
+		if($Data_MBrecord_num>0){
 			if($str_lang!=''){
 			if($str_lang=="EN,"){
 			$url_MB="<a href='/Motherboards_".$tbl1_data[12]."_".$tbl1_data[0]."'>".$tbl1_data[0].$IsEol01.$IsnewUp01."</a>";
-			}else{				
+			}else{
 			$url_MB="<a href='/".str_replace(",","",$str_lang)."_Motherboards_".$tbl1_data[12]."_".$tbl1_data[0]."'>".$tbl1_data[0].$IsEol01.$IsnewUp01."</a>";
 			}
 			}
 		}else{
 			$url_MB="";
 		}
-		
+
 		$str_BB="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 			    " WHERE (a.ProductTypeID_SKU between 103 and 104) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU ='".$tbl1_data[0]."') AND (a.slang='EN,') AND a.STATUS='1' " .
 			    " order by a.Product_SContents_Auto_ID";
-		mysqli_query($link_db, 'SET NAMES utf8');		
+		mysqli_query($link_db, 'SET NAMES utf8');
 		$BB_cmd=mysqli_query($link_db,$str_BB);
 		$BB_data=mysqli_fetch_row($BB_cmd);
 		$Data_BBrecord_num=mysqli_num_rows($BB_cmd);
-		if(ord($BB_data[8])=='1'){			
+		if(ord($BB_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1318,7 +1362,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}else{
 			$url_BB="";
 		}
-		
+
 		$str_NIC="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 				 " WHERE (a.ProductTypeID_SKU=105) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
 			     " order by a.Product_SContents_Auto_ID";
@@ -1335,7 +1379,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$IsnewUp01="<span class='label label-danger'>New!</span>";
 		}else{
 		$IsnewUp01="";
-		}	
+		}
 		if($Data_NICrecord_num>0){
 			if($str_lang!=''){
 			if($str_lang=="EN,"){
@@ -1347,7 +1391,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}else{
 			$url_NIC="";
 		}
-		
+
 		$str_HBA="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 				 " WHERE (a.ProductTypeID_SKU=106) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
 			     " order by a.Product_SContents_Auto_ID";
@@ -1355,7 +1399,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$HBA_cmd=mysqli_query($link_db,$str_HBA);
 		$HBA_data=mysqli_fetch_row($HBA_cmd);
 		$Data_HBArecord_num=mysqli_num_rows($HBA_cmd);
-		if(ord($HBA_data[8])=='1'){			
+		if(ord($HBA_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1376,7 +1420,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}else{
 			$url_HBA="";
 		}
-		
+
 		$str_BBPower8="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 			    " WHERE (a.ProductTypeID_SKU=108) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
 			    " order by a.Product_SContents_Auto_ID";
@@ -1384,7 +1428,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$BBPower8_cmd=mysqli_query($link_db,$str_BBPower8);
 		$BBPower8_data=mysqli_fetch_row($BBPower8_cmd);
 		$Data_BBPower8record_num=mysqli_num_rows($BBPower8_cmd);
-		if(ord($BBPower8_data[8])=='1'){			
+		if(ord($BBPower8_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1405,7 +1449,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}else{
 			$url_BBPower8="";
 		}
-		
+
 		$str_JBOD="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 			    " WHERE (a.ProductTypeID_SKU=117) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
 			    " order by a.Product_SContents_Auto_ID";
@@ -1413,7 +1457,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$JBOD_cmd=mysqli_query($link_db,$str_JBOD);
 		$JBOD_data=mysqli_fetch_row($JBOD_cmd);
 		$Data_JBODrecord_num=mysqli_num_rows($JBOD_cmd);
-		if(ord($JBOD_data[8])=='1'){			
+		if(ord($JBOD_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1425,7 +1469,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}
 		if($Data_JBODrecord_num>0){
 			if($str_lang!=''){
-			if($str_lang=="EN,"){				
+			if($str_lang=="EN,"){
 			$url_JBOD="<a href='/JBOD_".$tbl1_data[12]."_".$tbl1_data[0]."'>".$tbl1_data[0]."</a> ".$IsEol01.$IsnewUp01;
 			}else{
 			$url_JBOD="<a href='/".str_replace(",","",$str_lang)."_JBOD_".$tbl1_data[12]."_".$tbl1_data[0]."'>".$tbl1_data[0]."</a> ".$IsEol01.$IsnewUp01;
@@ -1434,7 +1478,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}else{
 			$url_JBOD="";
 		}
-		
+
 		$str_Chassic="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 				" WHERE (a.ProductTypeID_SKU=107) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
 				" order by a.Product_SContents_Auto_ID";
@@ -1442,7 +1486,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$Chassic_cmd=mysqli_query($link_db,$str_Chassic);
 		$Chassic_data=mysqli_fetch_row($Chassic_cmd);
 		$Data_Chassicrecord_num=mysqli_num_rows($Chassic_cmd);
-		if(ord($Chassic_data[8])=='1'){			
+		if(ord($Chassic_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1459,11 +1503,11 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
             }else{
 			$url_Chassic="<a href='/".str_replace(",","",$str_lang)."_Chassis_".$tbl1_data[12]."_".$tbl1_data[0]."'>".$tbl1_data[0]."</a> ".$IsEol01.$IsnewUp01;
 			}
-			}		
+			}
 		}else{
 			$url_Chassic="";
 		}
-		
+
 		$str_TPM="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
 				" WHERE (a.ProductTypeID_SKU=1109) AND ((Replace(a.MODELCODE,'-','') like '%".str_replace('-','',$tbl1_data[0])."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
 				" order by a.Product_SContents_Auto_ID";
@@ -1471,7 +1515,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$TPM_cmd=mysqli_query($link_db,$str_TPM);
 		$TPM_data=mysqli_fetch_row($TPM_cmd);
 		$Data_TPMrecord_num=mysqli_num_rows($TPM_cmd);
-		if(ord($TPM_data[8])=='1'){			
+		if(ord($TPM_data[8])=='1'){
 		$IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
 		}else{
 		$IsEol01="";
@@ -1491,7 +1535,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 			}
 		}else{
 			$url_TPM="";
-		}		
+		}
 
     $str_GPU="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
         " WHERE (a.ProductTypeID_SKU=1111) AND ((Replace(a.MODELCODE,'-','') like '%".$tbl1_data[0]."%')  OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
@@ -1500,7 +1544,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
     $GPU_cmd=mysqli_query($link_db,$str_GPU);
     $GPU_data=mysqli_fetch_row($GPU_cmd);
     $Data_GPUrecord_num=mysqli_num_rows($GPU_cmd);
-    if(ord($GPU_data[8])=='1'){      
+    if(ord($GPU_data[8])=='1'){
     $IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
     }else{
     $IsEol01="";
@@ -1520,8 +1564,8 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
       }
     }else{
       $url_GPU="";
-    }   
-    
+    }
+
     $str_OCP="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
         " WHERE (a.ProductTypeID_SKU=1112) AND ((Replace(a.MODELCODE,'-','') like '%".$tbl1_data[0]."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
         " order by a.Product_SContents_Auto_ID";
@@ -1529,7 +1573,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
     $OCP_cmd=mysqli_query($link_db,$str_OCP);
     $OCP_data=mysqli_fetch_row($OCP_cmd);
     $Data_OCPrecord_num=mysqli_num_rows($OCP_cmd);
-    if(ord($OCP_data[8])=='1'){      
+    if(ord($OCP_data[8])=='1'){
     $IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
     }else{
     $IsEol01="";
@@ -1549,7 +1593,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
       }
     }else{
       $url_OCP="";
-    }  
+    }
 
     $str_Storage="SELECT a.ProductTypeID,a.MODELCODE,a.STATUS,a.Product_Info,a.SKU,a.Product_SContents_Auto_ID,a.ProductSFile,a.IsnewUp,b.IS_EOL,a.IsnewUp FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID,IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID " .
         " WHERE (a.ProductTypeID_SKU=1113) AND ((Replace(a.MODELCODE,'-','') like '%".$tbl1_data[0]."%' ) OR a.SKU like '%".str_replace(' ','%',$tbl1_data[0])."%') AND (a.slang='EN,') AND a.STATUS='1' " .
@@ -1558,7 +1602,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
     $Storage_cmd=mysqli_query($link_db,$str_Storage);
     $Storage_data=mysqli_fetch_row($Storage_cmd);
     $Data_Storagerecord_num=mysqli_num_rows($Storage_cmd);
-    if(ord($Storage_data[8])=='1'){      
+    if(ord($Storage_data[8])=='1'){
     $IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
     }else{
     $IsEol01="";
@@ -1588,7 +1632,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
     $risercard_cmd=mysqli_query($link_db,$str_risercard);
     $risercard_data=mysqli_fetch_row($risercard_cmd);
     $Data_risercardrecord_num=mysqli_num_rows($risercard_cmd);
-    if(ord($risercard_data[8])=='1'){      
+    if(ord($risercard_data[8])=='1'){
     $IsEol01="&nbsp;<span class='label label-default'>EOL</span>&nbsp;";
     }else{
     $IsEol01="";
@@ -1637,7 +1681,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
     }else if($url_risercard!=''){
       $urls=$url_risercard;
     }
-    
+
 		$sku1="<td style='font-size:10px;'>".$urls."</td>";
 
 	if($tbl1_data[1]!=''){
@@ -1658,7 +1702,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 		$proc1="";
 	  }
-	  
+
 	}else{
 	$proc1="";
 	}
@@ -1680,7 +1724,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $sokt1="";
 	  }
-	  
+
 	}else{
 	$sokt1="";
 	}
@@ -1697,12 +1741,12 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$infoval3_data_all=$infoval3_data[1];
 		}
 	  }
-	  if($SockN1_val01_name!=""){	  
+	  if($SockN1_val01_name!=""){
 	    $sokn1="<td style='font-size:10px;'>".$infoval3_data_all."</td>";
 	  }else{
 		$sokn1="";
 	  }
-	  
+
 	}else{
 	$sokn1="";
 	}
@@ -1724,7 +1768,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $chip1="";
 	  }
-	  
+
 	}else{
 	$chip1="";
 	}
@@ -1746,7 +1790,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $ffat1="";
 	  }
-	  
+
 	}else{
 	$ffat1="";
 	}
@@ -1768,7 +1812,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 		$rkmn1="";
 	  }
-	  
+
 	}else{
 	$rkmn1="";
 	}
@@ -1786,13 +1830,13 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		$infoval7_data_all=$infoval7_data[1];
 		}
 	  }
-	  
+
 	  if($AdapterT1_val01_name!=""){
 		$adpt1="<td style='font-size:10px;'>".$infoval7_data_all."</td>";
 	  }else{
-		$adpt1=""; 
+		$adpt1="";
 	  }
-	  
+
 	}else{
 	$adpt1="";
 	}
@@ -1811,7 +1855,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}
 	  }
 	  $acst1="<td style='font-size:10px;'>".$infoval8_data_all."</td>";
-	  
+
 	}else{
 	$acst1="";
 	}
@@ -1834,7 +1878,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 		$cpus1="";
 	  }
-	  
+
 	}else{
 	$cpus1="";
 	}
@@ -1857,7 +1901,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 		$srvt1="";
 	  }
-	  
+
 	}else{
 	$srvt1="";
 	}
@@ -1880,7 +1924,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $appl1="";
 	  }
-	  
+
 	}else{
 	$appl1="";
 	}
@@ -1903,7 +1947,7 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $Hdd1="";
 	  }
-	  
+
 	}else{
 	$Hdd1="";
 	}
@@ -1926,10 +1970,10 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $pwsp1="";
 	  }
-	  
+
 	}else{
 	$pwsp1="";
-	}	
+	}
 	$infoval14_data_all="";
 	if($tbl1_data[15]!=''){
 	  $tbl14_split=explode(',',$tbl1_data[15],-1);
@@ -1949,11 +1993,11 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 	  }else{
 	    $chast1="";
 	  }
-	  
+
 	}else{
 	$chast1="";
 	}
-	
+
 	$infoval15_data_all="";
 	if($tbl1_data[16]!=''){
 	  $tbl15_split=explode(',',$tbl1_data[16],-1);
@@ -1969,13 +2013,13 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
 		}
 	  }
 	  //$jbdt1="<td>".$tbl1_data[15]."</td>";
-	  
+
 	  if($JBDT1_val01_name!=""){
 		$jbdt1="<td style='font-size:10px;'>".$infoval15_data_all."</td>";
 	  }else{
 	    $jbdt1="";
 	  }
-	  
+
 	}else{
 	$jbdt1="";
 	}
@@ -2000,11 +2044,11 @@ while($tbl1_data=mysqli_fetch_row($tbl1_cmd)){
     }else{
       $type1="";
     }
-    
+
   }else{
   $type1="";
   }
-		
+
 	$tr01.="<tr>".$sku1.$proc1.$sokt1.$sokn1.$chip1.$ffat1.$rkmn1.$adpt1.$acst1.$cpus1.$srvt1.$appl1.$Hdd1.$pwsp1.$chast1.$jbdt1.$type1."</tr>";
 
 }
@@ -2060,34 +2104,34 @@ TYAN > '.$type_n1_data[1].' > '.$CA01.'
     </div>
 	<div class="search_note">(Enter a SKU / Model name)</div>
  </div>
- <!--end product search box--> 
- 
+ <!--end product search box-->
+
    <!--product filter boxes-->
    <div class="jumbotron_search" >
    <form target="_self" id="form2" name="form2" method="post" action="/sorting_result.php?PLang='.$PLang_si.'">
    <button class="btn btn-primary btn-xs" type="submit">Find Product</button>';
-   
+
    $memo.=$memo_PType;
    $memo.='<input type="hidden" name="search_method" value="type" />
    <button class="btn btn-primary btn-xs" type="submit">Find Product</button>
    </form>
    </div>
-   <!--end product filter boxes--> 
+   <!--end product filter boxes-->
   </div>
-  
-  <div class="col_padding20" >    
-    <h2>'.$CA01.' </h2>  
+
+  <div class="col_padding20" >
+    <h2>'.$CA01.' </h2>
     <!--Category Introduction show on this box. if no introduction, then hide this box-->
     <!--<div class="jumbotron jumbotron_transparent" >
-      '.$Intro.'  
+      '.$Intro.'
 	</div>-->
-    <!--end Category Introduction--> 
+    <!--end Category Introduction-->
 <div class="clearfix">&nbsp;</div>
   <div class="jumbotron jumbotron_transparent" >
   <div class="table-responsive">
   '.$Tabl.'
   </div>
-  </div>    
+  </div>
   <div class="clearfix">&nbsp;</div>
   </div>
 </div>
@@ -2132,7 +2176,7 @@ $htmlcode = $inst_chk.'
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="/images/ico/favicon.ico">	
+<link rel="shortcut icon" href="/images/ico/favicon.ico">
 <title>TYAN Computer</title>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
@@ -2140,8 +2184,8 @@ $htmlcode = $inst_chk.'
 <link href="/css/bootstrap.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 <link href="/css/font-awesome.css" rel="stylesheet">
-<link href="/css/fhmm.css" rel="stylesheet">	
-<!--[if lt IE 9]>	
+<link href="/css/fhmm.css" rel="stylesheet">
+<!--[if lt IE 9]>
 <![endif]-->
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -2158,19 +2202,19 @@ $htmlcode = $inst_chk.'
 		document.form_search.txtInput.focus();
 		return false;
 	}
-	return true;  
+	return true;
   }
   function checkData(m,tm,pf_Val){
-  
+
   var tp_id="0"+m+""+tm;
   var n=$("#PINFO_SecNum"+m).val();
-  
+
   var s=0;
   for(s=0;s<document.form2.elements.length;s++){
 
    if((document.form2.elements[s].type == "checkbox") && (document.form2.elements[s].value==tp_id))
-   { 
-		 var TPname="#PINFO_TPVal"+tp_id+"[]";		 
+   {
+		 var TPname="#PINFO_TPVal"+tp_id+"[]";
          var Fname = ".PINFO_Val_S"+tp_id;
          var lenA = $(Fname+":checked").length;
          if(lenA>0){
@@ -2183,50 +2227,50 @@ $htmlcode = $inst_chk.'
 			}
          }else{
          document.form2.elements[s].checked=false;
-         }        
+         }
    }
 
-  } 
-  
+  }
+
   var checkedCount=0;
   var checkbox = document.getElementsByName("PINFO_Val"+m+"[]");
 
       for(var i=0;i<checkbox.length;i++){
-         if(checkbox[i].checked){		  
+         if(checkbox[i].checked){
          checkedCount++;
 		 }
-		 
+
       }
        if(checkedCount>n){
            return false;
       }
   }
-  function checkDataS(m,tm,tm2,pf_Val){  
+  function checkDataS(m,tm,tm2,pf_Val){
   var tp_id="0"+m+""+tm;
   var tp_ids="0"+m+""+tm+""+tm2;
-  
-  var n=$("#PINFO_SecNum"+m).val(); 
+
+  var n=$("#PINFO_SecNum"+m).val();
   var s=0;
   for(s=0;s<document.form2.elements.length;s++){
- 
+
    //if((document.form2.elements[s].type == "checkbox") && (document.form2.elements[s].value==tp_id || document.form2.elements[s].value==tp_ids)){
    if((document.form2.elements[s].type == "checkbox") && (document.form2.elements[s].value==tp_id)){
-		 var TPname="#PINFO_TPVal0"+tp_id+"[]";		 
+		 var TPname="#PINFO_TPVal0"+tp_id+"[]";
          var Fname = ".PINFO_Val_S"+tp_id;//PINFO_Val_S[] Class
 		 var Fname1 = ".PINFO_Val_S"+tp_ids;//PINFO_Val_S[] Class
-		 
+
          var lenA = $(Fname+":checked").length;
          if(lenA>0){
-         document.form2.elements[s].checked=true;		 
+         document.form2.elements[s].checked=true;
 		    if(lenA>1){
 			$(":checkbox").each(function() {
-            this.checked = false;                        
+            this.checked = false;
             });
-			
+
 			document.getElementById("PINFO_Val"+m+"[]").checked = false;
-			
+
 			//checkDataS01_click(Fname1,s);
-			
+
 			}else{
 			document.form2.elements[s].disabled=false;
 			$(Fname1).prop("checked", true);
@@ -2235,16 +2279,16 @@ $htmlcode = $inst_chk.'
          document.form2.elements[s].checked=false;
 		 $(Fname).prop("checked", false);
 		 $(Fname1).prop("checked", false);
-         }        
+         }
    }
-  } 
-  
+  }
+
   var checkedCount=0;
   var checkbox = document.getElementsByName("PINFO_Val"+m+"[]");
       for(var i=0;i<checkbox.length;i++){
-         if(checkbox[i].checked){		  
+         if(checkbox[i].checked){
          checkedCount++;
-		 }		 
+		 }
       }
       //alert(checkedCount);
        if(checkedCount>n){
@@ -2258,7 +2302,7 @@ if(( event.keyCode > 32 && event.keyCode < 46) || // 46=.
    ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
    ( event.keyCode > 90 && event.keyCode < 97) ||
    ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-     event.returnValue = false; 
+     event.returnValue = false;
    }
 }
 </script>
@@ -2273,13 +2317,13 @@ if(( event.keyCode > 32 && event.keyCode < 46) || // 46=.
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/docs.min.js"></script>	
+    <script src="/js/docs.min.js"></script>
 	<script>
 	$("#myTab a").click(function (e) {
 	e.preventDefault()
 	$(this).tab("show")
 	})
-	</script>	
+	</script>
 	<script>
 	$(".collapse").collapse("show")
 	</script>
@@ -2327,16 +2371,16 @@ if($cid!='' && $slang!=''){
   $str_prod.="FROM contents_product_skus where Product_SContents_Auto_ID=".$cid." and slang='".$slang."'";
   $prod_result=mysqli_query($link_db,$str_prod);
   $prod_data=mysqli_fetch_row($prod_result);
-  
+
   $str_MBprod="SELECT BIGIMG FROM p_s_main_systemboards WHERE MODELCODE='".$prod_data[4]."' limit 1";
   mysqli_query($link_db, 'SET NAMES utf8');
   $MBprod_result=mysqli_query($link_db,$str_MBprod);
-  $MBprod_data=mysqli_fetch_row($MBprod_result);  
+  $MBprod_data=mysqli_fetch_row($MBprod_result);
   if(empty($MBprod_data) || $MBprod_data==''):
   else:
   $BigProd_url=$MBprod_data[0];
   endif;
-  
+
   $str_BBprod="SELECT BIGIMG FROM p_b_main_serverbarebones WHERE MODELCODE='".$prod_data[4]."' limit 1";
   mysqli_query($link_db, 'SET NAMES utf8');
   $BBprod_result=mysqli_query($link_db,$str_BBprod);
@@ -2349,7 +2393,7 @@ if($cid!='' && $slang!=''){
   $str_Panprod="SELECT BIGIMG FROM p_b_main_panelpc WHERE MODELCODE='".$prod_data[4]."' limit 1";
   mysqli_query($link_db, 'SET NAMES utf8');
   $Panprod_result=mysqli_query($link_db,$str_Panprod);
-  $Panprod_data=mysqli_fetch_row($Panprod_result);  
+  $Panprod_data=mysqli_fetch_row($Panprod_result);
   if(empty($Panprod_data) || $Panprod_data==''):
   else:
   $BigProd_url=$Panprod_data[0];
@@ -2358,7 +2402,7 @@ if($cid!='' && $slang!=''){
   $str_EMprod="SELECT BIGIMG FROM p_b_main_embedded WHERE MODELCODE='".$prod_data[4]."' limit 1";
   mysqli_query($link_db, 'SET NAMES utf8');
   $EMprod_result=mysqli_query($link_db,$str_EMprod);
-  $EMprod_data=mysqli_fetch_row($EMprod_result);  
+  $EMprod_data=mysqli_fetch_row($EMprod_result);
   if(empty($EMprod_data) || $EMprod_data==''):
   else:
   $BigProd_url=$EMprod_data[0];
@@ -2367,13 +2411,13 @@ if($cid!='' && $slang!=''){
   $str_INDprod="SELECT BIGIMG FROM p_b_main_industriamb WHERE MODELCODE='".$prod_data[4]."' limit 1";
   mysqli_query($link_db, 'SET NAMES utf8');
   $INDprod_result=mysqli_query($link_db,$str_INDprod);
-  $INDprod_data=mysqli_fetch_row($INDprod_result);  
+  $INDprod_data=mysqli_fetch_row($INDprod_result);
   if(empty($INDprod_data) || $INDprod_data==''):
   else:
   $BigProd_url=$INDprod_data[0];
   endif;
-  
-  
+
+
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -2412,7 +2456,7 @@ if($cid!='' && $slang!=''){
 	  }
 	  return true;
 	}
-	
+
 function getElementsByClassName(node,classname) {
   if (node.getElementsByClassName) { // use native implementation if available
     return node.getElementsByClassName(classname);
@@ -2435,7 +2479,7 @@ function getElementsByClassName(node,classname) {
     })(classname, node);
   }
 }
-    
+
     function chk_FFactor(id){
 	  var e_all='';
 	  var className = 'pinfoc1';
@@ -2447,7 +2491,7 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.FFactor_val.value=e_all;
 	}
@@ -2463,11 +2507,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.MBprocessor_val.value=e_all;
 	}
-	
+
 	function chk_LAN(id){
 	  var e_all='';
 	  var className = 'pinfoc3';
@@ -2479,11 +2523,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.LAN_val.value=e_all;
 	}
-	
+
 	function chk_COM(id){
 	  var e_all='';
 	  var className = 'pinfoc4';
@@ -2495,11 +2539,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.COM_val.value=e_all;
 	}
-	
+
 	function chk_USB(id){
 	  var e_all='';
 	  var className = 'pinfoc5';
@@ -2511,11 +2555,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.USB_val.value=e_all;
 	}
-	
+
 	function chk_SATA(id){
 	  var e_all='';
 	  var className = 'pinfoc6';
@@ -2527,11 +2571,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.SATA_val.value=e_all;
 	}
-	
+
 	function chk_M2Slot(id){
 	  var e_all='';
 	  var className = 'pinfoc7';
@@ -2543,11 +2587,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.M2Slot_val.value=e_all;
 	}
-	
+
 	function chk_MiniPCIe(id){
 	  var e_all='';
 	  var className = 'pinfoc8';
@@ -2559,11 +2603,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.MiniPCIe_val.value=e_all;
 	}
-	
+
 	function chk_PCIeSlot(id){
 	  var e_all='';
 	  var className = 'pinfoc9';
@@ -2575,11 +2619,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.PCIeSlot_val.value=e_all;
 	}
-	
+
 	function chk_MBpower(id){
 	  var e_all='';
 	  var className = 'pinfoc10';
@@ -2591,11 +2635,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.MBpower_val.value=e_all;
 	}
-	
+
 	function chk_Fanless(id){
 	  var e_all='';
 	  var className = 'pinfoc11';
@@ -2607,11 +2651,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.Fanless_val.value=e_all;
 	}
-	
+
 	function chk_ModularizedIO(id){
 	  var e_all='';
 	  var className = 'pinfoc12';
@@ -2623,11 +2667,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.ModularizedIO_val.value=e_all;
 	}
-	
+
 	function chk_WidgetTemperature(id){
 	  var e_all='';
 	  var className = 'pinfoc13';
@@ -2639,11 +2683,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.WidgetTemperature_val.value=e_all;
 	}
-	
+
 	function chk_PanelSize(id){
 	  var e_all='';
 	  //var className = 'pinfoc'+id;
@@ -2656,11 +2700,11 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.PanelSize_val.value=e_all;
 	}
-	
+
 	function chk_EmbeddedPower(id){
 	  var e_all='';
 	  //var className = 'pinfoc'+id;
@@ -2673,7 +2717,7 @@ function getElementsByClassName(node,classname) {
 			e_all=e_all+e.value+',';
 			}else{
 			}
-			
+
 	  }
 	  document.form2.EmbeddedPower_val.value=e_all;
 	}
@@ -2690,7 +2734,7 @@ function getElementsByClassName(node,classname) {
       e_all=e_all+e.value+',';
       }else{
       }
-      
+
     }
     document.form2.PanelPCPower_val.value=e_all;
   }
@@ -2707,7 +2751,7 @@ function getElementsByClassName(node,classname) {
       e_all=e_all+e.value+',';
       }else{
       }
-      
+
     }
     document.form2.EmbeddedProcessor_val.value=e_all;
   }
@@ -2724,7 +2768,7 @@ function getElementsByClassName(node,classname) {
       e_all=e_all+e.value+',';
       }else{
       }
-      
+
     }
     document.form2.PanelPCProcessor_val.value=e_all;
   }
@@ -2741,7 +2785,7 @@ function getElementsByClassName(node,classname) {
       e_all=e_all+e.value+',';
       }else{
       }
-      
+
     }
     document.form2.EmbeddedType_val.value=e_all;
   }
@@ -2758,29 +2802,29 @@ function getElementsByClassName(node,classname) {
       e_all=e_all+e.value+',';
       }else{
       }
-      
+
     }
     document.form2.PanelPCType_val.value=e_all;
   }
 
   </script>
-	
+
 	<script type="text/javascript">
-		$(document).ready(function() {	
-			
+		$(document).ready(function() {
+
 		var cids=<?=$cid;?>,slangs="<?=$slang;?>",s_searchs="<?=$s_search;?>"
-				
-		var t=0;			
+
+		var t=0;
 		var myVar=setInterval(function(){myTimer()},1000);
 		function myTimer()
 		{
 		t+=1;
 		document.getElementById("count_num").innerHTML=t;
 		if(t>1200){
-		self.location="edit_product.php?cid=" + cids + "&lang=" + slangs + "&s_search=" + s_searchs;		
+		self.location="edit_product.php?cid=" + cids + "&lang=" + slangs + "&s_search=" + s_searchs;
 		}
 		}
-			
+
 			/*
 			 *  Simple image gallery. Uses default settings
 			 */
@@ -2968,9 +3012,9 @@ function getElementsByClassName(node,classname) {
 <div id="menu">
 <ul>
 <li ><a href="default.php">Products</a></li>
-<li> <a href="modules.php">Contents</a> 
+<li> <a href="modules.php">Contents</a>
       <ul>
-		<li><a href="modules.php">Modules</a></li>	  
+		<li><a href="modules.php">Modules</a></li>
       </ul>
 </li>
 <li ><a href="newsletter.php">Newsletters</a>
@@ -2980,7 +3024,7 @@ function getElementsByClassName(node,classname) {
 </div>
 <div class="clear"></div>
 <div id="Search" >
-<h2><a href="default.php" >Products</a>&nbsp;&gt;&nbsp;Edit <?=$prod_data[4];?>: <a href="#" target="spec"><?=$prod_data[3];?></a>&nbsp;&nbsp;(<?=substr($slang,0,strlen($slang)-1);?>)</h2> 
+<h2><a href="default.php" >Products</a>&nbsp;&gt;&nbsp;Edit <?=$prod_data[4];?>: <a href="#" target="spec"><?=$prod_data[3];?></a>&nbsp;&nbsp;(<?=substr($slang,0,strlen($slang)-1);?>)</h2>
 </div>
 <div id="content">
 <form name="form2" id="form2" method="post" enctype="multipart/form-data" action="?methods=upd_pro&s_search=<?=$s_search;?>" onsubmit="return prod_Check();">
@@ -3039,7 +3083,7 @@ mysqli_close($link_db);
 <option value="0" <?php if($prod_data[5]=='0'){ echo "selected"; } ?>>Offline</option>
 </select>&nbsp;
 <INPUT name="new_logo" type="checkbox" value="1" <?php if($prod_data[21]=='1'){ echo "checked"; } ?> /> New &nbsp;
-<INPUT name="comingSoon" type="checkbox" value="1" <?php if($prod_data[45]=='1'){ echo "checked"; } ?> /> Coming Soon 
+<INPUT name="comingSoon" type="checkbox" value="1" <?php if($prod_data[45]=='1'){ echo "checked"; } ?> /> Coming Soon
 </td>
 </tr>
 <tr>
@@ -3068,25 +3112,25 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 </tr>
 </table>
 	 <P style="color:#0F0">- Product Type 的 default 值，會以在 "module => (Product) Product Type 裏設定的 "Associated Product Type(s) in PMM system" 對應的 Product Type 為預設。<br />- Category 的 default 值， 跟據上面的 "Product Type"， 會以在 "module =>(Category page) - Product Categories" 裏設定對應的 Categories為預設。 <br />- Status 預設為offline</p>
-</div> 
- <p class="clear">&nbsp;</p> 
+</div>
+ <p class="clear">&nbsp;</p>
 <div class="box">
    <h3> Info:</h3>
    <table class="addspec" style="width:800px">
 	<tbody >
 	<?php
 	if($prod_data[2]!=''){
-	
+
 	$link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 
 	mysqli_query($link_db, 'SET NAMES utf8');
     mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
     mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
     //$select=mysqli_select_db($dataBase, $link_db);
-    
+
 	$str_pinfo="SELECT PI_id, PI_Name, slang, PI_Value, PTYPE_Value, Sorts FROM product_info_las where concat(',',PTYPE_Value) like '%,".$prod_data[2].",%' and slang='".substr($slang,0,strlen($slang)-1)."'";
   $pinfo_result=mysqli_query($link_db, $str_pinfo);
-    while(list($PI_id,$PI_Name,$slang,$PI_Value,$PTYPE_Value,$Sorts)=mysqli_fetch_row($pinfo_result))      
+    while(list($PI_id,$PI_Name,$slang,$PI_Value,$PTYPE_Value,$Sorts)=mysqli_fetch_row($pinfo_result))
     {
 	?>
 	<tr ><th > <?=$PI_Name;?>: <?=$PI_id;?></th>
@@ -3103,25 +3147,25 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 			 $info_click="chk_MBprocessor('".$PI_id."')";
 		  }else if($PI_id==3){
 			 $pclass_name="pinfoc3";
-			 $info_click="chk_LAN('".$PI_id."')"; 
+			 $info_click="chk_LAN('".$PI_id."')";
 		  }else if($PI_id==4){
 			 $pclass_name="pinfoc4";
-			 $info_click="chk_COM('".$PI_id."')"; 
+			 $info_click="chk_COM('".$PI_id."')";
 		  }else if($PI_id==5){
 			 $pclass_name="pinfoc5";
-			 $info_click="chk_USB('".$PI_id."')"; 
+			 $info_click="chk_USB('".$PI_id."')";
 		  }else if($PI_id==6){
 			 $pclass_name="pinfoc6";
 			 $info_click="chk_SATA('".$PI_id."')";
 		  }else if($PI_id==7){
 			 $pclass_name="pinfoc7";
-			 $info_click="chk_M2Slot('".$PI_id."')"; 
+			 $info_click="chk_M2Slot('".$PI_id."')";
 		  }else if($PI_id==8){
 			 $pclass_name="pinfoc8";
-			 $info_click="chk_MiniPCIe('".$PI_id."')"; 
+			 $info_click="chk_MiniPCIe('".$PI_id."')";
 		  }else if($PI_id==9){
 			 $pclass_name="pinfoc9";
-			 $info_click="chk_PCIeSlot('".$PI_id."')"; 
+			 $info_click="chk_PCIeSlot('".$PI_id."')";
 		  }else if($PI_id==10){
 			 $pclass_name="pinfoc10";
 			 $info_click="chk_MBpower('".$PI_id."')";
@@ -3140,19 +3184,19 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 		  }else if($PI_id==15){
 			 $pclass_name="pinfoc15";
 			 $info_click="chk_EmbeddedPower('".$PI_id."')";
-		  }else if($PI_id==16){ 
+		  }else if($PI_id==16){
        $pclass_name="pinfoc16";
        $info_click="chk_PanelPCPower('".$PI_id."')";
-      }else if($PI_id==17){ 
+      }else if($PI_id==17){
        $pclass_name="pinfoc17";
        $info_click="chk_EmbeddedProcessor('".$PI_id."')";
-      }else if($PI_id==18){ 
+      }else if($PI_id==18){
        $pclass_name="pinfoc18";
        $info_click="chk_PanelPCProcessor('".$PI_id."')";
-      }else if($PI_id==19){ 
+      }else if($PI_id==19){
        $pclass_name="pinfoc19";
        $info_click="chk_EmbeddedType('".$PI_id."')";
-      }else if($PI_id==20){ 
+      }else if($PI_id==20){
        $pclass_name="pinfoc20";
        $info_click="chk_PanelPCType('".$PI_id."')";
       }
@@ -3165,8 +3209,8 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 	</td>
 	</tr>
 	<?php
-	}	
-	
+	}
+
 	mysqli_close($link_db);
 	}
 	?>
@@ -3186,7 +3230,7 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 	Modularized I/O <input type="text" name="ModularizedIO_val" value="<?=$prod_data[33];?>" readonly />&nbsp;&nbsp;<br />
 	Widget Temperature <input type="text" name="WidgetTemperature_val" value="<?=$prod_data[34];?>" readonly />&nbsp;&nbsp;<br />
 	Panel Size <input type="text" name="PanelSize_val" value="<?=$prod_data[35];?>" readonly />&nbsp;&nbsp;<br />
-	Embedded Power <input type="text" name="EmbeddedPower_val" value="<?=$prod_data[36];?>" readonly />&nbsp;&nbsp;<br />	
+	Embedded Power <input type="text" name="EmbeddedPower_val" value="<?=$prod_data[36];?>" readonly />&nbsp;&nbsp;<br />
   Panel PC Power <input type="text" name="PanelPCPower_val" value="<?=$prod_data[38];?>" readonly />&nbsp;&nbsp;<br />
   Embedded Processor <input type="text" name="EmbeddedProcessor_val" value="<?=$prod_data[39];?>" readonly />&nbsp;&nbsp;<br />
   Panel PC Processor <input type="text" name="PanelPCProcessor_val" value="<?=$prod_data[40];?>" readonly />&nbsp;&nbsp;<br />
@@ -3203,7 +3247,7 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 <!--end Info-->
 <p class="clear">&nbsp;</p>
 
-<!--上傳圖片--> 
+<!--上傳圖片-->
 <div class=" box">
 	<h3>Upload images/photos:</h3>
 <table class="addspec">
@@ -3227,7 +3271,7 @@ if(strpos($prod_data[6],'EN,')!='' || strpos($prod_data[6],'EN,')===0){
 <!--end 上傳圖片-->
 
 <p class="clear">&nbsp;</p>
-<!--icons top--> 
+<!--icons top-->
 <div class=" box">
 <h3>Icons(Top):</h3>
 <table class="addspec"><tbody >
@@ -3263,8 +3307,8 @@ document.getElementById('icon_list').innerHTML = icon_str;
 <P style="color:#0F0">- 這裡會 load 相同 model 第一個 SKU 所設定的條件的值，為預設。然後可以edit。</p>
 </div>
 <!--end icons top-->
-<p class="clear">&nbsp;</p> 
-<!--icons bottom--> 
+<p class="clear">&nbsp;</p>
+<!--icons bottom-->
 <div class=" box">
 <h3>Icons(Bottom):</h3>
 <table class="addspec"><tbody >
@@ -3285,7 +3329,7 @@ document.getElementById('icon_list').innerHTML = icon_str;
 <P style="color:#0F0">- 這裡會 load 相同 model 第一個 SKU 所設定的條件的值，為預設。然後可以edit。</p>
 </div>
 <!--end icons bottom-->
-<p class="clear">&nbsp;</p> 
+<p class="clear">&nbsp;</p>
 <!--Landing Title-->
 <div class=" box">
 <h3>Landing Title:</h3>
@@ -3294,7 +3338,7 @@ document.getElementById('icon_list').innerHTML = icon_str;
 </p>
 </div>
 <!--end Landing Title-->
- <p class="clear">&nbsp;</p> 
+ <p class="clear">&nbsp;</p>
 <!--Description-->
 <div class=" box">
 <h3>Title Description:</h3>
@@ -3305,27 +3349,27 @@ document.getElementById('icon_list').innerHTML = icon_str;
 </p>
 </div>
  <!--end Description-->
- <p class="clear">&nbsp;</p> 
+ <p class="clear">&nbsp;</p>
   <!--Related  Products-->
 <div class=" box">
-<h3>Related  Products:   &nbsp;&nbsp; <select name="relate_enable"><option value="1" <?php if($prod_data[13]==1){ echo "selected"; } ?>>Shown</option><option value="0" <?php if($prod_data[13]==0){ echo "selected"; } ?>>Hidden</option></select></h3> 
+<h3>Related  Products:   &nbsp;&nbsp; <select name="relate_enable"><option value="1" <?php if($prod_data[13]==1){ echo "selected"; } ?>>Shown</option><option value="0" <?php if($prod_data[13]==0){ echo "selected"; } ?>>Hidden</option></select></h3>
  <div class="button14" style="width:60px;" ><a class="fancybox fancybox.iframe" href="elb_supported_pros.php?cid=<?=$prod_data[0];?>&lang=<?=$prod_data[6];?>">Edit</a></div>
  <!--列出被勾選的Products-->
  <textarea id="relProd_val" name="relProd_val" rows="5" cols="80" style="border: none;max-width: 800px; max-height: 200px;" readonly><?=$prod_data[14];?></textarea>
  <p></p><!--end of 列出被勾選的Products-->
  <P style="color:#0F0">- Shown 跟 Hidden 的設定，決定這個資訊是否要show在Product SPEC 頁面上。<br>- 這裡會 load 相同 model 第一個 SKU 所設定的條件的值，為預設。然後可以edit。<br>- 預設為隱藏</p>
- </div> 
-   <!--end Related  Products--> 
+ </div>
+   <!--end Related  Products-->
 <p class="clear">&nbsp;</p>
   <!--Compatible Products-->
 <div class=" box">
-<h3>Compatible Products:   &nbsp;&nbsp; <select name="compat_enable"><option value="1" <?php if($prod_data[15]==1){ echo "selected"; } ?>>Shown</option><option value="0" <?php if($prod_data[15]==0){ echo "selected"; } ?>>Hidden</option></select></h3> 
+<h3>Compatible Products:   &nbsp;&nbsp; <select name="compat_enable"><option value="1" <?php if($prod_data[15]==1){ echo "selected"; } ?>>Shown</option><option value="0" <?php if($prod_data[15]==0){ echo "selected"; } ?>>Hidden</option></select></h3>
  <div class="button14 " style="width:60px;" ><a class="fancybox fancybox.iframe" href="elb_supported_compat_pros.php?cid=<?=$prod_data[0];?>&lang=<?=$prod_data[6];?>">Edit</a></div>
  <!--列出被勾選的Products-->
  <textarea id="compacProd_val" name="compacProd_val" rows="5" cols="80" style="border: none;max-width: 800px; max-height: 200px;" readonly><?=$prod_data[16];?></textarea>
  <p></p><!--end of 列出被勾選的Products-->
  <P style="color:#0F0">- Shown 跟 Hidden 的設定，決定這個資訊是否要show在Product SPEC 頁面上。<br>- 這裡會 load 相同 model 第一個 SKU 所設定的條件的值，為預設。然後可以edit。<br>- 預設為隱藏</p>
- </div> 
+ </div>
    <!--end Compatible Products-->
 <p class="clear">&nbsp;</p>
 <div>

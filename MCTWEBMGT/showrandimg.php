@@ -1,23 +1,23 @@
 <?php 
-$img_height = 25;  // åœ–å½¢é«˜åº¦ 
-$img_width = 60;   // åœ–å½¢å¯¬åº¦ 
-$mass = 40;        // é›œé»žçš„æ•¸é‡ï¼Œæ•¸å­—æ„ˆå¤§æ„ˆä¸å®¹æ˜“è¾¨è­˜ 
-$num="";              // randå¾Œæ‰€å­˜çš„åœ°æ–¹ 
-$num_max = 4;      // ç”¢ç”Ÿ4å€‹é©—è­‰ç¢¼ 
+$img_height = 25;  // ¹Ï§Î°ª«× 
+$img_width = 60;   // ¹Ï§Î¼e«× 
+$mass = 40;        // ÂøÂIªº¼Æ¶q¡A¼Æ¦r·U¤j·U¤£®e©ö¿ëÃÑ 
+$num="";              // rand«á©Ò¦sªº¦a¤è 
+$num_max = 4;      // ²£¥Í4­ÓÅçÃÒ½X 
 for( $i=0; $i<$num_max; $i++ ) 
 { 
 $num .= rand(0,9); 
 } 
 Session_start(); 
-$_SESSION["Checknum"] = $num;  // å°‡ç”¢ç”Ÿçš„é©—è­‰ç¢¼å¯«å…¥åˆ°session 
-// å»ºç«‹åœ–ç‰‡ï¼Œå®šç¾©åœ–å½¢å’Œæ–‡å­—é¡è‰² 
+$_SESSION["Checknum"] = $num;  // ±N²£¥ÍªºÅçÃÒ½X¼g¤J¨ìsession 
+// ³Ð³y¹Ï¤ù¡A©w¸q¹Ï§Î©M¤å¦rÃC¦â 
 Header("Content-type: image/PNG"); 
 srand((double)microtime()*1000000); 
 $im = imagecreate($img_width,$img_height); 
-$black = ImageColorAllocate($im, 0,0,0);         // (0,0,0)æ–‡å­—ç‚ºé»‘è‰² 
-$gray = ImageColorAllocate($im, 200,200,200); // (200,200,200)èƒŒæ™¯æ˜¯ç°è‰² 
+$black = ImageColorAllocate($im, 0,0,0);         // (0,0,0)¤å¦r¬°¶Â¦â 
+$gray = ImageColorAllocate($im, 200,200,200); // (200,200,200)­I´º¬O¦Ç¦â 
 imagefill($im,0,0,$gray); 
-// éš¨æ©Ÿçµ¦å…©æ¢è™›ç·šï¼Œç”¢ç”Ÿå¹²æ“¾ä½œç”¨ 
+// ÀH¾÷µ¹¨â±øµê½u¡A²£¥Í¤zÂZ§@¥Î 
 $style = array($black, $black, $black, $black, $black, $gray, $gray, $gray, $gray, $gray); 
 imagesetstyle($im, $style); 
 $y1=rand(0,$img_height); 
@@ -26,12 +26,12 @@ $y3=rand(0,$img_height);
 $y4=rand(0,$img_height); 
 imageline($im, 0, $y1, $img_width, $y3, IMG_COLOR_STYLED); 
 imageline($im, 0, $y2, $img_width, $y4, IMG_COLOR_STYLED); 
-// åœ¨åœ–å½¢ç”¢ä¸Šé»‘é»žï¼Œèµ·å¹²æ“¾ä½œç”¨; 
+// ¦b¹Ï§Î²£¤W¶ÂÂI¡A°_¤zÂZ§@¥Î; 
 for( $i=0; $i<$mass; $i++ ) 
 { 
 imagesetpixel($im, rand(0,$img_width), rand(0,$img_height), $black); 
 } 
-// å°‡æ•¸å­—éš¨æ©Ÿé¡¯ç¤ºåœ¨åœ–å½¢ä¸Š,æ–‡å­—çš„ä½ç½®éƒ½æŒ‰ä¸€å®šæ³¢å‹•ç¯„åœéš¨æ©Ÿç”Ÿæˆ 
+// ±N¼Æ¦rÀH¾÷Åã¥Ü¦b¹Ï§Î¤W,¤å¦rªº¦ì¸m³£«ö¤@©wªi°Ê½d³òÀH¾÷¥Í¦¨ 
 $strx=rand(3,8); 
 for( $i=0; $i<$num_max; $i++ ) 
 { 

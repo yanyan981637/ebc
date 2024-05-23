@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body #app {
+  background-image: url("bg.50710431.png");
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+body #app .entry-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 470px;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-left: 115px;
+  padding: 81px 0;
+  box-sizing: border-box;
+}
+body #app .entry-box .logo-img {
+  width: 244px;
+  height: 70px;
+}
+body #app .entry-box .promotion {
+  width: 255px;
+  color: #3e5564;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 27px;
+  margin-top: 33px;
+}
+body #app .entry-box .form-box {
+  width: 245px;
+  margin-top: 4px;
+}
+body #app .entry-box .form-box .form-input {
+  margin-top: 24px;
+}
+body #app .entry-box .form-box .form-input .label {
+  font-size: 14px;
+  line-height: 27px;
+  color: #3e5564;
+  margin-bottom: 10px;
+}
+body #app .entry-box .form-box .form-input input {
+  background-color: transparent;
+  border: 1px solid #9a9898;
+}
+body #app .entry-box .form-box .form-input input[type=text] {
+  width: 100%;
+  height: 37px;
+  border-radius: 5px;
+  appearance: none;
+}
+body #app .entry-box .form-box .form-input input[type=checkbox] {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  margin: 0;
+}
+body #app .entry-box .form-box .form-input .agree-term {
+  font-size: 12px;
+  line-height: 15px;
+  color: #3e5564;
+  width: 230px;
+  margin: 9px 0;
+}
+body #app .entry-box .form-box .form-input .agree-term a {
+  color: #0078c5;
+  text-decoration: none;
+}
+body #app .entry-box .form-box .btn-join {
+  width: 254px;
+  height: 41px;
+  background-color: #53ddfa;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 41px;
+  font-weight: bold;
+  cursor: pointer;
+}
+body #app .entry-box .link-section {
+  display: flex;
+  justify-content: space-between;
+  width: 254px;
+  height: 50px;
+  margin-top: 15px;
+}
+body #app .entry-box .link-section__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: -moz-radial-gradient(50% 50%, circle closest-side, #e9e8e8 72%, #dbd9d9 100%);
+  background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #e9e8e8 72%, #dbd9d9 100%);
+  background-image: -ms-radial-gradient(50% 50%, circle closest-side, #e9e8e8 72%, #dbd9d9 100%);
+}
+body #app .entry-box .term-section {
+  width: 415px;
+  margin-top: 25px;
+  line-height: 12px;
+}
+body #app .entry-box .term-section .title {
+  font-size: 10px;
+  color: #5aaadd;
+  text-align: center;
+  margin: 0 auto;
+}
+body #app .entry-box .term-section .description {
+  color: #adacac;
+  font-size: 9px;
+  margin-top: 8px;
+}
+/*# sourceMappingURL=index.9458f64d.css.map */

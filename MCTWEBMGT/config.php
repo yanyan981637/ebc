@@ -2,12 +2,12 @@
 $db_host="localhost:3306";
 $db_user="root";
 $db_pwd="";
-$dataBase="cbuweb2";
+$dataBase="cbuweb";
 
 $Config["DB_HOST"]="localhost:3306";
 $Config["DB_USER"]="root";
 $Config["DB_PWD"]="";
-$Config["DB_NAME"]="cbuweb2";
+$Config["DB_NAME"]="cbuweb";
 
 class CMysql
 {

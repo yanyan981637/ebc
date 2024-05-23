@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -47,8 +47,8 @@ function dowith_sql($str){
 
 if(isset($_GET['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_GET['PLang']));
-  $PLang_si=str_replace(".php","",$PLang_si);  
-  
+  $PLang_si=str_replace(".php","",$PLang_si);
+
   if($PLang_si=="en-US" || $PLang_si==""){
 	  $PLang_si01="EN";
 	  $PLang_si="en-US";
@@ -106,7 +106,7 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="MiTAC provides industrial panel pc and commercial panel pc supporting the latest Intel Core i processor for automation, ITS, AI applications.">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="MiTAC provides industrial panel pc and commercial panel pc supporting the latest Intel Core i processor for automation, ITS, AI applications." /> 
+<meta property="og:description" content="MiTAC provides industrial panel pc and commercial panel pc supporting the latest Intel Core i processor for automation, ITS, AI applications." />
 <meta property="og:title" content="Industrial Panel PC | MiTAC Computing Technology" />
   <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
@@ -120,13 +120,13 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 <link rel="stylesheet" href="/css1/animate.css" type="text/css" />
 <link rel="stylesheet" href="/css1/magnific-popup.css" type="text/css" />
 <link rel="stylesheet" href="/css1/custom.css" type="text/css" />
-<link rel="stylesheet" href="/css1/product-landing.css" type="text/css" />	
+<link rel="stylesheet" href="/css1/product-landing.css" type="text/css" />
 <script src="/js1/jquery.js"></script>
 
 <!-- Document Title
 ============================================= -->
 <title>Industrial Panel PC | MiTAC Computing Technology</title>
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../../analyticstracking.php");
@@ -158,7 +158,7 @@ if($s_cookie!=2){
 				<div class="col-lg-8 col-md-8 dark mb-5 mb-md-0 py-5">
 					<h2 class="display-4" style="font-weight: 600;" data-animate="backInLeft">Industrial Panel PC</h2>
 					<p class="mb-5 lead text-white" data-animate="backInLeft">MiTAC provides industrial panel PC and commercial panel PC for diverse application in several industries. Powered by Intel Core i and Atom processors with reliable, flexible, long-term supported in fanless slim chassis design, the industrial panel PCs include standalone and panel mount series designed for harsh environment. Commercial panel PCs - Maestro series with elegant all-in-one PC design powered by standard Thin Mini-iTX and latest Intel Core i platform with best computing & delicate graphic performance.</p>
-					
+
 				</div>
 				<div class="col-md-4 d-flex align-self-end align-items-center align-items-lg-end col-form">
 					<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0 op-1" >
@@ -167,7 +167,7 @@ if($s_cookie!=2){
 								New products:
 							</h3>
 							<div class="line line-sm mt-3"></div>
-							
+
 							<ul class="iconlist">
 								<?php
 								$strList="SELECT a.MODELCODE, a.SKU, a.PanelSize_val, a.Panel_PC_Processor_val, a.Product_Info FROM contents_product_skus a inner join product_skus b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID WHERE a.ProductTypeID='".$PType."' AND a.IsnewUp='1' AND b.IS_EOL='0' AND a.STATUS='1' ORDER BY b.crea_d DESC Limit 6";
@@ -183,7 +183,7 @@ if($s_cookie!=2){
 										}
 									}*/
 									echo "<li><i class='icon-line-chevrons-right'></i> <a href='".$url."'/>".$dataList[1]." (".$Info[$tmp[0]]." / ".$Info[$tmp1[0]].")</a></li>";
-								}									
+								}
 							?>
 							</ul>
 						</div>
@@ -252,7 +252,7 @@ if($s_cookie!=2){
 							echo "<option value='".$dataPS[0]."'>".$dataPS[2]."</option>";
 						}
 						?>
-					</select>	
+					</select>
 				</div>
 
 				<div class="col-lg-2 form-group">
@@ -373,7 +373,7 @@ if($s_cookie!=2){
 				    ?>
 				    <!-- Card  -->
 						<article class="portfolio-item col-12 col-sm-6 col-lg-4" >
-							
+
 							<?php
 							//<!--new label-->
 							if($IsnewUp==1){
@@ -386,7 +386,7 @@ if($s_cookie!=2){
 							?>
 							<div class="grid-inner card card-hover border-0 shadow-sm p-5">
 								<!--Panel PC Type label label-->
-								<?php 
+								<?php
 								/*if($Info[$tmpEType[0]]!=""){
 									echo "<div class='embedded_type' >".$Info[$tmpEType[0]]."</div>";
 								}*/
@@ -414,16 +414,16 @@ if($s_cookie!=2){
 											}else{
 												$title="";
 											}
-											
+
 											if($i%3==0){
 												echo "<div class='row'>";
 											}
 											echo "<div class='col-sm-12'>".$title." <strong>";
 											foreach ($PR_info as $key => $value) {
 												if($value!=""){
-													
+
 													echo $listInfo[$dataInfoTitle[0]][$value];
-													
+
 												}
 											}
 											echo "</strong></div>";
@@ -486,13 +486,13 @@ if($s_cookie!=2){
 
 
 	</div>
-	
+
+</div>
+
+
 </div>
 
 
-</div>			
-
-
 
 
 
@@ -514,7 +514,7 @@ if($s_cookie!=2){
 
 
 </div>
-</div>		
+</div>
 
 
 <!-- #content end -->
@@ -544,11 +544,11 @@ if($s_cookie!=2){
 </div>
 <!-- end add quote sone msg Modal -->
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../../foot1.htm");
 ?>
-<!-- FOOTER end -->	  
+<!-- FOOTER end -->
 
 </div><!-- #wrapper end -->
 

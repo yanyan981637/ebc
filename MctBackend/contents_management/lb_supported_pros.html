@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Add Supported Products</title>
+<link rel=stylesheet type="text/css" href="../backend.css">
+<style type="text/css">
+
+table{border:0px solid #c0c0c0; width:90%}
+
+td{ padding:5px 15px; cursor: pointer;}
+
+
+td:hover{background: #dcf2fd;}
+			
+
+</style>
+
+		<link type="text/css" href="../lib/css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../lib/jquery-ui-1.8.22.custom.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+
+				// Accordion
+				$("#accordion").accordion({ header: "h3" });
+
+				// Progressbar
+				$("#progressbar").progressbar({
+					value: 20
+				});
+
+				//hover states on the static widgets
+				$('#dialog_link, ul#icons li').hover(
+					function() { $(this).addClass('ui-state-hover'); },
+					function() { $(this).removeClass('ui-state-hover'); }
+				);
+
+			});
+		</script>
+
+
+
+</head>
+
+<body style="backbround:#f9f9f9">
+<h2>Add Products:</h2>
+
+<div>
+<div class="pagination left">Total: <span class="w14bblue">xxxx</span> records &nbsp;&nbsp;
+</div> <div class="left">
+ <!--<input name="" type="text" size="20" value="Search"  /> -->
+ </div>
+ </div>
+<p class="clear">&nbsp;</p>
+
+
+		<div id="accordion">
+			<div>
+				<h3><a href="#">Server Motherboards</a></h3>
+				<div>
+				<p><input name="" type="checkbox" value="" /> [Model]: (<input name="" type="checkbox" value="" /> SKU,&nbsp;<input name="" type="checkbox" value="" /> SKU,)</p>
+				<p><input name="" type="checkbox" value="" />S7045:  (<input name="" type="checkbox" value="" /> S7045GM4NR,&nbsp;<input name="" type="checkbox" value="" /> S7045WGM2NR,&nbsp;<input name="" type="checkbox" value="" /> S7045AG2NR,&nbsp; <input name="" type="checkbox" value="" /> S7045WGM4NR)</p>
+				<p><input name="" type="checkbox" value="" />S5533: (<input name="" type="checkbox" value="" /> S5533GM2NR-LE,&nbsp;)</p>
+				<p><input name="" type="checkbox" value="" />S3115: (<input name="" type="checkbox" value="" checked />S3115GM2N,&nbsp; <span class="bg_found"><input name="" type="checkbox" value="" />S3115GM2N-B,</span>&nbsp; <input name="" type="checkbox" value="" />S3115GN,&nbsp;)
+				</p>
+				
+				</div>
+			</div>
+			<div>
+				<h3><a href="#">Server Barebones</a></h3>
+				<div>
+				<p><input name="" type="checkbox" value="" /> [Model]: (<input name="" type="checkbox" value="" /> SKU,&nbsp;<input name="" type="checkbox" value="" /> SKU,)</p>
+				<p><input name="" type="checkbox" value="" /> [FT77BB7059]: (<input name="" type="checkbox" value="" /> B7059F77BV10R,&nbsp;<input name="" type="checkbox" value="" /> B7059F77BV10R-X,&nbsp;<input name="" type="checkbox" value="" /> B7059F77BV10R-N,&nbsp;<input name="" type="checkbox" value="" /> B7059F77BV10R-2T-N,&nbsp;<input name="" type="checkbox" value="" /> B7059F77BV10R-2T-X,)</p>
+				</div>
+			</div>
+			<div>
+				<h3><a href="#">Chassis Kit</a></h3>
+				<div><input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" checked />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" checked />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp;</div>
+			</div>
+			
+			<div>
+				<h3><a href="#">Server Adapters</a></h3>
+				<div><p><input name="" type="checkbox" value="" /> [Model]: (<input name="" type="checkbox" value="" /> SKU,&nbsp;<input name="" type="checkbox" value="" /> SKU,)</p></div>
+			</div>			
+			
+				
+			<div>
+				<h3><a href="#">Accessories</a></h3>
+				<div><input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value=""  />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value=""  />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp; <input name="" type="checkbox" value="" />xxxxxxx,&nbsp;</div>
+			</div>			
+		</div>
+
+
+
+
+ 
+ 
+
+<p class="clear">&nbsp;</p><p><input name="" type="button" value="Cancel"  />&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="button" value="Done"  /></p>
+<P style="color:#0F0">
+- By Product Type 列出，每個 Product Type 下的 Model 及其 SKUs。每個 model 列一列，下面再列其下的 SKU。<br >
+
+  - ** SKU 請依 中英文數字排序<br >
+  - 可勾選多筆SKUs ，勾選modle 則所有SKU 都自動被check<br >
+
+
+</p>
+
+
+
+
+</body>
+</html>

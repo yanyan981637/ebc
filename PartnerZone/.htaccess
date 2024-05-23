@@ -1,0 +1,68 @@
+ErrorDocument 404 /404.htm
+ErrorDocument 403 /404.htm
+ErrorDocument 404 /404.htm
+ErrorDocument 500 /404.htm
+
+<IfModule mod_headers.c>
+Header set X-Frame-Options SAMEORIGIN
+# Allow some urls, block all others; whitelisting
+	#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
+	#Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.	
+	#</LocationMatch>
+	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+	Header set Cache-Control "max-age=604800, public"
+	</FilesMatch>
+</IfModule>
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule .* - [F]
+
+
+RewriteRule ^(.*)\.html$ $1.php [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#PartnerZone/
+RewriteRule ^loginProcess$ /PartnerZone/login_process.php [QSA,L]
+RewriteRule ^FEregister$ /PartnerZone/FE_register.php [QSA,L]
+RewriteRule ^FEregister@([^./]+)@([^./]+)$ /PartnerZone/FE_register.php?rfq=$1&qty=$2 [QSA,L]
+RewriteRule ^captcha@([a-zA-Z0-9_-]+)$ /PartnerZone/authimg.php?id=$1 [QSA,L]
+RewriteRule ^FEpassword@([a-zA-Z0-9_-]+)$ /PartnerZone/FE_password.php?id=$1 [QSA,L]
+RewriteRule ^pwProcess$ /PartnerZone/pw_process.php [QSA,L]
+RewriteRule ^FEdashboard$ /PartnerZone/FE_dashboard.php [QSA,L]
+RewriteRule ^FEmyprofile$ /PartnerZone/FE_myprofile.php [QSA,L]
+RewriteRule ^addMembers$ /PartnerZone/add_members.php [QSA,L]
+RewriteRule ^memberProcess$ /PartnerZone/member_process.php [QSA,L]
+RewriteRule ^editMembers@([a-zA-Z0-9_-]+)$ /PartnerZone/edit_members.php?ID=$1 [QSA,L]
+RewriteRule ^FEmyquotation$ /PartnerZone/FE_myquotation.php [QSA,L]
+RewriteRule ^FEquoteDetails@([a-zA-Z0-9_-]+)$ /PartnerZone/FE_quote_details.php?QTID=$1 [QSA,L]
+RewriteRule ^FEmyproducts$ /PartnerZone/FE_myproducts.php [QSA,L]
+RewriteRule ^dashboardProcess$ /PartnerZone/dashboard_process.php [QSA,L]
+RewriteRule ^FEmarketplace$ /PartnerZone/FE_marketplace.php [QSA,L]
+RewriteRule ^FEmarketplace@([a-zA-Z0-9_-]+)$ /PartnerZone/FE_marketplace.php?kind=search&t=$1 [QSA,L]
+RewriteRule ^regProcess$ /PartnerZone/reg_process.php [QSA,L]
+RewriteRule ^emailNotification/quoteApproval@([a-zA-Z0-9_-]+)$ /PartnerZone/email_notification/quote_approval.php?qtid=$1 [QSA,L]
+RewriteRule ^emailNotification/approvalProcess$ /PartnerZone/email_notification/approval_process.php [QSA,L]
+RewriteRule ^FEregistrationDone$ /PartnerZone/FE_registration_done.php [QSA,L]
+RewriteRule ^loginRFQ@([^./]+)@([^./]+)$ /PartnerZone/login_formain.php?rfq=$1&qty=$2 [QSA,L]
+RewriteRule ^loginProcessFor$ /PartnerZone/login_process_ForMain.php [QSA,L]
+
+#RFQ
+#RewriteRule ^RFQprocess@([^./]+)@([^./]+)$ /PartnerZone/RFQ_process.php?rfq=$1&qty=$2 [QSA,L]
+RewriteRule ^RFQprocess$ /PartnerZone/RFQ_process.php? [QSA,L]
+
+
+Options All -Indexes
+Order deny,allow
+Allow from all
+#Allow from 10.0.0.0/8
+#Deny from all

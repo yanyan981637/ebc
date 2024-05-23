@@ -1,0 +1,271 @@
+
+@font-face {
+  font-family: tyanpartnerportalFont;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-100;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Thin.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-900;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Black.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-700;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-300;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-500;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-Italic;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Italic.ttf);
+}
+
+
+
+
+body, h1, h2, h3, h4, h5, h6, p, nav {font-family: tyanpartnerportalFont;}
+
+
+.t-Italic {font-family: tyanpartnerportalFont-Italic;}
+.t500 {font-family: tyanpartnerportalFont-500;}
+.t300 {font-family: tyanpartnerportalFont-300;}
+.t700 {font-family: tyanpartnerportalFont-700;}
+.t900 {font-family: tyanpartnerportalFont-900;}
+.t100 {font-family: tyanpartnerportalFont-100;}
+.t400 {font-family: tyanpartnerportalFont;}
+
+
+
+.user-name .companyname {color:#37bc9b; font-size:12px;line-height:150%}
+
+.mk-date{font-family: tyanpartnerportalFont-300; font-size:12px; font-style: italic; }
+
+
+
+
+.main-menu-content li.nav-item,  
+.main-menu-content li.navigation-header,
+.navbar-container li.nav-item {font-family: tyanpartnerportalFont;}
+
+.breadcrumb {font-family: tyanpartnerportalFont;}
+
+
+
+.primary
+{
+    color: #004898 !important;
+}
+
+.bg-primary
+{
+    background-color: #00296b !important;
+}
+.border-primary
+{
+    border-color: #00296b;
+}
+
+.overlay-primary
+{
+    background: #00296b;
+    /* The Fallback */
+    background: rgba(1, 41, 107, .8);
+}
+input[type='checkbox'].bg-primary + .custom-control-label:before,
+input[type='radio'].bg-primary + .custom-control-label:before
+{
+    background-color: #00296b !important;
+}
+
+input:focus ~ .bg-primary
+{
+    -webkit-box-shadow: 0 0 0 .075rem #fff, 0 0 0 .21rem #00296b !important;
+            box-shadow: 0 0 0 .075rem #fff, 0 0 0 .21rem #00296b !important;
+}
+
+.border-primary
+{
+    border: 1px solid #00296b !important;
+}
+
+.border-top-primary
+{
+    border-top: 1px solid #00296b;
+}
+
+.border-bottom-primary
+{
+    border-bottom: 1px solid #00296b;
+}
+
+.border-left-primary
+{
+    border-left: 1px solid #00296b;
+}
+
+.border-right-primary
+{
+    border-right: 1px solid #00296b;
+}
+
+
+
+
+
+
+
+
+.navbar-dark
+{
+    background: #00296b;
+}
+.navbar-dark.navbar-horizontal
+{
+    background: #00296b;
+}
+.navbar-dark .nav-search .form-control,
+.navbar-dark .nav-search .btn-secondary
+{
+    color: #fff;
+    background: #00296b;
+}
+
+
+
+
+
+
+
+
+.main-menu.menu-dark
+{
+    color: #dcdcdc;
+    background: #00296b;
+}
+.main-menu.menu-dark .navigation
+{
+    background: #00296b;
+}
+
+.main-menu.menu-dark .navigation > li.open > ul
+{
+    background: #011e4e;
+}
+.main-menu.menu-dark .navigation > li.open > a
+{
+    color: #c3c3c3;
+    background: #011e4e;
+}
+.main-menu.menu-dark .navigation > li.open .hover > a
+{
+    background: #0648b3;
+}
+.main-menu.menu-dark .navigation > li.hover > a,
+.main-menu.menu-dark .navigation > li:hover > a,
+.main-menu.menu-dark .navigation > li.active > a
+{
+    color: #c3c3c3;
+    background-color: #011e4e;
+}
+.main-menu.menu-dark .navigation > li.active > a
+{
+    font-weight: 700;
+
+    color: #dcdcdc;
+    border-right: 4px solid #3bafda; 
+    background: #0648b3;
+}
+.main-menu.menu-dark .navigation > li .active
+{
+    background: #0648b3;
+}
+.main-menu.menu-dark .navigation > li .active > a
+{
+    font-weight: 700;
+
+    color: #f6f6f6;
+    border-right: 4px solid #3bafda; 
+    background: #0648b3;
+}
+.main-menu.menu-dark .navigation > li .active .hover > a
+{
+    background: #011e4e;
+}
+.main-menu.menu-dark .navigation > li ul .open
+{
+    background: #031738;
+}
+.main-menu.menu-dark .navigation > li ul .open > ul
+{
+    display: block;
+
+    background: #031738;
+}
+.main-menu.menu-dark .navigation > li ul .open > ul .open
+{
+    background: #0b1115;
+}
+.main-menu.menu-dark .navigation > li ul .open > ul .open > ul
+{
+    display: block;
+
+    background: #0b1115;
+}
+.main-menu.menu-dark .navigation > li ul .open .hover > a
+{
+    background: #011e4e;
+}
+.main-menu.menu-dark .navigation > li > ul
+{
+    background: #00296b;
+}
+.main-menu.menu-dark ul.menu-popout
+{
+    background: #00296b;
+}
+.main-menu.menu-dark ul.menu-popout .open > ul .open
+{
+    background: #0d1318;
+}
+.main-menu.menu-dark ul.menu-popout .open > ul .open > ul
+{
+    display: block;
+
+    background: #0d1318;
+}
+.main-menu.menu-dark.mm-menu .mm-hasnavbar .mm-listview > li:hover
+{
+    background-color: #141e25;
+}
+ul.menu-content li.active {text-shadow: none;}
+
+footer.footer-dark
+{	text-align:center;
+    color: #9e9d9d; 
+    background: #00296b;
+}
+
+
+.tp-notify {line-height:1.2rem; font-size: 1.2rem}
+
+
+
+figure .card-header {border-bottom:1px #fff solid}
+figure table tr {border-bottom:1px #898989 dotted}
+
+
+
+
+
+
+
+
+

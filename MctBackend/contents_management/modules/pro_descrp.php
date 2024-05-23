@@ -395,19 +395,9 @@ if(isset($_REQUEST['s_search'])<>'' && trim($_REQUEST['s_search'])!=""){
 <div id="logout">Hi <?=str_replace("@mic.com.tw", "", $_SESSION['user']);?> <a href="../logo.php">Log out &gt;&gt;</a></div>
 </div>
 <div class="clear"></div>
-<div id="menu">
-<ul>
-<li ><a href="../default.php">Products</a></li>
-<li> <a href="../modules.php">Contents</a> 
-<ul>
-<li><a href="../modules.php">Modules</a></li>	  
-</ul>
-</li>
-<li><a href="../newsletter.php">Newsletters</a>
-<ul><li><a href="../subscribe.php">Subscription</a></li></ul>
-</li>
-</ul>
-</div>
+<?php
+include("menus.php");
+?>
 <div class="clear"></div>
 <div id="Search" >
 <h2>Contents &nbsp;&gt;&nbsp;  <a href="../modules.php">Modules</a>  &nbsp;&gt;&nbsp; Product Description</h2> 

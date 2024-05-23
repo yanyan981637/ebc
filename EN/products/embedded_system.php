@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -47,8 +47,8 @@ function dowith_sql($str){
 
 if(isset($_GET['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_GET['PLang']));
-  $PLang_si=str_replace(".php","",$PLang_si);  
-  
+  $PLang_si=str_replace(".php","",$PLang_si);
+
   if($PLang_si=="en-US" || $PLang_si==""){
 	  $PLang_si01="EN";
 	  $PLang_si="en-US";
@@ -109,7 +109,7 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="MiTAC provides industrial and commercial embedded systems with rugged, modularized, compact designed for automation, AI, IOT applications.">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="MiTAC provides industrial and commercial embedded systems with rugged, modularized, compact designed for automation, AI, IOT applications." /> 
+<meta property="og:description" content="MiTAC provides industrial and commercial embedded systems with rugged, modularized, compact designed for automation, AI, IOT applications." />
 <meta property="og:title" content="Embedded System | MiTAC Computing Technology" />
 <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
@@ -123,18 +123,18 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 <link rel="stylesheet" href="/css1/animate.css" type="text/css" />
 <link rel="stylesheet" href="/css1/magnific-popup.css" type="text/css" />
 <link rel="stylesheet" href="/css1/custom.css" type="text/css" />
-<link rel="stylesheet" href="/css1/product-landing.css" type="text/css" />	
+<link rel="stylesheet" href="/css1/product-landing.css" type="text/css" />
 <script src="/js1/jquery.js"></script>
 
 <style>
-    
+
 </style>
 
 <!-- Document Title
 ============================================= -->
 <title>Embedded System | MiTAC Computing Technology</title>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../../analyticstracking.php");
@@ -166,7 +166,7 @@ include("../../top1.htm");
 			<div class="col-lg-8 col-md-9 dark mb-5 mb-md-0 py-5">
 				<h2 class="display-4" style="font-weight: 600;" data-animate="backInLeft">Embedded System</h2>
 				<p class="mb-5 lead text-white" data-animate="backInLeft">MiTAC's embedded system, including industrial and commercial series powered by state of the art processors, whole new SOC structure packs and more powerful capability for your tasks and applications.</p>
-				
+
 			</div>
 			<div class="col-md-3 d-flex align-self-end align-items-center align-items-lg-end col-form">
 				<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0 op-09" >
@@ -175,7 +175,7 @@ include("../../top1.htm");
 							New products:
 						</h3>
 						<div class="line line-sm mt-3"></div>
-						
+
 						<ul class="iconlist">
 							<?php
 							$strList="SELECT a.MODELCODE, a.SKU, a.EmbeddedProcessor_val FROM contents_product_skus a inner join product_skus b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID WHERE a.ProductTypeID='".$PType."' AND a.IsnewUp='1' AND b.IS_EOL='0' AND a.STATUS='1' ORDER BY b.crea_d DESC Limit 6";
@@ -184,7 +184,7 @@ include("../../top1.htm");
 								$url="/EmbeddedSystem_".$dataList[0]."_".$dataList[1];
 								$tmp=explode(",", $dataList[2]);
 								echo "<li><i class='icon-line-chevrons-right'></i> <a href='".$url."'/>".$dataList[1]." (".$Info[$tmp[0]].")</a></li>";
-							}									
+							}
 							?>
 						</ul>
 					</div>
@@ -253,7 +253,7 @@ include("../../top1.htm");
 						echo "<option value='".$dataFan[0]."'>".$dataFan[2]."</option>";
 					}
 					?>
-				</select>	
+				</select>
 			</div>
 
 			<div class="col-lg-2 form-group">
@@ -364,7 +364,7 @@ include("../../top1.htm");
 
 				<div id="portfolio" class="portfolio row gutter-20 col-mb-30 grid grid-container customjs" data-layout="fitRows">
 
-					
+
 					<?php
 					$IS_BTO="";$PR_info="";
 					if($info==""){
@@ -391,7 +391,7 @@ include("../../top1.htm");
 			    	}else{
 			    		$IS_BTO="";
 			    	}
-			    	
+
 			    	$Coming_Soon=$dataPR[11];
 			    	$LandingTitle=$dataPR[12];
 			    	$tmpEType=explode(",", $dataPR[13]);
@@ -402,7 +402,7 @@ include("../../top1.htm");
 				    ?>
 				    <!-- Card  -->
 						<article class="portfolio-item col-12 col-sm-6 col-lg-4" >
-							
+
 							<?php
 							//<!--new label-->
 							if($IsnewUp==1){
@@ -415,7 +415,7 @@ include("../../top1.htm");
 							?>
 							<div class="grid-inner card card-hover border-0 shadow-sm p-5">
 								<!--Embedded System Type label-->
-								<?php 
+								<?php
 								/*if($Info[$tmpEType[0]]!=""){
 									echo "<div class='embedded_type' >".$Info[$tmpEType[0]]."</div>";
 								}*/
@@ -438,28 +438,28 @@ include("../../top1.htm");
 										$strInfoTitle.=" ORDER BY INSTR(',9,7,8,12,13,11,15,',CONCAT(',',PI_id,','))";
 										$cmdInfoTitle=mysqli_query($link_db, $strInfoTitle);
 										while ($dataInfoTitle=mysqli_fetch_array($cmdInfoTitle)) {
-											
+
 											if($dataInfoTitle[0]==13 || $dataInfoTitle[0]==11 || $dataInfoTitle[0]==15){
 												$divclass="col-sm-12";
 											}else{
 												$divclass="col-sm-6";
 											}
-											
+
 											if($dataInfoTitle[0]!=15){
 												$title=$dataInfoTitle[1].":";
 											}else{
 												$title="";
 											}
-											
+
 											if($i%2==0){
 												echo "<div class='row'>";
 											}
 											echo "<div class='".$divclass."'>".$title." <strong>";
 											foreach ($PR_info as $key => $value) {
 												if($value!=""){
-													
+
 													echo $listInfo[$dataInfoTitle[0]][$value];
-													
+
 												}
 											}
 											echo "</strong></div>";
@@ -514,11 +514,11 @@ include("../../top1.htm");
 
 			</div>
 
-		</div>			
+		</div>
 
 	</div>
 
-</div>		
+</div>
 
 <!-- #content end -->
 
@@ -547,11 +547,11 @@ include("../../top1.htm");
 </div>
 <!-- end add quote sone msg Modal -->
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../../foot1.htm");
 ?>
-<!-- FOOTER end -->	  
+<!-- FOOTER end -->
 
 </div><!-- #wrapper end -->
 
@@ -607,7 +607,7 @@ jQuery(window).on( 'pluginIsotopeReady',  function(){
 		});
 	});
 
-	
+
 	function search(i){
 		var s_val=document.getElementById(i).value;
 		document.location.href="/EN/products/embedded_system@"+s_val+"=Search";

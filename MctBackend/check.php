@@ -76,6 +76,12 @@ function Check()
     $weburl="../MCTWEBMGT/spec_creation_tool";
   }else if($system_kind=='contents_management'){
     $weburl="./contents_management";
+  }else if($system_kind=='contact_us'){
+    $weburl="./contact_us";
+  }else if($system_kind=='catalog_emails'){
+    $weburl="./catalog_emails";
+  }else if($system_kind=='contact_us_DSG'){
+    $weburl="./contact_us_dsg";
   }else{
     $weburl="./contents_management";
   }

@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -11,6 +11,8 @@ if(strpos(trim(getenv('REQUEST_URI')),"script")!='' || strpos(trim(getenv('REQUE
 	header("Location: /404.htm");
 	exit;
 }
+
+error_reporting(0);
 
 require "../../config.php";
 
@@ -43,7 +45,7 @@ $compareTypeID="114";
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="MiTAC's Windows 10 rugged tablet is designed for vertical and retail markets.">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="MiTAC's Windows 10 rugged tablet is designed for vertical and retail markets." /> 
+<meta property="og:description" content="MiTAC's Windows 10 rugged tablet is designed for vertical and retail markets." />
 <meta property="og:title" content="Tablet | MiTAC Computing Technology" />
 <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
@@ -71,11 +73,11 @@ $compareTypeID="114";
 ============================================= -->
 <title>Tablet | MiTAC Computing Technology</title>
 
-<?php 
+<?php
 	//************ google analytics ************
-	if($s_cookie!=2){
-	  include_once("analyticstracking.php");
-	}
+	// if($s_cookie!=2){
+	//   include_once("analyticstracking.php");
+	// }
 	?>
 </head>
 
@@ -107,8 +109,8 @@ $compareTypeID="114";
 						<h2 class="display-4" style="font-weight: 600;" data-animate="backInLeft">Rugged Tablet</h2>
 						<p class="ls2" style="font-weight: 300; font-size:2rem; line-height:0rem" data-animate="backInLeft">MiTAC Windows 10 Rugged Tablet</p>
 						<p class="mb-5 lead text-white" data-animate="backInLeft">Born to be the Best Mobile Solution for Vertical and Retail Market</p>
-						
-						
+
+
 					</div>
 					<div class="col-md-3 d-flex align-self-end align-items-center align-items-lg-end col-form">
 						<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0 op-09" >
@@ -120,7 +122,7 @@ $compareTypeID="114";
 								<ul class="iconlist">
 									<li><i class="icon-line-chevrons-right"></i> <a href="/POS_Cappuccino_Cappuccino" />Cappuccino</a></li>
 								</ul>
-								
+
 							</div>
 						</div>
 					</div>
@@ -133,7 +135,7 @@ $compareTypeID="114";
 
 
 		<div class="container-fluid m-0 bg-dark-blue">
-			<h1 class="center">Cappuccino</h1>	
+			<h1 class="center">Cappuccino</h1>
 		</div>
 
 
@@ -211,11 +213,11 @@ $compareTypeID="114";
 
 
 
-	<!-- FOOTER -->	  
+	<!-- FOOTER -->
 	<?php
 	include("../../foot1.htm");
 	?>
-	<!-- FOOTER end -->	  
+	<!-- FOOTER end -->
 
 </div><!-- #wrapper end -->
 

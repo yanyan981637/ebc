@@ -24,7 +24,7 @@ mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
 //$select=mysqli_select_db($dataBase);
 
-//********** add 其他語系********** 
+//********** add 其他語系**********
 if(isset($_REQUEST['method'])!='' && isset($_REQUEST['cid'])!=''){
   if($_REQUEST['method']=='AddProd' && $_REQUEST['cid']!=''){
 
@@ -38,22 +38,22 @@ if(isset($_REQUEST['method'])!='' && isset($_REQUEST['cid'])!=''){
     if($chkCPS_data==true){
      $PT_ID01=$chkCPS_data[1];
    }
-   if($PT_ID01==1){	   
+   if($PT_ID01==1){
     if($lang=='JP'){
       $PT_ID01_str=6;
     }else if($lang=='ZH'){
       $PT_ID01_str=11;
     }else if($lang=='CN'){
       $PT_ID01_str=16;
-    }	 
-  }else if($PT_ID01==2){	   
+    }
+  }else if($PT_ID01==2){
     if($lang=='JP'){
       $PT_ID01_str=7;
     }else if($lang=='ZH'){
       $PT_ID01_str=12;
     }else if($lang=='CN'){
       $PT_ID01_str=17;
-    }	 
+    }
   }else if($PT_ID01==3){
     if($lang=='JP'){
       $PT_ID01_str=8;
@@ -127,7 +127,7 @@ if(isset($_REQUEST['method'])!='' && isset($_REQUEST['cid'])!=''){
       $PT_ID01_str=39;
     }
   }
-  
+
   $str_chkProd="SELECT `Product_SContents_Auto_ID`,`slang` FROM `contents_product_skus` where `Product_SContents_Auto_ID`=".$cid." and `slang`='".$lang.",'";
   $chkProd_result=mysqli_query($link_db,$str_chkProd);
   $chkProd_data=mysqli_fetch_row($chkProd_result);
@@ -180,7 +180,7 @@ if(isset($_REQUEST['kinds'])!=''){
    if(empty($chk_spvw_data)):
      $str_cview="create view s".$cid." as SELECT specvalues.SPEC_Vaule_ID, specvalues.Product_SKU_Auto_ID, specvalues.SPECTypeID, specvalues.SPECValue, spectypes.InputTypeID, Case When spectypes.InputTypeID= 4 Then specvalues.SPECValue else Fun_Get_SPECValue(specvalues.SPECValue) End  CSPECValue, spectypes.ParentSpec,SPECTypeName, Case When spectypes.ParentSpec is null then '' Else (SELECT SPECTypeName FROM  spectypes P WHERE P.SPECTypeID = spectypes.ParentSpec) End CParentSpec, spectypes.SPECCategoryID, spectypes.WebOrder, spectypes.SPECTypeSort, spectypes.ParentSort FROM specvalues INNER JOIN spectypes ON specvalues.SPECTypeID = spectypes.SPECTypeID WHERE (specvalues.Product_SKU_Auto_ID = ".$cid.") AND (specvalues.SPECValue <> '')";
    $cview_cmd=mysqli_query($link_db,$str_cview);
-   else: 
+   else:
      endif;
 
    $str_dtable="DROP TABLE sp".$cid."";
@@ -196,7 +196,7 @@ if(isset($_REQUEST['kinds'])!=''){
 //*********** end *************
 
 //************* loadind count *******************
-$slang="";$s_search="";$seol="";
+$slang="";$s_search="";$seol="";$sel_status="";
 if(isset($_GET["seol"])<>''){
   $seol=$_GET["seol"];
 }
@@ -210,18 +210,18 @@ if(isset($_REQUEST['s_search'])<>''){
 if(isset($_GET['slang'])<>''){
     $slang = $_GET['slang'];
     $slang = str_replace("|", "%' or slang like '%", $slang);
-    $slang = substr($slang, 0, strlen($slang)-19);  
+    $slang = substr($slang, 0, strlen($slang)-19);
 }
 
 if($PType_id<>''){
   if($s_search <> ''){
     $str1="select count(*) from `contents_product_skus` where (SKU like '%".$s_search."%' or MODELCODE like '%".$s_search."%') and ProductTypeID=".$PType_id." and STATUS='".$sel_status."'";
   }else{
-    if($slang<>''){	
+    if($slang<>''){
       if($sel_status<>''){
-        $str1="SELECT count(*) FROM `contents_product_skus` where ProductTypeID=".$PType_id." and (slang LIKE '%".$slang."%') and STATUS='".$sel_status."'";  
+        $str1="SELECT count(*) FROM `contents_product_skus` where ProductTypeID=".$PType_id." and (slang LIKE '%".$slang."%') and STATUS='".$sel_status."'";
       }else{
-        $str1="SELECT count(*) FROM `contents_product_skus` where ProductTypeID=".$PType_id." and (slang LIKE '%".$slang."%')";  
+        $str1="SELECT count(*) FROM `contents_product_skus` where ProductTypeID=".$PType_id." and (slang LIKE '%".$slang."%')";
       }
 
     }else{
@@ -248,7 +248,7 @@ if($PType_id<>''){
       }else{
         $str1="select count(*) from `contents_product_skus`";
       }
-    }	
+    }
   }
 }
 //************* loadind count end *******************
@@ -270,10 +270,10 @@ list($public_count) = mysqli_fetch_row($list1);
 function MM_PT(selObj){
 var str_lang="";
 var lang01 = document.getElementsByName('slang');
-  
+
   for(var i=0;i<lang01.length;i++){
-     if(lang01[i].checked==true){	   
-	   str_lang=str_lang + lang01[i].value + "|";       	   
+     if(lang01[i].checked==true){
+	   str_lang=str_lang + lang01[i].value + "|";
 	 }
   }
 window.open(document.getElementById('SEL_PTYPE').options[document.getElementById('SEL_PTYPE').selectedIndex].value,"_self");
@@ -289,7 +289,7 @@ function search_value(){
 }
 
 function doEnter(event){
- var keyCodeEntered = (event.which) ? event.which : window.event.keyCode;     
+ var keyCodeEntered = (event.which) ? event.which : window.event.keyCode;
      if (keyCodeEntered == 13){
        if(confirm('Are you sure you want to search this word?')) {
 	     document.location.href = "?s_search=" + document.getElementById('sear_txt').value;
@@ -315,9 +315,9 @@ function top_check(){
 <ul>
 <li ><a href="default.php">Products</a>
 </li>
-<li> <a href="modules.php">Contents</a> 
+<li> <a href="modules.php">Contents</a>
 <ul>
-<li><a href="modules.php">Modules</a></li>	  
+<li><a href="modules.php">Modules</a></li>
 </ul>
 </li>
 <ul><li><a href="subscribe.php">Subscription</a></li></ul>
@@ -355,12 +355,12 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 <div class="pagination left">Total: <span class="w14bblue"><?=$public_count;?></span> records &nbsp;&nbsp;
 </div>
 <form id="form1" name="form1" method="post" action="default.php">
- <input id="sear_txt" name="sear_txt" type="text" size="20" value="" onkeydown="doEnter(event);" /> <input type="button" value="Search" onclick="search_value();" /> 
-</form> 
+ <input id="sear_txt" name="sear_txt" type="text" size="20" value="" onkeydown="doEnter(event);" /> <input type="button" value="Search" onclick="search_value();" />
+</form>
 </div>
 <?php
-      if(isset($_REQUEST['PSPEC'])!=''){   
-        $PSPEC_Value_str=$_REQUEST['PSPEC'];        
+      if(isset($_REQUEST['PSPEC'])!=''){
+        $PSPEC_Value_str=$_REQUEST['PSPEC'];
         $PP01="ProductTypeName";
         $PM01="MODELCODE";
         $PS01="SKU";
@@ -368,7 +368,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
         $PE01="IS_EOL";
         $PD01="upd_d";
         $PU01="upd_u";
-      
+
         if($PSPEC_Value_str=="ProductTypeName"){
         $PSPEC_Value=$PSPEC_Value_str;
         $PP01="ProductTypeName_A";
@@ -378,7 +378,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
         $PP01="ProductTypeName";
         $P_value="Asc";
         }
-        
+
         if($PSPEC_Value_str=="MODELCODE"){
         $PSPEC_Value=$PSPEC_Value_str;
         $PM01="MODELCODE_A";
@@ -388,7 +388,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
         $PM01="MODELCODE";
         $P_value="Asc";
         }
-        
+
         if($PSPEC_Value_str=="SKU"){
         $PSPEC_Value=$PSPEC_Value_str;
         $PS01="SKU_A";
@@ -398,7 +398,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
         $PS01="SKU";
         $P_value="Asc";
         }
-        
+
         if($PSPEC_Value_str=="slang"){
         $PSPEC_Value=$PSPEC_Value_str;
         $PL01="slang_A";
@@ -408,8 +408,8 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
         $PL01="slang";
         $P_value="Asc";
         }
-        
-       
+
+
         if($PSPEC_Value_str=="upd_d"){
         $PSPEC_Value=$PSPEC_Value_str;
         $PD01="upd_d_A";
@@ -429,10 +429,10 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
         $PU01="upd_u";
         $P_value="Asc";
         }
-      
+
       }else{
         $PSPEC_Value="upd_d";
-      
+
         $PP01="ProductTypeName";
         $PM01="MODELCODE";
         $PS01="SKU";
@@ -449,20 +449,20 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 	<tr>
 		<th STYLE="text-decoration:none">*Category</th>
 		<th STYLE="text-decoration:none">*SKU</th>
-		<th STYLE="text-decoration:none">*Model</th>		
+		<th STYLE="text-decoration:none">*Model</th>
 		<th STYLE="text-decoration:none">*Product Type</th>
 		<th STYLE="text-decoration:none">*Update Date</th>
         <th STYLE="text-decoration:none">*Creation Date</th>
         <th STYLE="text-decoration:none">*Language</th>
         <th STYLE="text-decoration:none">
-          
+
             <select id="s_oline" name="s_oline" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <option selected value="1">Online</option>
               <option value="0">Offline</option>
             </select>
             <input id="o_line" name="o_line" type="submit" value="Update" onclick="" />
             *Status
-          
+
         </th>
 	</tr>
 	<?php
@@ -471,24 +471,24 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
       $page="1";
       }else{
       $page=$_REQUEST['page'];
-      }      
-      if(empty($page))$page="1";      
+      }
+      if(empty($page))$page="1";
       $read_num="60";
       $start_num=$read_num*($page-1);
-      if(isset($_GET['slang'])<>''){      
+      if(isset($_GET['slang'])<>''){
         $slang=trim($_REQUEST['slang']);
         $slang = str_replace("|", "%' or a.slang like '%", $slang);
         $slang = substr($slang, 0, strlen($slang)-19);
         $slang = "(a.slang LIKE '%".$slang."%')";
         $slang = str_replace("%'%'", "%'", $slang);
       }
-      //************search 類別 start ***********			
+      //************search 類別 start ***********
       if($PType_id<>''){
         //************ search 類別+SKU **************
         if($s_search <> ''){
           $str="SELECT a.*,b.ProductTypeName FROM `contents_product_skus` a inner join `producttypes_las` b on a.ProductTypeID=b.ProductTypeID where (a.SKU like '%".$s_search."%' or a.MODELCODE like '%".$s_search."%') and a.ProductTypeID=".$PType_id." ORDER BY ".$PSPEC_Value." ".$P_value." limit $start_num,$read_num;";
-        }else{		 
-          //********* search 類別+lang ************** 
+        }else{
+          //********* search 類別+lang **************
           if($slang<>''){
             if($seol == 1){
               // search EOL
@@ -564,7 +564,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
           $str="SELECT a.*,b.ProductTypeName FROM `contents_product_skus` a inner join `producttypes_las` b on a.ProductTypeID=b.ProductTypeID ORDER BY ".$PSPEC_Value." ".$P_value." limit $start_num,$read_num;";
         }else{
           $str="SELECT a.*,b.ProductTypeName FROM `contents_product_skus` a inner join `producttypes_las` b on a.ProductTypeID=b.ProductTypeID ORDER BY a.upd_d Desc limit $start_num,$read_num;";
-        }   */  
+        }   */
         }
       }
 
@@ -579,7 +579,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 	  if($ProductTypeID==1 ){
 	  $PTP01="Motherboards";
   		if($slang=="EN,"){
-  		$slang_chk="en-US";  
+  		$slang_chk="en-US";
   		}
 	  $s_PID = "select SYSTEMBOARDID from p_s_main_systemboards where MODELCODE='".$MODELCODE."' and LANG='".$slang_chk."'";
 	  }else if($ProductTypeID==2){
@@ -587,7 +587,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 	  $s_PID = "select SERVERID from p_b_main_serverbarebones where MODELCODE='".$MODELCODE."' and LANG='en-US'";
 	  }else if($ProductTypeID==46){
 	  $PTP01="Industrial Panel PC";
-	  $s_PID = "SELECT `PANELPCID` FROM `p_b_main_panelpc` where MODELCODE='".$MODELCODE."' and LANG='en-US'";
+	  $s_PID = "select `PANELPCID` FROM `p_b_main_panelpc` where MODELCODE='".$MODELCODE."' and LANG='en-US'";
 	  }else if($ProductTypeID==47){
 	  $PTP01="Embedded System";
 	  $s_PID = "select `EMBEDDEDID` from `p_b_main_embedded` where MODELCODE='".$MODELCODE."' and LANG='en-US'";
@@ -638,7 +638,7 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 		<?php
 		?>
 		</td>
-		<td><?=$MODELCODE;?></td>        
+		<td><?=$MODELCODE;?></td>
 		<td>
 		<?php
 		$str_type="select * from `producttypes_las` where ProductTypeID=".$ProductTypeID;
@@ -654,8 +654,8 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 		<td>
 		<?php
 		echo date("Y-m-d",strtotime($crea_d));
-		?> </td>		
- 		<td><?//=substr($slang, 0, strlen($slang)-1);?></td> 
+		?> </td>
+ 		<td><?//=substr($slang, 0, strlen($slang)-1);?></td>
 		<td>
     <input type="checkbox" name="checkbox[]" value="<?=$Product_SContents_Auto_ID?>" />
 		<?php
@@ -670,43 +670,43 @@ while(list($ProductTypeID,$ProductTypeName)=mysqli_fetch_row($type_result))
 		?>
 		<a href="?kinds=build&cid=<?=$Product_SContents_Auto_ID;?>&page=<?=$page;?>&s_search=<?=$_REQUEST['s_search'];?>">Build</a>&nbsp;&nbsp;
 		<?php
-		}else{		
+		}else{
 		?>
 		<a href="?kinds=build&cid=<?=$Product_SContents_Auto_ID;?>&page=<?=$page;?>">Build</a>&nbsp;&nbsp;
 		<?php
 		}
-		?>		
+		?>
 		<a href="../../products/chtml.php?PType=<?=$PTP01;?>&PMCode=<?=$MODELCODE;?>&PSKUs=<?=$SKU;?>">Generated</a>&nbsp;&nbsp;
 		<a href="../../<?=$PTP01;?>-<?=$MODELCODE;?>-<?=$SKU;?>.htm" target="spec">show</a>&nbsp;&nbsp;
 		<?php
-		if($slang=='EN,'){		
+		if($slang=='EN,'){
 		 echo "<a href='?method=AddProd&cid=".$Product_SContents_Auto_ID."&lang=CN&page=".$page."'>CN</a>&nbsp;&nbsp;&nbsp;";
 		 echo "<a href='?method=AddProd&cid=".$Product_SContents_Auto_ID."&lang=ZH&page=".$page."'>ZH</a>&nbsp;&nbsp;&nbsp;";
 		 echo "<a href='?method=AddProd&cid=".$Product_SContents_Auto_ID."&lang=JP&page=".$page."'>JP</a>&nbsp;&nbsp;&nbsp;";
 		}
 		?>
-		</td>              
+		</td>
 	</tr>
   <?php
       }
-  ?>	
+  ?>
   <tr>
     <td colspan="8">
     <?php
         $all_page=ceil($public_count/$read_num);
         $pageSize=$page;
 		$total=$all_page;
-		pageft($total,$pageSize,1,0,0,15);       
+		pageft($total,$pageSize,1,0,0,15);
     ?>
     </td>
   </tr>
-	
-</table>		
-</form>	
-<!--end of datatable-->	
+
+</table>
+</form>
+<!--end of datatable-->
 <p style="color:#0F0;display:none">
 - Default load 最新的 從 "(PMM系統) SPEC Creation Tool" 所建的 10筆資料 & 被Edit 的sku 新的資料。(從"SPEC Creation Tool" 所建好的產品資料, 都是offline 的狀態, 必須在這裏設定完其他資料, 並決定其是否為Online or offline) <br>
-- 在 PMM 系統中該SKU 有設定的語言，在這才會show出。點選該語言，可進入edit。	<br>	
+- 在 PMM 系統中該SKU 有設定的語言，在這才會show出。點選該語言，可進入edit。	<br>
 - Search 可 search "Brand Name", "SKU","Model" 欄位
 <br>
 - * 表可sorting。<br>

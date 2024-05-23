@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -47,7 +47,7 @@ function dowith_sql($str){
 
 if(isset($_GET['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_GET['PLang']));
-  $PLang_si=str_replace(".php","",$PLang_si);  
+  $PLang_si=str_replace(".php","",$PLang_si);
 
   if($PLang_si=="en-US" || $PLang_si==""){
 	  $PLang_si01="EN";
@@ -107,16 +107,16 @@ $cmd1=mysqli_query($link_db,$str1);
 $public_count=mysqli_num_rows($cmd1);
 $total=$public_count;
 
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($total/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $Previous="";$Next="";
@@ -144,7 +144,7 @@ if(isset($_COOKIE['status'])){
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="Welcome to participate our events to get our latest products information for 5G edge computing, OCP, embedded systems">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="Welcome to participate our events to get our latest products information for 5G edge computing, OCP, embedded systems" /> 
+<meta property="og:description" content="Welcome to participate our events to get our latest products information for 5G edge computing, OCP, embedded systems" />
 <meta property="og:title" content="News - Events  | MiTAC Computing Technology" />
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 
@@ -159,7 +159,7 @@ if(isset($_COOKIE['status'])){
 <link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 <link rel="stylesheet" href="css1/custom.css" type="text/css" />
 <link rel="stylesheet" href="css1/news.css" type="text/css" />
-	
+
 <script src="js1/jquery.js"></script>
 
 
@@ -167,7 +167,7 @@ if(isset($_COOKIE['status'])){
 ============================================= -->
 <title>News - Events  | MiTAC Computing Technology</title>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
@@ -207,7 +207,7 @@ if($s_cookie!=2){
 							<div class="col-12" ><h3 class="h3 mb-0 fw-bold"> <i class="icon-line-calendar mb-1"></i> Events</h3></div>
 						</div>
 					</div>
-				</div>	
+				</div>
 
 				<div class="col-lg-3" onclick="location.href='<?=$PLang_si;?>@PRLIST~plist~1'">
 					<div class="grid-inner shadow-sm h-shadow bg-white p-3 overflow-hidden rounded-5 text-center shadow-ts">
@@ -246,7 +246,7 @@ if($s_cookie!=2){
 							<ul class="pagination pagination-transparent pagination-circle">
 								<li class="page-item <?=$Previous;?>"><a class="page-link" href="<?=$PLang_si?>@EVLIST~evlist~<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 								<?php
-								for($i=1;$i<=$pages_totle;$i++) { 
+								for($i=1;$i<=$pages_totle;$i++) {
 									$pagenum=6;
 									$last=$page+10;
 									$first=$page-10;
@@ -282,7 +282,7 @@ if($s_cookie!=2){
 						<!--end pagnation-->
 
 						<div class="row posts-md col-mb-30" >
-						<?php 
+						<?php
 						$p=0;
 						$datetime1 = date("Y/m/d", strtotime('+6 month'));
 						$str_pr="SELECT `ID`, `TITLE`, `CONTENT`, `WHEREIS`, `STARTDATE`, `ENDDATE`, `LINK`, `IMG`, `STATUS` FROM `nr_events` where `STATUS`='1' and `LANG`='".$PLang_si."' and `STARTDATE` BETWEEN '2010-01-01 00:00:00' and '".$datetime1." 23:59:00' order by `STARTDATE` desc limit $start, $per";
@@ -321,10 +321,10 @@ if($s_cookie!=2){
 								</div>
 							</article>
 							<!--end one event-->
-						<?php 
+						<?php
 						}
 						?>
-							
+
 
 
 
@@ -338,7 +338,7 @@ if($s_cookie!=2){
 							<ul class="pagination pagination-transparent pagination-circle">
 								<li class="page-item <?=$Previous;?>"><a class="page-link" href="<?=$PLang_si?>@EVLIST~evlist~<?=$page-1?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 								<?php
-								for($i=1;$i<=$pages_totle;$i++) { 
+								for($i=1;$i<=$pages_totle;$i++) {
 									$pagenum=6;
 									$last=$page+10;
 									$first=$page-10;
@@ -384,11 +384,11 @@ if($s_cookie!=2){
 	<div class="clear mb-6"></div>
 
 
-	<!-- FOOTER -->	  
+	<!-- FOOTER -->
 	<?php
 	include("foot1.htm");
 	?>
-	<!-- FOOTER end -->	  
+	<!-- FOOTER end -->
 
 </div><!-- #wrapper end -->
 

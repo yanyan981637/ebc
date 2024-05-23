@@ -1,0 +1,220 @@
+ErrorDocument 404 /404.htm
+ErrorDocument 403 /404.htm
+ErrorDocument 404 /404.htm
+ErrorDocument 500 /404.htm
+
+<IfModule mod_headers.c>
+    SetEnvIf Request_URI "^/my_awesome_widget_page.html$" iframes_are_cool
+    Header set X-Frame-Options SAMEORIGIN env=!iframes_are_cool
+# Allow some urls, block all others; whitelisting
+#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
+#    Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.	
+#</LocationMatch>
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+</IfModule>
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$ 
+RewriteRule .* - [F]
+
+#強制轉https
+#RewriteEngine on
+#RewriteCond %{SERVER_PORT} !^443$
+#RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+
+#RewriteBase /
+
+#RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#RewriteRule ^([^./]+)/?$ $1.php [L]
+RewriteRule ^(.*)\.html$ $1.php [NC]
+#RewriteRule ^([^./]+)/?$ $1.htm [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#index
+#RewriteRule ^([a-zA-Z0-9_-]+)/(\.+)/$ /index.php?PLang=$2 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/(.*)/$ /index.php?PLang=$2 [QSA,L]
+RewriteRule ^SupportCenter/$ /support_center/login.php [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/$ /$1/EN/ [R,NC,L]
+
+#SPEC
+RewriteCond $1 !^(product_details1\.php|images|js|css|products|robots\.txt|$)
+RewriteRule ^([a-zA-Z0-9_-]+)_(.*)_(.*)/? /product_details.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA,L]
+
+#Sorting_Resultall
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)@(.*)@(.*)~sorte/? /sorting_resultall.php?PTmethod=$1&PLang=$2&eol=$3 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)@(.*)@(.*)=sorte/? /sorting_resultall.php?PTmethod=$1&PLang=$2&smode=$3 [QSA,L]
+
+#Pressreview_List
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~pre~(.*)/? /pressreview_list.php?PLang=$1&val=$2&page=$3 [QSA,L]
+
+#PR_List
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~plist~(.*)/? /pr_list.php?PLang=$1&val=$2&page=$3 [QSA,L]
+
+#Newsletter_List
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~nrlist~(.*)/? /newsletter_list.php?PLang=$1&val=$2&page=$3 [QSA,L]
+
+#Events_List
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~evlist~(.*)/? /event_list.php?PLang=$1&val=$2&page=$3 [QSA,L]
+
+#PressRelease_Detail
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~PRDetail/? /press_release.php?pr_id=$2&PLang=$1 [QSA,L]
+
+#Search_val
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~SearchRE/? /search_result.php?PLang=$1&sval=$2 [QSA,L]
+
+#Sort_val
+RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~OtrchRE/? /sorting_result.php?PLang=$1&sval=$2 [QSA,L]
+
+#RewriteRule ^([a-zA-Z0-9_-]+)~([a-zA-Z0-9_-]+)~(.*)~documents/? /product_documents.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)~([a-zA-Z0-9_-]+)~(.*)~documents~(.*)/? /product_documents.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)~([a-zA-Z0-9_-]+)~(.*)~documents/? /$1~$2~$3~documents~EN [R,NC,L]
+
+#RewriteRule ^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)@(.*)@supports/? /product_supports.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)@(.*)@supports@(.*)/? /product_supports.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)@(.*)@supports/? /$1@$2@$3@supports@EN [R,NC,L]
+
+#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=downloads/? /product_downloads.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)=(.*)=(.*)=downloads=(.*)/? /product_downloads.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=downloads/? /$1=$2=$3=downloads=EN [R,NC,L]
+
+#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=preview/? /product_pressreview.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=preview=(.*)/? /product_pressreview.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=preview/? /$1=$2=$3=preview=EN [R,NC,L]
+
+#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description=(.*)/? /products/product_description.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
+#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description/? /products/$1=$2=$3=description=EN [R,NC,L]
+
+#RewriteRule ^archive_products$ /product_eol.php [QSA,L]
+
+
+RewriteRule ^archiveProducts$ /archive_products.php [QSA,L]
+
+# Newsletter url change
+RewriteRule ^subscription$ /subscription_done.php [QSA,L]
+RewriteRule ^delsubscription$ /subscription_del.php [QSA,L]
+RewriteRule ^newsletter$ /newsletterSubscription.php [QSA,L]
+
+
+# Catalog
+RewriteRule ^catalog$ /catalog_download.php [QSA,L]
+
+#compare
+RewriteRule ^prcompare@(.*)@([a-zA-Z0-9_-]+)@(.*)$ /product_compare.php?sku=$1&type=$2&PLang=$3 [QSA,L]
+RewriteRule ^productCompare$ /compare_export.php [QSA,L]
+
+RewriteRule ^captcha@([a-zA-Z0-9_-]+)$ /EN/authimg.php?id=$1 [QSA,L]
+
+RewriteRule ^products/([a-zA-Z0-9_-]+)$ /products/$1.php? [QSA,L]
+
+RewriteRule ^RFQ$ /quote.php? [QSA,L]
+
+Redirect "/embedded-catalog" https://download.mitacmct.com/Files/Catalog/OCP_DM_20201207.pdf
+
+RewriteRule ^in-news$ /in-news.php [QSA,L]
+RewriteRule ^catalogs$ /catalogs.php [QSA,L]
+
+#RewriteRule ^TMP@([a-zA-Z0-9_-]+)_(.*)_(.*)/? /product_details1.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA,L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description=(.*)/? /product_details.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description/? /$1=$2=$3=description=EN [R,NC,L]
+
+#RedirectMatch 301 products/([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description=(.*) https://www.mitacmct.com/$1_$2_$3
+
+Redirect "/products/industrial_motherboard" /EN/products/industrial_motherboard/
+Redirect "/products/embedded_system" /EN/products/embedded_system/
+Redirect "/products/Industrial_Panel_PC" /EN/products/Industrial_Panel_PC/
+Redirect "/EN/solution/standard-kiosks" /EN/products/standard-kiosks/
+Redirect "/EN/solution/custom-kiosks" /EN/products/custom-kiosks/
+Redirect "/EN/solution/kiosks-software-solution" /EN/products/kiosks-software-solution/
+Redirect "/EN/solution/kiosks-market-solution" /EN/products/kiosks-market-solution/
+Redirect "/products/Rugged_Tablet" /EN/products/Rugged_Tablet/
+Redirect "/products/5G_edge_computing_platform" /EN/products/5G_edge_computing_platform/
+Redirect "/EN/solution/intel-ice-lake" /EN/products/intel-ice-lake/
+Redirect "/products/storage_platform" /EN/products/storage_platform/
+Redirect "/products/OCP" /EN/products/OCP/
+
+Redirect "/zh-TW" https://www.mitacmct.com
+Redirect "/zh-CN" https://www.mitacmct.com
+
+Redirect "/IndustrialMotherboard_Ainstein-H8_Ainstein-H8" /IndustrialMotherboard_MiAi-H8_MiAi-H8?
+
+
+
+#Support-center index
+RewriteRule ^SupportCenter$ /support_center/login.php [QSA,L]
+RewriteRule ^SupportCenter/signout$ /support_center/loginout.php [QSA,L]
+RewriteRule ^SupportCenter/checkin$ /support_center/check.php? [QSA,L]
+RewriteRule ^SupportCenter/forgot$ /support_center/forgot_password.php? [QSA,L]
+RewriteRule ^SupportCenter/register$ /support_center/sign_up.php? [QSA,L]
+RewriteRule ^SupportCenter/register@([a-zA-Z0-9_-]+)$ /support_center/sign_up.php?mail=$1 [QSA,L]
+RewriteRule ^SupportCenter/adduser$ /support_center/sign_user.php? [QSA,L]
+RewriteRule ^SupportCenter/support_index$ /support_center/support_signin.php? [QSA,L]
+RewriteRule ^SupportCenter/complete$ /support_center/complete.php? [QSA,L]
+RewriteRule ^SupportCenter/captcha@([a-zA-Z0-9_-]+)$ /support_center/authimg.php?id=$1 [QSA,L]
+
+#Support-center bulletin
+RewriteRule ^SupportCenter/bulletin/notice@([a-zA-Z0-9_-]+)$ /support_center/bulletin/bulletin.php?bid=$1? [QSA,L]
+
+#Support-center client_side
+RewriteRule ^SupportCenter/client/ctickets$ /support_center/client-side/default.php? [QSA,L]
+RewriteRule ^SupportCenter/client/ctickets@([a-zA-Z0-9_-]+)$ /support_center/client-side/default.php?tNo=$1 [QSA,L]
+#RewriteRule ^SupportCenter/client/ctickets@p([a-zA-Z0-9_-]+)$ /support_center/client-side/default.php?page=$1 [QSA,L]
+RewriteRule ^SupportCenter/client/newticket$ /support_center/client-side/add_ticket.php? [QSA,L]
+RewriteRule ^SupportCenter/client/tickets$ /support_center/client-side/ticket.php? [QSA,L]
+RewriteRule ^SupportCenter/client/replyticket@([a-zA-Z0-9_-]+)$ /support_center/client-side/reply_ticket.php?t_id=$1 [QSA,L]
+RewriteRule ^SupportCenter/client/account$ /support_center/client-side/my_account.php? [QSA,L]
+RewriteRule ^SupportCenter/client/edit$ /support_center/client-side/edit_account.php? [QSA,L]
+RewriteRule ^SupportCenter/client/KB@([a-zA-Z0-9_-]+)$ /support_center/client-side/KB_category.php?cid=$1? [QSA,L]
+RewriteRule ^SupportCenter/client/taglist@([a-zA-Z0-9_-]+)$ /support_center/client-side/tag_list.php?tagid=$1? [QSA,L]
+RewriteRule ^SupportCenter/client/KBcontent@([a-zA-Z0-9_-]+)$ /support_center/client-side/KB_content.php?kbid=$1? [QSA,L]
+RewriteRule ^SupportCenter/client/search$ /support_center/client-side/search_result.php?search=$1? [QSA,L]
+
+#Support-center support_side
+RewriteRule ^SupportCenter/support/tickets$ /support_center/support-side/ticket_list.php? [QSA,L]
+RewriteRule ^SupportCenter/support/areply$ /support_center/support-side/reply.php? [QSA,L]
+RewriteRule ^SupportCenter/support/ticket_r@([a-zA-Z0-9_-]+)$ /support_center/support-side/reply_ticket.php?t_id=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/bulletin$ /support_center/support-side/bulletin_list.php? [QSA,L]
+RewriteRule ^SupportCenter/support/b_process$ /support_center/support-side/bulletin.php? [QSA,L]
+RewriteRule ^SupportCenter/support/news_bulletin$ /support_center/support-side/bulletin_news.php? [QSA,L]
+RewriteRule ^SupportCenter/support/b_edit@([a-zA-Z0-9_-]+)$ /support_center/support-side/bulletin_edit.php?bid=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/m_account$ /support_center/support-side/account.php? [QSA,L]
+RewriteRule ^SupportCenter/support/account$ /support_center/support-side/account_list.php? [QSA,L]
+RewriteRule ^SupportCenter/support/a_account$ /support_center/support-side/account_info.php? [QSA,L]
+RewriteRule ^SupportCenter/support/e_account$ /support_center/support-side/account_edit.php? [QSA,L]
+RewriteRule ^SupportCenter/support/myaccount@([a-zA-Z0-9_-]+)$ /support_center/support-side/account_edit_staff.php?id=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/KB_list@([a-zA-Z0-9_-]+)$ /support_center/support-side/kb_list.php?cate=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/KB_process$ /support_center/support-side/knowledge.php? [QSA,L]
+RewriteRule ^SupportCenter/support/KB_add@([a-zA-Z0-9_-]+)$ /support_center/support-side/KB_FAQ.php?cate=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/KB_edit@([a-zA-Z0-9_-]+)$ /support_center/support-side/KB_FAQ_edit.php?KB=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/member$ /support_center/support-side/member_list.php? [QSA,L]
+RewriteRule ^SupportCenter/support/report$ /support_center/support-side/reports.php? [QSA,L]
+RewriteRule ^SupportCenter/support/excel$ /support_center/support-side/excel.php? [QSA,L]
+RewriteRule ^SupportCenter/support/addticket1$ /support_center/support-side/add_ticket_1.php? [QSA,L]
+RewriteRule ^SupportCenter/support/addticket2$ /support_center/support-side/add_ticket_2.php? [QSA,L]
+RewriteRule ^SupportCenter/support/addticket3@([a-zA-Z0-9_-]+)$ /support_center/support-side/add_ticket_3.php?ticket=$1 [QSA,L]
+RewriteRule ^SupportCenter/support/ticket$ /support_center/support-side/newticket.php? [QSA,L]
+
+RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).jpg$ /support_center/images/upload/$1.jpg? [QSA,L]
+RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).jpeg$ /support_center/images/upload/$1.jpeg? [QSA,L]
+RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).pjpeg$ /support_center/images/upload/$1.pjpeg? [QSA,L]
+RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).gif$ /support_center/images/upload/$1.gif? [QSA,L]
+RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).png$ /support_center/images/upload/$1.png? [QSA,L]
+
+Redirect "/5GEdgeComputing_WS1S12_WS1S12" https://www.mitacmct.com/5GEdgeComputing_WS1S11_WS1S11?
+
+
+Options All -Indexes
+Order Deny,Allow
+Allow from all

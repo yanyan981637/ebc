@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -48,7 +48,7 @@ function dowith_sql($str){
 if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_REQUEST['PLang']));
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="en-US" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -62,8 +62,8 @@ $url=$_SERVER['HTTP_REFERER'];
 
 if(isset($_REQUEST['pr_id'])!=''){
 $pr_id=preg_replace("/['\"\~\%\$ \r\n\t;<>\?]/i", '', $_REQUEST['pr_id']);
-$pr_id=htmlspecialchars($pr_id);	
-$pr_id=filter_var($pr_id);	
+$pr_id=htmlspecialchars($pr_id);
+$pr_id=filter_var($pr_id);
 
 }else{
 $pr_id=1;
@@ -117,7 +117,7 @@ if(isset($_COOKIE['status'])){
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="<?=$title?>">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="<?=$title?>" /> 
+<meta property="og:description" content="<?=$title?>" />
 <meta property="og:title" content="News - Press Release  | MiTAC Computing Technology" />
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 
@@ -141,7 +141,7 @@ if(isset($_COOKIE['status'])){
 ============================================= -->
 <title>News - Press Release  | MiTAC Computing Technology</title>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
@@ -164,7 +164,7 @@ if($s_cookie!=2){
 
 
 
-	
+
 		<!-- Slider
 		============================================= -->
 		<section id="slider" class="slider-element">
@@ -278,17 +278,17 @@ if($s_cookie!=2){
 													$modelcode=str_replace("S.","",$modelcode);
 													$modelcode=str_replace("B.","",$modelcode);
 													$modelcode=str_replace("J.","",$modelcode);
-													$str_sku = "SELECT ProductTypeID, SKU, MODELCODE FROM product_skus WHERE MODELCODE = '".$modelcode."' GROUP BY MODELCODE";	
+													$str_sku = "SELECT ProductTypeID, SKU, MODELCODE FROM product_skus WHERE MODELCODE = '".$modelcode."' GROUP BY MODELCODE";
 													$skucmd=mysqli_query($link_db,$str_sku);
 													$sku_result=mysqli_fetch_array($skucmd);
-													$productID = $sku_result[0];	
+													$productID = $sku_result[0];
 													$sku_url = $sku_result[1];
 													$model_url = $sku_result[2];
 												} else {
 													$str_sku = "SELECT ProductTypeID, SKU, MODELCODE FROM product_skus WHERE SKU = '".$modelcode."' GROUP BY MODELCODE";
 													$skucmd=mysqli_query($link_db,$str_sku);
 													$sku_result=mysqli_fetch_array($skucmd);
-													$productID = $sku_result[0];	
+													$productID = $sku_result[0];
 													$sku_url = $sku_result[1];
 													$model_url = $sku_result[2];
 												}
@@ -318,15 +318,15 @@ if($s_cookie!=2){
 											    $POS_url="POS_".$model_url."_".$sku_url;
 											    $modelcode = "<a href='".$POS_url."'>".$modelcode."</a>";
 											  }
-												
+
 												$model_split_all.=$modelcode."&nbsp;".$br01;
-												
+
 											}
 											/* $model_split_all=str_replace("S.","",$model_split_all);
 											$model_split_all=str_replace("B.","",$model_split_all);
 											$model_split_all=str_replace("J.","",$model_split_all); */
 											echo $model_split_all;
-											?> 
+											?>
 											</em>
 										</div>
 										<?php
@@ -444,7 +444,7 @@ if($s_cookie!=2){
 
 
 
-							
+
 
 							<div class="clear mb-6 mt-6 "></div>
 
@@ -460,15 +460,15 @@ if($s_cookie!=2){
 			</div>
 		</section>
 
-		
+
 
 		<div class="clear mb-6"></div>
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -478,7 +478,7 @@ if($s_cookie!=2){
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -486,7 +486,7 @@ if($s_cookie!=2){
 	<script src="js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){

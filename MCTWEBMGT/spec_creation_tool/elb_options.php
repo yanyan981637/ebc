@@ -24,6 +24,7 @@ mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
 //$select=mysqli_select_db($dataBase);
 
 $T1=$_POST['T1'];
+$T1=str_replace("'","&#39;",$T1);
 
 $str_c="select SPECOptionValue FROM specoptions where SPECOptionValue='".$T1."' and SPECOptionID=".$SPCT_ID."";
 $check_c=mysqli_query($link_db,$str_c);

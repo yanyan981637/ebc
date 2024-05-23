@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Website Contents Management - Products Management: Products- Add Product</title>
+<link rel=stylesheet type="text/css" href="../backend.css">
+
+	<script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
+	<script type="text/javascript" src="../source/jquery.fancybox.js?v=2.0.6"></script>
+	<link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.0.6" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-buttons.css?v=1.0.2" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay opening speed and opacity
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedIn : 500,
+						opacity : 0.95
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background-color' : '#eee'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+<a name="top"></a>
+<div >
+<div class="left"><h1>&nbsp;&nbsp;Website Backends - Website Contents Management - Products: Add a new product</h1></div>
+
+<div id="logout"><a href="../login.html">Log out &gt;&gt;</a></div>
+</div>
+
+<div class="clear"></div>
+<div id="menu">
+<ul>
+<li ><a href="default.html">Products</a>
+
+</li>
+<li> <a href="modules.html">Contents</a> 
+      <ul>
+		<li><a href="modules.html">Modules</a></li>	  
+      </ul>
+</li>
+<li ><a href="newsletter.html">Newsletters</a>
+<ul><li><a href="subscribe.html">Subscription</a></li></ul>
+</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div id="Search" >
+<h2><a href="default.html" >Products</a>&nbsp;&gt;&nbsp;Add a New product</h2> 
+</div>
+
+<div id="content">
+<br /><div class="box">
+<table>
+<tr><th style="width:250px">Product Type:</th><td><select name=""><option selected>Select</option><option >Server Motherboards</option></select></td></tr>
+<tr><th>Category: </th><td><select name=""><option selected>Select</option><option >Category Name</option></select></td></tr>
+<tr><th>SKU: </th><td><input name="" type="text" size="30" value=""  /></td></tr>
+<tr><th>Model: </th><td><input name="" type="text" size="30" value=""  /></td></tr>
+<tr><th>Status: </th><td><select name=""><option selected>Offline</option><option >Online</option></select></td></tr>
+<tr><th>Languages:</th><td><input name="" type="checkbox" value="" checked="checked" /> English&nbsp;&nbsp;
+<input name="" type="checkbox" value="" checked="checked" /> 簡中&nbsp;&nbsp;
+<input name="" type="checkbox" value="" checked="checked" /> 繁中&nbsp;&nbsp;
+<input name="" type="checkbox" value="" checked="checked" /> 日本語</td></tr>
+</table>
+
+	
+	 <P style="color:#0F0">
+	 - Product Type 下拉選單，列出 module => (Product) Product Type 裏設定的 Product Types<br />
+	 - 跟據所選的 "Product Type"， Category 下拉選單，列出 module => (Category page) - Product Categories 裏設定的 Categories<br />
+	- Status 預設為offline<br />
+	- Language 預設為全勾選，同時新增四筆不同語言的資料
+	</p>
+	</div>
+ <p class="clear">&nbsp;</p>
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+<!--根據 Products -> Info 所設定的條件，在這裡要指定這個產品的條件--> 
+<div class="box">
+   <h3>Product Info:</h3>
+   <table class="addspec" style="width:800px">
+	<tbody >
+	<tr ><th > Name: </th>
+	<td>
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	</td>
+	</tr>
+	<tr ><th > Name: </th>
+	<td>
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="" value=""> Value&nbsp;&nbsp;&nbsp;&nbsp;
+	</td>
+	</tr>
+	</tbody>
+	</table>
+<P style="color:#0F0">
+- 跟據上面所選的 "Product Type"，這裡列出在 Contents => Modules => Product Info 裏，被指定該 Product Type 所需要設定的info 及其值。<br>
+</p>
+</div>
+<!--end Info-->
+<p class="clear">&nbsp;</p>
+
+
+
+
+<!--上傳圖片--> 
+<div class=" box">
+	<h3>Upload images/photos:</h3>
+<table class="addspec">
+<tbody >
+<tr ><th >Upload product image: </th><td ><input name="" type="text" size="30" value=""  />&nbsp;<input type="button" value="Browse"  /></td></tr>
+<tr><th>Upload Small image: </th><td><input name="" type="text" size="30" value=""  />&nbsp;<input type="button" value="Browse"  /></td></tr>
+<tr><th>Upload Big Photo:  </th><td><input name="" type="text" size="30" value=""  />&nbsp;<input type="button" value="Browse"  /></td></tr>
+</tbody>
+</table>
+
+</div>
+<!--end 上傳圖片-->
+
+<p class="clear">&nbsp;</p>
+
+<!--icons--> 
+<div class=" box">
+<h3>Icons:</h3>
+<table class="addspec"><tbody >
+<tr >
+<td>
+<div class="button14 left" style="width:60px;" ><a class="fancybox fancybox.iframe" href="lb_select_icons.html">Select</a></div>
+<p class="clear">&nbsp;</p>
+<!--show 出已經選的-->
+<div class="left" style="width:900px">
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+<div class="left" style="width:100px; margin:10px 4px">Intel Core 2 Duo <br /><img src="http://www.tyan.com/images/logo/logo_cpu_core2duo_50x62.gif" /></div>
+</div>
+<!--end-->
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<!--end icons-->
+<p class="clear">&nbsp;</p>
+
+
+
+
+  
+  <!--Description-->
+<div class=" box">
+<h3>Description:</h3>
+<textarea  name="" rows="5" cols="80" style="max-width: 700px; max-height: 200px;"  ></textarea>
+<P style="color:#0F0">
+- 可留白
+</p>
+</div>
+ <!--end Description-->
+ <p class="clear">&nbsp;</p>
+
+ 
+  <!--Related  Products-->
+
+<div class=" box">
+<h3>Related  Products:   &nbsp;&nbsp; <select name=""><option >Shown</option><option selected>Hidden</option></select></h3> 
+ <div class="button14" style="width:60px;" ><a class="fancybox fancybox.iframe" href="lb_supported_pros.html">Edit</a></div>
+ <!--列出被勾選的Products-->
+ <p>S7053GM2NR;&nbsp;&nbsp;S7053WGM4NR;&nbsp;&nbsp;</p><!--end of 列出被勾選的Products-->
+ <P style="color:#0F0">- Shown 跟 Hidden 的設定，決定這個資訊是否要show在Product SPEC 頁面上。<br>- 預設為隱藏</p>
+ </div>
+ 
+   <!--end Related  Products-->
+ 
+<p class="clear">&nbsp;</p>
+ 
+ 
+  <!--Compatible Products-->
+
+<div class=" box">
+<h3>Compatible Products:   &nbsp;&nbsp; <select name=""><option>Shown</option><option selected>Hidden</option></select></h3> 
+ <div class="button14 " style="width:60px;" ><a class="fancybox fancybox.iframe" href="lb_supported_pros.html">Edit</a></div>
+ <!--列出被勾選的Products-->
+ <p>S7053GM2NR;&nbsp;&nbsp;S7053WGM4NR;&nbsp;&nbsp;</p><!--end of 列出被勾選的Products-->
+ <P style="color:#0F0">- Shown 跟 Hidden 的設定，決定這個資訊是否要show在Product SPEC 頁面上。<br>- 預設為隱藏</p>
+ </div>
+ 
+   <!--end Compatible Products-->
+ 
+<p class="clear">&nbsp;</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+<div class="big_button left" style="width:60px; margin-right:10px" onClick="location='default.html'">Add</div><div class="big_button left" style="width:60px; margin-right:10px" onClick="location='/'">Cancel</div>
+
+  <P style="color:#0F0">
+  - 完成設定，回到Default那頁，並將新增的這筆資料show在第一筆<br>
+  - Cancel 回到 前一頁
+  </p>
+</div>
+
+
+</div>
+
+
+
+
+
+<p class="clear">&nbsp;</p>
+
+<div id="footer">	Copyright &copy; 2013 Company Co. All rights reserved.
+<div class="gotop" onClick="location='#top'">Top</div>
+
+
+
+</div>
+
+</body>
+</html>

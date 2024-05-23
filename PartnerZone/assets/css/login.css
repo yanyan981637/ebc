@@ -1,0 +1,283 @@
+
+@font-face {
+  font-family: tyanpartnerportalFont;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-100;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Thin.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-900;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Black.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-700;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-300;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-500;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: tyanpartnerportalFont-Italic;
+  src: url(../../app-assets/fonts/Roboto/Roboto-Italic.ttf);
+}
+
+
+
+body, h1, h2, h3, h4, h5, h6, p, nav, section {font-family: tyanpartnerportalFont;}
+
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: tyanpartnerportalFont;
+
+}
+/**box-sizing: border-box = padding and border are included in the width and height**/
+
+
+section
+{
+    position: relative;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+section .logo
+{
+	
+    top: 0px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+section .bg
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: -1;
+}
+section .content
+{
+    position: relative;
+    padding:0 20px;
+    max-width: 600px;
+    z-index: 1;
+    text-align: center;
+}
+
+section .content h1
+{
+    color:#fff;
+	font-family: tyanpartnerportalFont-700;
+    line-height: 1.5em;
+	letter-spacing: 2px;
+}
+
+section .content h2
+{
+    color:#fff;
+	font-family: tyanpartnerportalFont-300;
+    font-weight: 100; 
+	font-size: 2.5em;
+}
+section .content form
+{
+    color:#fff;
+    font-size: 1.0em;
+    text-align: left;
+}
+
+
+section .fpw { margin:5% 0; color:#83c7ed; text-align: left; font-size: 1.1em;}
+section .fpw a{
+	color:#83c7ed;
+} 
+section .fpw a:hover{color:#addef9}
+
+
+.copyrightText
+{
+   
+    color:#9e9d9d;
+    font-size: 0.6em;
+    margin: 20px auto;
+}
+
+section .copyrightText a{color:#83c7ed}
+section .copyrightText a:hover{color:#addef9}
+
+section .content-right
+{   
+    color:#b5b5b5;
+    position: absolute;
+    right:70px;
+    bottom:50px;
+    max-width: 800px;
+    padding: 80px;
+    z-index: 1;
+}
+
+section .content-right h2{font-family: tyanpartnerportalFont-700}
+section .content-right p{font-family: tyanpartnerportalFont-300}
+
+.content-right h2{font-family: tyanpartnerportalFont; color:#b5b5b5;}
+
+
+
+
+/**style checkmark**/
+
+.checkmark-reg {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.2em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.checkmark-reg input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.tp-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border:1px solid #898989;
+}
+
+
+.checkmark-reg:hover input ~ .tp-checkmark {
+  background-color: #cbedf9;
+  border: none;
+}
+
+
+.checkmark-reg input:checked ~ .tp-checkmark {
+  background-color: #3bafda;
+}
+
+
+.tp-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+.checkmark-reg input:checked ~ .tp-checkmark:after {
+  display: block;
+}
+
+
+.checkmark-reg .tp-checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 8px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+
+
+
+.btn-primary
+{
+    color: #fff; 
+    border-color: #a0caf8 !important;
+    background-color: #004898 !important;
+}
+.btn-primary:hover
+{
+    color: #fff !important; 
+    border-color: #a0caf8 !important;
+    background-color: #2d81df !important;
+}
+.btn-primary:focus,
+.btn-primary:active
+{
+    color: #fff !important; 
+    border-color: #a0caf8 !important;
+    background-color: #53a2fa !important;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width:800px)
+{
+    section
+    {
+    padding: 40px;
+    }
+
+    section .bg, section .content-right
+    {
+        display: none;
+    }
+    section .content h2
+    {
+        font-size: 2.5em;
+    }
+}
+
+
+
+@media (max-width:1480px)
+{
+    
+    section .content-right
+    {
+        display: none;
+    }
+  
+}
+
+
+
+
+/****/
+bg-r {background: url(images/login-bg.jpg) no-repeat center center; background-size: cover;}
+
+
+
