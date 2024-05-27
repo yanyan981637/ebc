@@ -4,6 +4,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
 require "./config.php";
 
+// ini_set('display_errors', 1);
+
 if(strpos(trim(getenv('REQUEST_URI')),'?')!='' || strpos(trim(getenv('REQUEST_URI')),'?')===0 || strpos(trim(getenv('REQUEST_URI')),"'")!='' || strpos(trim(getenv('REQUEST_URI')),"'")===0 || strpos(trim(getenv('REQUEST_URI')),"script")!='' || strpos(trim(getenv('REQUEST_URI')),".php")!=''){
   echo "<script language='javascript'>self.location='/404.htm'</script>";
   exit;
@@ -53,21 +55,21 @@ function dowith_sql($str)
   $str = str_replace("</a>","",$str);
 	return $str;
 }
- 
+
 
 if($_POST['SKU']!=''){
 	$SKU=dowith_sql($_POST['SKU']);
   $SKU = htmlspecialchars($SKU);
 }else{
 	$SKU="";
-} 
+}
 
 if($_POST['TYPE']!=''){
 	$TYPE=dowith_sql($_POST['TYPE']);
   $TYPE = htmlspecialchars($TYPE);
 }else{
 	$TYPE="";
-} 
+}
 
 $a=explode(" ",$SKU);
 
@@ -142,11 +144,11 @@ if($checkbox=="1"){ // Excel.csv
     $row++;
   }
 
-  
+
   //****** Category *******
   $i=2;
-  //$str_pType = "SELECT SPECCategories FROM producttypes WHERE ProductTypeID='".$TYPE."'"; 
-  $str_pType="SELECT SKU_CategorySort, SKU_Type FROM product_skus WHERE SKU='".$SKU."'"; 
+  //$str_pType = "SELECT SPECCategories FROM producttypes WHERE ProductTypeID='".$TYPE."'";
+  $str_pType="SELECT SKU_CategorySort, SKU_Type FROM product_skus WHERE SKU='".$SKU."'";
   $cmd_pType = mysqli_query($link_db,$str_pType);
   $data_pType = mysqli_fetch_row($cmd_pType);
   $cateID=explode(",", $data_pType[0]);
@@ -162,13 +164,13 @@ if($checkbox=="1"){ // Excel.csv
         $Sheet->getStyle("A".$i)->applyFromArray(
           array(
            'fill' => array(
-            'type' => PHPExcel_Style_Fill::FILL_SOLID, 
-            'color' => array('rgb' => 'ACE8FA') 
-            ) 
-           ) 
-          ); 
-        $i++; 
-        
+            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+            'color' => array('rgb' => 'ACE8FA')
+            )
+           )
+          );
+        $i++;
+
         //****** under type *******
         $tmp_utpyeID=array();
         $str_UT="SELECT SPECTypeID, SPECCategoryID, SPECTypeName, SPECTypeSort FROM spectypes WHERE SPECCategoryID='".$cateID."' ORDER BY SPECTypeSort ASC";
@@ -188,7 +190,7 @@ if($checkbox=="1"){ // Excel.csv
               $data_value = mysqli_fetch_row($cmd_value);
               if($data_value[1]==""){
                 $Sheet -> setCellValue($row_value.$i,"");
-              }else{  
+              }else{
                 $tmp_vID=explode(",",$data_value[1]);
                 $num1=count($tmp_vID);
                 foreach ($tmp_vID as $key => $value) {
@@ -199,9 +201,9 @@ if($checkbox=="1"){ // Excel.csv
                       $tmp_value.=$arr_value[$value];
                       $tmp_value.=" / ";
                     }
-                  }                      
+                  }
                 }
-                
+
               }
               $Sheet -> setCellValue($row_value.$i,$tmp_value);
               $row_value++;
@@ -210,13 +212,13 @@ if($checkbox=="1"){ // Excel.csv
           }else{
             //echo("False");
           }
-          
 
-          
+
+
           //}
           //****** value end*******
 
-         
+
         }
         //****** under type end*******
 
@@ -226,7 +228,7 @@ if($checkbox=="1"){ // Excel.csv
     }
   }
 
-  
+
 
 
   //調整欄寬
@@ -241,7 +243,7 @@ if($checkbox=="1"){ // Excel.csv
   $Sheet -> getColumnDimension('I') -> setWidth(50);
   $Sheet -> getColumnDimension('J') -> setWidth(50);
   $objWriter -> save('php://output');
-  
+
   mysqli_Close($link_db);
   exit;
 }

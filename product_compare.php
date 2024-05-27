@@ -151,7 +151,8 @@ $url=$_SERVER['HTTP_REFERER'];
 /*$str_num = "SELECT * FROM new_spec_under_type WHERE Compare_button=1 AND TYPE_ID='".$type."'";
 $cmd_num = mysqli_query($link_db,$str_num);
 $data_num = mysqli_num_rows($cmd_num);*/
-$data_num="";
+// $data_num="";
+$data_num=0;
 $str_cate = "SELECT SPECCategories, SPECType FROM producttypes WHERE ProductTypeID='".$type."'";
 $cmd_cate = mysqli_query($link_db,$str_cate);
 $data_cate = mysqli_fetch_row($cmd_cate);
@@ -169,7 +170,7 @@ foreach ($cateID as $key => $value) {
       //echo $str_UT."<br>";
       $cmd_UT = mysqli_query($link_db,$str_UT);
       $data_UT = mysqli_fetch_row($cmd_UT);
-      $data_num+=$data_UT[0];
+      $data_num += $data_UT[0];
 
     }
 

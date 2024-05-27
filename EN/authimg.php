@@ -4,7 +4,7 @@ $CaptchaLength = 6;		//驗證碼長度
 
 //產生數字驗證碼
 for($i=0; $i < $CaptchaLength; $i++){
-	$number=$arr[rand(0,36)];
+	// $number=$arr[rand(0,36)];
 	$CaptchaString = $CaptchaString.rand(0,9);
 }
 session_start();
@@ -13,7 +13,7 @@ ob_clean();
 Header("Content-type: image/PNG");	//宣告輸出為PNG影像
 $CaptchaWidth = 55;					//驗證碼影像寬度
 $CaptchaHeight = 15;				//驗證碼影像高度
- 
+
 //建立影像
 $Captcha = ImageCreate($CaptchaWidth, $CaptchaHeight);
 //設定背景顏色，範例是紅色
