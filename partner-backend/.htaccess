@@ -7,7 +7,7 @@ ErrorDocument 500 /404.htm
 Header set X-Frame-Options SAMEORIGIN
 # Allow some urls, block all others; whitelisting
 	#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
-	#Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.	
+	#Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.
 	#</LocationMatch>
 	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
 	Header set Cache-Control "max-age=604800, public"
@@ -81,9 +81,5 @@ RewriteRule ^BEaddGroup$ /partner-backend/BE_add_group.php [QSA,L]
 RewriteRule ^groupProcess$ /partner-backend/group_process.php [QSA,L]
 RewriteRule ^BEeditGroup@([a-zA-Z0-9_-]+)$ /partner-backend/BE_edit_group.php?FileID=$1 [QSA,L]
 
-
 Options All -Indexes
-Order deny,allow
-#Allow from all
-Allow from 10.99
-Deny from all
+Require ip 10 172 127.0.0.1

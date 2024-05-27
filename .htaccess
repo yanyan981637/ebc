@@ -8,7 +8,7 @@ ErrorDocument 500 /404.htm
     Header set X-Frame-Options SAMEORIGIN env=!iframes_are_cool
 # Allow some urls, block all others; whitelisting
 #<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
-#    Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.	
+#    Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.
 #</LocationMatch>
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
 Header set Cache-Control "max-age=604800, public"
@@ -22,7 +22,7 @@ satisfy all
 </files>
 
 RewriteEngine On
-RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$ 
+RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
 RewriteRule .* - [F]
 
 #強制轉https
@@ -214,7 +214,4 @@ RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).png$ /support_center/im
 
 Redirect "/5GEdgeComputing_WS1S12_WS1S12" https://www.mitacmct.com/5GEdgeComputing_WS1S11_WS1S11?
 
-
-Options All -Indexes
-Order Deny,Allow
-Allow from all
+Require all granted
