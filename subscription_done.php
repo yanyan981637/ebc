@@ -26,7 +26,7 @@ $post=[
 //'refresh_token'=>'1000.b15ea7a31a209ff6dc0492cada2a01c3.eeb273fdd1a72b0515d0a9cd27a454ef',
 
 
-$url="https://accounts.zoho.com/oauth/v2/token"; 
+$url="https://accounts.zoho.com/oauth/v2/token";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -46,8 +46,8 @@ $listkey="3z32bfcb27da1e6fb87fb3c01da2a3122759c16181c3b9b6ac4d0e152cfb03d30e";
 
 $url="https://campaigns.zoho.com/api/v1.1/addlistsubscribersinbulk?resfmt=JSON&emailids=".$mail."&listkey=".$listkey;
 
-$headers[]  =  "Content-Type: application/json"; 
-$headers[]  =  "Authorization:Zoho-oauthtoken ".$token; 
+$headers[]  =  "Content-Type: application/json";
+$headers[]  =  "Authorization:Zoho-oauthtoken ".$token;
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -55,7 +55,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); 
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $result2 = curl_exec($ch);
 $result2 = json_decode($result2, true);
 $status=$result2['status'];

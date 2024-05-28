@@ -42,3 +42,23 @@
     table.group_skus tr{ border-bottom:1px dotted #c0c0c0; }
     table.group_skus tbody.con{  cursor: default;}
     table.group_skus tr:hover{background-color:rgba(238,238,238,0.4);}	
+	
+	
+	
+	
+		
+	/**related products**/
+	
+	.clients-grid .grid-item a { opacity: 0.9; }
+	.rel-pro-box {border-radius: 25px; padding: 20px; border: 1px solid #bfbfbf}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
