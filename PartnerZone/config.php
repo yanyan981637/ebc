@@ -7,7 +7,7 @@ if(strpos(trim(getenv('REQUEST_URI')),"'")!='' || strpos(trim(getenv('REQUEST_UR
 $db_host="10.88.26.74:3306";
 $db_user="sa";
 $db_pwd="Kazumi2008";
-$dataBase="tony_ebc";
+$dataBase="tony_ebc1";
 
 function encrypt($data, $key)
 {

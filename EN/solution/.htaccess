@@ -1,0 +1,27 @@
+ErrorDocument 404 /404.htm
+
+<IfModule mod_headers.c>
+    SetEnvIf Request_URI "^/my_awesome_widget_page.html$" iframes_are_cool
+    Header set X-Frame-Options SAMEORIGIN env=!iframes_are_cool
+# Allow some urls, block all others; whitelisting
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+</IfModule>
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+RewriteEngine On
+# RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+# RewriteRule .* - [F]
+
+RewriteRule ^([^./]+)/?$ $1.php [L]
+RewriteRule ^([^./]+)/?$ $1.htm [L]
+
+Options All -Indexes
+Order Deny,Allow
+Allow from all

@@ -7,7 +7,7 @@ ErrorDocument 500 /404.htm
 Header set X-Frame-Options SAMEORIGIN
 # Allow some urls, block all others; whitelisting
 	#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
-	#Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.	
+	#Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.
 	#</LocationMatch>
 	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
 	Header set Cache-Control "max-age=604800, public"
@@ -21,9 +21,9 @@ satisfy all
 </files>
 
 RewriteEngine On
-RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
-RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule .* - [F]
+# RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+# RewriteCond %{ENV:REDIRECT_STATUS} ^$
+# RewriteRule .* - [F]
 
 
 RewriteRule ^(.*)\.html$ $1.php [NC]

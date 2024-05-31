@@ -1,15 +1,15 @@
 <?php
-$pdo = 'mysql:dbname=tony_ebc;host=10.88.26.74;port=3306';
+$pdo = 'mysql:dbname=tony_ebc1;host=10.88.26.74;port=3306';
 
 $db_host="10.88.26.74:3306";
 $db_user="sa";
 $db_pwd="Kazumi2008";
-$dataBase="tony_ebc";
+$dataBase="tony_ebc1";
 
 $Config["DB_HOST"]="10.88.26.74:3306";
 $Config["DB_USER"]="sa";
 $Config["DB_PWD"]="Kazumi2008";
-$Config["DB_NAME"]="tony_ebc";
+$Config["DB_NAME"]="tony_ebc1";
 
 class CDB
 {

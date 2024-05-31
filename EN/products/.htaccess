@@ -1,18 +1,23 @@
 ErrorDocument 404 /404.htm
+ErrorDocument 403 /404.htm
+ErrorDocument 404 /404.htm
+ErrorDocument 500 /404.htm
 
 <IfModule mod_headers.c>
-# Allow some urls, block all others; whitelisting
-#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
-#    Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.
-#</LocationMatch>
-<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
-Header set Cache-Control "max-age=604800, public"
-</FilesMatch>
+    SetEnvIf Request_URI "^/my_awesome_widget_page.html$" iframes_are_cool
+    Header set X-Frame-Options SAMEORIGIN env=!iframes_are_cool
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
 </IfModule>
 
+<files ~ "^.*\.([Hh][Tt][Aa])">
+    Require all denied
+</files>
+
 RewriteEngine On
-RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
-RewriteRule .* - [F]
+# RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+# RewriteRule .* - [F]
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 

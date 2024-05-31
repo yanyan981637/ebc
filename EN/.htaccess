@@ -11,8 +11,8 @@ Header set Cache-Control "max-age=604800, public"
 </IfModule>
 
 RewriteEngine On
-RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$ 
-RewriteRule .* - [F]
+# RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+# RewriteRule .* - [F]
 
 #RewriteBase /EN
 #RewriteCond %{SERVER_PORT} !^80$

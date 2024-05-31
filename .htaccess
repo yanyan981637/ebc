@@ -6,49 +6,33 @@ ErrorDocument 500 /404.htm
 <IfModule mod_headers.c>
     SetEnvIf Request_URI "^/my_awesome_widget_page.html$" iframes_are_cool
     Header set X-Frame-Options SAMEORIGIN env=!iframes_are_cool
-# Allow some urls, block all others; whitelisting
-#<LocationMatch ^((?!(firstUrlAllowed|secondUrlAllowed)).)*$>
-#    Header always append X-Frame-Options SAMEORIGIN # Block any site from applying an iframe.
-#</LocationMatch>
-<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
-Header set Cache-Control "max-age=604800, public"
-</FilesMatch>
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
 </IfModule>
 
 <files ~ "^.*\.([Hh][Tt][Aa])">
-order allow,deny
-deny from all
-satisfy all
+    Require all denied
 </files>
 
 RewriteEngine On
-RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
-RewriteRule .* - [F]
+# RewriteCond %{THE_REQUEST} !^(POST|GET)\ /.*\ HTTP/1\.1$
+# RewriteRule .* - [F]
 
-#強制轉https
-#RewriteEngine on
-#RewriteCond %{SERVER_PORT} !^443$
-#RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+RewriteRule ^([a-zA-Z0-9_-]+)/(.*)/$ /index.php?PLang=$2 [QSA,L]
+RewriteRule ^products/([a-zA-Z0-9_-]+)$ /products/$1.php? [QSA,L]
 
-#RewriteBase /
-
-#RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-#RewriteRule ^([^./]+)/?$ $1.php [L]
 RewriteRule ^(.*)\.html$ $1.php [NC]
-#RewriteRule ^([^./]+)/?$ $1.htm [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-#index
-#RewriteRule ^([a-zA-Z0-9_-]+)/(\.+)/$ /index.php?PLang=$2 [QSA,L]
+# #index
 RewriteRule ^([a-zA-Z0-9_-]+)/(.*)/$ /index.php?PLang=$2 [QSA,L]
 RewriteRule ^SupportCenter/$ /support_center/login.php [QSA,L]
 RewriteRule ^([a-zA-Z0-9_-]+)/$ /$1/EN/ [R,NC,L]
 
-#SPEC
+# #SPEC
 RewriteCond $1 !^(product_details1\.php|images|js|css|products|robots\.txt|$)
 RewriteRule ^([a-zA-Z0-9_-]+)_(.*)_(.*)/? /product_details.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA,L]
 
@@ -77,27 +61,17 @@ RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~SearchRE/? /search_result.php?PLang=$1&sval=$
 #Sort_val
 RewriteRule ^([a-zA-Z0-9_-]+)@(.*)~OtrchRE/? /sorting_result.php?PLang=$1&sval=$2 [QSA,L]
 
-#RewriteRule ^([a-zA-Z0-9_-]+)~([a-zA-Z0-9_-]+)~(.*)~documents/? /product_documents.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)~([a-zA-Z0-9_-]+)~(.*)~documents~(.*)/? /product_documents.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)~([a-zA-Z0-9_-]+)~(.*)~documents/? /$1~$2~$3~documents~EN [R,NC,L]
 
-#RewriteRule ^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)@(.*)@supports/? /product_supports.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)@(.*)@supports@(.*)/? /product_supports.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)@(.*)@supports/? /$1@$2@$3@supports@EN [R,NC,L]
 
-#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=downloads/? /product_downloads.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)=(.*)=(.*)=downloads=(.*)/? /product_downloads.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=downloads/? /$1=$2=$3=downloads=EN [R,NC,L]
 
-#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=preview/? /product_pressreview.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=preview=(.*)/? /product_pressreview.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=preview/? /$1=$2=$3=preview=EN [R,NC,L]
-
-#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description=(.*)/? /products/product_description.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
-#RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description/? /products/$1=$2=$3=description=EN [R,NC,L]
-
-#RewriteRule ^archive_products$ /product_eol.php [QSA,L]
-
 
 RewriteRule ^archiveProducts$ /archive_products.php [QSA,L]
 
@@ -105,7 +79,6 @@ RewriteRule ^archiveProducts$ /archive_products.php [QSA,L]
 RewriteRule ^subscription$ /subscription_done.php [QSA,L]
 RewriteRule ^delsubscription$ /subscription_del.php [QSA,L]
 RewriteRule ^newsletter$ /newsletterSubscription.php [QSA,L]
-
 
 # Catalog
 RewriteRule ^catalog$ /catalog_download.php [QSA,L]
@@ -125,12 +98,8 @@ Redirect "/embedded-catalog" https://download.mitacmct.com/Files/Catalog/OCP_DM_
 RewriteRule ^in-news$ /in-news.php [QSA,L]
 RewriteRule ^catalogs$ /catalogs.php [QSA,L]
 
-#RewriteRule ^TMP@([a-zA-Z0-9_-]+)_(.*)_(.*)/? /product_details1.php?PType=$1&PMCode=$2&PSKUs=$3 [QSA,L]
-
 RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description=(.*)/? /product_details.php?PType=$1&PMCode=$2&PSKUs=$3&PLang=$4 [QSA]
 RewriteRule ^([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description/? /$1=$2=$3=description=EN [R,NC,L]
-
-#RedirectMatch 301 products/([a-zA-Z0-9_-]+)=([a-zA-Z0-9_-]+)=(.*)=description=(.*) https://www.mitacmct.com/$1_$2_$3
 
 Redirect "/products/industrial_motherboard" /EN/products/industrial_motherboard/
 Redirect "/products/embedded_system" /EN/products/embedded_system/
@@ -145,12 +114,10 @@ Redirect "/EN/solution/intel-ice-lake" /EN/products/intel-ice-lake/
 Redirect "/products/storage_platform" /EN/products/storage_platform/
 Redirect "/products/OCP" /EN/products/OCP/
 
-Redirect "/zh-TW" https://www.mitacmct.com
-Redirect "/zh-CN" https://www.mitacmct.com
+# Redirect "/zh-TW" https://www.mitacmct.com
+# Redirect "/zh-CN" https://www.mitacmct.com
 
 Redirect "/IndustrialMotherboard_Ainstein-H8_Ainstein-H8" /IndustrialMotherboard_MiAi-H8_MiAi-H8?
-
-
 
 #Support-center index
 RewriteRule ^SupportCenter$ /support_center/login.php [QSA,L]
@@ -170,7 +137,6 @@ RewriteRule ^SupportCenter/bulletin/notice@([a-zA-Z0-9_-]+)$ /support_center/bul
 #Support-center client_side
 RewriteRule ^SupportCenter/client/ctickets$ /support_center/client-side/default.php? [QSA,L]
 RewriteRule ^SupportCenter/client/ctickets@([a-zA-Z0-9_-]+)$ /support_center/client-side/default.php?tNo=$1 [QSA,L]
-#RewriteRule ^SupportCenter/client/ctickets@p([a-zA-Z0-9_-]+)$ /support_center/client-side/default.php?page=$1 [QSA,L]
 RewriteRule ^SupportCenter/client/newticket$ /support_center/client-side/add_ticket.php? [QSA,L]
 RewriteRule ^SupportCenter/client/tickets$ /support_center/client-side/ticket.php? [QSA,L]
 RewriteRule ^SupportCenter/client/replyticket@([a-zA-Z0-9_-]+)$ /support_center/client-side/reply_ticket.php?t_id=$1 [QSA,L]
