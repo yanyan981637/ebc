@@ -212,7 +212,13 @@ if(isset($_GET["status"])){
 											<input type="text" name="checknum" id="checknum" size="12" maxlength="12">
 										</div>
 
-										<div class="col-12 mt-4 mb-4"><div class="alert alert-info">Clicking <strong>"SUBMIT"</strong>, you agree to the <a href="/EN/legal/terms_of_use" target="terms" />Terms of Use</a>, <a href="/EN/legal/privacy_policy" target="terms" />Privacy Policy</a>, and <a href="/EN/legal/cookie_policy/" target="terms" />Cookie Policy</a>.</div></div>
+										<div class="col-12 mt-4 mb-4">
+											<div class="alert alert-info">Clicking <strong>"SUBMIT"</strong>, you agree to the
+												<a href="https://www.mitacmdt.com/en/terms-of-use.php" target="terms" />Terms of Use</a>,
+												<a href="https://www.mitacmdt.com/en/privacy-policy.php" target="terms" />Privacy Policy</a>, and
+												<a href="https://www.mitacmdt.com/en/cookie-pocily.php" target="terms" />Cookie Policy</a>.
+											</div>
+										</div>
 
 										<div class="col-12 form-group">
 											<button id="add" name="add" type="button" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0" onclick ="gtag_report_conversion()">Submit</button>

@@ -152,7 +152,8 @@ $SelectCN_Url=dowith_sql01($CN_Url[0]);
 if($userName!=""){
   $partnerLink="<a href='/PartnerZone/FEdashboard' style=color:#fff><i class='icon-line2-user me-1 position-relative' style='top: 1px;'></i><span class='d-none d-sm-inline-block font-primary fw-medium'>".$userName."</span></a>";
 }else{
-    $partnerLink="<a href='#modal-register' data-lightbox='inline' style=color:#fff><i class='icon-line2-user me-1 position-relative' style='top: 1px;'></i><span class='d-none d-sm-inline-block font-primary fw-medium'>Partner Zone</span></a>";
+    // $partnerLink="<a href='#modal-register' data-lightbox='inline' style=color:#fff><i class='icon-line2-user me-1 position-relative' style='top: 1px;'></i><span class='d-none d-sm-inline-block font-primary fw-medium'>Partner Zone</span></a>";
+    $partnerLink="";
 
 }
 
@@ -433,9 +434,11 @@ if($userName!=""){
                     <div id="top-account" class="px-1  fw-normal text-smaller">&nbsp;&nbsp;
                         <a href="/RFQ" id="RFQnum" style="color:#fff"></a>
                     </div>
+                    <!-- TODO: remove first
                     <div id="top-account" class=" fw-normal text-smaller">&nbsp;&nbsp;&nbsp;
-                        <?php echo $partnerLink;?>
+                        <?php // echo $partnerLink;?>
                     </div>
+                    -->
 
 
                     <!-- Top Search
