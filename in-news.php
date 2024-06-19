@@ -5,15 +5,12 @@ header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; fram
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
-
 if(strpos(trim(getenv('REQUEST_URI')),'?')!='' || strpos(trim(getenv('REQUEST_URI')),'?')===0 || strpos(trim(getenv('REQUEST_URI')),"'")!='' || strpos(trim(getenv('REQUEST_URI')),"'")===0 || strpos(trim(getenv('REQUEST_URI')),"script")!='' || strpos(trim(getenv('REQUEST_URI')),".php")!=''){
 echo "<script language='javascript'>self.location='/404.htm'</script>";
 exit;
 }
-
 require "./config.php";
 include_once('./page_pr.class.php');
-
 function dowith_sql($str)
 {
    $str = str_replace("and","",$str);
@@ -37,13 +34,12 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_REQUEST['PLang']));
-  $PLang_si=str_replace(".php","",$PLang_si);  
-  
+  $PLang_si=str_replace(".php","",$PLang_si);
   if($PLang_si=="en-US" || $PLang_si==""){
     $PLang_si01="EN";
     $PLang_si="en-US";
@@ -96,7 +92,6 @@ $PLang_si01="EN";
     $EVL01="Events";
     $PRE01="Product Review";
 }
-
 if(isset($_COOKIE['status'])){
   //$s_cookie="";
 }else{
@@ -106,17 +101,15 @@ if(isset($_COOKIE['status'])){
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
-
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name='author' content='MiTAC Computing Technology'>
 <meta name="company" content="MiTAC Computing Technology">
 <meta name="description" content="">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" /> 
+<meta property="og:description" content="" />
 <meta property="og:title" content="News - MiTAC in the News  | MiTAC Computing Technology" />
   <link rel="shortcut icon" href="images/ico/favicon.ico">
-
 <!-- Stylesheets
 ============================================= -->
 <link rel="stylesheet" href="css1/bootstrap.css" type="text/css" />
@@ -128,38 +121,26 @@ if(isset($_COOKIE['status'])){
 <link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 <link rel="stylesheet" href="css1/custom.css" type="text/css" />
 <link rel="stylesheet" href="css1/news.css" type="text/css" />
-
-
 <script src="js1/jquery.js"></script>
-
-
 <!-- Document Title
 ============================================= -->
 <title>News - MiTAC in the News  | MiTAC Computing Technology</title>
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
 include_once("analyticstracking.php");
 }
 ?>
 </head>
-
 <body class="stretched">
-
 	<!-- Document Wrapper
 	============================================= -->
 	<div id="wrapper" class="clearfix">
-
-
 		<!--Header logo & global top menu-->
 		<?php
 		include("top1.htm");
 		?>
 		<!--end Header logo & global top menu-->
-
-
-
-
 		<!-- Slider
 		============================================= -->
 		<section id="slider" class="slider-element">
@@ -168,11 +149,9 @@ include_once("analyticstracking.php");
 				<h1 class="fw-bold ls0 mb-5" >Events</h1>
 			</div>
 		</section>
-
 		<div id="news-nav" class="content mb-6" >
 			<div class="w-100 mb-4 mt-0 mt-lg-0 p-3">
 				<div class="row justify-content-center gx-3">
-
 					<div class="col-lg-3 mb-4 mb-lg-0" onclick="location.href='<?=$PLang_si;?>@EVLIST~evlist~1'">
 						<div class="grid-inner shadow-sm h-shadow bg-white p-3 overflow-hidden rounded-5 text-center shadow-ts">
 							<div class="row justify-content-center">
@@ -180,7 +159,6 @@ include_once("analyticstracking.php");
 							</div>
 						</div>
 					</div>
-
 					<div class="col-lg-3 mb-4 mb-lg-0" onclick="location.href='<?=$PLang_si;?>@PRLIST~plist~1'">
 						<div class="grid-inner shadow-sm h-shadow bg-white p-3 overflow-hidden rounded-5 text-center shadow-ts">
 							<div class="row justify-content-center">
@@ -188,7 +166,6 @@ include_once("analyticstracking.php");
 							</div>
 						</div>
 					</div>
-
 					<div class="col-lg-3" onclick="location.href='in-news'">
 						<div class="grid-inner shadow-sm h-shadow  p-3 overflow-hidden rounded-5 text-center shadow-ts" style="background:#d4e8fe">
 							<div class="row justify-content-center">
@@ -196,22 +173,16 @@ include_once("analyticstracking.php");
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
-
 		<div class="clear"></div>
-
-
-
 		<section id="content">
 			<div class="content-wrap pt-3" style="overflow: visible;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 mb-5 mb-lg-0">
 							<h1>MiTAC in the News</h1>
-
 							<!--pagnation-->
 						<!--	<div style="float:right">
 							<ul class="pagination pagination-transparent pagination-circle">
@@ -226,10 +197,7 @@ include_once("analyticstracking.php");
 							</div>
 							<div class="clear"></div>-->
 							<!--end pagnation-->
-
 							<div class="row posts-md col-mb-30" >
-							
-							
 							<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -246,11 +214,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
-							
 							<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -267,11 +230,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
-							
 							<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -288,10 +246,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
 								<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -308,11 +262,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
-							
 										<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -329,14 +278,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
-							
-							
-							
-							
 										<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -353,23 +294,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
 								<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -386,11 +310,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-							
-							
-							
 								<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -407,8 +326,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
 								<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -425,8 +342,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
 							<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -443,9 +358,6 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-							
-							
-
 								<!--one -->
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
@@ -462,91 +374,8 @@ include_once("analyticstracking.php");
 									</div>
 								</article>
 								<!--end one -->
-
-								<!--one -->
-								<article class="entry col-12 mb-3">
-									<div class="grid-inner row gutter-20">
-										<div class="col-md-1">
-											<a href="https://www.newswire.com/news/rapid-space-creates-simpleran-100-mhz-tri-sector-5g-vran-running-on-21564136" target="min"><img src="/images/pressroom_pic/PR-rapidspace.gif" alt="Rapid.Space Creates SimpleRAN 100 MHz Tri-Sector 5G vRAN Running on MITAC's Open Compute Aowanda Server"  ></a>
-										</div>
-										<div class="col-md-11">
-											<div class="entry-title title-xs">
-												<span class="badge rounded-pill bg-info">2022/2/16</span><br>
-												<h2><a href="https://www.newswire.com/news/rapid-space-creates-simpleran-100-mhz-tri-sector-5g-vran-running-on-21564136" target="min">Rapid.Space Creates SimpleRAN 100 MHz Tri-Sector 5G vRAN Running on MITAC's Open Compute Aowanda Server</a></h2>
-												<!--Contents--><span></span><!--end Contents-->
-											</div>
-										</div>
-									</div>
-								</article>
-								<!--end one -->
-
-
-
-								<!--one -->
-								<article class="entry col-12 mb-3">
-									<div class="grid-inner row gutter-20">
-										<div class="col-md-1">
-											<a href="https://www.keysight.com/tw/zh/about/newsroom/news-releases/2021/1217-nr21165-keysight-s-participation-in-o-ran-global-plugfest-2.html" target="min"><img src="/images/pressroom_pic/keysight-PR-s.gif" alt="Keysight's Participation in O-RAN Global Plugfest 2021 Enables Ecosystem to Speed Open RAN Technology Development and Specifications Maturity"  ></a>
-										</div>
-										<div class="col-md-11">
-											<div class="entry-title title-xs">
-												<span class="badge rounded-pill bg-info">2021/12/17</span><br>
-												<h2><a href="https://www.keysight.com/tw/zh/about/newsroom/news-releases/2021/1217-nr21165-keysight-s-participation-in-o-ran-global-plugfest-2.html" target="min">Keysight's Participation in O-RAN Global Plugfest 2021 Enables Ecosystem to Speed Open RAN Technology Development and Specifications Maturity</a></h2>
-												<!--Contents--><span></span><!--end Contents-->
-											</div>
-										</div>
-									</div>
-								</article>
-								<!--end one -->
-
-
-								<!--one -->
-								<article class="entry col-12 mb-3">
-									<div class="grid-inner row gutter-20">
-										<div class="col-md-1">
-											<a href="https://corporate.fetnet.net/content/corp/tw/LatestNews/LatestNews_Contents.html?uuid=022bd253-05fb-4a48-8b39-6e334f599c06" target="min"><img src="/images/pressroom_pic/FET-PR-s.gif" alt="遠傳攜手國內外網通大廠 完成台灣電信業首創「5G ONF開源網路測試環境」"  ></a>
-										</div>
-										<div class="col-md-11">
-											<div class="entry-title title-xs">
-												<span class="badge rounded-pill bg-info">2021/12/01</span><br>
-												<h2 style="font-family:Microsoft JhengHei;"><a href="https://corporate.fetnet.net/content/corp/tw/LatestNews/LatestNews_Contents.html?uuid=022bd253-05fb-4a48-8b39-6e334f599c06" target="min">遠傳攜手國內外網通大廠 完成台灣電信業首創「5G ONF開源網路測試環境」</a></h2>
-												<!--Contents--><span></span><!--end Contents-->
-											</div>
-										</div>
-									</div>
-								</article>
-								<!--end one -->
-
-
-
-								<!--one -->
-								<article class="entry col-12 mb-3">
-									<div class="grid-inner row gutter-20">
-										<div class="col-md-1">
-											<a href="https://www.ami.com/ami-joins-mitac-to-demo-ami-true-on-the-new-aowanda-ad211-edge-server-at-intel-data-centric-2021-in-taipei/" target="min"><img src="/images/pressroom_pic/AMI-true-PR-s.gif" alt="AMI Joins MiTAC to Demo AMI TruE on the New Aowanda AD211 Edge Server at Intel Data Centric 2021 in Taipei"  ></a>
-										</div>
-										<div class="col-md-11">
-											<div class="entry-title title-xs">
-												<span class="badge rounded-pill bg-info">2021/05/11</span><br>
-												<h2><a href="https://www.ami.com/ami-joins-mitac-to-demo-ami-true-on-the-new-aowanda-ad211-edge-server-at-intel-data-centric-2021-in-taipei/" target="min">AMI Joins MiTAC to Demo AMI TruE on the New Aowanda AD211 Edge Server at Intel Data Centric 2021 in Taipei</a></h2>
-												<!--Contents--><span><i>Products: <a href="/5GEdgeComputing_AD211_AD1S01">AD211</a></i></span><!--end Contents-->
-											</div>
-										</div>
-									</div>
-								</article>
-								<!--end one -->
-
-
-
-
-
-
-
-
 							</div>
-
 							<div class="clear mb-6 mt-6 "></div>
-
 							<!--pagnation-->
 <!--<div style="float:right">
 <ul class="pagination pagination-transparent pagination-circle">
@@ -561,79 +390,28 @@ include_once("analyticstracking.php");
 </div>
 <div class="clear"></div>-->
 <!--end pagnation-->
-
-
-
-
-
 </div>
 </div>
 </div>
 </div>
 </section>
-
-
-
 <div class="clear mb-6"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("foot1.htm");
 ?>
-<!-- FOOTER end -->	  
-
+<!-- FOOTER end -->
 </div><!-- #wrapper end -->
-
 	<!-- Go To Top
 	============================================= -->
 	<div id="gotoTop" class="icon-line-arrow-up"></div>
-
 	<!-- JavaScripts
 	============================================= -->
-	
 	<script src="js1/plugins.min.js"></script>
-
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js1/functions.js"></script>
-
 	<!-- ADD-ONS JS FILES -->
-	
 	<script src="/js1/top.js"></script>
-
 </body>
 </html>
