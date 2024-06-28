@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-//header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+//header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -69,14 +69,14 @@ if($_GET['CID']!=""){
 	$CID=filter_var($CID);
 }
 
-// Get Sales Naem 
+// Get Sales Naem
 $strSales="SELECT ID, NAME FROM partner_sales WHERE 1";
 $cmdSales=mysqli_query($link_db,$strSales);
 while ($dataSales=mysqli_fetch_row($cmdSales)) {
 	$arr_sales[$dataSales[0]]=$dataSales[1];
 }
 // Get Sales Naem End
-// Get Country Naem 
+// Get Country Naem
 /*$str_countrycode="SELECT Regions, CountryCode, CountryName, CodeNumber FROM partner_countrycode WHERE 1";
 $cmd_countrycode=mysqli_query($link_db,$str_countrycode);
 while ($data_countrycode=mysqli_fetch_row($cmd_countrycode)) {
@@ -114,7 +114,7 @@ $result=mysqli_fetch_row($cmd);
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -135,7 +135,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 
 
@@ -161,7 +161,7 @@ include("left_menu.php");
 	</div>
 	<div class="content-body">
 		<div class="row" >
-			<!--Members list-->	
+			<!--Members list-->
 			<div class="col-12">
 				<div class="card no-border box-shadow-1">
 					<div class="card-content">
@@ -174,11 +174,11 @@ include("left_menu.php");
 							<table class="table table-hover table-responsive">
 								<thead class="bg-grey bg-lighten-4">
 									<tr>
-										<th>Name</th>		 		
+										<th>Name</th>
 										<th>Title</th>
 										<th>Email Address</th>
 										<th>Tel</th>
-										<th>Region</th>	  
+										<th>Region</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -198,7 +198,7 @@ include("left_menu.php");
 											<a href="EditclientMembers@<?=$result_list[1]?>"  /><button type="button" class="btn btn-outline-info btn-sm"> Edit</button></a>
 											<a href="#" data-toggle="modal" data-target="#del-contact" onclick="ass('<?=$result_list[4]?>','<?=$result_list[1]?>','delete')"/><button id="DeleteOK" type="button" class="btn btn-outline-info btn-sm" > Delete</button></a>
 											<a href="#" data-toggle="modal" data-target="#send-pwd"  onclick="ass('<?=$result_list[5]?>','<?=$result_list[1]?>','sendP')"/><button type="button" class="btn btn-outline-info btn-sm"><i class="fa fa-envelope-o"></i> Send Password</button></a>
-										</td>	  
+										</td>
 									</tr>
 									<?php
 									}
@@ -215,7 +215,7 @@ include("left_menu.php");
 		</div>
 
 		<div class="row">
-			<!--company info-->	
+			<!--company info-->
 			<div class="col-12">
 				<div class="card no-border box-shadow-1">
 					<div class="card-content">
@@ -234,7 +234,7 @@ include("left_menu.php");
 							<table class="table table-borderless" >
 								<tr><th>Company Name:</th><td><?=$result[0]?></td></tr>
 								<tr><th>Company ID:</th><td><?=$result[2]?></td></tr>
-								<tr><th>Company Address:</th><td><?=$result[3]?></td></tr>	
+								<tr><th>Company Address:</th><td><?=$result[3]?></td></tr>
 								<tr><th>Region:</th><td><?=$Regions[$result[7]]?> - <?=$country[$result[7]]?></td></tr>
 								<tr><th>Responsible Sales:</th><td><?=$arr_sales[$result[9]]?></td></tr>
 							</table>
@@ -257,7 +257,7 @@ include("left_menu.php");
 						</div>
 						<form action="#">
 							<div id="e_c_content" class="modal-body">
-								
+
 							</div>
 
 							<div class="modal-footer">
@@ -281,7 +281,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer-->	
+<!--end footer-->
 
 
 <!--delete member Modal -->
@@ -296,12 +296,12 @@ include("footer.php");
 			</div>
 			<form action="#">
 				<div id="d_user" class="modal-body">
-				
+
 				</div>
 
 				<div class="modal-footer">
 					<input type="button" class="btn btn-info " value="Yes, Delete it." onclick="DeleteOK()">
-					<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">	
+					<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">
 				</div>
 			</form>
 		</div>
@@ -323,13 +323,13 @@ include("footer.php");
 				</div>
 				<form action="#">
 					<div id="sendMail" class="modal-body">
-						
+
 
 					</div>
 
 					<div class="modal-footer">
 						<input id="sendPW" type="button" class="btn btn-info " value="Yes, Send it.">
-						<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">	
+						<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">
 					</div>
 				</form>
 			</div>
@@ -364,7 +364,7 @@ function ass(i, j, k){
   	var DeleteID = j;
   	var content="Are you sure you want to delete "+Uname+"?"
   	document.getElementById("assID").value=DeleteID;
-  	document.getElementById("d_user").innerHTML = content; 
+  	document.getElementById("d_user").innerHTML = content;
   }
   if(kind=="sendP"){
   	var mail=i;
@@ -372,7 +372,7 @@ function ass(i, j, k){
   	var content="Are you sure you want to send account info to "+mail+"?"
   	document.getElementById("assmail").value=mail;
   	document.getElementById("assID").value=UID;
-  	document.getElementById("sendMail").innerHTML = content; 
+  	document.getElementById("sendMail").innerHTML = content;
   }
 }
 function DeleteOK(i){
@@ -395,7 +395,7 @@ function DeleteOK(i){
       alert(message);
     }
   }
-  }); 
+  });
 }
 
 $("#edit_company").click(function(){
@@ -414,10 +414,10 @@ $("#edit_company").click(function(){
     if(message == "success"){
 
     }else{
-      document.getElementById("e_c_content").innerHTML = message; 
+      document.getElementById("e_c_content").innerHTML = message;
     }
   }
-  }); 
+  });
 })
 
 $("#e_companyOK").click(function(){
@@ -447,7 +447,7 @@ $("#e_companyOK").click(function(){
     	alert(message);
     }
   }
-  }); 
+  });
 })
 
 $("#sendPW").click(function(){
@@ -472,7 +472,7 @@ $("#sendPW").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

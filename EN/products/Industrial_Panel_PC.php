@@ -102,12 +102,12 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="MiTAC provides industrial panel pc and commercial panel pc supporting the latest Intel Core i processor for automation, ITS, AI applications.">
 <meta property="og:type" content="website" />
 <meta property="og:description" content="MiTAC provides industrial panel pc and commercial panel pc supporting the latest Intel Core i processor for automation, ITS, AI applications." />
-<meta property="og:title" content="Industrial Panel PC | MiTAC Computing Technology" />
+<meta property="og:title" content="Industrial Panel PC | MiTAC Digital Technology" />
   <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -125,7 +125,7 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 
 <!-- Document Title
 ============================================= -->
-<title>Industrial Panel PC | MiTAC Computing Technology</title>
+<title>Industrial Panel PC | MiTAC Digital Technology</title>
 <?php
 //************ google analytics ************
 if($s_cookie!=2){

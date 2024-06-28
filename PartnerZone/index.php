@@ -53,7 +53,7 @@ function dowith_sql($str)
 
 session_start();
 /*if($_SESSION['FEuser']!=""){
-  header('Location: https://www.mitacmct.com/PartnerZone/FEdashboard');
+  header('Location: https://ipc.mitacmdt.com/PartnerZone/FEdashboard');
   exit();
 }else{
   $login="";
@@ -82,7 +82,7 @@ session_start();
 
     <img src="images/login-bg.jpg" class="bg">
     <div class="content">
-      <div ><a href="https://www.mitacmct.com" /><img src="images/mitac-logo.png" /></a></div>
+      <div ><a href="https://ipc.mitacmdt.com" /><img src="images/mitac-logo.png" /></a></div>
       <h1>MiTAC Partner Zone</h1>
       <h2>Log In</h2>
       <p></p>
@@ -127,7 +127,7 @@ session_start();
       </form>
       <div class="fpw" style=""><a href="" data-toggle="modal" data-target="#Forgotpassword" />Forgot password?</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="FEregister" />Register an account.</a></div>
       <div style="margin:6% 0">&nbsp;</div>
-      <div class="copyrightText">Copyright&copy; 2021-2022 MiTAC Computing Technology Corporation (MiTAC Group). All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
+      <div class="copyrightText">Copyright&copy; 2021-2022 MiTAC Digital Technology Corporation. All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
        <a href="https://www.tyan.com/EN/legal/terms_of_use/" target="tos" />Terms of Use</a>&nbsp;·&nbsp;
        <a href="https://www.tyan.com/EN/legal/privacy_policy/" target="tos" />Privacy Policy</a>&nbsp;·&nbsp;
        <a href="https://www.tyan.com/EN/legal/cookie_policy/" target="tos" />Cookie Policy</a>

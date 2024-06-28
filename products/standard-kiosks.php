@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,12 +25,12 @@ if(isset($_GET["status"])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions" /> 
-	<meta property="og:title" content="Kiosks | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions" />
+	<meta property="og:title" content="Kiosks | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -63,14 +63,14 @@ background: linear-gradient(80deg, rgba(201,201,201,1) 36%, rgba(229,229,229,1) 
 .bg-top-line {border-top:1px solid #fff}
 .neumorphic-box-40 {border-radius: 40px;
 background: #ffffff;
-box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2), 
+box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
              -6px -6px 15px rgba(255, 255, 255, 0.8); margin:5px 5px 10px 5px}
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Kiosks | MiTAC Computing Technology</title>
+	<title>Kiosks | MiTAC Digital Technology</title>
 
 </head>
 
@@ -87,9 +87,9 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 	?>
 	<!--end Header logo & global top menu-->
 
-	
 
-	
+
+
 
 		<!-- Slider
 		============================================= -->
@@ -100,10 +100,10 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 					<div class="col-lg-6 col-md-6 dark  mb-5 mb-md-0 py-5">
 						<h2 class="display-4  mt-2" style="font-weight: 600;" data-animate="backInLeft">A FULLY INTEGRATED KIOSK PROVIDER</h2>
 						<p class="mb-5 lead text-white" data-animate="backInLeft">MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions</p>
-						
+
 					</div>
 					<div class="col-md-6 d-flex align-self-end align-items-center align-items-lg-end col-form">
-					
+
 					</div>
 				</div>
 			</div>
@@ -117,7 +117,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 <div class="row">
     <div class="col-lg-8">
     <div  class="row justify-content-start">
-        
+
     <div class="col-lg-3 mb-4 mb-lg-0" onclick="location.href='/products/standard-kiosks#1'">
         <div  class="k-on grid-inner shadow-sm h-shadow p-3 overflow-hidden rounded-5 text-center h-shadow-none">
           <div class="row justify-content-center">
@@ -165,7 +165,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 
 
 
-<a name="1"></a>		
+<a name="1"></a>
 <div class="container-fluid mt-6 mb-3" >
     <div class="heading-block center">
                   <h1>Standard Kiosks</h1>
@@ -173,19 +173,19 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 
 </div>
 
-	
+
 	<div class="container-fluid" style="background: url(/EN/solution/images/KV-kiosks-std.gif) no-repeat center center; background-size: cover;">
 	<div class="container-fluid" >
 	<p class="mt-4">&nbsp;</p>
-	
-	
+
+
 	<div class="row">
 	 <div class="col-md-1" ></div>
   <div class="col-md-2 " >
   <div class="neumorphic-box-40 p-3" >
   <a href="#K32F" /><img src="/EN/solution/images/kiosk-K32F.png" alt="Kiosk K32F" class="img-responsive" /></a></div>
   <h4 class="center">K32F</h4>
-  </div>	
+  </div>
   <div class="col-md-2" >
   <div class="neumorphic-box-40 p-3" >
   <a href="#K23F" /><img src="/EN/solution/images/kiosk-K23F.png" alt="Kiosk K23F" class="img-responsive" /></a></div>
@@ -208,14 +208,14 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
   </div>
   <div class="col-md-1" ></div>
 </div>
-	
-	
-	
-	
+
+
+
+
 <p class="mt-6">&nbsp;</p>
 	</div>
 	</div>
-	
+
 
 <!--K32F-->
 
@@ -270,9 +270,9 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 </ul>
   </div>
 </div>
- <p style="margin-top:3%"> </p> 
+ <p style="margin-top:3%"> </p>
   <h2 class="color-blue">Sample Cases</h2>
-<ul style="margin-left:20px"> 
+<ul style="margin-left:20px">
 <li>Food-Order Self Order</li>
 <li>Hospitality Check-In / Registration</li>
 <li>Retail Price Check</li>
@@ -281,19 +281,19 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 <li>Office Check-In / Registration</li>
 </ul>
 
-  
-  
+
+
   </div>
 </div>
 
 
 </div>
-</div>	
+</div>
 
 
-<!--end K32F-->	
-	
-	
+<!--end K32F-->
+
+
 <!--K23F-->
 
 
@@ -342,7 +342,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 </ul>
   </div>
 </div>
- <p style="margin-top:3%"> </p> 
+ <p style="margin-top:3%"> </p>
   <h2 class="color-blue">Sample Cases</h2>
 <ul style="margin-left:20px">
 <li>Food-Order Self Order</li>
@@ -353,19 +353,19 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 <li>Office Check-In / Registration</li>
 </ul>
 
-  
-  
+
+
   </div>
 </div>
 
 
 </div>
-</div>	
+</div>
 
-<!--end K23F-->	
-	
-	
-	
+<!--end K23F-->
+
+
+
 <!--K17F-->
 
 
@@ -412,7 +412,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 </ul>
   </div>
 </div>
- <p style="margin-top:3%"> </p> 
+ <p style="margin-top:3%"> </p>
   <h2 class="color-blue">Sample Cases</h2>
 <ul style="margin-left:20px">
 <li>Food-Order Self Order</li>
@@ -427,10 +427,10 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 
 
 </div>
-</div>	
+</div>
 
-<!--end K17F-->	
-	
+<!--end K17F-->
+
 <!--K27D-->
 
 
@@ -476,7 +476,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 </ul>
   </div>
 </div>
- <p style="margin-top:3%"> </p> 
+ <p style="margin-top:3%"> </p>
   <h2 class="color-blue">Sample Cases</h2>
 <ul style="margin-left:20px">
 <li>Food-Order Self Order</li>
@@ -487,17 +487,17 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 <li>Office Check-In / Registration</li>
 </ul>
 
-  
-  
+
+
   </div>
 </div>
 
 
 </div>
-</div>	
+</div>
 
 
-<!--end K27D-->	
+<!--end K27D-->
 
 
 
@@ -518,7 +518,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
   <div class="col-md-8" style="padding:30px 10px 0px 130px"><h1 style="font-size:52px; font-weight:bold">D210F&nbsp;&nbsp;
   <a href="/EN/contact/"  ><button type="button" class="btn btn-outline-dark btn-lg">Contact Us</button></a>&nbsp;&nbsp;<a href="https://download.mitacmct.com/Files/datasheets/Kiosk/MiTAC-Kiosks-D210F-Datasheet.pdf" target="_blank" /><button type="button" class="btn btn-primary btn-lg">Datasheet</button></a></h1>
   <h2 class="color-blue">COUNTER-TOP</h2>
-  <div>Counter-top kiosks fit on existing counter space without taking up too much width. 
+  <div>Counter-top kiosks fit on existing counter space without taking up too much width.
 The rugged design of the larger screen size is more conducive to operation.
 <br /><br />
 </div>
@@ -534,7 +534,7 @@ The rugged design of the larger screen size is more conducive to operation.
   </div>
   <div class="col-md-4">
   <h3 style="border-bottom:1px solid #000">Mother Board</h3><ul style="margin-left:20px">
-  
+
 <li>Intel® Kaby Lake Core i7/i5/i3 / Celeron ULV processors</li>
 <li>Intel® vPro technology support</li>
 <li>Windows 10 IoT 2019 support</li>
@@ -552,7 +552,7 @@ The rugged design of the larger screen size is more conducive to operation.
 </ul>
   </div>
 </div>
- <p style="margin-top:3%"> </p> 
+ <p style="margin-top:3%"> </p>
   <h2 class="color-blue">Sample Cases</h2>
 <ul style="margin-left:20px">
 
@@ -569,7 +569,7 @@ The rugged design of the larger screen size is more conducive to operation.
 
 
 </div>
-</div>	
+</div>
 
 
 
@@ -580,7 +580,7 @@ The rugged design of the larger screen size is more conducive to operation.
 
 
 
-<!--end D210F-->	
+<!--end D210F-->
 
 
 
@@ -601,11 +601,11 @@ The rugged design of the larger screen size is more conducive to operation.
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -615,7 +615,7 @@ The rugged design of the larger screen size is more conducive to operation.
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -623,7 +623,7 @@ The rugged design of the larger screen size is more conducive to operation.
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

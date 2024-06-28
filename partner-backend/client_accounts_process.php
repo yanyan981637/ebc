@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -19,7 +19,7 @@ if($_SESSION['user']=="" || $_SESSION['ID']==""){
 }
 
 require "../config.php";
-include("../EN/PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別  
+include("../EN/PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 
 $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
@@ -190,30 +190,30 @@ if($kind=="ResSales"){
   }else{
     $sales="";
   }
-  
- 
+
+
 
   $ResSales="<label>Please select a sales: </label>";
   $ResSales.="<select class='form-control' id='res_sales'>";
-  $ResSales.="<option value='none' >Select..</option>"; 
+  $ResSales.="<option value='none' >Select..</option>";
   $str_teams="SELECT ID, Team FROM partner_teams WHERE 1";
   $cmd_teams=mysqli_query($link_db,$str_teams);
   while ($result_teams=mysqli_fetch_row($cmd_teams)) {
-    
+
     $ResSales.="<optgroup label='".$result_teams[1]."'>";
 
     $str_sales="SELECT ID, NAME, EMAIL FROM partner_sales WHERE Team='".$result_teams[0]."'";
     $cmd_sales=mysqli_query($link_db,$str_sales);
-    while ($result_sales=mysqli_fetch_row($cmd_sales)) { 
+    while ($result_sales=mysqli_fetch_row($cmd_sales)) {
       if($sales==$result_sales[1]){
         $status="selected";
       }else{
         $status="";
       }
-      $ResSales.="<option value='".$result_sales[0]."' ".$status.">".$result_sales[1]." / ".$result_sales[2]."</option>"; 
+      $ResSales.="<option value='".$result_sales[0]."' ".$status.">".$result_sales[1]." / ".$result_sales[2]."</option>";
     }
     $ResSales.="</optgroup>";
-    
+
   }
   $ResSales.="</select>";
   echo $ResSales;
@@ -243,16 +243,16 @@ if($kind=="Logs"){
   }
 
   $log_content="";
-  
+
   $cmd=mysqli_query($link_db,$str);
-  while ($result=mysqli_fetch_row($cmd)) { 
+  while ($result=mysqli_fetch_row($cmd)) {
     if($result[5]=="0000-00-00 00:00:00"){
       $date=$result[4];
     }else{
       $date=$result[5];
     }
     $log_content.="<tr>";
-    $log_content.="<td>".$result[1]."</td><td>".$date."</td>";       
+    $log_content.="<td>".$result[1]."</td><td>".$date."</td>";
     $log_content.="</tr>";
   }
   echo $log_content;
@@ -305,7 +305,7 @@ if($kind=="assSales"){
   $cmd_sales=mysqli_query($link_db,$str_sales);
   $result_sales=mysqli_fetch_row($cmd_sales);
   $str="INSERT INTO partner_client_logs (Sales, CompanyID, CompanyName, C_DATE) VALUES ('".$result_sales[1]."','".$CompanyID."', '".$Company."', '".$now."')";
-  
+
   if(mysqli_query($link_db,$str)<1)
   {
     echo "Insert log error";
@@ -373,7 +373,7 @@ if($kind=="addMembers"){
 
   $i=0; // display mail error number[][]
   foreach ($tmp_email as $key => $value) {
-   
+
       $str_user="SELECT ID, Name, Email FROM partner_user WHERE Email='".$value."'";
       $cmd_user=mysqli_query($link_db,$str_user);
       $num=mysqli_num_rows($cmd_user);
@@ -384,7 +384,7 @@ if($kind=="addMembers"){
         exit();
       }
       $i++;
-    
+
   }
 
   // Title Company Name
@@ -393,9 +393,9 @@ if($kind=="addMembers"){
   $result=mysqli_fetch_row($cmd);
   // Title Company Name End
 
-  for ($j=0; $j < $Count; $j++) { 
+  for ($j=0; $j < $Count; $j++) {
     $country="SELECT ID, Regions, CountryCode, CountryName, CodeNumber FROM partner_countrycode WHERE CodeNumber='".$tmp_countryCode[$j]."'";
-    
+
     $cmd_country=mysqli_query($link_db,$country);
     $result_country=mysqli_fetch_row($cmd_country);
     if($result_country[2]==""){
@@ -474,7 +474,7 @@ if($kind=="editMembers"){
   }*/
 
   $country="SELECT ID, Regions, CountryCode, CountryName, CodeNumber FROM partner_countrycode WHERE CodeNumber='".$countryCode."'";
-  
+
   $cmd_country=mysqli_query($link_db,$country);
   $result_country=mysqli_fetch_row($cmd_country);
   if($result_country[2]==""){
@@ -506,16 +506,16 @@ if($kind=="delMembers"){
 
   $str="DELETE FROM partner_user WHERE ID='".$Delete."' ";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Delete member error";
     mysqli_close($link_db);
     exit();
-  }  
+  }
 }
 
 if($kind=="editCompany"){
@@ -526,7 +526,7 @@ if($kind=="editCompany"){
     $CompanyID="";
   }
 
-  // Get Country Naem 
+  // Get Country Naem
   $str_countrycode="SELECT Regions, CountryCode, CountryName, CodeNumber FROM partner_countrycode WHERE 1";
   $cmd_countrycode=mysqli_query($link_db,$str_countrycode);
   while ($data_countrycode=mysqli_fetch_row($cmd_countrycode)) {
@@ -545,7 +545,7 @@ if($kind=="editCompany"){
     <div class='form-group'>
       <input id='edit_CName' type='text' placeholder='' class='form-control' value='".$result[0]."'>
       <div id='c_exist' class='alert alert-danger mb-1' role='alert'  style='display:none'>
-        This company is already existed. 
+        This company is already existed.
       </div>
     </div>
 
@@ -595,16 +595,16 @@ if($kind=="editCompanyinfo"){
 
   $str="UPDATE partner_user SET CompanyName='".$CName."', CompanyAddress='".$CAddress."', CountryCode='".$CCode."' WHERE CompanyID='".$CompanyID."' ";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Update company error";
     mysqli_close($link_db);
     exit();
-  }  
+  }
 }
 
 if($kind=="SPW"){
@@ -624,7 +624,7 @@ if($kind=="SPW"){
   $str_user="SELECT ID, Name, Email FROM partner_user WHERE ID='".$UID."' AND Email='".$Umail."'";
   $cmd_user=mysqli_query($link_db,$str_user);
   $num=mysqli_num_rows($cmd_user);
-  if($num!=0){  
+  if($num!=0){
     $result=mysqli_fetch_row($cmd_user);
     $email=$result[2];
     $username=$result[1];
@@ -658,8 +658,8 @@ if($kind=="SPW"){
               <td style='padding: 25px 0;  '>
                <table  align='center'>
                 <tr>
-                  <td style='width:220px'><img src='https://www.mitacmct.com/images/mct-logo-email.png' style='border:0px;' /></td>
-                  <td vlign='middle' align='center'> <div style='font-family: Arial; line-height:100%; font-size:20px; font-weight:bold; color:#434343;'> Partner Zone <br /><span style=' font-size:12px; font-weight:normal'>MiTAC Computing Technology</span></div></td>
+                  <td style='width:220px'><img src='https://ipc.mitacmdt.com/images/mct-logo-email.png' style='border:0px;' /></td>
+                  <td vlign='middle' align='center'> <div style='font-family: Arial; line-height:100%; font-size:20px; font-weight:bold; color:#434343;'> Partner Zone <br /><span style=' font-size:12px; font-weight:normal'>MiTAC Digital Technology</span></div></td>
                 </tr>
               </table>
             </td>
@@ -673,27 +673,27 @@ if($kind=="SPW"){
                   <td style='padding: 35px;'>
                     <h1 style='font-family: Arial; line-height:130%; text-align:left; font-size:16px'>Hi ".$username.",</h1>
                     <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>
-                     
+
                      We're emailing to notify your account info for MiTAC Partner Zone. Now you can use your email with password below to log in MiTAC Partner Zone.<br /><br />
 
                      <span style='font-weight:bold; color:#000000; font-size:14px'>Password: ".$password." </span>
                      <br /><br />
-                     For your account security, please be sure to change your password after login. 
+                     For your account security, please be sure to change your password after login.
 
                    </p>
-                   
+
                    <table style='width: 100%;  margin: 30px auto;  padding: 0;  -premailer-width: 100%;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='100%' cellpadding='0' cellspacing='0'>
                     <tr>
                       <td align='center'>
-                        
-                        
+
+
                        <br />
                        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
                         <tr>
                           <td align='center'>
                             <table border='0' cellspacing='0' cellpadding='0'>
                               <tr> <td>
-                                <a href='https://www.mitacmct.com/' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
+                                <a href='https://ipc.mitacmdt.com/' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
                               </td>
                             </tr>
                           </table>
@@ -701,9 +701,9 @@ if($kind=="SPW"){
                       </tr>
                     </table>
                     <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Thanks,
-                      <br>Partner Zone | MiTAC Computing Technology</p>
+                      <br>Partner Zone | MiTAC Digital Technology</p>
                       <!-- Sub copy -->
-                      
+
                     </td>
                   </tr>
                 </table>
@@ -714,8 +714,8 @@ if($kind=="SPW"){
                <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0' style='border-top:1px solid #ccc'>
                 <tr>
                   <td style='padding: 35px;' align='center'>
-                    <p style='font-family: arial; line-height:130%; font-size: 12px; text-align: center;'>This is an automatic message. Please do not reply to this email. <a href='https://www.mitacmct.com/EN/contact/' />Contact us via here. </a></p>
-                    
+                    <p style='font-family: arial; line-height:130%; font-size: 12px; text-align: center;'>This is an automatic message. Please do not reply to this email. <a href='https://ipc.mitacmdt.com/EN/contact/' />Contact us via here. </a></p>
+
                   </td>
                 </tr>
               </table>
@@ -728,72 +728,72 @@ if($kind=="SPW"){
     <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0'>
       <tr>
         <td style='padding: 35px;' align='center'>
-          <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. <br />All Rights Reserved.</p>
-          
+          <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Digital Technology Corporation and/or any of its affiliates. <br />All Rights Reserved.</p>
+
         </td>
       </tr>
     </table>
     ";
 
-    $mail= new PHPMailer(); //建立新物件   
-    $mail->IsSMTP(); //設定使用SMTP方式寄信   
-    $mail->SMTPAuth = false; //設定SMTP需要驗證   
+    $mail= new PHPMailer(); //建立新物件
+    $mail->IsSMTP(); //設定使用SMTP方式寄信
+    $mail->SMTPAuth = false; //設定SMTP需要驗證
     //$mail->SMTPSecure = "ssl"; //ssl tls
     //$mail->SMTPDebug = 2;
     $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
     $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $mail->CharSet = "utf-8"; //設定郵件編碼   
+    $mail->CharSet = "utf-8"; //設定郵件編碼
 
     $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
     $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-    $mail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱   
-    $mail->FromName = "Partner Zone | MiTAC Computing Technology"; //設定寄件者姓名   
+    $mail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
+    $mail->FromName = "Partner Zone | MiTAC Digital Technology"; //設定寄件者姓名
 
-    $mail->Subject = "Account info for MiTAC Partner Zone"; //設定郵件標題   
-    $mail->Body = $content; //設定郵件內容 
-    $mail->IsHTML(true); //設定郵件內容為HTML   
-  $mail->SMTPAutoTLS = false;   
+    $mail->Subject = "Account info for MiTAC Partner Zone"; //設定郵件標題
+    $mail->Body = $content; //設定郵件內容
+    $mail->IsHTML(true); //設定郵件內容為HTML
+  $mail->SMTPAutoTLS = false;
 
-    $mail->AddAddress($email, $username); //設定收件者郵件及名稱 
-    //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
+    $mail->AddAddress($email, $username); //設定收件者郵件及名稱
+    //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
     if(!$mail->Send()) {
       $errorMail=$mail->ErrorInfo;
 
-      $admail= new PHPMailer(); //建立新物件   
-      $admail->IsSMTP(); //設定使用SMTP方式寄信   
-      $admail->SMTPAuth = false; //設定SMTP需要驗證   
+      $admail= new PHPMailer(); //建立新物件
+      $admail->IsSMTP(); //設定使用SMTP方式寄信
+      $admail->SMTPAuth = false; //設定SMTP需要驗證
       //$mail->SMTPSecure = "ssl"; //ssl tls
       //$mail->SMTPDebug = 2;
       $admail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
       $admail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-      $admail->CharSet = "utf-8"; //設定郵件編碼   
+      $admail->CharSet = "utf-8"; //設定郵件編碼
 
       $admail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
       $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-      $admail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱   
-      $admail->FromName = "Partner Zone | MiTAC Computing Technology"; //設定寄件者姓名   
+      $admail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
+      $admail->FromName = "Partner Zone | MiTAC Digital Technology"; //設定寄件者姓名
 
-      $admail->Subject = "Account info for MiTAC Partner Zone"; //設定郵件標題   
-      $admail->Body = $errorMail; //設定郵件內容 
-      $admail->IsHTML(true); //設定郵件內容為HTML  
-    $admail->SMTPAutoTLS = false;    
-      $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
-      //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");  
-      $admail->Send();   
-      echo "Mailer Error: " . $mail->ErrorInfo;  
+      $admail->Subject = "Account info for MiTAC Partner Zone"; //設定郵件標題
+      $admail->Body = $errorMail; //設定郵件內容
+      $admail->IsHTML(true); //設定郵件內容為HTML
+    $admail->SMTPAutoTLS = false;
+      $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
+      //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");
+      $admail->Send();
+      echo "Mailer Error: " . $mail->ErrorInfo;
       mysqli_close($link_db);
-      exit(); 
-    } else {   
+      exit();
+    } else {
       echo "success";
       mysqli_close($link_db);
       exit();
     }
-  }else{  
+  }else{
     echo "Error";
     mysqli_close($link_db);
     exit();
-  }  
+  }
 }
 ?>

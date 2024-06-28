@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,12 +25,12 @@ if(isset($_GET["status"])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC provides OCP solutions for storage, servers, ESA with great power efficiency.">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC provides OCP solutions for storage, servers, ESA with great power efficiency." /> 
-	<meta property="og:title" content="Open Compute Project (OCP) Platforms | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC provides OCP solutions for storage, servers, ESA with great power efficiency." />
+	<meta property="og:title" content="Open Compute Project (OCP) Platforms | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -72,11 +72,11 @@ if(isset($_GET["status"])){
 
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Open Compute Project (OCP) Platforms | MiTAC Computing Technology</title>
+	<title>Open Compute Project (OCP) Platforms | MiTAC Digital Technology</title>
 
 </head>
 
@@ -93,7 +93,7 @@ if(isset($_GET["status"])){
 	?>
 	<!--end Header logo & global top menu-->
 
-	
+
 
 
 		<!-- Slider
@@ -104,18 +104,18 @@ if(isset($_GET["status"])){
 				<div class="row justify-content-between align-items-center">
 					<div class="col-lg-8 col-md-9 dark mb-5 mb-md-0 py-5" data-animate="backInLeft">
 						<h2 class="display-4" style="font-weight: 600;" >Open Compute Project (OCP)</h2>
-						
+
 						<p class="mb-5 lead text-white">
 						Starting in 2013, MiTAC began developing our first OCP Computing Project, Leopard. <br /><br />
-Tioga Pass, MiTAC's 2nd generation, provides great improvement in power efficiency and is well recognized by world class telco companies. 
+Tioga Pass, MiTAC's 2nd generation, provides great improvement in power efficiency and is well recognized by world class telco companies.
 MiTAC was the first to provide the ESA, an Enclosure Sub Assembly, designed to enable standard 19 inch rack users to adopt OCP products and to enjoy great power saving of OCP designs. <br /><br />
 We have broadened our OCP products with a family of Mezzanine cards, and we now deliver OCP Storage solutions!
 						</p>
-						
-						
+
+
 					</div>
 					<div class="col-md-3 d-flex align-self-end align-items-center align-items-lg-end col-form">
-						
+
 					</div>
 				</div>
 			</div>
@@ -135,7 +135,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Server</h1>	
+	<h1 class="center">Server</h1>
 	</div>
 
 
@@ -187,7 +187,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div>
 </div>
 </div>
@@ -233,7 +233,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
@@ -242,7 +242,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Storage</h1>	
+	<h1 class="center">Storage</h1>
 	</div>
 
 
@@ -287,7 +287,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
@@ -298,7 +298,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Solution</h1>	
+	<h1 class="center">Solution</h1>
 	</div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0">
 					<div class="container  clearfix">
@@ -311,7 +311,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 									<a href="/products/OCP_SEBA_Solution" target="mit" /><img class="card-img-top" src="/images/product/OCPserver/OCP_SEBA_Solution.jpg" alt="SEBA Solution"></a>
 									<div class="card-body">
 									<h2 class="card-title fw-normal mb-2 center lh2" ><a href="/products/OCP_SEBA_Solution" target="mit" />SEBA&#8482; Solution</a></h2>
-									
+
 										<h5 class="center">OCP SEBA&#8482; Solution</h5>
 									</div>
 </div>
@@ -325,7 +325,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div>
 </div>
 </div>
@@ -335,7 +335,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Rack</h1>	
+	<h1 class="center">Rack</h1>
 	</div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0">
 					<div class="container  clearfix">
@@ -361,7 +361,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div>
 </div>
 </div>
@@ -371,7 +371,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Mezzanine</h1>	
+	<h1 class="center">Mezzanine</h1>
 	</div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0">
 					<div class="container  clearfix">
@@ -412,7 +412,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
@@ -420,7 +420,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Partners</h1>	
+	<h1 class="center">Partners</h1>
 	</div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0">
 					<div class="container  clearfix">
@@ -430,21 +430,21 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
  <div class="course-card p-4">
- 
- 
+
+
  <div class="row">
 <div class="col-lg-3"><a href="https://www.sardinasystems.com/" target="mit" /><img src="/images/product/OCP/Sardina_logo.gif" class="img-fluid" /></a></div>
 <div class="col-lg-9">
  <div class="card-body">
-									
+
 									<a href="https://www.sardinasystems.com/" target="mit" style="font-size:1.5rem; font-weight:bold" />Sardina FishOS</a> is an innovative OpenStack and Kubernetes cloud platform software, offering a full suite of management and automation tools to enable operators to easily and flexibly Deploy, Operate and Upgrade the cloud, reducing complexity and improving reliability. Sardina FishOS is an official OpenStack distribution fully recognized by OpenInfra Foundation (formerly OpenStack Foundation).
-									
+
 									</div>
  </div>
 </div>
- 
-									
-									
+
+
+
 </div>
 
 
@@ -453,7 +453,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div>
 </div>
 </div>
@@ -478,11 +478,11 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -492,7 +492,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -500,7 +500,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

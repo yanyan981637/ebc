@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -29,7 +29,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -104,7 +104,7 @@ $user_CountryCode=$result[7];
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 
@@ -151,11 +151,11 @@ include("left_menu.php");
           </div>
         </div>
       </div>
-      <!--end breadcrumb--> 
+      <!--end breadcrumb-->
     </div>
     <div class="content-body">
       <div class="row">
-        <!--Members list-->	
+        <!--Members list-->
         <div class="col-12">
           <div class="card no-border box-shadow-1">
             <div class="card-content">
@@ -199,7 +199,7 @@ include("left_menu.php");
                             <option value="EUR" <?php if($result[7]=="EUR"){echo "selected";}?> >Europe</option>
                             <option value="ME" <?php if($result[7]=="ME"){echo "selected";}?> >Middle East / Africa</option>
                             <option value="ASIA" <?php if($result[7]=="ASIA"){echo "selected";}?> >Asia</option>
-                            <option value="Oceania" <?php if($result[7]=="Oceania"){echo "selected";}?> >Oceania</option> 
+                            <option value="Oceania" <?php if($result[7]=="Oceania"){echo "selected";}?> >Oceania</option>
                           </select>
                         </div>
                       </div>
@@ -221,7 +221,7 @@ include("left_menu.php");
                                     $label="";
                                   }
                                   echo "<optgroup label='".$label." ".$reg[0]."'> ";
-                                  $str_country="SELECT Regions, ID, CountryCode, CountryName, CodeNumber, Icon FROM partner_countrycode WHERE Regions='".$reg[0]."'";                       
+                                  $str_country="SELECT Regions, ID, CountryCode, CountryName, CodeNumber, Icon FROM partner_countrycode WHERE Regions='".$reg[0]."'";
                                   $cmd_country=mysqli_query($link_db,$str_country);
                                   while ($countryCode=mysqli_fetch_row($cmd_country)) {
                                     if($countryCode[0]!="United States"){
@@ -265,7 +265,7 @@ include("left_menu.php");
               </div>
             </div> -->
           </div>
-          <!--end add one member-->					
+          <!--end add one member-->
 
 
 
@@ -280,7 +280,7 @@ include("left_menu.php");
      </div>
    </div>
  </div>
- <!--end Members list-->	
+ <!--end Members list-->
 </div>
 </div>
 </div>
@@ -340,7 +340,7 @@ $("#EditOK").click(function(){
     editID : editID,
     name : name,
     email : email,
-    title : title,    
+    title : title,
     countryCode : countryCode,
     tel : tel,
     kind : kind
@@ -355,7 +355,7 @@ $("#EditOK").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

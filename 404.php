@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -23,12 +23,12 @@ if(isset($_GET["status"])){
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" /> 
-<meta property="og:title" content="404 | MiTAC Computing Technology" />
+<meta property="og:description" content="" />
+<meta property="og:title" content="404 | MiTAC Digital Technology" />
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -46,7 +46,7 @@ if(isset($_GET["status"])){
 <script src="js1/jquery.js"></script>
 <!-- Document Title
 ============================================= -->
-<title>404 | MiTAC Computing Technology</title>
+<title>404 | MiTAC Digital Technology</title>
 
 </head>
 
@@ -62,14 +62,14 @@ if(isset($_GET["status"])){
 	include("top1.htm");
 	?>
 	<!--end Header logo & global top menu-->
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 	<!-- Page Title
 	============================================= -->
 	<section id="page-title">
@@ -102,14 +102,14 @@ if(isset($_GET["status"])){
 							<h4>Ooopps.! The Page you were looking for, couldn't be found.</h4>
 							<span>This may be due to an incorrect or nonexistent URL or the page may have been removed or renamed.</span>
 						</div>
-						
+
 						<p class="mb-4">&nbsp;</p>
-						
+
 						<div class="center"><a href="/" class="button button-xlarge button-border button-rounded text-end">Return home<i class="icon-circle-arrow-right"></i></a></div>
 
 
 
-						
+
 
 					</div>
 
@@ -118,28 +118,28 @@ if(isset($_GET["status"])){
 			</div>
 		</div>
 	</section><!-- #content end -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	
 
-	<!-- FOOTER -->	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- FOOTER -->
 	<?php
 	include("foot1.htm");
 	?>
-	<!-- FOOTER end -->	  
+	<!-- FOOTER end -->
 
 </div><!-- #wrapper end -->
 

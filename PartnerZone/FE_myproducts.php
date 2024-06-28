@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -29,7 +29,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -110,7 +110,7 @@ if($kind=="search"){
 		break;
 		default:
 		$str="SELECT COUNT(*) FROM partner_files a INNER JOIN partner_myproducts b ON a.ToWho=b.ID";
-		$str.=" WHERE b.CompanyID='".$companyID."' AND a.ToWho<>'1' ";	
+		$str.=" WHERE b.CompanyID='".$companyID."' AND a.ToWho<>'1' ";
 		break;
 	}
 }else{
@@ -122,16 +122,16 @@ $list1 =mysqli_query($link_db,$str);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
 
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($total/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -158,7 +158,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -201,7 +201,7 @@ include("left_menu.php");
 					</div>
 				</div>
 			</div>
-			<!--end breadcrumb--> 
+			<!--end breadcrumb-->
 
 
 		</div>
@@ -218,7 +218,7 @@ include("left_menu.php");
 							<div class="card-body">
 								<h1>My Products</h1>
 								<hr>
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 									<div class="col-md-2">
 										<div class="form-group">
@@ -235,13 +235,13 @@ include("left_menu.php");
 															$status="selected";
 														}
 														echo "<option  value='".$file[0]."' ".$status.">".$file[1]."</option>";
-													
+
 													}
 												}
-												?>	
+												?>
 											</select>
 										</div>
-									</div>	
+									</div>
 									<div class="col-md-2">
 										<div class="form-group">
 											<select class="form-control" id="sel_type">
@@ -260,7 +260,7 @@ include("left_menu.php");
 												?>
 											</select>
 										</div>
-									</div>		
+									</div>
 
 
 									<div class="col-md-8">
@@ -268,7 +268,7 @@ include("left_menu.php");
 
 									</div>
 								</div>
-								<!--end search & sorting-->						
+								<!--end search & sorting-->
 								<!--total-->
 								<hr>
 
@@ -286,7 +286,7 @@ include("left_menu.php");
 													</a>
 												</li>
 												<?php
-												for($i=1;$i<=$pages_totle;$i++) { 
+												for($i=1;$i<=$pages_totle;$i++) {
 													$pagenum=6;
 													$last=$page+10;
 													$first=$page-10;
@@ -332,11 +332,11 @@ include("left_menu.php");
 								<table class="table table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Date</th>	
-											<th>Product</th>	
+											<th>Date</th>
+											<th>Product</th>
 											<th>Type</th>
 											<th>Name</th>
-											<th>Description</th>		
+											<th>Description</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -364,9 +364,9 @@ include("left_menu.php");
 												break;
 												default:
 												//$str_file="SELECT a.ID, a.Name, a.FileDate, a.Status, a.FileType, a.ToWho, a.Description, a.FormatSize, a.DownloadURL, b.SKU FROM partner_files a INNER JOIN partner_myproducts b ON a.ToWho=b.ID";
-												//$str_file.=" WHERE b.CompanyID='".$companyID."' AND a.Status='1' AND a.ToWho<>'1' ORDER BY a.FileDate DESC" ;	
+												//$str_file.=" WHERE b.CompanyID='".$companyID."' AND a.Status='1' AND a.ToWho<>'1' ORDER BY a.FileDate DESC" ;
 												$str_file="SELECT a.ID, a.Name, a.FileDate, a.Status, a.FileType, a.ToWho, a.Description, a.FormatSize, a.DownloadURL FROM partner_files a";
-												$str_file.=" WHERE a.Status='1' AND a.ToWho<>'1' ORDER BY a.FileDate DESC" ;	
+												$str_file.=" WHERE a.Status='1' AND a.ToWho<>'1' ORDER BY a.FileDate DESC" ;
 												break;
 											}
 										}else{
@@ -394,17 +394,17 @@ include("left_menu.php");
 												}
 												?>
 												<tr>
-													<td><?=$data[2]?></td>	
-													<td><?=$dataSKU[0]?></td>	
+													<td><?=$data[2]?></td>
+													<td><?=$dataSKU[0]?></td>
 													<td><?=$TypeName?></td>
-													<td><?=$data[1]?> (<?=$data[7]?>)</td>		
+													<td><?=$data[1]?> (<?=$data[7]?>)</td>
 													<td><?=$data[6]?></td>
 													<td><div class="text-center" style="font-size:5rem"><a href="<?=$data[8]?>" /><i class="fa fa-download"></i></a></div></td>
 												</tr>
 												<?php
 											}
 										}
-										
+
 										/*$cmd_FGroup=mysqli_query($link_db,$str_FGroup);
 										while($data_FGroup=mysqli_fetch_row($cmd_FGroup)){
 											if($data_FGroup[9]!=""){
@@ -419,10 +419,10 @@ include("left_menu.php");
 												}
 												?>
 												<tr>
-													<td><?=$data_FGroup[2]?></td>	
-													<td><?=$data_FGroup[9]?></td>	
+													<td><?=$data_FGroup[2]?></td>
+													<td><?=$data_FGroup[9]?></td>
 													<td><?=$TypeName?></td>
-													<td><?=$data_FGroup[1]?> (<?=$data_FGroup[7]?>)</td>		
+													<td><?=$data_FGroup[1]?> (<?=$data_FGroup[7]?>)</td>
 													<td><?=$data_FGroup[6]?></td>
 													<td><div class="text-center" style="font-size:5rem"><a href="<?=$data_FGroup[8]?>" /><i class="fa fa-download"></i></a></div></td>
 												</tr>
@@ -430,7 +430,7 @@ include("left_menu.php");
 											}
 										}*/
 										?>
-										
+
 									</tbody>
 								</table>
 								<!--end Quotation list table-->
@@ -462,7 +462,7 @@ include("footer.php");
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="app-assets/vendors/js/gallery/masonry/masonry.pkgd.min.js"></script>
 <script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe.min.js"></script>
-<script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js"></script>	
+<script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js"></script>
 
 
 <!-- END PAGE VENDOR JS-->

@@ -34,15 +34,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -67,8 +67,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - Storage Platform</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - Storage Platform</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -76,7 +76,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -88,10 +88,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -124,23 +124,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -155,32 +155,32 @@ if($s_cookie!=2){
                     <div class="intro-message" style="color:#ffffff">
                         <h1>Storage Platform</h1><h3 style="color:#18ffff">Diverse Storage Choices for Data Centers and Enterprise Systems.</h3>
 <p>
-MiTAC storage platforms for datacenters and enterprise systems address a 
+MiTAC storage platforms for datacenters and enterprise systems address a
 
-full spectrum of needs. From attached storage (DAS), storage area networks 
+full spectrum of needs. From attached storage (DAS), storage area networks
 
-(SAN), and network attached storage (NAS) environments to support for a 
+(SAN), and network attached storage (NAS) environments to support for a
 
-variety of industry storage protocols including Fibre Channel, iSCSI, 
+variety of industry storage protocols including Fibre Channel, iSCSI,
 
-SAS/SATA, NVMe and NVMe over fabric, these platforms ensure that users are 
+SAS/SATA, NVMe and NVMe over fabric, these platforms ensure that users are
 
 able to find the right solution.
 
 </p>
 <br />
 
- 
+
 
 <p style="margin-bottom:10%"> </p>
 
 
-                      
+
                     </div>
                 </div>
 				<div class="col-xs-6 col-md-4 text-left" style="padding-top:3%;">
 				 <div class="well box" style="background-color: rgba(255, 255, 255, 0.9); ">
-				 
+
 				 <strong>JBOD:</strong><br />
 				 <div class="intro-divider "></div><br />
 				 <ul style="margin-left:15px">
@@ -190,8 +190,8 @@ able to find the right solution.
 
 				</div>
 				<br />
-				
-				
+
+
 				</div>
             </div>
 
@@ -199,13 +199,13 @@ able to find the right solution.
         <!-- /.container -->
 
     </div>
-	
-	
+
+
 
 	<!-- tabs -->
 	<div style="background:#f8f8f8">
 	<div class="container" >
-	
+
 <ul class="nav nav-pills" style="margin:40px 0px; font-size:1.2em ">
 
   <li role="presentation" ><a href="#JBOD">JBOD</a></li>
@@ -213,14 +213,14 @@ able to find the right solution.
 <li role="presentation" ><a href="#NVMe_JBOF">NVMe over Fabrics JBOF</a></li>
 </ul>
 
-	
-	
+
+
 	</div>
 	</div>
-	<!-- end tabs -->	
-	
+	<!-- end tabs -->
+
 	<!--JBOD-->
-	
+
 <a name="JBOD"></a>
 	<div class="container" style="padding:2% 0%">
 	</div>
@@ -251,18 +251,18 @@ High Availability<br />Design in Broadcom  SAS4 expender
 </div>
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 
 
 </div>
 
-	
-	<p style="margin-top:3%"> </p>	
+
+	<p style="margin-top:3%"> </p>
 <!--end JBOD-->
 
 
@@ -304,16 +304,16 @@ Design in Microchip PCIe G4 Switch
 </div>-->
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 </div>
 
-	
-	<p style="margin-top:3%"> </p>	
+
+	<p style="margin-top:3%"> </p>
 <!--end JBOF-->
 
 
@@ -346,33 +346,33 @@ Design in Mellanox BlueField Solution<br /><br />
 <a href="/EN/contact/" target="mit" /><img src="/images/product/JBODJBOF/SN2251.jpg" class="img-responsive" /></a><br />
 <div class="sub_des" style="line-height:150%" ><span style="color:#0D47A1; font-size:1.4em">2U 24 x 2.5" NVMe over Fabrics PCIE G4 JBOF</span><br />
 High Availability, <br />
-Kazan Onyx / Broardcom Stingray smart NIC card compliable 
+Kazan Onyx / Broardcom Stingray smart NIC card compliable
 </div>
 </div>-->
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 </div>
 
-	
-	<p style="margin-top:3%"> </p>	
+
+	<p style="margin-top:3%"> </p>
 <!--end NVMe_JBOF-->
 
 
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

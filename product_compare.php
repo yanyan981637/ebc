@@ -201,7 +201,7 @@ foreach ($cateID as $key => $value) {
   <link rel="stylesheet" href="/css1/compare/tabella.css">
   <!-- Document Title
 	============================================= -->
-	<title>Comparing products | MiTAC Computing Technology</title>
+	<title>Comparing products | MiTAC Digital Technology</title>
 
   <?php
   //************ google analytics ************

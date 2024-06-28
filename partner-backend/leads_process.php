@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -19,7 +19,7 @@ if($_SESSION['user']=="" || $_SESSION['ID']==""){
 }
 
 require "../config.php";
-include("../EN/PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別  
+include("../EN/PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
@@ -120,7 +120,7 @@ if($kind=="AssignSales"){
     mysqli_close($link_db);
     exit();
   }else{
-    
+
   }
 
   //****** To Sales *******
@@ -171,8 +171,8 @@ if($kind=="AssignSales"){
   <table style='width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0;' width='100%' cellpadding='0' cellspacing='0'>
   <tr>
   <td style='padding: 25px 0; text-align: center;'>
-  <a href='https://www.mitacmct.com/partner-backend/login' >
-  <img src='https://www.mitacmct.com/support_center/images/tyan_logo_email.gif' style='border:0px' /></a><br /><br />
+  <a href='https://ipc.mitacmdt.com/partner-backend/login' >
+  <img src='https://ipc.mitacmdt.com/support_center/images/tyan_logo_email.gif' style='border:0px' /></a><br /><br />
   </td>
   </tr>
   <!-- Email Body -->
@@ -214,7 +214,7 @@ if($kind=="AssignSales"){
         $resultPR=mysqli_fetch_row($cmdPR);
         $sales_content .= "<tr><td style='padding:5px; border-bottom:1px solid #eee'>".$resultPR[1]." (".$resultPR[2].")</td><td style='padding:5px; border-bottom:1px solid #eee'>".$qty[$resultPR[1]]."</td></tr>";
       }
-    }                    
+    }
     $sales_content .= "
     </table>
 
@@ -225,7 +225,7 @@ if($kind=="AssignSales"){
   <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>
   Please contact with the client ASAP. If there is no action for this request after 3 days, the system will update it to 'Invalid' status automatically. <br /><br />
 
-  You can <a href='https://www.mitacmct.com/partner-backend/login' />log into MiTAC Partner Zone Back-end</a> and go to <strong>'Leads Mgt'</strong> to check / proceed this request.
+  You can <a href='https://ipc.mitacmdt.com/partner-backend/login' />log into MiTAC Partner Zone Back-end</a> and go to <strong>'Leads Mgt'</strong> to check / proceed this request.
 
 
 
@@ -239,7 +239,7 @@ if($kind=="AssignSales"){
   <td align='center'>
   <table border='0' cellspacing='0' cellpadding='0'>
   <tr> <td>
-  <a href='https://www.mitacmct.com/partner-backend/login' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' >LOG IN</a>
+  <a href='https://ipc.mitacmdt.com/partner-backend/login' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' >LOG IN</a>
   </td>
   </tr>
   </table>
@@ -274,64 +274,64 @@ if($kind=="AssignSales"){
   <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0'>
   <tr>
   <td style='padding: 35px;' align='center'>
-  <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. <br />All Rights Reserved.</p>
+  <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Digital Technology Corporation and/or any of its affiliates. <br />All Rights Reserved.</p>
 
   </td>
   </tr>
   </table>
   </body>";
   //****** To Sales *******
-  $mail= new PHPMailer(); //建立新物件   
-  $mail->IsSMTP(); //設定使用SMTP方式寄信   
-  $mail->SMTPAuth = false; //設定SMTP需要驗證   
+  $mail= new PHPMailer(); //建立新物件
+  $mail->IsSMTP(); //設定使用SMTP方式寄信
+  $mail->SMTPAuth = false; //設定SMTP需要驗證
   //$mail->SMTPSecure = "ssl"; //ssl tls
   //$mail->SMTPDebug = 2;
   $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
   $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-  $mail->CharSet = "utf-8"; //設定郵件編碼   
+  $mail->CharSet = "utf-8"; //設定郵件編碼
 
   $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
   $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-  $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱   
-  $mail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名   
+  $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱
+  $mail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名
 
-  $mail->Subject = "New lead notification"; //設定郵件標題   
-  $mail->Body = $sales_content; //設定郵件內容 
-  $mail->IsHTML(true); //設定郵件內容為HTML   
-  $mail->SMTPAutoTLS = false;   
-  $mail->AddAddress($salesEmail, $salesName); //設定收件者郵件及名稱 
-  //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
+  $mail->Subject = "New lead notification"; //設定郵件標題
+  $mail->Body = $sales_content; //設定郵件內容
+  $mail->IsHTML(true); //設定郵件內容為HTML
+  $mail->SMTPAutoTLS = false;
+  $mail->AddAddress($salesEmail, $salesName); //設定收件者郵件及名稱
+  //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
   if(!$mail->Send()) {
     $errorMail=$mail->ErrorInfo;
 
-    $admail= new PHPMailer(); //建立新物件   
-    $admail->IsSMTP(); //設定使用SMTP方式寄信   
-    $admail->SMTPAuth = false; //設定SMTP需要驗證   
+    $admail= new PHPMailer(); //建立新物件
+    $admail->IsSMTP(); //設定使用SMTP方式寄信
+    $admail->SMTPAuth = false; //設定SMTP需要驗證
     //$mail->SMTPSecure = "ssl"; //ssl tls
     //$mail->SMTPDebug = 2;
     $admail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
     $admail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $admail->CharSet = "utf-8"; //設定郵件編碼   
+    $admail->CharSet = "utf-8"; //設定郵件編碼
 
     $admail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
     $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-    $admail->From = "noreply@tyan.com"; //設定寄件者信箱   
-    $admail->FromName = "Tyan Computer"; //設定寄件者姓名   
+    $admail->From = "noreply@tyan.com"; //設定寄件者信箱
+    $admail->FromName = "Tyan Computer"; //設定寄件者姓名
 
-    $admail->Subject = "New lead notification to sales"; //設定郵件標題   
-    $admail->Body = $errorMail; //設定郵件內容 
-    $admail->IsHTML(true); //設定郵件內容為HTML  
-    $admail->SMTPAutoTLS = false;    
-    $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
-    //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");  
-    $admail->Send();   
-    echo "Mailer Error(Mapped): " . $mail->ErrorInfo;  
+    $admail->Subject = "New lead notification to sales"; //設定郵件標題
+    $admail->Body = $errorMail; //設定郵件內容
+    $admail->IsHTML(true); //設定郵件內容為HTML
+    $admail->SMTPAutoTLS = false;
+    $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
+    //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");
+    $admail->Send();
+    echo "Mailer Error(Mapped): " . $mail->ErrorInfo;
     mysqli_close($link_db);
-    exit(); 
-  }else{   
-    
+    exit();
+  }else{
+
   }
   //****** To Sales END*******
   echo "success";
@@ -390,7 +390,7 @@ if($kind=="Detail"){
   $str1="SELECT FEregister FROM partner_leads_quote WHERE UserID='".$UserID."' AND ID='".$LeadsID."'";
   $cmd1=mysqli_query($link_db,$str1);
   $data=mysqli_fetch_row($cmd1);
-  $FEregister=$data[0]; 
+  $FEregister=$data[0];
   $detail_content="";
   $s_user="SELECT ID, Name, CompanyName, Email, CountryCode, Tel, Message FROM partner_user WHERE ID='".$UserID."'";
   $cmd_USER=mysqli_query($link_db,$s_user);
@@ -408,7 +408,7 @@ if($kind=="Detail"){
   $detail_content.="<tr><th>Tel:</th><td>".$USER[5]."</td></tr>";
   $detail_content.="<tr><th>Country:</th><td>".$country."</td></tr>";
   if($FEregister==1){
-    $detail_content.="<tr><th>Message:</th><td>".$USER[6]."</td></tr>"; 
+    $detail_content.="<tr><th>Message:</th><td>".$USER[6]."</td></tr>";
   }
   $detail_content.="</table><br />";
   $detail_content.="<h3>Quote:</h3>";
@@ -417,7 +417,7 @@ if($kind=="Detail"){
   $cmd=mysqli_query($link_db,$str);
   $num=mysqli_num_rows($cmd);
   if($num>0){
-    while ($detail=mysqli_fetch_row($cmd)) {    
+    while ($detail=mysqli_fetch_row($cmd)) {
       $detail_content.="<table class='table table-sm table-hover bg-grey bg-lighten-4'  >";
       $detail_content.="<tr><th>Product</th><th>Qty</th></tr>";
       $arr_tmp=explode(",", $detail[1]);
@@ -429,7 +429,7 @@ if($kind=="Detail"){
           $detail_content.="<tr><td>".$result[1]." (".$result[2].")</td><td>N/A</td></tr>";
         }
       }
-      
+
       /*$arr_tmp=explode(",", $detail[2]);
       foreach ($arr_tmp as $key => $value) {
         if($value!=""){
@@ -514,7 +514,7 @@ if($kind=="UpdateStatus"){
       $QuoteID=$arr_ID[1]+1;
       $QuoteID="QT".$QuoteID;
     }
-    
+
 
     $insert="INSERT INTO partner_projects_client (QT_ID, Company, ToUser, QT_DATE, Sales, STATUS, Version, LeadsID, C_DATE) VALUES ('".$QuoteID."','".$data[0]."', '".$data[1]."', '".$leads_Cdate[0]."', '".$data[2]."', 'Contact', '1','".$data[4]."', '".$now."')";
     $cmd_insert=mysqli_query($link_db,$insert);
@@ -532,7 +532,7 @@ if($kind=="UpdateStatus"){
         $cmd_item=mysqli_query($link_db,$insert_item);
       }
     }
-    
+
     $insert_extra="INSERT INTO partner_projects_extra_client (QT_ID, Version, C_DATE) VALUES ('".$QuoteID."', '1','".$now."')";
     $cmd_extra=mysqli_query($link_db,$insert_extra);
     $insert_extra="INSERT INTO partner_projects_extra (QT_ID, Version, C_DATE) VALUES ('".$QuoteID."', '1', '".$now."')";
@@ -588,8 +588,8 @@ if($kind=="UpdateStatus"){
       <td style='padding: 25px 0;  '>
       <table  align='center'>
       <tr>
-      <td style='width:220px'><img src='https://www.mitacmct.com/images/mct-logo-email.png' style='border:0px;' /></td>
-      <td vlign='middle' align='center'> <div style='font-family: Arial; line-height:100%; font-size:20px; font-weight:bold; color:#434343;'> Partner Zone <br /><span style=' font-size:12px; font-weight:normal'>MiTAC Computing Technology</span></div></td>
+      <td style='width:220px'><img src='https://ipc.mitacmdt.com/images/mct-logo-email.png' style='border:0px;' /></td>
+      <td vlign='middle' align='center'> <div style='font-family: Arial; line-height:100%; font-size:20px; font-weight:bold; color:#434343;'> Partner Zone <br /><span style=' font-size:12px; font-weight:normal'>MiTAC Digital Technology</span></div></td>
       </tr>
       </table>
       </td>
@@ -608,7 +608,7 @@ if($kind=="UpdateStatus"){
 
       <span style='font-weight:bold; color:#000000; font-size:14px'>Password: ".$newpassword." </span>
       <br /><br />
-      For your account security, please be sure to change your password after login. 
+      For your account security, please be sure to change your password after login.
 
       </p>
 
@@ -623,7 +623,7 @@ if($kind=="UpdateStatus"){
       <td align='center'>
       <table border='0' cellspacing='0' cellpadding='0'>
       <tr> <td>
-      <a href='https://www.mitacmct.com/partner-backend/login' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
+      <a href='https://ipc.mitacmdt.com/partner-backend/login' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
       </td>
       </tr>
       </table>
@@ -631,7 +631,7 @@ if($kind=="UpdateStatus"){
       </tr>
       </table>
       <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Thanks,
-      <br>Partner Zone | MiTAC Computing Technology</p>
+      <br>Partner Zone | MiTAC Digital Technology</p>
       <!-- Sub copy -->
 
       </td>
@@ -644,7 +644,7 @@ if($kind=="UpdateStatus"){
       <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0' style='border-top:1px solid #ccc'>
       <tr>
       <td style='padding: 35px;' align='center'>
-      <p style='font-family: arial; line-height:130%; font-size: 12px; text-align: center;'>This is an automatic message. Please do not reply to this email. <a href='https://www.mitacmct.com/EN/contact/' />Contact us via here. </a></p>
+      <p style='font-family: arial; line-height:130%; font-size: 12px; text-align: center;'>This is an automatic message. Please do not reply to this email. <a href='https://ipc.mitacmdt.com/EN/contact/' />Contact us via here. </a></p>
 
       </td>
       </tr>
@@ -658,66 +658,66 @@ if($kind=="UpdateStatus"){
       <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0'>
       <tr>
       <td style='padding: 35px;' align='center'>
-      <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. <br />All Rights Reserved.</p>
+      <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Digital Technology Corporation and/or any of its affiliates. <br />All Rights Reserved.</p>
 
       </td>
       </tr>
       </table>";
 
       //****** To USER *******
-      $mail= new PHPMailer(); //建立新物件   
-      $mail->IsSMTP(); //設定使用SMTP方式寄信   
-      $mail->SMTPAuth = false; //設定SMTP需要驗證   
+      $mail= new PHPMailer(); //建立新物件
+      $mail->IsSMTP(); //設定使用SMTP方式寄信
+      $mail->SMTPAuth = false; //設定SMTP需要驗證
       //$mail->SMTPSecure = "ssl"; //ssl tls
       //$mail->SMTPDebug = 2;
       $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
       $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-      $mail->CharSet = "utf-8"; //設定郵件編碼   
+      $mail->CharSet = "utf-8"; //設定郵件編碼
 
       $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
       $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-      $mail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱   
-      $mail->FromName = "Partner Zone | MiTAC Computing Technology"; //設定寄件者姓名   
+      $mail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
+      $mail->FromName = "Partner Zone | MiTAC Digital Technology"; //設定寄件者姓名
 
-      $mail->Subject = "Welcome to join MiTAC Partner Zone"; //設定郵件標題   
-      $mail->Body = $user_content; //設定郵件內容 
-      $mail->IsHTML(true); //設定郵件內容為HTML   
-  $mail->SMTPAutoTLS = false;   
-      $mail->AddAddress($email, $username); //設定收件者郵件及名稱 
-      //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
+      $mail->Subject = "Welcome to join MiTAC Partner Zone"; //設定郵件標題
+      $mail->Body = $user_content; //設定郵件內容
+      $mail->IsHTML(true); //設定郵件內容為HTML
+  $mail->SMTPAutoTLS = false;
+      $mail->AddAddress($email, $username); //設定收件者郵件及名稱
+      //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
       if(!$mail->Send()) {
         $errorMail=$mail->ErrorInfo;
 
-        $admail= new PHPMailer(); //建立新物件   
-        $admail->IsSMTP(); //設定使用SMTP方式寄信   
-        $admail->SMTPAuth = false; //設定SMTP需要驗證   
+        $admail= new PHPMailer(); //建立新物件
+        $admail->IsSMTP(); //設定使用SMTP方式寄信
+        $admail->SMTPAuth = false; //設定SMTP需要驗證
         //$mail->SMTPSecure = "ssl"; //ssl tls
         //$mail->SMTPDebug = 2;
         $admail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
         $admail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-        $admail->CharSet = "utf-8"; //設定郵件編碼   
+        $admail->CharSet = "utf-8"; //設定郵件編碼
 
         $admail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
         $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-        $admail->From = "noreply@tyan.com"; //設定寄件者信箱   
-        $admail->FromName = "Tyan Computer"; //設定寄件者姓名   
+        $admail->From = "noreply@tyan.com"; //設定寄件者信箱
+        $admail->FromName = "Tyan Computer"; //設定寄件者姓名
 
-        $admail->Subject = "Welcome to join MiTAC Partner Zone(lead Verified)"; //設定郵件標題   
-        $admail->Body = $errorMail; //設定郵件內容 
-        $admail->IsHTML(true); //設定郵件內容為HTML  
-    $admail->SMTPAutoTLS = false;    
-        $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
-        //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");  
-        $admail->Send();   
-        echo "Mailer Error(Mapped): " . $mail->ErrorInfo;  
+        $admail->Subject = "Welcome to join MiTAC Partner Zone(lead Verified)"; //設定郵件標題
+        $admail->Body = $errorMail; //設定郵件內容
+        $admail->IsHTML(true); //設定郵件內容為HTML
+    $admail->SMTPAutoTLS = false;
+        $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
+        //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");
+        $admail->Send();
+        echo "Mailer Error(Mapped): " . $mail->ErrorInfo;
         mysqli_close($link_db);
-        exit(); 
+        exit();
       }else{
 
       }*/
-    }elseif($up_sel_status=="Verified"){ 
+    }elseif($up_sel_status=="Verified"){
       $str_user="SELECT ID, Name, Email, CompanyName, CompanyID, CountryCode, Tel, Message FROM partner_user WHERE ID='".$UserID."'";
       $cmd_user=mysqli_query($link_db,$str_user);
       $data_user=mysqli_fetch_row($cmd_user);
@@ -738,8 +738,8 @@ if($kind=="UpdateStatus"){
       <table style='width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0;' width='100%' cellpadding='0' cellspacing='0'>
       <tr>
       <td style='padding: 25px 0; text-align: center;'>
-      <a href='https://www.mitacmct.com/SupportCenter' >
-      <img src='https://www.mitacmct.com/support_center/images/tyan_logo_email.gif' style='border:0px' /></a><br /><br />
+      <a href='https://ipc.mitacmdt.com/SupportCenter' >
+      <img src='https://ipc.mitacmdt.com/support_center/images/tyan_logo_email.gif' style='border:0px' /></a><br /><br />
       </td>
       </tr>
       <!-- Email Body -->
@@ -769,13 +769,13 @@ if($kind=="UpdateStatus"){
       <td align='center'>
       <table border='0' cellspacing='0' cellpadding='0'>
       <tr> <td>
-      <a href='https://www.mitacmct.com/PartnerZone/' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
+      <a href='https://ipc.mitacmdt.com/PartnerZone/' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
       </td>
       </tr>
       </table>
       </td>
       </tr>
-      </table>    
+      </table>
       <p style='font-family: arial; line-height:130%; font-size:16px; text-align:left;'>Thanks!<br>MiTAC Partner Zone</p>
       <!-- Sub copy -->
 
@@ -803,7 +803,7 @@ if($kind=="UpdateStatus"){
       <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0'>
       <tr>
       <td style='padding: 35px;' align='center'>
-      <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. <br />All Rights Reserved.</p>
+      <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Digital Technology Corporation and/or any of its affiliates. <br />All Rights Reserved.</p>
 
       </td>
       </tr>
@@ -811,55 +811,55 @@ if($kind=="UpdateStatus"){
       </body>";
 
       //****** To USER *******
-      $mail= new PHPMailer(); //建立新物件   
-      $mail->IsSMTP(); //設定使用SMTP方式寄信   
-      $mail->SMTPAuth = false; //設定SMTP需要驗證   
+      $mail= new PHPMailer(); //建立新物件
+      $mail->IsSMTP(); //設定使用SMTP方式寄信
+      $mail->SMTPAuth = false; //設定SMTP需要驗證
       //$mail->SMTPSecure = "ssl"; //ssl tls
       //$mail->SMTPDebug = 2;
       $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
       $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-      $mail->CharSet = "utf-8"; //設定郵件編碼   
+      $mail->CharSet = "utf-8"; //設定郵件編碼
 
       $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
       $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-      $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱   
-      $mail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名   
+      $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱
+      $mail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名
 
-      $mail->Subject = "Quotation Notification"; //設定郵件標題   
-      $mail->Body = $user_content; //設定郵件內容 
-      $mail->IsHTML(true); //設定郵件內容為HTML   
-  $mail->SMTPAutoTLS = false;   
-      $mail->AddAddress($email, $username); //設定收件者郵件及名稱 
-      //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
+      $mail->Subject = "Quotation Notification"; //設定郵件標題
+      $mail->Body = $user_content; //設定郵件內容
+      $mail->IsHTML(true); //設定郵件內容為HTML
+  $mail->SMTPAutoTLS = false;
+      $mail->AddAddress($email, $username); //設定收件者郵件及名稱
+      //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
       if(!$mail->Send()) {
         $errorMail=$mail->ErrorInfo;
 
-        $admail= new PHPMailer(); //建立新物件   
-        $admail->IsSMTP(); //設定使用SMTP方式寄信   
-        $admail->SMTPAuth = false; //設定SMTP需要驗證   
+        $admail= new PHPMailer(); //建立新物件
+        $admail->IsSMTP(); //設定使用SMTP方式寄信
+        $admail->SMTPAuth = false; //設定SMTP需要驗證
         //$mail->SMTPSecure = "ssl"; //ssl tls
         //$mail->SMTPDebug = 2;
         $admail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
         $admail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-        $admail->CharSet = "utf-8"; //設定郵件編碼   
+        $admail->CharSet = "utf-8"; //設定郵件編碼
 
         $admail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
         $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-        $admail->From = "noreply@tyan.com"; //設定寄件者信箱   
-        $admail->FromName = "Tyan Computer"; //設定寄件者姓名   
+        $admail->From = "noreply@tyan.com"; //設定寄件者信箱
+        $admail->FromName = "Tyan Computer"; //設定寄件者姓名
 
-        $admail->Subject = "Quotation Notification(lead Verified)"; //設定郵件標題   
-        $admail->Body = $errorMail; //設定郵件內容 
-        $admail->IsHTML(true); //設定郵件內容為HTML  
-    $admail->SMTPAutoTLS = false;    
-        $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
-        //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");  
-        $admail->Send();   
-        echo "Mailer Error(Mapped): " . $mail->ErrorInfo;  
+        $admail->Subject = "Quotation Notification(lead Verified)"; //設定郵件標題
+        $admail->Body = $errorMail; //設定郵件內容
+        $admail->IsHTML(true); //設定郵件內容為HTML
+    $admail->SMTPAutoTLS = false;
+        $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
+        //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");
+        $admail->Send();
+        echo "Mailer Error(Mapped): " . $mail->ErrorInfo;
         mysqli_close($link_db);
-        exit(); 
+        exit();
       }*/
     }else{
 

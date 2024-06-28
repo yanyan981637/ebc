@@ -33,12 +33,12 @@ if($_COOKIE["status"]==""){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MCT is a professional IT solution provider, providing total solutions from edge to cloud with advanced R&D, TCO and worldwide operations.">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MCT is a professional IT solution provider, providing total solutions from edge to cloud with advanced R&D, TCO and worldwide operations." /> 
-	<meta property="og:title" content="About Us | MiTAC Computing Technology" />
+	<meta property="og:description" content="MCT is a professional IT solution provider, providing total solutions from edge to cloud with advanced R&D, TCO and worldwide operations." />
+	<meta property="og:title" content="About Us | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -65,8 +65,8 @@ if($_COOKIE["status"]==""){
 		  background-size: cover;
 		  background-position: 50% 50%;
 		}
-		
-		.card-box {margin-top:-3rem; margin-right:-15px; border-radius:0px; background-color: rgba(0, 66, 138, 0.8); color:#00428a; box-shadow:  5px 5px 10px rgba(104, 104, 104, 0.4), 
+
+		.card-box {margin-top:-3rem; margin-right:-15px; border-radius:0px; background-color: rgba(0, 66, 138, 0.8); color:#00428a; box-shadow:  5px 5px 10px rgba(104, 104, 104, 0.4),
 -5px -5px 10px rgba(0, 0, 0, 0.4); color:#ffffff; padding: 3rem;}
 
 .card-box-1 { border-radius:5px;  background-color:#77a6c2; box-shadow:  2px 2px 4px rgba(104, 104, 104, 0.4); color:#ffffff; padding: 3rem;}
@@ -84,7 +84,7 @@ if($_COOKIE["status"]==""){
 }
 
 .gradient-underline {
-	
+
 	background-image: -webkit-linear-gradient( 280deg, var(--color1) 12.08%, var(--color2) 53.53%, var(--color3) 95.62% );
 	background-image: -o-linear-gradient( 280deg, var(--color1) 12.08%, var(--color2) 53.53%, var(--color3) 95.62% );
 	background-image: linear-gradient( 280deg, var(--color1) 12.08%, var(--color2) 53.53%, var(--color3) 95.62% );
@@ -93,7 +93,7 @@ if($_COOKIE["status"]==""){
 	background-position: 0 110%;
 }
 
-.gradient-text { 
+.gradient-text {
 	background: -webkit-linear-gradient( 280deg, var(--color1) 12.08%, var(--color2) 53.53%, var(--color3) 95.62% );
 	background: -o-linear-gradient( 280deg, var(--color1) 12.08%, var(--color2) 53.53%, var(--color3) 95.62% );
 	background: linear-gradient( 280deg, var(--color1) 12.08%, var(--color2) 53.53%, var(--color3) 95.62% );
@@ -107,13 +107,13 @@ if($_COOKIE["status"]==""){
 .text-card {border-radius: 6px; box-shadow: 0 2px 4px rgba(3,27,78,.1); border: 1px solid #e5e8ed;}
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>About Us | MiTAC Computing Technology</title>
+	<title>About Us | MiTAC Digital Technology</title>
 
-	<?php 
+	<?php
 	//************ google analytics ************
 	if($s_cookie!=2){
 	  include_once("analyticstracking.php");
@@ -135,64 +135,64 @@ if($_COOKIE["status"]==""){
 	?>
 	<!--end Header logo & global top menu-->
 
-	
-	
+
+
 
 
 		<!-- Slider
 		============================================= -->
-	
+
 
 				<div class="section m-0" style="background-color: #d2ecfa; padding: 80px 0">
 					<div id="particles-bubbles"></div>
 					<div class="container-fluid clearfix" >
-					<h2 class="display-4 center" style="font-weight: 600; line-height:5rem;" data-animate="backInLeft">MiTAC Computing Technology Corp. (MCT)</h2>
+					<h2 class="display-4 center" style="font-weight: 600; line-height:5rem;" data-animate="backInLeft">MiTAC Digital Technology Corp.</h2>
 					<div class="row g-0" >
 					<div class="col-lg-1">&nbsp;</div>
 					<div class="col-lg-7">
-					
+
 					 <div class="row justify-content-between align-items-center" data-animate="backInLeft">
 									<div class="col ls1 mb-5 mb-md-0 p-5">
-										
-										
+
+
 										<p class="mb-5" style="line-height:1.5rem; font-weight:500;  font-size:1.2rem" >
-										MiTAC Computing Technology Corporation is a professional IT solution provider, providing total solutions from edge to cloud with advanced R&D, TCO and worldwide operations. Focusing on cloud and edge computing solutions and services, MiTAC's design and manufacturing experience spans over thirty years in servers and storage systems for CSP, CoSP and Enterprise and is supplemented with a record of implementing hyper scale data centers and telecommunication companies. MiTAC Computing Technology' IoT solutions provide the industry with innovative embedded products and industrial computers. MiTAC's Industrial PC division provides the market with panel PCs, embedded box systems, mobile Point Of Sale, and industrial motherboards.
+										MiTAC Digital Technology Corporation is a professional IT solution provider, providing total solutions from edge to cloud with advanced R&D, TCO and worldwide operations. Focusing on cloud and edge computing solutions and services, MiTAC's design and manufacturing experience spans over thirty years in servers and storage systems for CSP, CoSP and Enterprise and is supplemented with a record of implementing hyper scale data centers and telecommunication companies. MiTAC Digital Technology' IoT solutions provide the industry with innovative embedded products and industrial computers. MiTAC's Industrial PC division provides the market with panel PCs, embedded box systems, mobile Point Of Sale, and industrial motherboards.
 
 
  <br /><br />
 	MiTAC also serves the channel through <a href="https://www.tyan.com/" target="mtc" />TYAN Computer Corporation</a>, a business unit of MiTAC, offering an entire spectrum of commodity-off-the-shelf whitebox servers, spanning rack and tower systems, high-performance and GPU-accelerated computing, cloud computing servers, storage systems, workstations, including complete systems and fully integrated server racks to offer customers the best total cost of ownership.
 										</p>
 									</div>
-									
+
 					</div>
-					
-					
+
+
 					</div>
 					<div class="col-lg-4"><img src="/EN/solution/images/mitac-bg-2.png"  class="img-fluid" data-animate="backInRight" /></div>
-					
+
 					</div>
-					
-					
+
+
 					<div class="row g-0" >
 					<div class="col-lg-2">&nbsp;</div>
 					<div class="col-lg-10">
-					
+
 					<div class="card-box"  data-animate="backInRight">
 					 <div class="heading-block">
 								  <h2 class="text-white">Manufacturing</h2>
 					</div>
 				 MCT design and manufacturing experience dates back more than thirty years, including a history of successfully supplying various computer and server solutions. MCT's industrial grade embedded products, ODM customization capacity, comprehensive relationships with channel and system integration service providers, means MCT now provides customers with deliverables featuring customized, flexible systems.  MCT’s belief is to ensure customers get the best Total Cost of Ownership (TCO) embedded solution of this and future generations.
 				 </div>
-				 
+
 				 <div class="row g-0" data-animate="backInRight" >
 				  <div class="col nav-box p-4" onclick="location.href='#manf'" style="background:#4693b5;">Manufacturing Quality</div>
-				  <div class="col nav-box p-4" onclick="location.href='#OEM'" style="background:#77a6c2;">Advanced JDM / ODM / OEM / OPM</div>			  
+				  <div class="col nav-box p-4" onclick="location.href='#OEM'" style="background:#77a6c2;">Advanced JDM / ODM / OEM / OPM</div>
 				  <div class="col nav-box p-4" onclick="location.href='#QM'" style="background:#a5c1d4; ">Design Quality Assurance</div>
-				<div class="col nav-box p-4" onclick="location.href='#Office'" style="background:#4693b5; ">Worldwide Offices</div>				  
+				<div class="col nav-box p-4" onclick="location.href='#Office'" style="background:#4693b5; ">Worldwide Offices</div>
 				  <div class="col nav-box p-4" onclick="location.href='https://www.mitac.com/en-global/environmental/index'" style="background:#77a6c2; ">Sustainability</div>
 				 </div>
-				 
-				 
+
+
 					</div>
 					</div>
 <p class="mb-3">&nbsp;</p>
@@ -207,7 +207,7 @@ if($_COOKIE["status"]==""){
 
 
 <div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Manufacturing Quality</h1>	
+	<h1 class="center">Manufacturing Quality</h1>
 </div>
 
 
@@ -224,8 +224,8 @@ if($_COOKIE["status"]==""){
 
 <div class="container-fluid clearfix mt-3 mb-3 p-6" style="background:#f8f8f8;">
 
-<div class="title-1 center mb-6" ><h2 class="gradient-underline">Intelligence</h2></div>	
-	
+<div class="title-1 center mb-6" ><h2 class="gradient-underline">Intelligence</h2></div>
+
 <div class="row justify-content-center gutter-30 col-mb-20">
 
 <div class="col-lg-3 ">
@@ -234,7 +234,7 @@ if($_COOKIE["status"]==""){
 								<div class="card-body">
 									<h4 class="card-title">Online display</h4>
 									<p class="card-text">The alert system, which is one part of intelligent management system (IMS) can alert SMT material shortage immediately.</p>
-									
+
 								</div>
 							</div>
 </div>
@@ -244,7 +244,7 @@ if($_COOKIE["status"]==""){
 								<div class="card-body">
 									<h4 class="card-title">SPI Process</h4>
 									<p class="card-text">3D solder paste inspection is to detect the quality of solder paste printing, including volume, area, height, XY offset, shape, bridging, etc. It could find defects occurring in process.</p>
-									
+
 								</div>
 							</div>
 </div>
@@ -254,7 +254,7 @@ if($_COOKIE["status"]==""){
 								<div class="card-body">
 									<h4 class="card-title">Auto hand insertion machine</h4>
 									<p class="card-text">Auto H/I (hand insertion) machines improve production efficiency.</p>
-									
+
 								</div>
 							</div>
 </div>
@@ -264,25 +264,25 @@ if($_COOKIE["status"]==""){
 								<div class="card-body">
 									<h4 class="card-title">High pot test</h4>
 									<p class="card-text">Automatic HI-POT test realizes test machine selfpositioning, test items auto-identifying, test data auto-uploading.</p>
-									
+
 								</div>
 							</div>
 </div>
 </div>
 
 
-<p class="mb-3 clear">&nbsp;</p>					
+<p class="mb-3 clear">&nbsp;</p>
 
 </div>
 
 <div class="container-fluid clearfix mt-3 mb-3 p-6" >
 
-<div class="title-1 center mb-6" ><h2 class="gradient-underline">Efficiency</h2></div>	
-	
+<div class="title-1 center mb-6" ><h2 class="gradient-underline">Efficiency</h2></div>
+
 <div class="row justify-content-center gutter-30 col-mb-20">
 
 <div class="col-lg-6">
-							
+
 							<div class="card">
 								<div class="row g-0 align-items-center">
 								    <div class="col-md-6 d-flex align-self-stretch overflow-hidden">
@@ -292,12 +292,12 @@ if($_COOKIE["status"]==""){
 										<div class="card-body">
 											<h4 class="card-title">Cell line</h4>
 											<p class="card-text">Compared to the traditional assembly lines, the cellular manufacturing lines are with much higher efficiency and flexibility, good for low volume and diverse products.</p>
-									
+
 										</div>
 									</div>
 								</div>
 							</div>
-						
+
 </div>
 <div class="col-lg-6">
 							<div class="card">
@@ -309,7 +309,7 @@ if($_COOKIE["status"]==""){
 										<div class="card-body">
 											<h4 class="card-title">ERSA waving solder</h4>
 											<p class="card-text">The advanced ERSA waving solder equipment could reduce the oxidation of the production and reduce the Sn slag, ﬂux residue in PCBA by 0.3mm size selective spray.</p>
-									
+
 										</div>
 									</div>
 								</div>
@@ -320,11 +320,11 @@ if($_COOKIE["status"]==""){
 </div>
 
 
-<p class="mb-3  clear">&nbsp;</p>					
+<p class="mb-3  clear">&nbsp;</p>
 
 </div>
 
-	
+
 <div class="container-fluid clearfix mt-3  p-6"  style="background:#f8f8f8;" >
 
 <div class="title-1 center mb-6" ><h2 class="gradient-underline">Accuracy</h2></div>
@@ -340,7 +340,7 @@ if($_COOKIE["status"]==""){
 								<div class="card-body"><br>
 									<h4 class="card-title">P2L (Pick to light) / L2L (Load to light)</h4>
 									<p class="card-text">MiTAC have set up 97 racks of P2Ls with the 135,800 reels capacity, 70 material shelves of L2L for over 5000 reels production supporting every day. The advantages is to kit materials collaboratively to avoid occupation, and reduce transferring time. The material kitting time has been reduced from 2 days to 4 hours.</p>
-									
+
 								</div>
 							</div>
 </div>
@@ -354,16 +354,16 @@ if($_COOKIE["status"]==""){
 												<div class="slide"><a href="/EN/solution/images/PCBA-2.jpg" data-lightbox="gallery-item" style="background: url('/EN/solution/images/PCBA-2.jpg') no-repeat center bottom; background-size: cover; height: 200px; "></a></div>
 												<div class="slide"><a href="/EN/solution/images/PCBA-3.jpg" data-lightbox="gallery-item" style="background: url('/EN/solution/images/PCBA-3.jpg') no-repeat center bottom; background-size: cover; height: 200px;"></a></div>
 											</div>
-											
-											
-											
-											
+
+
+
+
 										</div>
 									</div>
 							</div>
-							
-							
-							
+
+
+
 								<!--<img src="/EN/solution/images/Intelligence-2.jpg" class="card-img-top" alt="PCBA production line">-->
 								<div class="card-body"><br>
 									<h4 class="card-title">PCBA production line</h4>
@@ -379,7 +379,7 @@ if($_COOKIE["status"]==""){
 <li>All the boards proceed with hand insertion, press-ﬁt, AXI, Flying Probe or ICT till BFT.</li>
 
 </ul>	</p>
-									
+
 								</div>
 							</div>
 </div>
@@ -389,7 +389,7 @@ if($_COOKIE["status"]==""){
 								<div class="card-body"><br>
 									<h4 class="card-title">Clean room</h4>
 									<p class="card-text">Clean room for panel cleaning and assembly which have passed ISO class 7 standard.</p>
-									
+
 								</div>
 							</div>
 </div>
@@ -399,26 +399,26 @@ if($_COOKIE["status"]==""){
 								<div class="card-body"><br>
 									<h4 class="card-title">Run in test and Burn in test</h4>
 									<p class="card-text">Running the burn-in test tool at room temperature or 37OC to make sure the product quality and reliability.</p>
-									
+
 								</div>
 							</div>
 </div>
 </div>
 <a name="OEM"></a>
-<p class="mb-5">&nbsp;</p>	
+<p class="mb-5">&nbsp;</p>
 
 </div>
 
 
 <div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Advanced JDM / ODM / OEM / OPM</h1>	
+	<h1 class="center">Advanced JDM / ODM / OEM / OPM</h1>
 </div>
 
 
-<p class="mb-6">&nbsp;</p>	
+<p class="mb-6">&nbsp;</p>
 <div class="container-fluid m-0 border-0">
 <div class="container-fluid clearfix mt-3 mb-3">
-	
+
 <div class="row justify-content-center gutter-30 col-mb-20">
 <div class="col-lg-1"></div>
 <div class="col-lg-2">
@@ -434,7 +434,7 @@ if($_COOKIE["status"]==""){
 											<li>Advanced debug facility</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div>
 </div>
@@ -452,7 +452,7 @@ if($_COOKIE["status"]==""){
 											<li>Utility / APP / API Design</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div>
 </div>
@@ -469,7 +469,7 @@ if($_COOKIE["status"]==""){
 											<li>Mock-up demo</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div>
 </div>
@@ -487,7 +487,7 @@ if($_COOKIE["status"]==""){
 											<li>Thermal simulation</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div>
 </div>
@@ -505,13 +505,13 @@ if($_COOKIE["status"]==""){
 											<li>Worldwide regulation certification</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div>
 </div>
 <div class="col-lg-1"></div>
 </div>
-<p class="mb-4">&nbsp;</p>	
+<p class="mb-4">&nbsp;</p>
 <div class="row mb-4">
 <div class="col-lg-1"></div>
 <div class="col-lg-2"><div class="feature-box p-5 media-box  h-100 text-card" >
@@ -526,7 +526,7 @@ if($_COOKIE["status"]==""){
 											<li>Systematic control process</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div></div>
 <div class="col-lg-2"><div class="feature-box p-5 media-box  h-100 text-card" >
@@ -542,7 +542,7 @@ if($_COOKIE["status"]==""){
 											<li>Global RMA service</li>
 											</ul>
 											</p>
-											
+
 										</div>
 		</div></div>
 <div class="col-lg-6">
@@ -551,13 +551,13 @@ if($_COOKIE["status"]==""){
 								  <h2 class="text-white">Certifications</h2>
 					</div>
 					<div class="center"><img src="/EN/solution/images/OEMODM-2.png" class="img-fluid" ></div>
-				
+
 </div>
 
 </div>
 <div class="col-lg-1"></div>
 </div>
-<p class="mb-4">&nbsp;</p>	
+<p class="mb-4">&nbsp;</p>
 </div>
 </div>
 
@@ -568,12 +568,12 @@ if($_COOKIE["status"]==""){
 					 <div class="heading-block">
 								  <h2 class="text-white">OEM / ODM Service</h2>
 					</div>
-					<p>MiTAC Computing Technology Corp. (MCT) offers both Off The Shelf products, and OEM/ODM professional services to meet customer’s needs in different industries and applications. We provide tailored design packages from HW, SW, ME, ID, Test, Certification to Manufacturing. MCT's expertise is aimed to offer customers the most innovative design and World-class product quality to make the product just born to succeed!</p>
-				
+					<p>MiTAC Digital Technology Corp. offers both Off The Shelf products, and OEM/ODM professional services to meet customer’s needs in different industries and applications. We provide tailored design packages from HW, SW, ME, ID, Test, Certification to Manufacturing. MCT's expertise is aimed to offer customers the most innovative design and World-class product quality to make the product just born to succeed!</p>
+
 </div>
 
 <div class="title-1 center mb-6 mt-5" ><h2 class="gradient-underline">Technical Support</h2></div>
-	
+
 <div class="center"><img src="/EN/solution/images/tech-support.png" class="img-fluid" ></div>
 	<p class="mb-4">&nbsp;</p><a name="QM"></a>
 </div>
@@ -582,7 +582,7 @@ if($_COOKIE["status"]==""){
 
 
 <div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Design Quality Assurance</h1>	
+	<h1 class="center">Design Quality Assurance</h1>
 </div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0; ">
 <div class="container clearfix mt-3 mb-3">
@@ -630,7 +630,7 @@ if($_COOKIE["status"]==""){
 <div class="container clearfix mt-3 ">
 <div class="heading-block center">
 							<h2>Qualified by international accreditation organization</h2>
-							
+
 </div>
 
 <div class="center"><img src="/EN/solution/images/accreditation.png"  class="img-fluid"  /><br>
@@ -646,7 +646,7 @@ if($_COOKIE["status"]==""){
 <div class="container-fluid clearfix mt-3">
 <div class="heading-block center">
 							<h2>Worldwide ENV Marks & Ecolabels </h2>
-							
+
 </div>
 
 <div class="row ">
@@ -752,7 +752,7 @@ if($_COOKIE["status"]==""){
 									</ul>
 								</div>
 	</div>
-  
+
   </div>
   <div class="col-lg-4">
   <div class="card h-100">
@@ -768,7 +768,7 @@ if($_COOKIE["status"]==""){
 									</ul>
 								</div>
 	</div>
- 
+
   </div>
 
 </div>
@@ -810,7 +810,7 @@ if($_COOKIE["status"]==""){
 									</p>
 								</div>
 	</div>
-  
+
   </div>
   <div class="col-lg-3">
   <div class="card h-100">
@@ -840,23 +840,23 @@ if($_COOKIE["status"]==""){
 
 
 <div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Worldwide Offices</h1>	
+	<h1 class="center">Worldwide Offices</h1>
 </div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0; ">
 <div class="container clearfix mt-3 mb-3">
 	<div class="row clearfix" >
 	<div class="col-lg-4">
-<h2>Headquarters</h2>  
-<h3>MiTAC Computing Technology Corporation</h3>
+<h2>Headquarters</h2>
+<h3>MiTAC Digital Technology Corporation</h3>
 No.200, Wen Hwa 2nd Rd., Kuei Shan Dist., Taoyuan City 33383, Taiwan, R.O.C.<br />
 TEL: 886-3-3275988 | <a href="mailto:Sales_client@mic.com.tw" />Sales_client@mic.com.tw</a><br />
 <!--<a href="http://client.mitac.com" target="au" />http://client.mitac.com</a>-->
   </div>
 	<div class="col-lg-4 p-3"><img src="/EN/solution/images/Mitac-Linko.jpg" class="img-fluid" ></div>
-	
-	
+
+
   <div class="col-lg-4 p-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.5933195827533!2d121.37341031537892!3d25.047871843888355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a74040e9d095%3A0x53b44b9014055b9e!2z56We6YGU6Zu76IWm6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1sen-US!2stw!4v1556853741415!5m2!1sen-US!2stw"  frameborder="0" style="border:0; height:250px" allowfullscreen></iframe></div>
-	
+
 
 	</div>
 </div>
@@ -864,19 +864,19 @@ TEL: 886-3-3275988 | <a href="mailto:Sales_client@mic.com.tw" />Sales_client@mic
 <div class="container-fluid m-0 border-0" style="padding: 80px 0; background:#f8f8f8;">
 <div class="container clearfix mt-3 mb-3">
 	<div class="row clearfix" >
-	
+
 	<div class="col-lg-4">
-<h2>Taiwan</h2>  
-<h3>MiTAC Computing Technology Corporation</h3>
+<h2>Taiwan</h2>
+<h3>MiTAC Digital Technology Corporation</h3>
 3F., No.1, R&D Road 2, HsinChu Science Park, HsinChu, Taiwan, R.O.C.<br />
 TEL: 886-3-577-9088 | FAX: 886-3-578-3208</a><br />
 <a href="mailto:Sales_client@mic.com.tw" />Sales_client@mic.com.tw</a>
   </div>
   <div class="col-lg-4 p-3"><img src="/EN/solution/images/Mitac-Hsinchu.jpg" class="img-fluid" ></div>
   <div class="col-lg-4 p-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.383880241614!2d121.00409721537545!3d24.78230535448803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34683616426caebb%3A0xeb79c7f6933a394d!2z5paw56u556eR5a245bel5qWt5ZyS5Y2A!5e0!3m2!1sen-US!2stw!4v1556854514321!5m2!1sen-US!2stw" frameborder="0" style="border:0;  height:250px" allowfullscreen></iframe>
-  
+
   </div>
-	
+
 
 	</div>
 </div>
@@ -887,9 +887,9 @@ TEL: 886-3-577-9088 | FAX: 886-3-578-3208</a><br />
 <div class="container-fluid m-0 border-0" style="padding: 80px 0; ">
 <div class="container clearfix mt-3 mb-3">
 	<div class="row clearfix" >
-	
+
 	<div class="col-lg-4">
-<h2>Japan</h2>  
+<h2>Japan</h2>
 <h3>MiTAC Japan Corp.</h3>
 Yasuda Shibaura 2nd Building 3F Kaigan 3-chome, 2-12, Minato-ku, Tokyo 108-0022, Japan<br />
 TEL: 81-3-3769-8311 | FAX: 81-3-3769-8328<br />
@@ -897,7 +897,7 @@ TEL: 81-3-3769-8311 | FAX: 81-3-3769-8328<br />
   </div>
   <div class="col-lg-4 p-3"><img src="/EN/solution/images/Mitac-JP.jpg" class="img-fluid" ></div>
   <div class="col-lg-4 p-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.3517523137207!2d139.7531073155502!3d35.643704339635875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188a34e73350b1%3A0x7b9559189f5c1d10!2z77yI5qCq77yJ44Oe44Kk44K_44OD44Kv44K444Oj44OR44Oz!5e0!3m2!1sen-US!2stw!4v1556854923475!5m2!1sen-US!2stw"  frameborder="0" style="border:0;  height:250px" allowfullscreen></iframe></div>
-	
+
 
 	</div>
 </div>
@@ -907,9 +907,9 @@ TEL: 81-3-3769-8311 | FAX: 81-3-3769-8328<br />
 <div class="container clearfix mt-3 mb-3">
 <div class="heading-block center">
 							<h2>China</h2>
-							
+
 </div>
-	
+
 <div class="row  gx-5 clearfix">
   <div class="col-lg-4 p-3">
   <img src="/EN/solution/images/Mitac-Kunshan.jpg" class="img-fluid" ><br><br />
@@ -933,16 +933,16 @@ TEL: 86-21-6143-1188 | FAX: 86-21-6143-1199<br />
 <a href="mailto:Sales_client@mic.com.tw" />Sales_client@mic.com.tw</a>
   </div>
 </div>
-	
 
-	
+
+
 </div>
 </div>
 <div class="container-fluid m-0 border-0" style="padding: 80px 0; ">
 <div class="container clearfix mt-3 mb-3">
 	<div class="row clearfix" >
 	<div class="col-lg-6 p-3">
-<h2 >Europe</h2>  
+<h2 >Europe</h2>
 <h3>MiTAC Europe Ltd.,</h3>
 3rd Floor The Pinnacle Station Way<br />
 Crawley West Sussex <br />RH10 1JH<br />
@@ -963,7 +963,7 @@ TEL: 44-7943739548<br />
 <div class="container clearfix mt-3 mb-3">
 <div class="heading-block center">
 							<h2>USA</h2>
-							
+
 </div>
 	<div class="gx-5 clearfix mb-4"><img src="/EN/solution/images/Mitac-tyan.jpg" class="img-fluid" ></div>
 <div class="row  gx-5 clearfix">
@@ -983,9 +983,9 @@ TEL: 1-510-651-8868 | FAX: 1-510-651-7688<br />
 </div>
   </div>
 </div>
-	
 
-	
+
+
 </div>
 </div>
 
@@ -1010,11 +1010,11 @@ TEL: 1-510-651-8868 | FAX: 1-510-651-7688<br />
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -1024,7 +1024,7 @@ TEL: 1-510-651-8868 | FAX: 1-510-651-7688<br />
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -1032,11 +1032,11 @@ TEL: 1-510-651-8868 | FAX: 1-510-651-7688<br />
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
-	
+
 	<script src="/js1/particles/particles.min.js"></script>
 	<script src="/js1/particles/particles-bubbles.js"></script><!-- Particles Bubbles -->
-	
+
 </body>
 </html>

@@ -132,12 +132,12 @@ while ($result=mysqli_fetch_array($strDate_cmd)) {
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="Press release for 5G edge computing, OCP, embedded systems, AI, automation from MiTAC.">
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Press release for 5G edge computing, OCP, embedded systems, AI, automation from MiTAC." />
-<meta property="og:title" content="News - Press Release  | MiTAC Computing Technology" />
+<meta property="og:title" content="News - Press Release  | MiTAC Digital Technology" />
   <link rel="shortcut icon" href="images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -158,7 +158,7 @@ while ($result=mysqli_fetch_array($strDate_cmd)) {
 
 <!-- Document Title
 ============================================= -->
-<title>News - Press Release  | MiTAC Computing Technology</title>
+<title>News - Press Release  | MiTAC Digital Technology</title>
 
 <?php
 //************ google analytics ************

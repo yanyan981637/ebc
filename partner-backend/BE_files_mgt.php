@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,7 +25,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -113,16 +113,16 @@ if($kind=="search"){
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -148,7 +148,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -170,7 +170,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 
 
@@ -209,7 +209,7 @@ include("left_menu.php");
 
 								<h1>Files Management</h1>
 								<hr>
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 									<div class="col-md-2">
 										<div class="form-group">
@@ -219,22 +219,22 @@ include("left_menu.php");
 												foreach ($typ_arr as $key => $value) {
 													echo "<option  value='".$key."'>".$value."</option>";
 												}
-												?>	
+												?>
 											</select>
 										</div>
-									</div>		
+									</div>
 									<div class="col-md-3">
 										<div class="form-group">
 											<input id="searchFile" type="text" class="form-control" placeholder="File Name">
 										</div>
 									</div>
 									<div class="col-md-7">
-										<button id="SearchOK" type="button" class="btn btn-info mr-1 mb-1">Search</button>							
+										<button id="SearchOK" type="button" class="btn btn-info mr-1 mb-1">Search</button>
 									</div>
 								</div>
-								<!--end search & sorting-->						
-								<!--total-->	
-								<hr>				
+								<!--end search & sorting-->
+								<!--total-->
+								<hr>
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Total: <span class="info darken-4 t700"><?=$total;?></span></h3>
@@ -249,7 +249,7 @@ include("left_menu.php");
 														</a>
 													</li>
 													<?php
-													for($i=1;$i<=$pages_totle;$i++) { 
+													for($i=1;$i<=$pages_totle;$i++) {
 														$pagenum=6;
 														$last=$page+10;
 														$first=$page-10;
@@ -300,10 +300,10 @@ include("left_menu.php");
 								<table class="table table-hover table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Date Created</th>		
+											<th>Date Created</th>
 											<th>File Name</th>
 											<th>File Date</th>
-											<th>Status</th>		
+											<th>Status</th>
 											<th>Type</th>
 											<th>To</th>
 											<th></th>
@@ -359,14 +359,14 @@ include("left_menu.php");
 													$ToWho.=$CName[1]."-".$CName[3]." / ";
 												}
 											}
-											
+
 										?>
 										<tr>
-											<td><?=$data[6];?></td>	
+											<td><?=$data[6];?></td>
 											<td><?=$data[1];?></td>
 											<td><?=$data[2];?></td>
-											<td><?=$status;?></td>		
-											<td><?=$typeName;?></td>		
+											<td><?=$status;?></td>
+											<td><?=$typeName;?></td>
 											<td><p class="JQellipsis"><?=$ToWho;?></P></td>
 											<td>
 												<a href="editFile@<?=$data[0];?>"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1">Edit</button></a>
@@ -377,7 +377,7 @@ include("left_menu.php");
 										<?php
 										}
 										?>
-										
+
 									</tbody>
 								</table>
 								<input id="EditFileID" type="hidden" value="">
@@ -436,7 +436,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer-->	
+<!--end footer-->
 
 
 
@@ -496,7 +496,7 @@ include("footer.php");
 	</div>
 </div>
 
-<!--end edit a tag Modal -->	
+<!--end edit a tag Modal -->
 
 
 
@@ -516,11 +516,11 @@ include("footer.php");
 			</div>
 			<form>
 				<div class="modal-body" id="D_file">
-					
+
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-info " value="Yes, Delete it." onclick="deleteFT('File');">
-					<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">	
+					<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">
 				</div>
 		</div>
 	</div>
@@ -540,12 +540,12 @@ include("footer.php");
 						</button>
 					</div>
 						<div class="modal-body" id="tagName">
-							
+
 						</div>
 
 						<div class="modal-footer">
 							<input type="button" class="btn btn-info " value="Yes, Delete it." onclick="deleteFT('Type');">
-							<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" value="No">	
+							<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" value="No">
 						</div>
 				</div>
 			</div>
@@ -586,7 +586,7 @@ $("#TypeOK").click(function(){
   url: url,
   dataType: "html",
   data: {
-  	addType : addType,  
+  	addType : addType,
   	kind : kind
   },
   success: function(message){
@@ -599,7 +599,7 @@ $("#TypeOK").click(function(){
   		alert(message);
   	}
   }
-	}); 
+	});
 })
 
 $("#EditOK").click(function(){
@@ -613,7 +613,7 @@ $("#EditOK").click(function(){
   dataType: "html",
   data: {
   	edit_type : edit_type,
-  	Edit_TypeID : Edit_TypeID,    
+  	Edit_TypeID : Edit_TypeID,
   	kind : kind
   },
   success: function(message){
@@ -626,7 +626,7 @@ $("#EditOK").click(function(){
   		alert(message);
   	}
   }
-	}); 
+	});
 })
 
 $("#SearchOK").click(function(){
@@ -646,7 +646,7 @@ function editToID(i,j,k){
     url: url,
     dataType: "html",
     data: {
-    	EditTypeID : EditTypeID,  
+    	EditTypeID : EditTypeID,
       kind : kind
     },
 	    success: function(message){
@@ -657,10 +657,10 @@ function editToID(i,j,k){
 	    		document.getElementById("Edit_TypeID").value=EditTypeID;
 	    	}
 			}
-		});  	
+		});
 	}else if(kind=="Delete"){
 		var EditTypeID=i;
-		var tag=k;	
+		var tag=k;
 		var tmp="Are you sure you want to delete "+tag+"?";
 		document.getElementById("Edit_TypeID").value=EditTypeID;
 		document.getElementById("tagName").innerHTML="";
@@ -669,7 +669,7 @@ function editToID(i,j,k){
 	}else if(kind=="DFile"){
 		var Edit_FileID=i;
 		var tmp="delcompany_"+Edit_FileID;
-		var File=document.getElementById(tmp).value;	
+		var File=document.getElementById(tmp).value;
 		var tmp="Are you sure you want to delete this file -<br /> "+File+"?";
 		document.getElementById("EditFileID").value=Edit_FileID;
 		document.getElementById("D_file").innerHTML="";
@@ -688,18 +688,18 @@ function deleteFT(i){
     url: url,
     dataType: "html",
     data: {
-    	FileID : FileID,  
+    	FileID : FileID,
       kind : kind
     },
 	    success: function(message){
 	    	if(message == "success"){
 	    		alert("Delete File Done.");
-	    		location.reload(); 
+	    		location.reload();
 	    	}else{
 	    		alert(message);
 	    	}
 			}
-		});  	
+		});
 	}else if(kind=="Type"){
 		var TypeID=document.getElementById("Edit_TypeID").value;
 		var kind="DeleteType";
@@ -709,18 +709,18 @@ function deleteFT(i){
     url: url,
     dataType: "html",
     data: {
-    	TypeID : TypeID,  
+    	TypeID : TypeID,
       kind : kind
     },
 	    success: function(message){
 	    	if(message == "success"){
 	    		alert("Delete Type Done.");
-	    		location.reload(); 
+	    		location.reload();
 	    	}else{
 	    		alert(message);
 	    	}
 			}
-		});  	
+		});
 
 	}
 }

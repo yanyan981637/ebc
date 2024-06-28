@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -33,12 +33,12 @@ if($_COOKIE["status"]==""){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC's edge AI computing solutions for IoT appications, including Traffic Flow Monitoring, Smart Factory, Smart Vehicle, AMR">
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="MiTAC's edge AI computing solutions for IoT appications, including Traffic Flow Monitoring, Smart Factory, Smart Vehicle, AMR" />
-	<meta property="og:title" content="Edge AI computing | MiTAC Computing Technology" />
+	<meta property="og:title" content="Edge AI computing | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -102,7 +102,7 @@ if($_COOKIE["status"]==""){
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Edge AI computing | MiTAC Computing Technology</title>
+	<title>Edge AI computing | MiTAC Digital Technology</title>
 
 	<?php
 	//************ google analytics ************

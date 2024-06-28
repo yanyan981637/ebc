@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-//header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+//header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -103,16 +103,16 @@ if($kind=="search"){
       $str_count="SELECT COUNT(*) FROM partner_sales WHERE Team='".$sel_teams."'";
       break;
     case 'AB':
-			$str_count="SELECT COUNT(*) FROM partner_sales WHERE Team='".$sel_teams."' AND Role='".$sel_roles."'";      
+			$str_count="SELECT COUNT(*) FROM partner_sales WHERE Team='".$sel_teams."' AND Role='".$sel_roles."'";
 			break;
     case 'ABC':
-			$str_count="SELECT COUNT(*) FROM partner_sales WHERE EMAIL='".$s_mail."'";      
+			$str_count="SELECT COUNT(*) FROM partner_sales WHERE EMAIL='".$s_mail."'";
 			break;
     case 'B':
       $str_count="SELECT COUNT(*) FROM partner_sales WHERE Role='".$sel_roles."'";
       break;
     case 'BC':
-			$str_count="SELECT COUNT(*) FROM partner_sales WHERE EMAIL='".$s_mail."'";      
+			$str_count="SELECT COUNT(*) FROM partner_sales WHERE EMAIL='".$s_mail."'";
       break;
     default:
       $str_count="SELECT COUNT(*) FROM `partner_sales` WHERE 1";
@@ -125,16 +125,16 @@ if($kind=="search"){
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -160,7 +160,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -181,7 +181,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 <div class="app-content content">
 	<div class="content-wrapper">
@@ -212,7 +212,7 @@ include("left_menu.php");
 
 								<h1>User Accounts Management</h1>
 								<hr>
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 
 									<div class="col-md-3">
@@ -220,7 +220,7 @@ include("left_menu.php");
 											<select id="sel_teams" class="form-control">
 												<option value="" selected>All Teams</option>
 												<?php
-												for ($k=0; $k < $j ; $k++) { 
+												for ($k=0; $k < $j ; $k++) {
 												?>
 												<option value="<?=$teamID[$k]?>" <?php if($sel_teams==$teamID[$k]){echo "selected";}?>><?=$teamName[$k]?></option>
 												<?php
@@ -235,7 +235,7 @@ include("left_menu.php");
 												<option value="" selected>All Roles</option>
 												<option value="SUAD"<?php if($sel_roles=="SUAD"){echo "selected";}?>>Super Admin</option>
 												<option value="AD"<?php if($sel_roles=="AD"){echo "selected";}?>>Admin</option>
-												<option value="SA"<?php if($sel_roles=="SA"){echo "selected";}?>>Sales</option>		
+												<option value="SA"<?php if($sel_roles=="SA"){echo "selected";}?>>Sales</option>
 											</select>
 										</div>
 									</div>
@@ -245,12 +245,12 @@ include("left_menu.php");
 										</div>
 									</div>
 									<div class="col-md-3">
-										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>							
+										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
 									</div>
 								</div>
-								<!--end search & sorting-->						
-								<!--total-->	
-								<hr>				
+								<!--end search & sorting-->
+								<!--total-->
+								<hr>
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Total: <span class="info darken-4 t700"><?=$total;?></span></h3>
@@ -265,7 +265,7 @@ include("left_menu.php");
 													</a>
 												</li>
 												<?php
-												for($i=1;$i<=$pages_totle;$i++) { 
+												for($i=1;$i<=$pages_totle;$i++) {
 													$pagenum=6;
 													$last=$page+10;
 													$first=$page-10;
@@ -316,12 +316,12 @@ include("left_menu.php");
 								<table class="table table-hover table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Name</th>		
+											<th>Name</th>
 											<th>Email</th>
 											<th>Role</th>
 											<th>Team</th>
 											<th>Leads</th>
-											<th>Clients</th>			
+											<th>Clients</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -352,7 +352,7 @@ include("left_menu.php");
 											$str_list="SELECT a.ID, a.NAME, a.EMAIL, a.Role, a.checkbox, a.Team, b.Team FROM partner_sales a inner join partner_teams b on a.Team=b.ID WHERE 1 ORDER BY a.C_DATE DESC LIMIT $start, $per";
 										}
 										$i=0;
-										
+
 										$cmd_list=mysqli_query($link_db,$str_list);
 										while ($data_list=mysqli_fetch_row($cmd_list)) {
 											$strLeads="SELECT COUNT(*) FROM partner_leads_quote WHERE SalesID='".$data_list[0]."'";
@@ -363,9 +363,9 @@ include("left_menu.php");
 											$ClientNum=mysqli_fetch_row($cmdClient);
 										?>
 										<tr>
-											<td><?=$data_list[1];?></td>	
+											<td><?=$data_list[1];?></td>
 											<td><?=$data_list[2];?></td>
-											<td><?=$data_list[3];?></td>		
+											<td><?=$data_list[3];?></td>
 											<td><?=$data_list[6];?></td>
 											<td><?=$LeadsNum[0]?></td>
 											<td><?=$ClientNum[0]?></td>
@@ -387,7 +387,7 @@ include("left_menu.php");
 									<ul>
 										<li><strong>Super Admin:</strong> All functions</li>
 										<li><strong>Admin:</strong> Dashboard, Leads Mgt, Client Accounts Mgt, Projects Mgt, Products Mgt, User Accounts Mgt, Contents Mgt, Reports Mgt</li>
-										<li><strong>Sales:</strong> Dashboard, Leads Mgt, Client Accounts Mgt, Projects Mgt, Products Mgt</li>		
+										<li><strong>Sales:</strong> Dashboard, Leads Mgt, Client Accounts Mgt, Projects Mgt, Products Mgt</li>
 									</ul>
 
 								</div>
@@ -408,7 +408,7 @@ include("left_menu.php");
 									</div>
 								</a>
 								<?php
-								for ($k=0; $k < $j ; $k++) { 
+								for ($k=0; $k < $j ; $k++) {
 									$str_TNums="SELECT COUNT(*) FROM partner_sales WHERE Team='".$teamID[$k]."'";
 									$list1_TNums =mysqli_query($link_db,$str_TNums);
 									list($TNums) = mysqli_fetch_row($list1_TNums);
@@ -427,7 +427,7 @@ include("left_menu.php");
 											<?php
 											}
 											?>
-											
+
 										</h5>
 									</div>
 									<?php
@@ -450,7 +450,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer-->	
+<!--end footer-->
 
 <!--add-a user account Modal -->
 <div class="modal fade text-left" id="add-user-account" tabindex="-1" role="dialog" aria-hidden="true">
@@ -479,7 +479,7 @@ include("footer.php");
 							<option value="" selected>Select...</option>
 							<option  value="SUAD">Super Admin</option>
 							<option  value="AD">Admin</option>
-							<option  value="SA">Sales</option>		
+							<option  value="SA">Sales</option>
 						</select>
 					</div>
 					<div class="form-group">
@@ -494,7 +494,7 @@ include("footer.php");
 						<select id="Add_Team" class="form-control" id="">
 							<option value="" selected>Select...</option>
 							<?php
-							for ($k=0; $k < $j ; $k++) { 
+							for ($k=0; $k < $j ; $k++) {
 								if($teamName[$k]=="TUSA"){
 									$status="selected";
 								}else{
@@ -572,7 +572,7 @@ include("footer.php");
 
 					<div class="modal-footer">
 						<input id="del_sales" type="button" class="btn btn-info " value="Yes, Delete it.">
-						<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">	
+						<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">
 					</div>
 				</form>
 			</div>
@@ -667,14 +667,14 @@ include("footer.php");
 
 					<div class="modal-footer">
 						<input id="DelTeam" type="button" class="btn btn-info " value="Yes, Delete it." >
-						<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">	
+						<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- end delete a team Modal -->	
+<!-- end delete a team Modal -->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/vendors/js/vendors.min.js"></script>
@@ -696,7 +696,7 @@ $("#ATeamsOK").click(function(){
     url: url,
     dataType: "html",
     data: {
-      TeamName : TeamName, 
+      TeamName : TeamName,
       kind : kind
     },
     success: function(message){
@@ -722,8 +722,8 @@ $("#ETeamsOK").click(function(){
     url: url,
     dataType: "html",
     data: {
-    	E_teamID : E_teamID, 
-      TeamName : TeamName, 
+    	E_teamID : E_teamID,
+      TeamName : TeamName,
       kind : kind
     },
     success: function(message){
@@ -748,7 +748,7 @@ $("#DelTeam").click(function(){
     url: url,
     dataType: "html",
     data: {
-      delTeamID : delTeamID, 
+      delTeamID : delTeamID,
       kind : kind
     },
     success: function(message){
@@ -773,7 +773,7 @@ function editToID(i,j){
     url: url,
     dataType: "html",
     data: {
-    	EditTeameID : EditTeameID,  
+    	EditTeameID : EditTeameID,
       kind : kind
     },
 	    success: function(message){
@@ -785,7 +785,7 @@ function editToID(i,j){
 	    		document.getElementById("Edit_TeamID").value=EditTeameID;
 	    	}
 			}
-		});  	
+		});
 	}else if(kind=="sales"){
 		var EditSalesID=i;
 		var kind="editToSales";
@@ -795,20 +795,20 @@ function editToID(i,j){
     url: url,
     dataType: "html",
     data: {
-    	EditSalesID : EditSalesID,  
+    	EditSalesID : EditSalesID,
       kind : kind
     },
 	    success: function(message){
 	    	if(message == "success"){
 
 	    	}else{
-	    		$("#div_editSales").empty(); 
+	    		$("#div_editSales").empty();
 	    		$("#div_editSales").append(message);
 	    		document.getElementById("edit_sales").value=EditSalesID;
 
 	    	}
 			}
-		});  
+		});
 	}else if(kind=="del"){
 		var delID=i;
 		var kind="editToDel";
@@ -818,7 +818,7 @@ function editToID(i,j){
     url: url,
     dataType: "html",
     data: {
-    	delID : delID,  
+    	delID : delID,
       kind : kind
     },
 	    success: function(message){
@@ -830,7 +830,7 @@ function editToID(i,j){
 
 	    	}
 			}
-		});  	
+		});
 	}
 }
 
@@ -869,11 +869,11 @@ $("#AddSales").click(function(){
     url: url,
     dataType: "html",
     data: {
-    	Add_Name : Add_Name, 
+    	Add_Name : Add_Name,
       mail_val : mail_val,
-      Add_Role : Add_Role, 
-      Add_checkbox : Add_checkbox, 
-      Add_Team : Add_Team,  
+      Add_Role : Add_Role,
+      Add_checkbox : Add_checkbox,
+      Add_Team : Add_Team,
       kind : kind
     },
     success: function(message){
@@ -926,12 +926,12 @@ $("#EditSales").click(function(){
     url: url,
     dataType: "html",
     data: {
-    	editSalesID : editSalesID, 
-    	edit_Name : edit_Name, 
+    	editSalesID : editSalesID,
+    	edit_Name : edit_Name,
       mail_val : mail_val,
-      edit_Role : edit_Role, 
-      edit_checkbox : edit_checkbox, 
-      edit_Team : edit_Team,  
+      edit_Role : edit_Role,
+      edit_checkbox : edit_checkbox,
+      edit_Team : edit_Team,
       kind : kind
     },
     success: function(message){
@@ -946,7 +946,7 @@ $("#EditSales").click(function(){
 })
 
 $("#del_sales").click(function(){
-	
+
 	var delSalesID = document.getElementById("edit_sales").value;
 	var kind = "delSales";
 	var url = "userAccount";
@@ -956,7 +956,7 @@ $("#del_sales").click(function(){
     url: url,
     dataType: "html",
     data: {
-    	delSalesID : delSalesID,  
+    	delSalesID : delSalesID,
       kind : kind
     },
     success: function(message){
@@ -973,7 +973,7 @@ $("#del_sales").click(function(){
 function search(){
   var sel_teams=$("#sel_teams").val();
   var sel_roles=$("#sel_roles").val();
-	var mail=$("#s_mail").val();	
+	var mail=$("#s_mail").val();
   document.location.href="BEuser_accounts?kind=search&teams="+sel_teams+"&roles="+sel_roles+"&mail="+mail;
 }
 

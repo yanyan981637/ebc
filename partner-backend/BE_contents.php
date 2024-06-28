@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -74,16 +74,16 @@ $str_count="SELECT COUNT(*) FROM partner_announcement WHERE 1";
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -121,7 +121,7 @@ while($data_annTime=mysqli_fetch_row($cmd_annTime)){
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -144,8 +144,8 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
-	
+<!--end left menu-->
+
 
 
 <div class="app-content content">
@@ -179,8 +179,8 @@ include("left_menu.php");
 							<div class="card-body">
 
 								<h1>Contents Management - Announcements</h1>
-								<!--total-->	
-								<hr>				
+								<!--total-->
+								<hr>
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Total: <span class="info darken-4 t700"><?=$public_count?></span></h3>
@@ -195,7 +195,7 @@ include("left_menu.php");
 													</a>
 												</li>
 												<?php
-												for($i=1;$i<=$pages_totle;$i++) { 
+												for($i=1;$i<=$pages_totle;$i++) {
 													$pagenum=6;
 													$last=$page+10;
 													$first=$page-10;
@@ -249,11 +249,11 @@ include("left_menu.php");
 								<table class="table table-hover table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Date Created</th>		
+											<th>Date Created</th>
 											<th>Title</th>
-											<th>Release To</th>	
+											<th>Release To</th>
 											<th>Release Schedule (CST)</th>
-											<th>Status</th>		
+											<th>Status</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -277,9 +277,9 @@ include("left_menu.php");
 										<tr>
 											<td><?=$data[6];?></td>
 											<td><?=$data[1];?></td>
-											<td><?=$data[2];?></td>		
+											<td><?=$data[2];?></td>
 											<td><?=$time;?></td>
-											<td><?=$status;?></td>		
+											<td><?=$status;?></td>
 											<td>
 												<a href="EditAnnouncement@<?=$data[0];?>"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1">Edit</button></a>
 												<a href="" data-toggle="modal" data-target="#del-announcement"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1" onclick="Assigned('<?=$data[0];?>')">Delete</button></a>
@@ -288,7 +288,7 @@ include("left_menu.php");
 										<?php
 										}
 										?>
-										
+
 									</tbody>
 								</table>
 								<input id="assID" type="hidden" value="">
@@ -310,7 +310,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer-->	
+<!--end footer-->
 
 
 
@@ -333,7 +333,7 @@ include("footer.php");
 
 				<div class="modal-footer">
 					<input id="DeleteOK" type="button" class="btn btn-info " value="Yes, Delete it.">
-					<input type="button" class="btn btn-secondary" data-dismiss="modal" value="No">	
+					<input type="button" class="btn btn-secondary" data-dismiss="modal" value="No">
 				</div>
 		</div>
 	</div>
@@ -381,19 +381,19 @@ $("#DeleteOK").click(function(){
   url: url,
   dataType: "html",
   data: {
-  	ID : ID,  
+  	ID : ID,
   	kind : kind
   },
   success: function(message){
   	if(message == "success"){
   		alert("Delete Done.");
   		//document.location.href="BEcontents";
-  		location.reload(); 
+  		location.reload();
   	}else{
   		alert(message);
   	}
   }
-	}); 
+	});
 })
 </script>
 </body>

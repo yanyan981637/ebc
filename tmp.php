@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -33,15 +33,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -66,16 +66,16 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp.</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp.</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/carousel.css" rel="stylesheet"> 
+    <link href="css/carousel.css" rel="stylesheet">
     <link href="css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -87,10 +87,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -103,23 +103,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -132,12 +132,12 @@ if($s_cookie!=2){
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

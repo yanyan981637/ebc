@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -30,7 +30,7 @@ mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
 
-include("countryCodeReplace.php");    
+include("countryCodeReplace.php");
 
 function dowith_sql($str)
 {
@@ -109,7 +109,7 @@ $companyCountryCode=$data[7];
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -152,14 +152,14 @@ include("left_menu.php");
 					</div>
 				</div>
 			</div>
-			<!--end breadcrumb--> 
+			<!--end breadcrumb-->
 
 
 		</div>
 		<div class="content-body">
 			<input id="UID" type="hidden" value="<?=$ID?>"> <!-- for self.js -->
 			<div class="row">
-				<!--Members list-->	
+				<!--Members list-->
 				<div class="col-xl-8 col-lg-12">
 					<div class="card no-border box-shadow-1">
 						<div class="card-content">
@@ -170,7 +170,7 @@ include("left_menu.php");
 								<table class="table table-hover table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Name</th>		 		
+											<th>Name</th>
 											<th>Title</th>
 											<th>Email Address</th>
 											<th>Tel</th>
@@ -193,9 +193,9 @@ include("left_menu.php");
 											<td>
 												<a href="editMembers@<?=$data[0]?>"  /><button type="button" class="btn btn-outline-info btn-sm"><i class="ft-edit-2"></i> Edit</button></a>
 												<a href="" data-toggle="modal" data-target="#del-contact" onclick="ass('<?=$data[2]?>','<?=$data[0]?>','delete')"/><button type="button" class="btn btn-outline-info btn-sm" ><i class="ft-trash-2"></i> Delete</button></a>
-											</td>	  
+											</td>
 										</tr>
-										<?php	
+										<?php
 										}
 										?>
 									</tbody>
@@ -205,7 +205,7 @@ include("left_menu.php");
 						</div>
 					</div>
 				</div>
-				<!--end Members list-->	
+				<!--end Members list-->
 
 
 				<!--delete member Modal -->
@@ -225,7 +225,7 @@ include("left_menu.php");
 
 								<div class="modal-footer">
 									<input type="submit" class="btn btn-info " value="Yes, Delete it." onclick="DeleteOK()">
-									<input type="submit" class="btn btn-light" data-dismiss="modal" aria-label="Close" value="No">	
+									<input type="submit" class="btn btn-light" data-dismiss="modal" aria-label="Close" value="No">
 								</div>
 							</form>
 						</div>
@@ -245,7 +245,7 @@ include("left_menu.php");
 
 
 
-				<!--company info-->	
+				<!--company info-->
 				<div class="col-xl-4 col-lg-12">
 					<div class="card no-border box-shadow-1">
 						<div class="card-content">
@@ -263,8 +263,8 @@ include("left_menu.php");
 								<table class="table table-borderless" >
 									<tr><th>Company Name:</th><td><?=$companyName?></td></tr>
 									<tr><th>Company ID:</th><td><?=$companyID?></td></tr>
-									<tr><th>Company Address:</th><td><?=$companyAddress?></td></tr>	
-									<tr><th>Region:</th><td><?=country($companyCountryCode)?></td></tr>	
+									<tr><th>Company Address:</th><td><?=$companyAddress?></td></tr>
+									<tr><th>Region:</th><td><?=country($companyCountryCode)?></td></tr>
 								</table>
 							</div>
 						</div>
@@ -351,7 +351,7 @@ function ass(i, j, k){
   	var DeleteID = j;
   	var content="<i class='ft-trash-2'></i>&nbsp;&nbsp;Are you sure you want to delete "+Uname+"?"
   	document.getElementById("assID").value=DeleteID;
-  	document.getElementById("d_user").innerHTML = content; 
+  	document.getElementById("d_user").innerHTML = content;
   }
   if(kind=="sendP"){
   	var mail=i;
@@ -359,7 +359,7 @@ function ass(i, j, k){
   	var content="Are you sure you want to send account info to "+mail+"?"
   	document.getElementById("assmail").value=mail;
   	document.getElementById("assID").value=UID;
-  	document.getElementById("sendMail").innerHTML = content; 
+  	document.getElementById("sendMail").innerHTML = content;
   }
 }
 function DeleteOK(i){
@@ -383,7 +383,7 @@ function DeleteOK(i){
       alert(message);
     }
   }
-  }); 
+  });
 }
 $("#editOK").click(function(){
 	var CompanyID=$("#edit_ID").val();
@@ -412,7 +412,7 @@ $("#editOK").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

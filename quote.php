@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -68,7 +68,7 @@ if(isset($_COOKIE['status'])){
 if(isset($_GET["RFQsku"])){
   $RFQsku="";
 }else{
-	$RFQsku=dowith_sql($_COOKIE['RFQsku']); 
+	$RFQsku=dowith_sql($_COOKIE['RFQsku']);
 	$RFQsku=filter_var($RFQsku);
 }
 
@@ -81,12 +81,12 @@ $arr_sku=explode(",",$RFQsku);
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="" /> 
-	<meta property="og:title" content="MiTAC Computing Technology | Request for Quotation" />
+	<meta property="og:description" content="" />
+	<meta property="og:title" content="MiTAC Digital Technology | Request for Quotation" />
 	<link rel="shortcut icon" href="images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -100,12 +100,12 @@ $arr_sku=explode(",",$RFQsku);
 	<link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/quote.css" type="text/css" />
-	
+
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>MiTAC Computing Technology | Request for Quotation</title>
-	<?php 
+	<title>MiTAC Digital Technology | Request for Quotation</title>
+	<?php
 	//************ google analytics ************
 	if($s_cookie!=2){
 	  include_once("analyticstracking.php");
@@ -198,7 +198,7 @@ $arr_sku=explode(",",$RFQsku);
 									  }
 									  $i++;
 									}
-								
+
 								}
 								?>
 
@@ -234,17 +234,17 @@ $arr_sku=explode(",",$RFQsku);
 									<div class="modal-body">
 										<div style="">
 											<p class="mb-3">Are you sure you want to send your request?</p>
-											
+
 											<button id="RFQ_OK" type="button" class="btn btn-primary">Yes, send it.</button>
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-										</div>	
+										</div>
 
 									</div>
 								</div>
 							</div>
 						</div>
 
-						
+
 						<?php
 						}
 						?>
@@ -258,8 +258,8 @@ $arr_sku=explode(",",$RFQsku);
 									<div class="modal-body">
 										<div class="center" style="padding: 50px;">
 											<h3>Submit Successfully!</h3>
-											<p class="mb-0">Thank you for your interest in MiTAC Computing Technology. 
-												We will contact with you ASAP. 
+											<p class="mb-0">Thank you for your interest in MiTAC Digital Technology.
+												We will contact with you ASAP.
 											</p>
 										</div>
 										<div class="section center m-0" style="padding: 30px;">
@@ -269,12 +269,12 @@ $arr_sku=explode(",",$RFQsku);
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 					<!--end product list-->
-					
+
 					<!--register & login-->
-					
+
 					<div class="col-lg-6" style="padding:5%">
 						<?php
 						if($login_IN!="1"){
@@ -282,7 +282,7 @@ $arr_sku=explode(",",$RFQsku);
 						if($login_IN!="1" && $RFQsku!=""){
 						?>
 						<div><a href="#" class="button button-desc button-3d button-rounded button-aqua center" style="width:520px" data-bs-toggle="modal" data-bs-target=".registration-modal-lg">Fill out the form<span>Leave your information to request the quotation!</span></a></div>
-						<?php 
+						<?php
 						}
 						?>
 						<br />
@@ -302,7 +302,7 @@ $arr_sku=explode(",",$RFQsku);
 										<button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
 									</div>
 									<div class="modal-body">
-										
+
 										<form id="form1">
 											<h4  style="color:#004898">Please fill out the form below. All fields are required.
 												We will contact you soon after receiving your request.</h4>
@@ -362,7 +362,7 @@ $arr_sku=explode(",",$RFQsku);
 												<div class="row" style="margin:5px 0px 15px 0px; font-size:1rem">
 													<div id="vals-img" style="width: 100px;">
 														<img src="/captcha@1" id="rand-img1" border="0" width="150" style="cursor: pointer; cursor: hand;">
-													</div> 
+													</div>
 													<a href="" id="refresh1" onclick="return false">Refresh</a><br>
 													<input type="text" id="Checknum" name="Checknum" class="form-control not-dark required" placeholder="Type the text from image">
 
@@ -382,7 +382,7 @@ $arr_sku=explode(",",$RFQsku);
 									</div>
 								</div>
 							</div>
-							<!--end registration button-->	
+							<!--end registration button-->
 							<input id="RFQpage" type="hidden" value="Y">
 
 
@@ -392,17 +392,17 @@ $arr_sku=explode(",",$RFQsku);
 				</div>
 			</div>
 
-			     
 
 
 
 
 
-			<!-- FOOTER -->	  
+
+			<!-- FOOTER -->
 			<?php
 			include("foot1.htm");
 			?>
-			<!-- FOOTER end -->	  
+			<!-- FOOTER end -->
 
 		</div><!-- #wrapper end -->
 
@@ -440,7 +440,7 @@ $("#RFQ_OK").click(function(){
 
     	document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     	$('#myModal1').modal('hide');
-    	
+
       $("#myModal2").modal('show');
 
 
@@ -454,7 +454,7 @@ $("#RFQ_OK").click(function(){
       exit;
     }
   }
-  }); 
+  });
 })
 
 $(function(){
@@ -469,7 +469,7 @@ $(function(){
       exit;
     }
     if($("#email").val()!=""){
-      
+
       var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
       var mail_val = $("#email").val();
       if(search_str.test(mail_val)){
@@ -512,18 +512,18 @@ $(function(){
 	      data: fd,
 	      cache: false,
 	      contentType: false,
-	      processData: false,  
+	      processData: false,
 
 	      success: function(data){
 	        if(data == "refresh"){
-	            
+
 	          }else{
-	           
+
 	          }
-	        }  
+	        }
 	    });
-    } 
-    
+    }
+
     //newsletter end
     var tel = $("#tel").val();
     var Msg = $("#re_message").val();
@@ -535,11 +535,11 @@ $(function(){
       url: url,
       dataType: "html",
       data: {
-        username : username, 
-        companyname : companyname, 
+        username : username,
+        companyname : companyname,
         email : email,
         countryCode : countryCode,
-        tel : tel, 
+        tel : tel,
         Msg : Msg,
         Checknum : Checknum,
         kind : kind
@@ -558,12 +558,12 @@ $(function(){
       }
     });
 
-  });  
+  });
 });
 
 //captcha
 $(function(){
-    $("#refresh1").click(function() { 
+    $("#refresh1").click(function() {
        var obj = document.getElementById("rand-img1");
        var i=Math.floor((Math.random() * 10) + 1);;
        obj.src=null;

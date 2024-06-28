@@ -31,12 +31,12 @@ if($_COOKIE["status"]==""){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="Industry leader of embedded, panel PC, kiosks, motherboards, OCP for 5G, edge computing, AI, automation solutions">
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="Industry leader of embedded, panel PC, kiosks, motherboards, OCP for 5G, edge computing, AI, automation solutions" />
-	<meta property="og:title" content="MiTAC Computing Technology | 5G, OCP, panel PC, embedded motherboards" />
+	<meta property="og:title" content="MiTAC Digital Technology | 5G, OCP, panel PC, embedded motherboards" />
 	<meta name="google-site-verification" content="eQiyhhgLcF1f4G-nh1RdOZz8egds53Ztgk-hbW_JsEY" />
     <link rel="shortcut icon" href="images/ico/favicon.ico">
 
@@ -55,7 +55,7 @@ if($_COOKIE["status"]==""){
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>MiTAC Computing Technology | 5G, OCP, panel PC, embedded motherboards</title>
+	<title>MiTAC Digital Technology | 5G, OCP, panel PC, embedded motherboards</title>
 
 	<?php
 	//************ google analytics ************

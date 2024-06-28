@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -20,12 +20,12 @@ if (isset($_GET["status"])) {
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="">
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="" />
-	<meta property="og:title" content="Download Catalogs | MiTAC Computing Technology" />
+	<meta property="og:title" content="Download Catalogs | MiTAC Digital Technology" />
 	<link rel="shortcut icon" href="images/ico/favicon.ico">
 	<!-- Stylesheets
 ============================================= -->
@@ -41,7 +41,7 @@ if (isset($_GET["status"])) {
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
 ============================================= -->
-	<title>Download Catalogs | MiTAC Computing Technology</title>
+	<title>Download Catalogs | MiTAC Digital Technology</title>
 </head>
 <body class="stretched">
 	<!-- Document Wrapper

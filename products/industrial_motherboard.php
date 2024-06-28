@@ -35,15 +35,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -68,8 +68,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - Industrial Motherboards</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - Industrial Motherboards</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -77,7 +77,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -89,10 +89,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -125,23 +125,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -164,22 +164,22 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 <img src="/images/logo/intel_ElkhartLake-ATOM.png" /> <img src="/images/logo/intel-celeron-tigerlake.png" /> <img src="/images/logo/intel_ElkhartLake-Pentium.png" /> <img src="/images/logo/intel_core_i3_2020.png" /> <img src="/images/logo/intel_core_i5_2020.png" /> <img src="/images/logo/intel_core_i7_2020.png" /> -->
   </p>
 
-                      
+
                     </div>
                 </div>
 				<div class="col-xs-6 col-md-4 text-left" style="padding-top:3%;">
 				 <div class="well box" style="background-color: rgba(255, 255, 255, 0.9); ">
-				 
+
 				 <strong>New products:</strong><br />
 				 <div class="intro-divider "></div><br />
 				 <ul style="margin-left:15px">
-				 
-				 
+
+
 <li ><a href="/IndustrialMotherboard=ND108T=ND108T=description=EN" target="mit" />ND108T (Pico-iTX)</a></li>
-<li ><a href="/IndustrialMotherboard=PH12ADI=PH12ADI=description=EN" target="mit" />PH12ADI (Thin Mini-ITX)</a></li>					 
-<li ><a href="/IndustrialMotherboard_PH11CMI_PH11CMI" target="mit" />PH11CMI (Thin Mini-ITX)</a></li>					 
-<li ><a href="/IndustrialMotherboard_PH12CMI_PH12CMI" target="mit" />PH12CMI (Thin Mini-ITX)</a></li>					 
-<li ><a href="/IndustrialMotherboard_PH13CMI_PH13CMI" target="mit" />PH13CMI (Mini-ITX)</a></li>				 
+<li ><a href="/IndustrialMotherboard=PH12ADI=PH12ADI=description=EN" target="mit" />PH12ADI (Thin Mini-ITX)</a></li>
+<li ><a href="/IndustrialMotherboard_PH11CMI_PH11CMI" target="mit" />PH11CMI (Thin Mini-ITX)</a></li>
+<li ><a href="/IndustrialMotherboard_PH12CMI_PH12CMI" target="mit" />PH12CMI (Thin Mini-ITX)</a></li>
+<li ><a href="/IndustrialMotherboard_PH13CMI_PH13CMI" target="mit" />PH13CMI (Mini-ITX)</a></li>
 <li><a href="/IndustrialMotherboard%3DPD10EHI%3DPD10EHI%3Ddescription%3DEN" target="mit" />PD10EHI (Mini-ITX)</a></li>
 <li><a href="/IndustrialMotherboard%3DPH10CMU%3DPH10CMU%3Ddescription%3DEN" target="mit" />PH10CMU (Micro-ATX)</a></li>
 <!--<li><a href="/IndustrialMotherboard%3DPD11TGS%3DPD11TGS%3Ddescription%3DEN" target="mit" />PD11TGS (3.5" SBC)</a></li>-->
@@ -189,8 +189,8 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 
 				</div>
 				<br />
-				
-				
+
+
 				</div>
             </div>
 
@@ -198,13 +198,13 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
         <!-- /.container -->
 
     </div>
-	
-	
+
+
 
 	<!-- tabs -->
 	<div style="background:#f8f8f8">
 	<div class="container" >
-	
+
 <ul class="nav nav-pills" style="margin:40px 0px; font-size:1.2em">
 
   <li role="presentation" ><a href="#M-ATX">Micro ATX</a></li>
@@ -215,15 +215,15 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
     <li role="presentation"><a href="#COMe">COMe</a></li>
 </ul>
 
-	
-	
+
+
 	</div>
 	</div>
-	<!-- end tabs -->	
-	
+	<!-- end tabs -->
+
 	<!--Micro ATX-->
-	
-	
+
+
 		<a name="M-ATX"></a>
 	<div class="container" style="padding:2% 0%">
 	</div>
@@ -239,7 +239,7 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 <a href="/IndustrialMotherboard%3DPH10CMU%3DPH10CMU%3Ddescription%3DEN" target="mit" /><img src="/images/product/IndustriaMB/PH10CMU.jpg" class="img-responsive" /></a><br />
 <div class="sub_des" >Intel 10th Gen Core-i <br>(Comet Lake-S)</div>
 </div>
-  
+
   </div>
     <div class="col-md-3">
 	<div class="pro_well" ><br />
@@ -260,16 +260,16 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
   </div>
   <div class="col-md-3">
- 
+
   </div>
-  
+
   </div>
- 
+
 </div>
- <p style="margin-top:6%"> </p>	
-	
+ <p style="margin-top:6%"> </p>
+
 	<!--end Micro ATX-->
-<!--Thin Mini-iTX-->	
+<!--Thin Mini-iTX-->
 
 
 <a name="TMiTX"></a>
@@ -278,16 +278,16 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 	<div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
 	<h1 class="text-center">Thin Mini-iTX</h1>
 	</div>
-	
+
 	<p style="margin-top:3%"> </p>
-	
+
 	<div class="container">
-	
+
 	<h2>Core i</h2>
-	
-	
+
+
   <div class="row">
-  
+
   <div class="col-md-3">
 <div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">PH12ADI</h4>
@@ -296,11 +296,11 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Alder Lake)
 </div>
 </div>
-  
+
   </div>
-  
-  
-  
+
+
+
   <div class="col-md-3"><div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">PH11CMI</h4>
 <a href="/IndustrialMotherboard_PH11CMI_PH11CMI" target="mit" /><img src="/images/product/IndustriaMB/PH11CMI.jpg" class="img-responsive" /></a><br />
@@ -308,8 +308,8 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Comet Lake-S)
 </div>
 </div></div>
-  
-  
+
+
     <div class="col-md-3"><div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">PH12CMI</h4>
 <a href="/IndustrialMotherboard_PH12CMI_PH12CMI" target="mit" /><img src="/images/product/IndustriaMB/PH12CMI.jpg" class="img-responsive" /></a><br />
@@ -317,9 +317,9 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Comet Lake-S)
 </div>
 </div></div>
-  
-  
-  
+
+
+
     <div class="col-md-3">
 	<div class="pro_well" ><br />
 <h4 style="text-align: center;">PH12FEI</h4>
@@ -329,7 +329,7 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
 </div>
 	</div>
-	  
+
 
   </div> <p style="margin-top:3%"> </p>
   <div class="row">
@@ -341,11 +341,11 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Coffee Lake-S)
 </div>
 </div>
-  
-	  
+
+
 	</div>
-  
-  
+
+
 	<div class="col-md-3">
 	 <div class="pro_well" >
 <h4 style="text-align: center;">PH12SI</h4>
@@ -364,23 +364,23 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
 </div>
 	</div>
-    
+
 	<div class="col-md-3">
- 
+
 	</div>
   </div>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <p style="margin-top:3%"> </p>
   	<h2>Atom</h2>
-  
+
     <div class="row">
-	
+
 	<div class="col-md-3">
 	<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">PD10EHI</h4>
@@ -398,7 +398,7 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Apollo Lake)
 </div>
 </div>
-  
+
   </div>
    <div class="col-md-3">
  <div class="pro_well" ><br>
@@ -418,19 +418,19 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
 </div>
   </div>
-	
 
- 
+
+
   </div>
-  
 
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
 
 </div>
   <p style="margin-top:6%"> </p>
@@ -458,9 +458,9 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Comet Lake-S)
 </div>
 </div>
-  
+
   </div>
-   
+
     <div class="col-md-3">
 	<div class="pro_well" ><br>
 <h4 style="text-align: center;">PH13FEI</h4>
@@ -489,7 +489,7 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
   </div>
 
-  
+
   </div>
 
 
@@ -529,10 +529,10 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
 </div>
   </div>
-  
-  
+
+
     <div class="col-md-3">
-	
+
   <div class="pro_well" ><br>
 <h4 style="text-align: center;">PD11KS</h4><br />
 <a href="/IndustrialMotherboard%3DPD11KS%3DPD11KS%3Ddescription%3DEN" target="mit" /><img src="/images/product/IndustriaMB/PD11KS.jpg" class="img-responsive" /></a><br />
@@ -558,9 +558,9 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 (Apollo Lake)
 </div>
 </div>
-  
+
   </div>
-  
+
   </div>
 
 
@@ -599,13 +599,13 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 <a href="/IndustrialMotherboard%3DND118T%3DND118T%3Ddescription%3DEN" target="mit" /><img src="/images/product/IndustriaMB/ND118T.jpg" class="img-responsive" /></a><br />
 <div class="sub_des" >NXP i.MX8M</div>
 </div>
- 
+
   </div>
   <div class="col-md-3">
- 
+
   </div>
   <div class="col-md-3">
- 
+
   </div>
   </div>
 
@@ -647,13 +647,13 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 </div>
 	</div>
   <div class="col-md-3">
- 
+
   </div>
   <div class="col-md-3">
- 
+
   </div>
   <div class="col-md-3">
- 
+
   </div>
   </div>
 
@@ -670,12 +670,12 @@ MiTAC's industrial motherboard ranging from Micro ATX to COMe with high longevit
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

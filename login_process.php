@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -10,7 +10,7 @@ session_start();
 error_reporting(0);
 
 require "config.php";
-include("EN/PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別  
+include("EN/PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 
 $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
@@ -115,7 +115,7 @@ if($kind=="Login"){
   if(isset($_SESSION["Checknum"])!=''){
     if($_SESSION["Checknum"]==$Checknum1){
 
-      
+
       $cmd=mysqli_query($link_db,$str);
       $user=mysqli_fetch_row($cmd);
       $UID=$user[0];
@@ -137,7 +137,7 @@ if($kind=="Login"){
         if($user[3]==$password) {
           //echo 'Password is valid!';
         }else{
-          
+
             echo "errMsg"; //error
             mysqli_close($link_db);
             exit();
@@ -151,7 +151,7 @@ if($kind=="Login"){
             exit();
         }
       }
-      
+
       putenv("TZ=Asia/Taipei");
       $login_time=date("Y,m d,h:i:s A");
 
@@ -160,8 +160,8 @@ if($kind=="Login"){
       $_SESSION['login_time']=$login_time;
 
       if($terms=="true"){ // keep login
-        $key = 'T!Y^A@N*'; 
-        $encrypt = encrypt($user[2], $key);  
+        $key = 'T!Y^A@N*';
+        $encrypt = encrypt($user[2], $key);
         setcookie("cuser",$encrypt,time()+3600*24*7);
         //setcookie("cun",$user[1]);
         setcookie("IN", "1", time()+3600, '/', "tyan.com");// login status
@@ -175,7 +175,7 @@ if($kind=="Login"){
       }
 
       setcookie("RFQsku","",time()-3600*24*7);
-      
+
       if($user[4]=="1"){
         echo "FEpassword@".$user[0];
       }else{
@@ -183,10 +183,10 @@ if($kind=="Login"){
       }
       $_SESSION['start'] = time(); // Taking now logged in time.
       // Ending a session in 30 minutes from the starting time.
-      $_SESSION['expire'] = $_SESSION['start'] + (30*60);    
+      $_SESSION['expire'] = $_SESSION['start'] + (30*60);
       mysqli_close($link_db);
       exit();
-    }else{ 
+    }else{
       echo "captacha";
       mysqli_close($link_db);
       exit();
@@ -243,9 +243,9 @@ if($kind=="reset"){
 
   $str="UPDATE partner_user SET Password='".$password."', FirstLogin='1', U_DATE='".$now."' WHERE ID='".$ID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
-  }else{  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
+  }else{
     echo "Update error";
     mysqli_close($link_db);
     exit();
@@ -319,64 +319,64 @@ if($kind=="reset"){
   <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0'>
   <tr>
   <td style='padding: 35px;' align='center'>
-  <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. <br />All Rights Reserved.</p>
+  <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Digital Technology Corporation and/or any of its affiliates. <br />All Rights Reserved.</p>
 
   </td>
   </tr>
   </table>
     ";
 
-  $mail= new PHPMailer(); //建立新物件   
-  $mail->IsSMTP(); //設定使用SMTP方式寄信   
-  $mail->SMTPAuth = false; //設定SMTP需要驗證   
+  $mail= new PHPMailer(); //建立新物件
+  $mail->IsSMTP(); //設定使用SMTP方式寄信
+  $mail->SMTPAuth = false; //設定SMTP需要驗證
   //$mail->SMTPSecure = "ssl"; //ssl tls
   //$mail->SMTPDebug = 2;
   $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
   $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-  $mail->CharSet = "utf-8"; //設定郵件編碼   
+  $mail->CharSet = "utf-8"; //設定郵件編碼
 
   $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
   $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-  $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱   
-  $mail->FromName = "Tyan Partner Portal"; //設定寄件者姓名   
+  $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱
+  $mail->FromName = "Tyan Partner Portal"; //設定寄件者姓名
 
-  $mail->Subject = "Your password has been reset."; //設定郵件標題   
-  $mail->Body = $content; //設定郵件內容 
-  $mail->IsHTML(true); //設定郵件內容為HTML   
-  $mail->SMTPAutoTLS = false;   
+  $mail->Subject = "Your password has been reset."; //設定郵件標題
+  $mail->Body = $content; //設定郵件內容
+  $mail->IsHTML(true); //設定郵件內容為HTML
+  $mail->SMTPAutoTLS = false;
 
-  $mail->AddAddress($email, $username); //設定收件者郵件及名稱 
-  //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
+  $mail->AddAddress($email, $username); //設定收件者郵件及名稱
+  //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
   if(!$mail->Send()) {
     $errorMail=$mail->ErrorInfo;
 
-    $admail= new PHPMailer(); //建立新物件   
-    $admail->IsSMTP(); //設定使用SMTP方式寄信   
-    $admail->SMTPAuth = false; //設定SMTP需要驗證   
+    $admail= new PHPMailer(); //建立新物件
+    $admail->IsSMTP(); //設定使用SMTP方式寄信
+    $admail->SMTPAuth = false; //設定SMTP需要驗證
     //$mail->SMTPSecure = "ssl"; //ssl tls
     //$mail->SMTPDebug = 2;
     $admail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
     $admail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $admail->CharSet = "utf-8"; //設定郵件編碼   
+    $admail->CharSet = "utf-8"; //設定郵件編碼
 
     $admail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
     $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-    $admail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱   
-    $admail->FromName = "Tyan Partner Portal";; //設定寄件者姓名   
+    $admail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱
+    $admail->FromName = "Tyan Partner Portal";; //設定寄件者姓名
 
-    $admail->Subject = "Your password has been reset."; //設定郵件標題   
-    $admail->Body = $errorMail; //設定郵件內容 
-    $admail->IsHTML(true); //設定郵件內容為HTML  
-    $admail->SMTPAutoTLS = false; 
-    $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
-    //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");  
-    $admail->Send();   
-    echo "Mailer Error: " . $mail->ErrorInfo;  
+    $admail->Subject = "Your password has been reset."; //設定郵件標題
+    $admail->Body = $errorMail; //設定郵件內容
+    $admail->IsHTML(true); //設定郵件內容為HTML
+    $admail->SMTPAutoTLS = false;
+    $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
+    //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");
+    $admail->Send();
+    echo "Mailer Error: " . $mail->ErrorInfo;
     mysqli_close($link_db);
-    exit(); 
-  } else {  
+    exit();
+  } else {
 
     echo "success";
     mysqli_close($link_db);

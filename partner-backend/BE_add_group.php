@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -74,16 +74,16 @@ $str_count="SELECT COUNT(*) FROM partner_announcement WHERE 1";
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -109,12 +109,12 @@ $start = ($page-1)*$per; //每頁起始資料序號
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/icheck.css">
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/custom.css">
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/daterange/daterangepicker.css">
-  <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">	
+  <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
   <!-- END VENDOR CSS-->
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -191,12 +191,12 @@ include("left_menu.php");
                <div class="form-group bg-grey bg-lighten-3 p-2" style="">
                 <label><strong>Files: </strong></label>
                 <button type="button" class="btn btn-outline-secondary ml-1" data-toggle="modal" data-target="#addfileForm">
-                  Add 
+                  Add
                 </button>
                 <input id="FileID" type="hidden" value="">
                 <!--show selected items-->
                 <div id="div_file" class="p-2">
-                  
+
                 </div>
                 <!-- end show selected items-->
 
@@ -224,7 +224,7 @@ include("left_menu.php");
         </div>
       </div>
     </div>
-    
+
 
   </div>
 
@@ -235,7 +235,7 @@ include("left_menu.php");
 
 
 <footer class="footer footer-static footer-dark navbar-border">
-  <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
+  <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Digital Technology Corporation and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
 </footer>
 
 
@@ -318,12 +318,12 @@ function selSKU(){
   url: url,
   dataType: "html",
   data: {
-    ID : ID,  
+    ID : ID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
-      //location.reload(); 
+      //location.reload();
     }else{
       $("#div_Clients").empty();
       $("#div_Clients").append(message);
@@ -347,12 +347,12 @@ $("#addFile").click(function(){
   url: url,
   dataType: "html",
   data: {
-    checkboxID : checkboxID,  
+    checkboxID : checkboxID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
-      //location.reload(); 
+      //location.reload();
     }else{
       $("#div_file").empty();
       $("#div_file").append(message);
@@ -380,15 +380,15 @@ $("#addGroup").click(function(){
   url: url,
   dataType: "html",
   data: {
-    SKUID : SKUID, 
-    companyID : companyID,  
-    FileID : FileID,  
+    SKUID : SKUID,
+    companyID : companyID,
+    FileID : FileID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
       document.location.href="BEgroupsMgt";
-      //location.reload(); 
+      //location.reload();
     }else{
       alert(message);
     }

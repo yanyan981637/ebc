@@ -3,7 +3,7 @@
 
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -83,7 +83,7 @@ $qty=str_replace(" ","+", $qty);
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/fonts/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/fonts/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -107,14 +107,14 @@ $qty=str_replace(" ","+", $qty);
 							<div class="card border-grey border-lighten-3 px-2 py-2 m-0">
 								<div class="card-header border-0">
 									<div class="card-title text-center">
-										<div ><a href="https://www.mitacmct.com/PartnerZone/" /><img src="app-assets/images/logo/tyan-logo-register.png" /></a></div>
+										<div ><a href="https://ipc.mitacmdt.com/PartnerZone/" /><img src="app-assets/images/logo/tyan-logo-register.png" /></a></div>
 										<h1>MiTAC Partner Zone</h1>
 
 									</div>
 
 								</div>
 								<div class="copyrightText text-center" style="width:100%"></div>
-								<div class="card-content">	
+								<div class="card-content">
 									<div class="card-body">
 
 										<div class="row">
@@ -149,7 +149,7 @@ $qty=str_replace(" ","+", $qty);
 														</table>
 													</div>
 												</div>
-												<!--end Quote list-->	
+												<!--end Quote list-->
 											</div>
 											<div class="col-xl-6 col-lg-6">
 												<!--login-->
@@ -160,7 +160,7 @@ $qty=str_replace(" ","+", $qty);
 														<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
 
 															<h3>Already have an account for Tyan Partnet Portal? Log in to your Account.</h3>
-															<br/><br/>				
+															<br/><br/>
 
 															<div class="form-group">
 																<label for="exampleInputEmail1">Email Address</label>
@@ -216,7 +216,7 @@ $qty=str_replace(" ","+", $qty);
 																			<div id="reset_done" name="reset_done" class="alert alert-info mb-1 topmargin-sm" role="alert" style="display:none">
 																				Success in resetting password. Please check your email for the new password.
 																			</div>
-																			<!--msg for reset successfully-->	
+																			<!--msg for reset successfully-->
 
 
 																			<p>
@@ -273,7 +273,7 @@ $qty=str_replace(" ","+", $qty);
 											</div>
 										</div>
 									</div>
-									<div class="copyrightText text-center">Copyright&copy; 2021-2022 MiTAC Computing Technology Corporation (MiTAC Group). All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
+									<div class="copyrightText text-center">Copyright&copy; 2021-2022 MiTAC Digital Technology Corporation. All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
 										<a href="https://www.tyan.com/EN/legal/terms_of_use/" target="tos" />Terms of Use</a>&nbsp;·&nbsp;
 										<a href="https://www.tyan.com/EN/legal/privacy_policy/" target="tos" />Privacy Policy</a>&nbsp;·&nbsp;
 										<a href="https://www.tyan.com/EN/legal/cookie_policy/" target="tos" />Cookie Policy</a>
@@ -381,7 +381,7 @@ $("#PNlogin").click(function(){
 
 //captcha
 $(function(){
-    $("#refresh").click(function() { 
+    $("#refresh").click(function() {
     	var obj = document.getElementById("captcha");
        var i=Math.floor((Math.random() * 10) + 1);
        obj.src=null;
@@ -402,7 +402,7 @@ $(function(){
 })
 
 $(function(){
-    $("#resetOK").click(function() { 
+    $("#resetOK").click(function() {
        if($("#re_mail").val()!=""){
 				var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 				var mail_val = $("#re_mail").val();
@@ -442,10 +442,10 @@ $(function(){
 })
 
 $(function(){
-	$("#ReAccount").click(function() { 
+	$("#ReAccount").click(function() {
 		var Quote=document.getElementById("Quote").value;
 		var QuoteQty=document.getElementById("QuoteQty").value;
-		location.href="https://www.mitacmct.com/PartnerZone/FEregister@"+Quote+"@"+QuoteQty;
+		location.href="https://ipc.mitacmdt.com/PartnerZone/FEregister@"+Quote+"@"+QuoteQty;
 	});
 })
 </script>

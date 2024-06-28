@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-//header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+//header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -97,7 +97,7 @@ $result=mysqli_fetch_row($cmd);
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -187,7 +187,7 @@ include("left_menu.php");
                             <option value="EUR" >Europe</option>
                             <option value="ME" >Middle East / Africa</option>
                             <option value="ASIA" >Asia</option>
-                            <option value="Oceania" >Oceania</option> 
+                            <option value="Oceania" >Oceania</option>
                           </select>
                         </div>
                       </div>
@@ -248,7 +248,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/js/core/libraries/jquery.min.js"></script>
@@ -303,7 +303,7 @@ $("#AddOK").click(function(){
     CompanyID : CompanyID,
     name : name,
     email : email,
-    title : title,    
+    title : title,
     countryCode : countryCode,
     tel : tel,
     Count : Count,
@@ -317,7 +317,7 @@ $("#AddOK").click(function(){
       $("div[name='["+message+"][erremail]']").show();
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

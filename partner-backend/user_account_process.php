@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -276,7 +276,7 @@ if($kind=="delSales"){
   }else{
     $delSalesID="";
   }
-  
+
   $del_sales="DELETE FROM `partner_sales` WHERE ID='".$delSalesID."'";
   if(mysqli_query($link_db,$del_sales)<1)
   {
@@ -297,7 +297,7 @@ if($kind=="editToValue"){
   }else{
     $EditTeameID="";
   }
-  
+
   $str="SELECT ID, Team FROM `partner_teams` WHERE ID='".$EditTeameID."'";
   $cmd=mysqli_query($link_db,$str);
   $data=mysqli_fetch_row($cmd);
@@ -313,7 +313,7 @@ if($kind=="editToDel"){
   }else{
     $delID="";
   }
-  
+
   $str="SELECT NAME FROM `partner_sales` WHERE ID='".$delID."'";
   $cmd=mysqli_query($link_db,$str);
   $data=mysqli_fetch_row($cmd);
@@ -335,7 +335,7 @@ if($kind=="editToSales"){
   $AD="";
   $SA="";
   $checkbox="";
-  
+
   $str="SELECT NAME, EMAIL, Role, checkbox, Team FROM `partner_sales` WHERE ID='".$EditSalesID."'";
   $cmd=mysqli_query($link_db,$str);
   $data=mysqli_fetch_row($cmd);
@@ -376,7 +376,7 @@ if($kind=="editToSales"){
     <select id='edit_Role' class='form-control'>
       <option  value='SUAD' ".$SUAD.">Super Admin</option>
       <option  value='AD' ".$AD.">Admin</option>
-      <option  value='SA' ".$SA.">Sales</option>   
+      <option  value='SA' ".$SA.">Sales</option>
     </select>
   </div>
   <div class='form-group'>

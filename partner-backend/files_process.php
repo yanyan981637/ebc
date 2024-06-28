@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -81,7 +81,7 @@ if($kind=="addType"){
     echo "Type null";
     exit;
   }
-  
+
   $str="SELECT * FROM `partner_files_type` WHERE FileType='".$addType."'";
   $cmd=mysqli_query($link_db,$str);
   $num=mysqli_num_rows($cmd);
@@ -112,7 +112,7 @@ if($kind=="editToValue"){
   }else{
     $EditTypeID="";
   }
-  
+
   $str="SELECT ID, FileType FROM partner_files_type WHERE ID='".$EditTypeID."'";
   $cmd=mysqli_query($link_db,$str);
   $data=mysqli_fetch_row($cmd);
@@ -145,7 +145,7 @@ if($kind=="editType"){
     mysqli_close($link_db);
     exit();
   }
-  
+
   $update="UPDATE partner_files_type SET FileType='".$edit_type."' WHERE ID='".$EditTypeID."'";
   if(mysqli_query($link_db,$update)<1)
   {
@@ -314,7 +314,7 @@ if($kind=="DeleteFile"){
   }else{
     $FileID="";
   }
-  
+
   $str="DELETE FROM partner_files WHERE ID='".$FileID."'";
   mysqli_query($link_db,$str);
   if(mysqli_affected_rows($link_db)<1)

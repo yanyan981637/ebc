@@ -35,15 +35,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -68,8 +68,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - Industrial Panel PC</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - Industrial Panel PC</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -77,7 +77,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -89,10 +89,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -125,23 +125,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -156,34 +156,34 @@ if($s_cookie!=2){
                     <div class="intro-message" style="color:#ffffff">
                         <h1>Industrial Panel PC</h1>
 <p>
-MiTAC provides industrial pacnel pc and commercial panel pc for diverse application in several industries. The industrial panel including standalone and panel mount series desgined for harsh environment. Commercial panel PCs - Maestro series with its elegant design and delicate graphic performance powered by latest Intel Core i platform. 
+MiTAC provides industrial pacnel pc and commercial panel pc for diverse application in several industries. The industrial panel including standalone and panel mount series desgined for harsh environment. Commercial panel PCs - Maestro series with its elegant design and delicate graphic performance powered by latest Intel Core i platform.
 
 </p>
 <br />
 <!--<img src="/images/logo/Apollo-Lake-Celeron.jpg" /> <img src="/images/logo/Apollo-Lake-Pentium.jpg" /> <img src="/images/logo/core_i3.jpg" /> <img src="/images/logo/core_i5.jpg" /> <img src="/images/logo/core_i7.jpg" />-->
- 
+
 
 <p style="margin-bottom:10%"> </p>
 
 
-                      
+
                     </div>
                 </div>
 				<div class="col-xs-6 col-md-4 text-left" style="padding-top:3%;">
 				 <div class="well box" style="background-color: rgba(255, 255, 255, 0.9); ">
-				 
+
 				 <strong>New products:</strong><br />
 				 <div class="intro-divider "></div><br />
-				 
+
 				 Commercial Panel PC:
 				 <ul style="margin-left:15px">
-				 
+
 <li ><a href="/IndustrialPanelPC%3DM4080%3DM4080%3Ddescription%3DEN" target="mit" />M4080 (23.6" / 10th Intel core i)</a></li>
-<li ><a href="/IndustrialPanelPC=M4070=M4070=description=EN" target="mit" />M4070 (21.5" / 10th Intel core i)</a></li>				 
-<li ><a href="/IndustrialPanelPC%3DM850%3DM850%3Ddescription%3DEN" target="mit" />M850 (21.5" / 10th Intel core i)</a></li>	
+<li ><a href="/IndustrialPanelPC=M4070=M4070=description=EN" target="mit" />M4070 (21.5" / 10th Intel core i)</a></li>
+<li ><a href="/IndustrialPanelPC%3DM850%3DM850%3Ddescription%3DEN" target="mit" />M850 (21.5" / 10th Intel core i)</a></li>
 </ul>
 Industrial Panel PC:
-<ul style="margin-left:15px">			 
+<ul style="margin-left:15px">
 <li ><a href="/IndustrialPanelPC=P210-10AI=P210-10AI=description=EN" target="mit" />P210-10AI (21.5" / Celeron N3350)</a></li>
 <li ><a href="/IndustrialPanelPC%3DP210-11KS%3DP210-11KS%3Ddescription%3DEN" target="mit" />P210-11KS (21.5" / 7th Intel Core i)</a></li>
 <li ><a href="/IndustrialPanelPC%3DP156-11KS%3DP156-11KS%3Ddescription%3DEN" target="mit" />P156-11KS (15.6" / 7th Intel Core i)</a></li>
@@ -194,8 +194,8 @@ Industrial Panel PC:
 
 				</div>
 				<br />
-				
-				
+
+
 				</div>
             </div>
 
@@ -203,13 +203,13 @@ Industrial Panel PC:
         <!-- /.container -->
 
     </div>
-	
-	
+
+
 
 	<!-- tabs -->
 	<div style="background:#f8f8f8">
 	<div class="container" >
-	
+
 <ul class="nav nav-pills" style="margin:40px 0px; font-size:1.2em ">
 
   <li role="presentation" ><a href="#Ind-PC">Industrial Panel PC</a></li>
@@ -217,15 +217,15 @@ Industrial Panel PC:
 
 </ul>
 
-	
-	
+
+
 	</div>
 	</div>
-	<!-- end tabs -->	
-	
+	<!-- end tabs -->
+
 	<!--Industrial Panel PC-->
-	
-	
+
+
 	<a name="Ind-PC"></a>
 	<div class="container" style="padding:2% 0%">
 	</div>
@@ -242,16 +242,16 @@ Industrial Panel PC:
   <div class="col-md-6"><p style="margin-top:1%"> </p>
   <img src="/images/logo/ICONS_industrial_pc.gif" class="img-responsive" />
 
-  
+
 </div>
 </div>
 </div>
 
 <p style="margin-top:3%"> </p>
  <div class="container-fluid" style="background-color:#f8f8f8">
-	
-	
-	
+
+
+
 	<div class="container">
 	<h2 class="blue_cr">Standalone - D Series</h2>
 	<div class="row">
@@ -273,11 +273,11 @@ Industrial Panel PC:
 <a href="/IndustrialPanelPC%3DD210-11KS%3DD210-11KS%3Ddescription%3DEN" target="mit" /><img src="/images/product/PanelPc/D210-11KS.jpg" class="img-responsive" /></a><br /><div class="sub_des" >21.5" (16:9)<br />Intel 7th Gen Core i</div>
 </div>
   </div>
-  
-	
+
+
   </div><p style="margin-top:2%"> </p>
   <div class="row">
-	
+
   <div class="col-md-4">
   <div class="pro_well" >
 <h4 style="text-align: center;">D150-S</h4>
@@ -291,13 +291,13 @@ Industrial Panel PC:
 </div>-->
 	</div>
   <div class="col-md-4">
-  
+
   </div>
-	
+
   </div><p style="margin-top:2%"> </p>
-  
-  
-  
+
+
+
   </div>
 
 </div>
@@ -320,62 +320,62 @@ Industrial Panel PC:
 <a href="/IndustrialPanelPC=P150-11KS=P150-11KS=description=EN" target="mit" /><img src="/images/product/PanelPc/P150-11KS.jpg" class="img-responsive" /></a><br /><div class="sub_des" >15" (4:3)<br />Intel 7th Gen Core i</div>
 </div></div>
  </div>
- 
+
   <div class="row">
   <div class="col-md-4"><div class="pro_well" style="position:relative;">
-<div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>		
+<div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">P156-11KS</h4>
 <a href="/IndustrialPanelPC%3DP156-11KS%3DP156-11KS%3Ddescription%3DEN" target="mit" /><img src="/images/product/PanelPc/P156-11KS.jpg" class="img-responsive" /></a><br /><div class="sub_des" >15.6" (16:9)<br />Intel 7th Gen Core i</div>
 </div>
-  
+
   </div>
   <div class="col-md-4"><div class="pro_well" style="position:relative;">
- <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>		
+ <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">P156-10AI</h4>
 <a href="/IndustrialPanelPC%3DP156-10AI%3DP156-10AI%3Ddescription%3DEN" target="mit" /><img src="/images/product/PanelPc/P156-10AI.jpg" class="img-responsive" /></a><br /><div class="sub_des" >15.6" (16:9)<br />Intel Celeron N3350</div>
 </div></div>
-  
+
  <div class="col-md-4"><div class="pro_well" style="position:relative;">
-<div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>	
+<div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">P210-10AI</h4>
 <a href="/IndustrialPanelPC=P210-10AI=P210-10AI=description=EN" target="mit" /><img src="/images/product/PanelPc/P210-10AI.jpg" class="img-responsive" /></a><br /><div class="sub_des" >21.5" (16:9)<br />Intel Celeron N3350</div>
 </div></div>
-  
-  
+
+
  </div>
- 
+
    <div class="row">
  <div class="col-md-4"><div class="pro_well" style="position:relative;">
- <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>		
+ <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">P210-11KS</h4>
 <a href="/IndustrialPanelPC%3DP210-11KS%3DP210-11KS%3Ddescription%3DEN" target="mit" /><img src="/images/product/PanelPc/P210-11KS.jpg" class="img-responsive" /></a><br /><div class="sub_des" >21.5" (16:9)<br />Intel 7th Gen Core i</div>
 </div>
-  
+
   </div>
   <div class="col-md-4">
   </div>
   <div class="col-md-4">
   </div>
  </div>
- 
+
  <p style="margin-top:2%"> </p>
- 
- 
- 
- 
+
+
+
+
   </div>
  </div>
 
 <!--
  <div class="container-fluid" style="background-color:#f8f8f8">
-	
-	
-	
+
+
+
 	<div class="container">
 	<h2 class="blue_cr">Stainless – ST series</h2>
 	<div class="row">
 	<div class="col-md-4">
-  <div class="pro_well" > <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>		
+  <div class="pro_well" > <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">ST170-11TGS</h4>
 <a href="/IndustrialPanelPC=ST170-11TGS=ST170-11TGS=description=EN" target="mit" /><img src="/images/product/PanelPc/ST170-11TGS.jpg" class="img-responsive" /></a><br /><div class="sub_des" >17"<br />Intel 11th Gen Core i</div>
 </div>
@@ -384,19 +384,19 @@ Industrial Panel PC:
 	</div>
   <div class="col-md-4">
   </div>
-  
-	
+
+
   </div><p style="margin-top:6%"> </p>
 
-  
-  
+
+
   </div>
 
 </div>-->
 
 
 
-	
+
 
 <!--end Industrial Panel PC-->
 <!--Commercial Panel PC-->
@@ -420,44 +420,44 @@ graphic performance.
   <div class="col-md-6"><p style="margin-top:1%"> </p>
   <img src="/images/logo/ICONS_commercial_pc.gif" class="img-responsive" />
 
-  
+
 </div>
 </div>
 </div><p style="margin-top:3%"> </p>
  <div class="container-fluid" style="background-color:#f8f8f8">
  <div class="container" >
  <p style="margin-top:3%"> </p>
- 
+
   <div class="row">
 <div class="col-md-4">
-<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>	
+<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">M4070</h4>
 <a href="/IndustrialPanelPC=M4070=M4070=description=EN" target="mit" /><img src="/images/product/PanelPc/M4070.jpg" class="img-responsive" /></a><br /><div class="sub_des" >21.5" (16:9)<br />Intel 10th core i</div></div>
 </div>
 <div class="col-md-4">
-<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>		
+<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">M4080</h4>
 <a href="/IndustrialPanelPC%3DM4080%3DM4080%3Ddescription%3DEN" target="mit" /><img src="/images/product/PanelPc/M4080.jpg" class="img-responsive" /></a><br /><div class="sub_des" >23.6" (16:9)<br />Intel 10th core i</div>
 </div>
 </div>
 <div class="col-md-4">
-<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>		
+<div class="pro_well" ><div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
 <h4 style="text-align: center;">M850</h4>
 <a href="/IndustrialPanelPC%3DM850%3DM850%3Ddescription%3DEN" target="mit" /><img src="/images/product/PanelPc/M850.jpg" class="img-responsive" /></a><br /><div class="sub_des" >21.5" (16:9)<br />Intel 10th core i</div>
 </div>
 </div>
 </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
  <div class="row">
 <div class="col-md-4">
 <div class="pro_well" >
@@ -505,24 +505,24 @@ graphic performance.
 </div><p style="margin-top:6%"> </p>
  </div>
 
-	
-	
 
-	
-	
-	
-		
+
+
+
+
+
+
 <!--end Commercial Panel PC-->
 
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

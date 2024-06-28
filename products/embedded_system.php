@@ -35,15 +35,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -68,8 +68,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - Embedded System</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - Embedded System</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -77,7 +77,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -89,10 +89,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -125,23 +125,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -162,25 +162,25 @@ MiTAC's embedded system, including industrial and commercial series powered by s
 <br />
 <!--
 <img src="/images/logo/intel_core_i3_2020.png" /> <img src="/images/logo/intel_core_i5_2020.png" /> <img src="/images/logo/intel_core_i7_2020.png" /> <img src="/images/logo/Apollo-Lake-Celeron.jpg" /> <img src="/images/logo/Apollo-Lake-Pentium.jpg" /> -->
- 
+
 
 <p style="margin-bottom:10%"> </p>
 
 
-                      
+
                     </div>
                 </div>
 				<div class="col-xs-6 col-md-4 text-left" style="padding-top:3%;">
 				 <div class="well box" style="background-color: rgba(255, 255, 255, 0.9); ">
-				 
+
 				 <strong>New products:</strong><br />
 				 <div class="intro-divider "></div><br />
 				 <ul style="margin-left:15px">
-<li ><a href="/EmbeddedSystem%3DNV1%3DNV1%3Ddescription%3DEN" target="mit" />NV1</a> (Tiger Lake-UP3)</li>					 
-<li ><a href="/EmbeddedSystem%3DE310%3DE310%3Ddescription%3DEN" target="mit" />E310</a> (Elkhart Lake)</li>	
-<li ><a href="/EmbeddedSystem%3DE410%3DE410%3Ddescription%3DEN" target="mit" />E410</a> (Comet Lake)</li>				 
-<li ><a href="/EmbeddedSystem%3DMP1-11TGS%3DMP1-11TGS%3Ddescription%3DEN" target="mit" />MP1-11TGS</a> / <a href="/EmbeddedSystem%3DMP1-11TGS-D%3DMP1-11TGS-D%3Ddescription%3DEN" target="mit" />MP1-11TGS-D</a> (Tiger Lake-UP3)</li>				 
-<li ><a href="/EmbeddedSystem%3DME1-108T%3DME1-108T%3Ddescription%3DEN" target="mit" />ME1-108T (NXP i.MX8M)</a></li>				 
+<li ><a href="/EmbeddedSystem%3DNV1%3DNV1%3Ddescription%3DEN" target="mit" />NV1</a> (Tiger Lake-UP3)</li>
+<li ><a href="/EmbeddedSystem%3DE310%3DE310%3Ddescription%3DEN" target="mit" />E310</a> (Elkhart Lake)</li>
+<li ><a href="/EmbeddedSystem%3DE410%3DE410%3Ddescription%3DEN" target="mit" />E410</a> (Comet Lake)</li>
+<li ><a href="/EmbeddedSystem%3DMP1-11TGS%3DMP1-11TGS%3Ddescription%3DEN" target="mit" />MP1-11TGS</a> / <a href="/EmbeddedSystem%3DMP1-11TGS-D%3DMP1-11TGS-D%3Ddescription%3DEN" target="mit" />MP1-11TGS-D</a> (Tiger Lake-UP3)</li>
+<li ><a href="/EmbeddedSystem%3DME1-108T%3DME1-108T%3Ddescription%3DEN" target="mit" />ME1-108T (NXP i.MX8M)</a></li>
 
 
 
@@ -191,8 +191,8 @@ MiTAC's embedded system, including industrial and commercial series powered by s
 
 				</div>
 				<br />
-				
-				
+
+
 				</div>
             </div>
 
@@ -200,13 +200,13 @@ MiTAC's embedded system, including industrial and commercial series powered by s
         <!-- /.container -->
 
     </div>
-	
-	
+
+
 
 	<!-- tabs -->
 	<!--<div style="background:#f8f8f8">
 	<div class="container" >
-	
+
 <ul class="nav nav-pills" style="margin:40px 0px; font-size:1.2em">
 
   <li role="presentation" ><a href="#Ind-ES">Industrial Embedded System</a></li>
@@ -214,40 +214,40 @@ MiTAC's embedded system, including industrial and commercial series powered by s
 
 </ul>
 
-	
-	
+
+
 	</div>
 	</div>
-	<!-- end tabs -->	
-	
-	
-		
+	<!-- end tabs -->
+
+
+
 	<!--Industrial Embedded System-->
-	
-	
+
+
 	<a name="Ind-ES"></a>
 	<!--<div class="container" style="padding:2% 0%">
 	</div>-->
 	<div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-	
+
 	<h1 class="text-center">Industrial Embedded System</h1>
 
-	
-	</div>
-	
-	
-	
 
-		
+	</div>
+
+
+
+
+
 	<div class="container-fluid" >
 	<p style="margin-top:3%"> </p>
 	<div class="container">
 	 <h2 class="blue_cr">Rugged & Modularized</h2>
-  
+
 	</div>
 	<p style="margin-top:3%"> </p>
 	<div class="container">
-	
+
 	<div class="row">
 	<div class="col-md-4">
 	  <div class="pro_well" >
@@ -283,11 +283,11 @@ MiTAC's embedded system, including industrial and commercial series powered by s
 <li>MiTAC Xpansion I/O module options</li>
  </ul></div>
 </div>
-  
+
 	</div>
 	</div>
-	
-	
+
+
 		<div class="row">
 	<div class="col-md-4">
 	    <div class="pro_well" >
@@ -298,8 +298,8 @@ MiTAC's embedded system, including industrial and commercial series powered by s
 Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 </div>
 </div>
-  
-  
+
+
 	</div>
 	<div class="col-md-4">
 	<div class="pro_well" >
@@ -312,7 +312,7 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 </ul>
 </div>
 </div>
-  
+
 	</div>
 	<div class="col-md-4">
 	<div class="pro_well" >
@@ -320,11 +320,11 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 <h4 style="text-align: center;">ME1-108T</h4>
 <a href="/EmbeddedSystem%3DME1-108T%3DME1-108T%3Ddescription%3DEN" target="mit" /><img src="/images/product/Embedded/ME1-108T-c1.jpg" class="img-responsive" /></a><br /><div class="sub_des" style="text-align:center">NXP ARM-based i.MX8M<br /><br /><br /></div>
 </div>
-  
+
 	</div>
 	</div>
-	
-	
+
+
 	<div class="row">
 	<div class="col-md-4">
 	<div class="pro_well" >
@@ -333,34 +333,34 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 <h4 style="text-align: center;">ME1-118T</h4>
 <a href="/EmbeddedSystem%3DME1-118T%3DME1-118T%3Ddescription%3DEN" target="mit" /><img src="/images/product/Embedded/ME1-118T.jpg" class="img-responsive" /></a><br /><div class="sub_des" style="text-align:center">NXP ARM-based i.MX8M<br /><br /><br /></div>
 </div>
-  
+
 	</div>
 	<div class="col-md-4">
 	</div>
 	<div class="col-md-4">
 	</div>
-	</div>	
-	
-	
-	
-	
-	
-	
-	
-	
+	</div>
+
+
+
+
+
+
+
+
   </div><p style="margin-top:3%"> </p>
   </div>
-  
+
   <div class="container-fluid" style="background-color:#f8f8f8">
-  
-  
-  
+
+
+
   <p style="margin-top:3%"> </p>
 	<div class="container">
 	<h2 class="blue_cr">Industrial & Compact</h2>
 	</div>
 	<p style="margin-top:3%"> </p>
-  
+
   <div class="container">
 	<div class="row">
 	<div class="col-md-4">
@@ -374,7 +374,7 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 <li>External Power Adapter</li>
 </ul></div>
 </div>
- 
+
 	</div>
 	<div class="col-md-4">
 	 <div class="pro_well" >
@@ -388,7 +388,7 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 </ul>
 </div>
 </div>
- 
+
 	</div>
 	<div class="col-md-4">
 	 <div class="pro_well" >
@@ -402,13 +402,13 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 </ul>
 </div>
 </div>
- 
+
 	</div>
 	</div>
-	
+
 	<div class="row">
 	<div class="col-md-4">
-	 
+
  <div class="pro_well" >
 <h4 style="text-align: center;">E400</h4>
 <a href="/EmbeddedSystem%3DE400%3DE400%3Ddescription%3DEN" target="mit" /><img src="/images/product/Embedded/E400-1.jpg" class="img-responsive" /></a><br />
@@ -423,32 +423,32 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 </div>
 	</div>
 	<div class="col-md-4">
-	 
- 
+
+
 	</div>
 	<div class="col-md-4">
-	 
- 
+
+
 	</div>
-	</div>
-	
-	
-	
 	</div>
 
-  
+
+
+	</div>
+
+
   </div>
-  
+
 
 	<div class="container-fluid" >
-	
+
 	  <p style="margin-top:3%"> </p>
 	<div class="container">
 	<h2 class="blue_cr">Performance & Multifunctional</h2>
 	</div>
 	<p style="margin-top:3%"> </p>
 	<div class="container">
-	
+
 	<div class="row">
 	<div class="col-md-4">
 	<div class="pro_well" > <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
@@ -463,7 +463,7 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 
 </div>
 </div>
- 
+
 	</div>
 	<div class="col-md-4">
 	 	<div class="pro_well" > <div style="text-align: center;"><span class="label label-warning">&nbsp;New!&nbsp;</span></div>
@@ -478,7 +478,7 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 
 </div>
 </div>
- 
+
 	</div>
 	<div class="col-md-4">
 	 <div class="pro_well" > <div style="text-align: center;"><!--<span class="label label-warning">&nbsp;New!&nbsp;</span>--></div>
@@ -493,11 +493,11 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 
 </div>
 </div>
- 
+
 	</div>
 	</div>
-	
-	
+
+
 	<div class="row">
 	<div class="col-md-4">
 	 <div class="pro_well" > <div style="text-align: center;"><!--<span class="label label-warning">&nbsp;New!&nbsp;</span>--></div>
@@ -517,49 +517,49 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 	<div class="col-md-4">
 	</div>
 	</div>
-	
-	
-	
 
-	
+
+
+
+
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
 
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
 	 <p style="margin-top:6%"> </p>
-	 
-	 
-	 
-	 
-	
+
+
+
+
+
   <div class="container-fluid" style="background-color:#f8f8f8">
-  
-  
-  
+
+
+
   <p style="margin-top:3%"> </p>
 	<div class="container">
 	<h2 class="blue_cr">NVR</h2>
 	</div>
 	<p style="margin-top:3%"> </p>
-  
+
   <div class="container">
 	<div class="row">
 	<div class="col-md-4">
@@ -569,34 +569,34 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 <div class="sub_des" >
 1U Smart NVR System with Intel® Tiger Lake-UP3 Processor</div>
 </div>
- 
+
 	</div>
 	<div class="col-md-4">
- 
+
 	</div>
 	<div class="col-md-4">
-	 
- 
+
+
 	</div>
 	</div>
 
-	
-	
+
+
 	</div>
 
-  
+
 	 	 <p style="margin-top:6%"> </p>
-  </div> 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+  </div>
+
+
+
+
+
+
+
+
+
+
 	<!--end Industrial Embedded System-->
 
 
@@ -606,12 +606,12 @@ Intel 11th Gen (Tiger Lake-UP3) Core Processor<br /><br />
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

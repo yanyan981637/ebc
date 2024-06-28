@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src *; img-src *; frame-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src *; img-src *; frame-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -34,7 +34,7 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
@@ -104,29 +104,29 @@ include("../top.htm");
 		<!-- Content
 		============================================= -->
 
-		
+
 		<section id="content" >
 
 			<div class="content-wrap">
 				<div class="container clearfix">
-				
+
 				<h1 style="text-align:center">TYAN SERVER MANAGEMENT (TSM SOFTWARE) SOFTWARE
 END USER LICENSE AGREEMENT</h1>
 
 <p style="color:#707070; font-style: italic; text-align:center">UPDATED: 2021/05/12</p>
 
 					<div class="box" style="background:#fff">
-					
-			
-			
-			
-			
-			IMPORTANT, PLEASE READ CAREFULLY: THIS END USER LICENSE AGREEMENT "EULA" IS A LEGAL AGREEMENT BETWEEN YOU (AS AN INDIVIDUAL OR ENTITY, "YOU" THE "CUSTOMER") AND MITAC COMPUTING TECHNOLOGY CORPORATION ( "MITAC", "TYAN", OR "WE") FOR USE OF THE TYAN SERVER MANAGEMENT SOFTWARE ("TSM SOFTWARE"), AND IT’S APPLICATION PROGRAM INTERFACES ("APIs") PROVIDED. IF YOU ACCEPT THIS AGREEMENT ON BEHALF OF AN ENTITY, YOU REPRESENT AND WARRANT TO MITAC THAT YOU HAVE LEGAL AUTHORITY TO BIND THAT ENTITY. BY INSTALLING, COPYING, OR OTHERWISE USING THE TSM SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS EULA. IF YOU DO NOT AGREE WITH THE TERMS OF THIS EULA, DO NOT USE THE TSM SOFTWARE. <br><br>
+
+
+
+
+
+			IMPORTANT, PLEASE READ CAREFULLY: THIS END USER LICENSE AGREEMENT "EULA" IS A LEGAL AGREEMENT BETWEEN YOU (AS AN INDIVIDUAL OR ENTITY, "YOU" THE "CUSTOMER") AND MiTAC Digital Technology Corporation ( "MITAC", "TYAN", OR "WE") FOR USE OF THE TYAN SERVER MANAGEMENT SOFTWARE ("TSM SOFTWARE"), AND IT’S APPLICATION PROGRAM INTERFACES ("APIs") PROVIDED. IF YOU ACCEPT THIS AGREEMENT ON BEHALF OF AN ENTITY, YOU REPRESENT AND WARRANT TO MITAC THAT YOU HAVE LEGAL AUTHORITY TO BIND THAT ENTITY. BY INSTALLING, COPYING, OR OTHERWISE USING THE TSM SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS EULA. IF YOU DO NOT AGREE WITH THE TERMS OF THIS EULA, DO NOT USE THE TSM SOFTWARE. <br><br>
 
 This EULA and the Licensing Policy can be updated at any time without notice to you, in MITAC's sole discretion and will be made available at https://www.tyan.com/TSM/EULA/.<br><br>
 
 <h2>1. License Grant</h2>
-Subject to the terms and restrictions set forth in this EULA, MITAC grants to you a limited, non-transferable and non-exclusive license to execute one copy of the TSM SOFTWARE solely for the non-commercial use.  <br><br> 
+Subject to the terms and restrictions set forth in this EULA, MITAC grants to you a limited, non-transferable and non-exclusive license to execute one copy of the TSM SOFTWARE solely for the non-commercial use.  <br><br>
 
 You may use the TSM SOFTWARE for the licenses that you have purchased. You are permitted to make copies of the TSM SOFTWARE for your own use in accordance to EULA and Licensing Policy. Any copies or partial copies of the TSM SOFTWARE that you make must incorporate all patent, copyright and trademark notices.
 <br><br>
@@ -141,7 +141,7 @@ Certain items included in the TSM SOFTWARE are subject to open source software  
 <br><br>
 
 <h2>5. APIs Agreement</h2>
-The application programming interface software provided by MITAC to you (the "APIs") will provide you with the ability to customize your applications for the functions of the TSM SOFTWARE. Your license to access our APIs and documentation is limited and subject to your compliance with the terms and conditions of the EULA and related license terms and conditions of the APIs. Further, you have to agree to the following limitations on using the APIs of the TSM SOFTWARE.  
+The application programming interface software provided by MITAC to you (the "APIs") will provide you with the ability to customize your applications for the functions of the TSM SOFTWARE. Your license to access our APIs and documentation is limited and subject to your compliance with the terms and conditions of the EULA and related license terms and conditions of the APIs. Further, you have to agree to the following limitations on using the APIs of the TSM SOFTWARE.
 <ul style="margin-left:20px">
 <li>Do Not use the APIs on behalf of any third party.</li>
 <li>Do Not use the APIs to violate of any law or regulation.</li>
@@ -172,7 +172,7 @@ Subject to CUSTOMER's payment of the corresponding fees (if any), MITAC shall pr
 <br><br>
 
 <h2>10. Security</h2>
-Access credentials of the TSM SOFTWARE (such as account information and license key) are intended to be used by you. You will keep your credentials confidential. MITAC shall not be responsible for any losses or damages caused by missing or disclosing your confidential credentials. 
+Access credentials of the TSM SOFTWARE (such as account information and license key) are intended to be used by you. You will keep your credentials confidential. MITAC shall not be responsible for any losses or damages caused by missing or disclosing your confidential credentials.
 <br><br>
 
 
@@ -212,42 +212,42 @@ This EULA is effective on the date you first use the TSM SOFTWARE. MITAC may ter
 <li>The TSM SOFTWARE and the APIs are intended for use by businesses and organizations and not for consumer purposes. To the maximum extent permitted by law, you hereby acknowledge and agree that consumer laws do not apply.</li>
 <li>Force Majeure: Neither WE nor YOU will be liable by reason of any failure or delay in the performance of its obligations on account of events beyond the reasonable control of a party, which may include strikes, shortages, riots, fires, acts of God, war, terrorism, and governmental actions.</li>
 </ul><br><br>
-			
-			
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <br /><br /><br /><br />
 
 
-					
-					
-					
-					
+
+
+
+
 					</div>
-				
-						
+
+
 					</div>
-					
+
 
 					<div class="clear"></div>
-					
-					
+
+
 
 				</div>
 

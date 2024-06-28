@@ -56,11 +56,11 @@ function SPEC_Toal($SPC01,$SPECCa01,$db_host,$db_user,$db_pwd,$dataBase){
 	$str_STN00="SELECT a.Product_SKU_Auto_ID,b.SPECCategoryName,a.SPECTypeName,a.CParentSpec,a.CSPECValue,a.ParentSpec,b.SPECCategoryID from sp".$SPC01." a inner join speccategroies b on a.SPECCategoryID=b.SPECCategoryID";
 	$STN00_cmd=mysqli_query($link,$str_STN00);
 
-	while($STdata=mysqli_fetch_row($STN00_cmd)){     
+	while($STdata=mysqli_fetch_row($STN00_cmd)){
 		$SPV_Toal="";
 		$SPV[]="";
 		$str_CSPCA="select SPECCategoryID,SPECCategoryName,count(SPECCategoryID) as SPECCategoryCount from speccategroies where SPECCategoryName='".$STdata[1]."'";
-		$CSPCA_cmd=mysqli_query($link,$str_CSPCA);  
+		$CSPCA_cmd=mysqli_query($link,$str_CSPCA);
 		$CSadata=mysqli_fetch_row($CSPCA_cmd);
 
 		if(empty($CSadata)):
@@ -91,7 +91,7 @@ $PType_si=filter_var($PType_si);
 $PMCode_si=trim($_REQUEST['PMCode']);
 $PMCode_si=filter_var($PMCode_si);
 
-$PSKUs_si=dowith_sql($_REQUEST['PSKUs']); 
+$PSKUs_si=dowith_sql($_REQUEST['PSKUs']);
 $PSKUs_si=filter_var($PSKUs_si);
 
 $Search_Sku="SELECT Product_SContents_Auto_ID, SKU, Product_dsc FROM contents_product_skus WHERE `SKU`='".$PSKUs_si."' ";
@@ -104,7 +104,7 @@ $data=mysqli_fetch_row($Sku_cmd);
 $title_des=$data[2];
 
 if(isset($_REQUEST['PLang'])!=''){
-	$PLang_si=dowith_sql($_REQUEST['PLang']);  
+	$PLang_si=dowith_sql($_REQUEST['PLang']);
 	$PLang_si=filter_var($PLang_si);
 	if($PLang_si=="EN"){
 		$PLang_si01="EN";
@@ -141,7 +141,7 @@ if(isset($_REQUEST['pid'])!=''){
 }else{
 	if($PType_si == "Motherboards"){
 		$prod_imgurl="./images/systemboards/";
-		$s_PID = "select SYSTEMBOARDID from p_s_main_systemboards where MODELCODE='".$PMCode_si."' and LANG='en-US'";		
+		$s_PID = "select SYSTEMBOARDID from p_s_main_systemboards where MODELCODE='".$PMCode_si."' and LANG='en-US'";
 	}else if($PType_si == "Barebones"){
 		$prod_imgurl="./images/serverbarebones/";
 		$s_PID = "select SERVERID from p_b_main_serverbarebones where MODELCODE='".$PMCode_si."' and LANG='en-US'";
@@ -184,8 +184,8 @@ if(isset($_REQUEST['pid'])!=''){
 	}
 
 	$PCd_cmd=mysqli_query($link_db,$s_PID);
-	$PCd_result=mysqli_fetch_row($PCd_cmd);	
-	if($PCd_result==true){	   
+	$PCd_result=mysqli_fetch_row($PCd_cmd);
+	if($PCd_result==true){
 		$r_pid = $PCd_result[0];
 	}else{
 		echo "<script language='javascript'>self.location='/404.htm'</script>";
@@ -198,11 +198,11 @@ if(isset($_REQUEST['SKU'])!=''){
 	$m_SKUs=filter_var($m_SKUs);
 }else{
 
-	//$s_PMc_str = trim($PMCode_si); 
+	//$s_PMc_str = trim($PMCode_si);
 
 	$s_SKU = "select Product_SKU_Auto_ID, IS_EOL, IS_BTO, COMPARE, REQUEST_QUOTE from product_skus where SKU='".str_replace(".php","",$PSKUs_si)."' and MODELCODE='".$PMCode_si."'";
 	$pkS_cmd=mysqli_query($link_db,$s_SKU);
-	$pkS_result=mysqli_fetch_row($pkS_cmd);	
+	$pkS_result=mysqli_fetch_row($pkS_cmd);
 	if($pkS_result==true){
 		$m_SKUs=$pkS_result[0];
 	}
@@ -222,12 +222,12 @@ if(isset($_REQUEST['SKU'])!=''){
 
 global $str_STN,$str_STN01;
 
-$str_STN="SELECT specvalues.SPEC_Vaule_ID, specvalues.Product_SKU_Auto_ID, specvalues.SPECTypeID, specvalues.SPECValue, spectypes.InputTypeID, 
+$str_STN="SELECT specvalues.SPEC_Vaule_ID, specvalues.Product_SKU_Auto_ID, specvalues.SPECTypeID, specvalues.SPECValue, spectypes.InputTypeID,
 CASE WHEN spectypes.InputTypeID =3
 THEN specvalues.SPECValue
 ELSE Fun_Get_SPECValue(specvalues.SPECValue)
-END CSPECValue, spectypes.ParentSpec, SPECTypeName, 
-CASE WHEN spectypes.ParentSpec IS NULL 
+END CSPECValue, spectypes.ParentSpec, SPECTypeName,
+CASE WHEN spectypes.ParentSpec IS NULL
 THEN ''
 ELSE (SELECT SPECTypeName FROM `spectypes` P WHERE P.SPECTypeID = spectypes.ParentSpec)
 END CParentSpec, spectypes.SPECCategoryID, spectypes.WebOrder FROM `specvalues` INNER JOIN `spectypes` ON specvalues.SPECTypeID = spectypes.SPECTypeID WHERE (specvalues.Product_SKU_Auto_ID =".$m_SKUs.") AND (specvalues.SPECValue <> '') ORDER BY spectypes.WebOrder;";
@@ -248,13 +248,13 @@ endif;
 
 if(isset($_REQUEST['ProductType'])!=''){
 	$m_PType = trim($_REQUEST['ProductType']);
-}else{	
+}else{
 	if($PType_si == "IndustrialPanelPC"){
 				//$m_PType = "BB";
 		if($PLang_si=="en-US"){
 			$PType_siName01="Industrial Panel PC";
 			$siName_url = "/EN/products/Industrial_Panel_PC/";
-		}		
+		}
 	}else if($PType_si == "EmbeddedSystem"){
 				//$m_PType = "BB";
 		if($PLang_si=="en-US"){
@@ -272,7 +272,7 @@ if(isset($_REQUEST['ProductType'])!=''){
 		if($PLang_si=="en-US"){
 			$PType_siName01="OCP Server";
 			$siName_url = "/EN/products/OCP/";
-		}	
+		}
 	}else if($PType_si == "OCPMezz"){
 				//$m_PType = "JBOD";
 		if($PLang_si=="en-US"){
@@ -307,7 +307,7 @@ if(isset($_REQUEST['ProductType'])!=''){
 }
 
 if($r_pid != NULL){
-	$mysql="";	
+	$mysql="";
 	$mysql = " SELECT p_s_main_systemboards.SYSTEMBOARDID, p_s_main_systemboards.MODELNAME, ";
 	$mysql = $mysql . " p_s_main_systemboards.SPEC, ";
 	$mysql = $mysql . " p_s_main_systemboards.CPUSORT, ";
@@ -329,8 +329,8 @@ if($r_pid != NULL){
 	$mysql = $mysql . " INNER JOIN c_s_cpu ON p_s_main_systemboards.CPUID = c_s_cpu.CPUID";
 	$mysql = $mysql . " WHERE p_s_main_systemboards.SYSTEMBOARDID ='" . $r_pid . "'";
 
-	if ($m_PType != NULL){	
-		if(strtoupper($m_PType) == "BB"){	     
+	if ($m_PType != NULL){
+		if(strtoupper($m_PType) == "BB"){
 			$mysql = "SELECT p_b_main_serverbarebones.SERVERID,";
 			$mysql = $mysql . " p_b_main_serverbarebones.MODELNAME, ";
 			$mysql = $mysql . " p_b_main_serverbarebones.SPEC, ";
@@ -351,7 +351,7 @@ if($r_pid != NULL){
 			$mysql = $mysql . " SERVERID as myid";
 			$mysql = $mysql . " FROM p_b_main_serverbarebones ";
 			$mysql = $mysql . " INNER JOIN p_b_rackmount ON p_b_main_serverbarebones.RACKMOUNTID = p_b_rackmount.RACKMOUNTID ";
-			$mysql = $mysql . " WHERE p_b_main_serverbarebones.SERVERID ='" . $r_pid . "'";	 
+			$mysql = $mysql . " WHERE p_b_main_serverbarebones.SERVERID ='" . $r_pid . "'";
 		}else if(strtoupper($m_PType) == "HBA"){
 			$mysql = " SELECT ";
 			$mysql = $mysql . " HBAID, MODELNAME, MODELCODE, SMALLIMG, IMG, BIGIMG, ";
@@ -377,7 +377,7 @@ if($r_pid != NULL){
 			$mysql = $mysql . " SERVERID as myid";
 			$mysql = $mysql . " FROM `p_r_main_rackchassis`";
 			$mysql = $mysql . " INNER JOIN p_r_rackmount ON p_r_main_rackchassis.RACKMOUNTID = p_r_rackmount.RACKMOUNTID ";
-			$mysql = $mysql . " WHERE p_r_main_rackchassis.SERVERID ='" . $r_pid . "'";		 
+			$mysql = $mysql . " WHERE p_r_main_rackchassis.SERVERID ='" . $r_pid . "'";
 		}else if(strtoupper($m_PType) == "JBOD"){
 			$mysql = " SELECT p_r_main_jbod.SERVERID,";
 			$mysql = $mysql . " p_r_main_jbod.MODELNAME, ";
@@ -397,7 +397,7 @@ if($r_pid != NULL){
 			$mysql = $mysql . " p_r_main_jbod.HDD";
 			$mysql = $mysql . " FROM `p_r_main_jbod`";
 			$mysql = $mysql . " INNER JOIN p_r_rackmount ON p_r_main_jbod.RACKMOUNTID = p_r_rackmount.RACKMOUNTID ";
-			$mysql = $mysql . " WHERE p_r_main_jbod.SERVERID ='" . $r_pid . "'";		 
+			$mysql = $mysql . " WHERE p_r_main_jbod.SERVERID ='" . $r_pid . "'";
 		}else if(strtoupper($m_PType) == "TPM"){
 			$mysql = " SELECT p_s_main_tpm.TPMID,";
 			$mysql = $mysql . " p_s_main_tpm.MODELNAME, ";
@@ -486,12 +486,12 @@ if($r_pid != NULL){
 			$mysql = $mysql . " FROM `p_s_main_risercard`";
 			$mysql = $mysql . " WHERE p_s_main_risercard.risercardID ='" . $r_pid . "'";
 
-		}	
+		}
 					//echo $mysql;exit();
 	}
 
 	$DataList1_cmd=mysqli_query($link_db,$mysql);
-	$DataList1_result=mysqli_fetch_row($DataList1_cmd);	
+	$DataList1_result=mysqli_fetch_row($DataList1_cmd);
 	if(strtoupper($m_PType) == "MB" || strtoupper($m_PType) == "BB"){
 		$CPUNAME01="[".$DataList1_result[16]."]";
 		$CPUSORT01=$DataList1_result[3];
@@ -501,17 +501,17 @@ if($r_pid != NULL){
 		$CPUNAME01="[]";
 		$CPUSORT01="";
 		$IMG01=$DataList1_result[4];
-		$FTPIMG01=$DataList1_result[5];	
+		$FTPIMG01=$DataList1_result[5];
 	}else if(strtoupper($m_PType) == "NIC"){
 		$CPUNAME01="[]";
 		$CPUSORT01="";
 		$IMG01=$DataList1_result[4];
-		$FTPIMG01=$DataList1_result[5];	
-	}else{	
+		$FTPIMG01=$DataList1_result[5];
+	}else{
 		$CPUNAME01="[".$DataList1_result[13]."]";
 		$CPUSORT01=$DataList1_result[3];
 		$IMG01=$DataList1_result[4];
-		$FTPIMG01=$DataList1_result[5];	
+		$FTPIMG01=$DataList1_result[5];
 	}
 }
 
@@ -521,7 +521,7 @@ if($PType_si == "IndustrialPanelPC"){
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'IndustrialPanelPC' as ProductType, CONCAT('IndustrialPanelPC',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN ProductTypes ON product_skus.ProductTypeID = ProductTypes.ProductTypeID INNER JOIN vw_ModelName ON product_skus.MODELCODE = vw_ModelName.ModelCode INNER JOIN p_b_main_panelpc ON product_skus.ModelCode = p_b_main_panelpc.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'IndustrialPanelPC' as ProductType, CONCAT('IndustrialPanelPC',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN ProductTypes ON product_skus.ProductTypeID = ProductTypes.ProductTypeID INNER JOIN vw_ModelName ON product_skus.MODELCODE = vw_ModelName.ModelCode INNER JOIN p_b_main_panelpc ON product_skus.ModelCode = p_b_main_panelpc.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and Web_Disable=0 and LANG='en-US' order by SKU";
 
 	$metaType="Processor Industrial Panel PC";
@@ -533,7 +533,7 @@ if($PType_si == "IndustrialPanelPC"){
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'EmbeddedSystem' as ProductType, CONCAT('Motherboards_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN ProductTypes ON product_skus.ProductTypeID = ProductTypes.ProductTypeID INNER JOIN vw_ModelName ON product_skus.MODELCODE = vw_ModelName.ModelCode INNER JOIN p_b_main_embedded ON product_skus.ModelCode = p_b_main_embedded.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'EmbeddedSystem' as ProductType, CONCAT('Motherboards_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN ProductTypes ON product_skus.ProductTypeID = ProductTypes.ProductTypeID INNER JOIN vw_ModelName ON product_skus.MODELCODE = vw_ModelName.ModelCode INNER JOIN p_b_main_embedded ON product_skus.ModelCode = p_b_main_embedded.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and Web_Disable=0 and LANG='en-US' order by SKU desc";
 
 	$metaType="Processor Embedded System";
@@ -545,20 +545,20 @@ if($PType_si == "IndustrialPanelPC"){
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'IndustrialMotherboard' as ProductType, CONCAT('Chassis_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_industriamb ON product_skus.ModelCode = p_b_main_industriamb.MODELCODE"; 
-	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520 
+	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'IndustrialMotherboard' as ProductType, CONCAT('Chassis_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_industriamb ON product_skus.ModelCode = p_b_main_industriamb.MODELCODE";
+	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 
 	$metaType="Industrial Motherboard";
 	$meta="'2','1'"; //condition
 	$metaOrder=",2,1,";//ORDER
-	
+
 }else if($PType_si == "OCPserver"){
 	$Get_N_SKU_Type="SELECT MODELCODE FROM `p_b_main_ocpserver` WHERE (OCPID = ".$r_pid.")";
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'OCPserver' as ProductType, CONCAT('JOBD_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_ocpserver ON product_skus.ModelCode = p_b_main_ocpserver.MODELCODE"; 
-	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520 
+	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'OCPserver' as ProductType, CONCAT('JOBD_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_ocpserver ON product_skus.ModelCode = p_b_main_ocpserver.MODELCODE";
+	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 
 
 }else if($PType_si == "OCPMezz"){
@@ -566,7 +566,7 @@ if($PType_si == "IndustrialPanelPC"){
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'OCPMezz' as ProductType, CONCAT('TPM_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_ocpmezz ON product_skus.ModelCode = p_b_main_ocpmezz.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'OCPMezz' as ProductType, CONCAT('TPM_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_ocpmezz ON product_skus.ModelCode = p_b_main_ocpmezz.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 
 }else if($PType_si == "JBODJBOF"){
@@ -574,7 +574,7 @@ if($PType_si == "IndustrialPanelPC"){
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'JBODJBOF' as ProductType, CONCAT('NIC_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_jbodjbof ON product_skus.ModelCode = p_b_main_jbodjbof.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'JBODJBOF' as ProductType, CONCAT('NIC_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_jbodjbof ON product_skus.ModelCode = p_b_main_jbodjbof.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 
 }else if($PType_si == "OCPRack"){
@@ -582,28 +582,28 @@ if($PType_si == "IndustrialPanelPC"){
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'OCPRack' as ProductType, CONCAT('GPUMezz',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_ocprack ON product_skus.ModelCode = p_b_main_ocprack.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'OCPRack' as ProductType, CONCAT('GPUMezz',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_ocprack ON product_skus.ModelCode = p_b_main_ocprack.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 }else if($PType_si == "POS"){
 	$Get_N_SKU_Type="SELECT MODELCODE FROM `p_b_main_pos` WHERE (POSID = ".$r_pid.")";
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'POS' as ProductType, CONCAT('LANMezz',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_pos ON product_skus.ModelCode = p_b_main_pos.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'POS' as ProductType, CONCAT('LANMezz',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_pos ON product_skus.ModelCode = p_b_main_pos.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 }else if($PType_si == "5GEdgeComputing"){
 	$Get_N_SKU_Type="SELECT MODELCODE FROM `p_b_main_5G` WHERE (5GID = ".$r_pid.")";
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'5G' as ProductType, CONCAT('LANMezz',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_pos ON product_skus.ModelCode = p_b_main_pos.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT distinct product_skus.*, ".$r_pid." as pid,'5G' as ProductType, CONCAT('LANMezz',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN producttypes ON product_skus.ProductTypeID = producttypes.ProductTypeID INNER JOIN vw_modelname ON product_skus.MODELCODE = vw_modelname.ModelCode INNER JOIN p_b_main_pos ON product_skus.ModelCode = p_b_main_pos.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and LANG='en-US' and product_skus.sku in (select contents_product_skus.sku from contents_product_skus where contents_product_skus.slang='EN,' and contents_product_skus.modelcode='".$Get_N_SKU_Type_result[0]."' and contents_product_skus.status=1) order by SKU desc"; //mod 20150520
 }else{
 	$Get_N_SKU_Type="SELECT MODELCODE, CPUID FROM p_s_main_systemboards WHERE (SYSTEMBOARDID = ".$r_pid.")";
 	$Get_N_SKU_Type_cmd=mysqli_query($link_db,$Get_N_SKU_Type);
 	$Get_N_SKU_Type_result=mysqli_fetch_row($Get_N_SKU_Type_cmd);
 
-	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'MB' as ProductType, CONCAT('Motherboards_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN ProductTypes ON product_skus.ProductTypeID = ProductTypes.ProductTypeID INNER JOIN vw_ModelName ON product_skus.MODELCODE = vw_ModelName.ModelCode INNER JOIN p_s_main_systemboards ON product_skus.ModelCode = p_s_main_systemboards.MODELCODE"; 
+	$Get_N_SKU_Type_all = "SELECT product_skus.*, ".$r_pid." as pid,'MB' as ProductType, CONCAT('Motherboards_',RTRIM(product_skus.MODELCODE),'_',RTRIM(product_skus.SKU),'') as PSKULINK FROM product_skus INNER JOIN ProductTypes ON product_skus.ProductTypeID = ProductTypes.ProductTypeID INNER JOIN vw_ModelName ON product_skus.MODELCODE = vw_ModelName.ModelCode INNER JOIN p_s_main_systemboards ON product_skus.ModelCode = p_s_main_systemboards.MODELCODE";
 	$Get_N_SKU_Type_all = $Get_N_SKU_Type_all . " Where product_skus.MODELCODE like Case When locate('-','".$Get_N_SKU_Type_result[0]."')<>0 Then CONCAT(SUBSTRING('".$Get_N_SKU_Type_result[0]."', 1, locate('-','".$Get_N_SKU_Type_result[0]."')-1) , '%') else CONCAT('".$Get_N_SKU_Type_result[0]."' , '%') End and Web_Disable=0 and LANG='en-US' order by SKU desc";
 }
 
@@ -676,7 +676,7 @@ if($PType_si == "IndustrialPanelPC"){
 	$metaType="Industrial Motherboard";
 	$meta="'2','1'"; //condition
 	$metaOrder=",2,1,";//ORDER
-	
+
 }else if($PType_si == "OCPserver"){
 	$metaType="OCP Server";
 	$meta_des.=$PSKUs_si." (".$PMCode_si.") ".$metaType;
@@ -703,14 +703,14 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 	$strInfoTitle.=" ORDER BY INSTR('".$metaOrder."',CONCAT(',',PI_id,','))";
 	$cmdInfoTitle=mysqli_query($link_db, $strInfoTitle);
 	while ($dataInfoTitle=mysqli_fetch_array($cmdInfoTitle)) {
-		
+
 		foreach ($PR_info as $key => $value) {
 			if($value!="" && $listInfo[$dataInfoTitle[0]][$value]!=""){
 				$meta_des.=$listInfo[$dataInfoTitle[0]][$value]."&nbsp;";
 			}
 		}
 
-	}	
+	}
 	$meta_des.=$metaType;
 }
 
@@ -724,18 +724,18 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="<?=$meta_des;?>">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="" /> 
-	<meta property="og:title" content="<?=$meta_des;?> | MiTAC Computing Technology" />
+	<meta property="og:description" content="" />
+	<meta property="og:title" content="<?=$meta_des;?> | MiTAC Digital Technology" />
   <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
 	============================================= -->
-	
-	
+
+
 	<link rel="stylesheet" href="css1/bootstrap.css" type="text/css" />
 	<link rel="stylesheet" href="css1/style.css" type="text/css" />
 	<link rel="stylesheet" href="css1/swiper.css" type="text/css" />
@@ -749,8 +749,8 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 
 	<!-- Document Title
 	============================================= -->
-	<title><?=$meta_des;?> | MiTAC Computing Technology</title>
-	<?php 
+	<title><?=$meta_des;?> | MiTAC Digital Technology</title>
+	<?php
 	//************判斷語系載入 google analytics ************
 	if($s_cookie!=2){
 	  include_once("analyticstracking.php");
@@ -782,7 +782,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 		============================================= -->
 
 		<!--breadcrumb-->
-	
+
 		<section id="page-title">
 			<div class="container clearfix">
 				<h2><?=$PSKUs_si;?> (<?=$PMCode_si;?>) <?=$BTO;?> <?=$EOL;?></h2>
@@ -794,7 +794,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 			</div>
 
 		</section>
-	
+
 		<!--end breadcrumb-->
 
 		<!--images + product briefing-->
@@ -806,7 +806,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 		$Pimg_cmd=mysqli_query($link_db,$str_Pimg);
 		$Ping_data=mysqli_fetch_row($Pimg_cmd);
 		$legend_val01=$Ping_data[3];
-		/* Mod 20150520 End */ 
+		/* Mod 20150520 End */
 		$image_arr=explode(",",$Ping_data[0]); //多圖切割
 		$arr_num=count($image_arr);
 		//echo $Ping_data[1];
@@ -843,11 +843,11 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 													<a href="<?=$FTPIMG01;?>" target="tyan" /><img src="../images/icon_zoomin.gif" title="Click to Download"  /></a><br /> <br /> <span class="label label-default"><?=$legend_val01;?></span>
 													<a href="<?=$FTPIMG01;?>" target="tyan" /><img src="../images/icon_zoomin.gif" title="Click to Download"  /></a>
 													<?php
-												}	
+												}
 
 											}
 											?>
-											
+
 										</div>
 									</div>
 								</div>
@@ -866,11 +866,11 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 									</div>
 									<!--end big photo-->
 									</div>
-								
+
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 					<div class="col-lg-5 offset-lg-1">
 						<div class="featured-item topmargin">
@@ -985,11 +985,11 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 								$pdesc_data=mysqli_fetch_row($pdesc_cmd);
 								if($pdesc_data==true){
 									if($pdesc_data[2]=="" || $pdesc_data[2]=="NULL"){
-									
+
 									}else{
 										echo "<li><a href='#Overview'>".$PDName01."</a></li>";
 									}
-									
+
 								}
 								//------ description tab end -----------
 								//----- SPEC -------
@@ -1017,12 +1017,12 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 
 								$Fru01="SELECT ID FROM `sp_fru` WHERE ((STATUS = 1) AND (MODEL LIKE '%".$PMCode_si.",%')) ORDER BY FILEDATE DESC";
 								$Fru01_cmd=mysqli_query($link_db,$Fru01);
-								$Fru01_data=mysqli_fetch_row($Fru01_cmd);	 
+								$Fru01_data=mysqli_fetch_row($Fru01_cmd);
 								if($Fru01_data==true){
 									$Fru01_num=mysqli_num_rows($Fru01_cmd);
 								}else{
 									$Fru01_num=0;
-								}	 
+								}
 
 								if($Dashe01_num>0 || $Manu01_num>0 || $Fru01_num>0 ){
 									$doc_display=1;
@@ -1048,7 +1048,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 								}else{
 									$DRVER01_num=0;
 								}
-						 
+
 								if($BIOS01_num>0 || $DRVER01_num>0 ){
 									$BIOS_display=1;
 									echo "<li><a href='#Downloads'>".$DLName01."</a></li>";
@@ -1076,7 +1076,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 								$spcpulist_cmd=mysqli_query($link_db,$str_spcpulist);
 								$spcpulist_data=mysqli_fetch_row($spcpulist_cmd);
 								if($spcpulist_data==true){
-									$spcpulist_num=mysqli_num_rows($spcpulist_cmd); 
+									$spcpulist_num=mysqli_num_rows($spcpulist_cmd);
 								}else{
 									$spcpulist_num=0;
 								}
@@ -1091,7 +1091,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 								$prchk_cmd=mysqli_query($link_db,$str_prchk);
 								$prchk_data=mysqli_fetch_row($prchk_cmd);
 								if($prchk_data==true){
-									$PRlist_num=mysqli_num_rows($prchk_data); 
+									$PRlist_num=mysqli_num_rows($prchk_data);
 								}else{
 									$PRlist_num=0;
 								}
@@ -1113,13 +1113,13 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 										$exptag=0;
 										echo "<li><a href='#dt".$i."' data-toggle='tab'>".$exp_data[2]."</a></li>";
 										$tab_contant.="<div class='tab-pane' id=dt".$i.">".trim($exp_data[3])."</div>";
-										
+
 									}else if($exp_data[4]==1){
 										$exptag=1;
 
 										echo "<li id='qq'><a href='#dt".$i."' onclick=tagblank('".$exp_data[5]."')>".$exp_data[2]."</a></li>";
 										$tab_contant.="<div class='tab-pane' id=dt".$i."></div>";
-									}		 
+									}
 								}
 								?>
 							</ul>
@@ -1136,13 +1136,13 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 											<?=$descs;?>
 										</div>
 									</div>
-								
+
 								</div>
 								<!--end Product Description -> Description-->
 								<?php
 								}
 								?>
-								
+
 
 								<!--SPEC-->
 								<div class="tab-content clearfix" id="SPEC">
@@ -1168,7 +1168,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 											if($brief_data==true){
 												echo $brief_data[1];
 											}else{
-												
+
 											}
 											?>
 											<!--end Product Brief -> Brief -->
@@ -1213,28 +1213,28 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												//**********20180308 判斷是否有ParentSort欄位 end*************
 												while($data=mysqli_fetch_row($cmd)){
 
-													echo "<tr>";  
+													echo "<tr>";
 													$str_SPCA="select SPECCategoryID,SPECCategoryName,count(SPECCategoryID) as SPECCategoryCount from speccategroies where SPECCategoryName='".$data[1]."'";
-													
-													$SPCA_cmd=mysqli_query($link_db,$str_SPCA);  
+
+													$SPCA_cmd=mysqli_query($link_db,$str_SPCA);
 													$cadata=mysqli_fetch_row($SPCA_cmd);
 
 													if(empty($cadata)):
 
 													else:
 
-														if(isset($SPV[$data[6]])!=''):	
+														if(isset($SPV[$data[6]])!=''):
 
 														else:
 															$SPV[$data[6]]=0;
-														endif;	 
-														$SPV[$data[6]]+=1;	
+														endif;
+														$SPV[$data[6]]+=1;
 														if($SPV[$data[6]]==1){
 															if($data[1]!='Graphic' || $data[1]!='Input /Output'){
 																echo "<td class='dot01' rowspan=".SPEC_Toal($m_SKUs,$data[6],$db_host,$db_user,$db_pwd,$dataBase).">".$data[1]."</td>";
 															}
 														}
-													endif;  
+													endif;
 
 													//*********20170914 ADD合併欄位********
 													if ($data[5]!="") {
@@ -1244,18 +1244,18 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 														$SPV[$data[5]]+=1;
 														if($SPV[$data[5]]==1){
 															$strtype="SELECT COUNT(a.ParentSpec) From sp".$m_SKUs." a inner join `speccategroies` b on a.SPECCategoryID=b.SPECCategoryID WHERE a.ParentSpec = '".$data[5]."' order by a.SPECCategoryID ";
-															$SPCA_type=mysqli_query($link_db,$strtype);  
+															$SPCA_type=mysqli_query($link_db,$strtype);
 															$typedata=mysqli_fetch_row($SPCA_type);
 															echo "<td rowspan=".$typedata[0].">".$data[3]."</td>"; //Web第二層
 														}else{
-														} 	
+														}
 													}else{
 														echo "<td>".$data[3]."</td>";
 													}
-													
+
 													//*********20170914 合併欄位 END********
 													echo "<td>".$data[2]."</td>";
-													echo "<td>".$data[4]."</td>"; // All SPEC 
+													echo "<td>".$data[4]."</td>"; // All SPEC
 													echo "</tr>";
 												}
 												?>
@@ -1281,10 +1281,10 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 								    $citem+=1;
 
 								    if($c_itemlist_data[1]=="Manuals"){
-	  
-									    $str_man="SELECT Count(*) FROM sp_manual WHERE ((STATUS = '1') AND (MODEL LIKE '%".$PMCode_si.",%'))"; 
+
+									    $str_man="SELECT Count(*) FROM sp_manual WHERE ((STATUS = '1') AND (MODEL LIKE '%".$PMCode_si.",%'))";
 									    $cmd_man=mysqli_query($link_db,$str_man);
-									  	$data_man=mysqli_fetch_row($cmd_man);	
+									  	$data_man=mysqli_fetch_row($cmd_man);
 									  	if($data_man[0]!=0){
 									  		echo "<h3>".$c_itemlist_data[1]."</h3>";
 									  		echo "<table class='table  table-hover'>";
@@ -1298,7 +1298,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												echo "<tbody>";
 												$Manu_strlist="SELECT ID, FILENAME, FILEDATE, DESCRIPTION, VERSION, PATH, FILESIZE FROM sp_manual WHERE ((STATUS = 1) AND (MODEL LIKE '%".$PMCode_si.",%')) ORDER BY FILEDATE DESC";
 											  $Manu_listcmd=mysqli_query($link_db,$Manu_strlist);
-											  while($Manu_LData=mysqli_fetch_row($Manu_listcmd)){   
+											  while($Manu_LData=mysqli_fetch_row($Manu_listcmd)){
 											  	putenv("TZ=Asia/Taipei");
 											  	echo "<tr>";
 											  	echo "<td>".date("Y/m/d",strtotime($Manu_LData[2]))."</td>";
@@ -1312,12 +1312,12 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												echo "</table>";
 												echo "<div class='line bottommargin'></div>";
 											}
-										
+
 									  }else if($c_itemlist_data[1]=="Datasheets"){
-									  
-									    $str_ds="SELECT Count(*) FROM sp_datasheet WHERE ((STATUS = '1') AND (MODEL LIKE '%".$PMCode.",%'))"; 
+
+									    $str_ds="SELECT Count(*) FROM sp_datasheet WHERE ((STATUS = '1') AND (MODEL LIKE '%".$PMCode.",%'))";
 									    $cmd_ds=mysqli_query($link_db,$str_ds);
-									  	$data_ds=mysqli_fetch_row($cmd_ds);	
+									  	$data_ds=mysqli_fetch_row($cmd_ds);
 									  	if($data_ds[0]!=0){
 
 									  	 	echo "<h3>".$c_itemlist_data[1]."</h3>";
@@ -1332,7 +1332,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												echo "<tbody>";
 												$Dashe_strlist="SELECT ID, FILENAME, FILEDATE, DESCRIPTION, VERSION, PATH, FILESIZE FROM sp_datasheet WHERE ((STATUS = 1) AND (MODEL LIKE '%".$PMCode_si.",%'))ORDER BY FILEDATE DESC";
 											  $Dashe_listcmd=mysqli_query($link_db,$Dashe_strlist);
-											  while($Dashe_LData=mysqli_fetch_row($Dashe_listcmd)){   
+											  while($Dashe_LData=mysqli_fetch_row($Dashe_listcmd)){
 											  	putenv("TZ=Asia/Taipei");
 											  	echo "<tr>";
 											  	echo "<td>".date("Y/m/d",strtotime($Dashe_LData[2]))."</td>";
@@ -1347,12 +1347,12 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												echo "<div class='line bottommargin'></div>";
 
 									    }
-										
+
 									  }else if($c_itemlist_data[1]=="FRU"){
-									    
-									    $str_fru="SELECT Count(*) FROM sp_fru WHERE ((STATUS = '1') AND (MODEL LIKE '%".$PMCode_si.",%'))"; 
+
+									    $str_fru="SELECT Count(*) FROM sp_fru WHERE ((STATUS = '1') AND (MODEL LIKE '%".$PMCode_si.",%'))";
 									    $cmd_fru=mysqli_query($link_db,$str_fru);
-									  	$data_fru=mysqli_fetch_row($cmd_fru);	
+									  	$data_fru=mysqli_fetch_row($cmd_fru);
 									  	if($data_fru[0]!=0){
 									  		echo "<h3>".$c_itemlist_data[1]."</h3>";
 									  		echo "<table class='table  table-hover'>";
@@ -1366,7 +1366,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												echo "<tbody>";
 												$Fru_strlist="SELECT ID, FILENAME, FILEDATE, DESCRIPTION, VERSION, PATH, FILESIZE FROM `sp_fru` WHERE ((STATUS = 1) AND (MODEL LIKE '%".$PMCode_si.",%')) ORDER BY FILEDATE DESC";
 											  $Fru_listcmd=mysqli_query($link_db,$Fru_strlist);
-											  while($Fru_LData=mysqli_fetch_row($Fru_listcmd)){    
+											  while($Fru_LData=mysqli_fetch_row($Fru_listcmd)){
 											  	putenv("TZ=Asia/Taipei");
 											  	echo "<tr>";
 											  	echo "<td>".date("Y/m/d",strtotime($Fru_LData[2]))."</td>";
@@ -1378,7 +1378,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 												}
 												echo "</tbody>";
 												echo "</table>";
-												echo "<div class='line bottommargin'></div>"; 
+												echo "<div class='line bottommargin'></div>";
 											}
 									  }
 									}
@@ -1399,7 +1399,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 									$BIOS01="SELECT ID, FILENAME, FILEDATE, DESCRIPTION, VERSION, PATH, FILESIZE FROM sp_bios WHERE ((STATUS = 1) AND (MODEL LIKE '%".$PMCode_si.",%' or `MODEL` like '%".$PSKUs_si."%')) ORDER BY FILEDATE DESC";
 									$BIOS01_cmd=mysqli_query($link_db,$BIOS01);
 									$BIOS01_Data=mysqli_fetch_row($BIOS01_cmd);
-									if($BIOS01_Data==true){		
+									if($BIOS01_Data==true){
 										echo "<h3>BIOS</h3>";
 										echo "<table class='table  table-hover'>";
 										echo "<thead>
@@ -1479,7 +1479,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 									$valueCat01="select ID, FILENAME, FILEDATE, DESCRIPTION, VERSION, PATH, FILESIZE from `sp_driver` where (`MODEL` like '%".$PMCode_si."%' or `MODEL` like '%".$PSKUs_si."%') order by `VALUECATEGORY`";
 									$valueCat01_cmd=mysqli_query($link_db,$valueCat01);
 									$valueCat01_Num=mysqli_num_rows($valueCat01_cmd);
-									if($valueCat01_Num>0){		
+									if($valueCat01_Num>0){
 										echo "<h3>Drivers</h3>";
 										echo "<table class='table  table-hover'>";
 										echo "<thead>
@@ -1516,7 +1516,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 										echo "<div class='line bottommargin'></div>";
 									}
 
-									
+
 									?>
 									<!--end Download-->
 									</div>
@@ -1527,7 +1527,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 								?>
 
 								<!--Expansion tabs contents-->
-								<?php 
+								<?php
 								if($exptag==0){
 									echo $tab_contant;
 								}
@@ -1549,11 +1549,11 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 
 		<!-- #content end -->
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 

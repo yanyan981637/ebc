@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -30,7 +30,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -96,16 +96,16 @@ $list1 =mysqli_query($link_db,$str_count);
 $public_count=mysqli_num_rows($list1);
 //list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -133,7 +133,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -177,7 +177,7 @@ include("left_menu.php");
 					</div>
 				</div>
 			</div>
-			<!--end breadcrumb--> 
+			<!--end breadcrumb-->
 
 
 		</div>
@@ -199,23 +199,23 @@ include("left_menu.php");
 								<h1>My Quotations</h1>
 
 
-								<hr>	
+								<hr>
 
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 									<div class="col-md-3">
 										<div class="form-group">
 											<input id="s_QID" type="text" class="form-control" placeholder="Enter an ID">
 											<div id="err_search" class="alert alert-danger mb-1" role="alert" style="display:none">
 												There are no matches for your search.
-											</div>	
+											</div>
 										</div>
-									</div>	
+									</div>
 									<div class="col-md-9">
-										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button></a>	
+										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button></a>
 									</div>
 								</div>
-								<!--end search & sorting-->						
+								<!--end search & sorting-->
 								<!--total-->
 								<hr>
 
@@ -233,7 +233,7 @@ include("left_menu.php");
 											</a>
 										</li>
 										<?php
-										for($i=1;$i<=$pages_totle;$i++) { 
+										for($i=1;$i<=$pages_totle;$i++) {
 											$pagenum=6;
 											$last=$page+10;
 											$first=$page-10;
@@ -281,18 +281,18 @@ include("left_menu.php");
 								<table class="table table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>ID</th>		
+											<th>ID</th>
 											<th>Quotation Date</th>
 											<th>Products (Qty)</th>
 											<th>Amount (USD)</th>
-											<th>Due Date</th>		
+											<th>Due Date</th>
 											<th></th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										if($total!="0"){
-											$tmp=""; //Filter duplicate QT_ID 
+											$tmp=""; //Filter duplicate QT_ID
 											if($kind=="search"){
 											  switch ($switch) {
 											    case 'A':
@@ -315,7 +315,7 @@ include("left_menu.php");
 
 													$PR="";
 				 									$Amount="";
-			 										
+
 				 									$str_items="SELECT ID, QT_ID, Products, Qty, UnitPrice FROM partner_projects_items_client WHERE QT_ID='".$data[1]."' AND Version='".$data[12]."' ORDER BY Sort ASC";
 				 									$cmd_items=mysqli_query($link_db,$str_items);
 				 									while ($data_items=mysqli_fetch_row($cmd_items)){
@@ -335,14 +335,14 @@ include("left_menu.php");
 				 										if($data[10]=="1"){
 				 										$Amount=$Amount+$data_extra[2];
 				 										}
-				 									}	
-			 									
+				 									}
+
 				 									if($Amount!=""){
 				 										$Amount=number_format($Amount,2,'.',',');
 				 									}
 				 								?>
 				 								<tr>
-													<td><?=$data[1]?></td>	
+													<td><?=$data[1]?></td>
 													<td><?=$data[4]?></td>
 													<td><?=$PR?></td>
 													<?php
@@ -351,19 +351,19 @@ include("left_menu.php");
 													}else{
 														echo "<td></td>";
 													}
-													?>	
-													<td><?=$data[5]?></td>		
+													?>
+													<td><?=$data[5]?></td>
 													<td>
 													<?php
 													if($data[10]=="1"){
 													?>
 													<a href="FEquoteDetails@<?=$data[0]?>" target="_blank"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1">View</button></a>
-													<?php	
+													<?php
 													}
 													?>
 													</td>
 												</tr>
-												<?php	
+												<?php
 												}elseif($tmp!=$data[1]){
 
 												}

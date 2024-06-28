@@ -34,15 +34,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -67,8 +67,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - Open Compute Project (OCP)</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - Open Compute Project (OCP)</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -76,7 +76,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -88,10 +88,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -124,23 +124,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -156,7 +156,7 @@ if($s_cookie!=2){
                         <h1>Open Compute Project (OCP)</h1>
 <p>
 Starting in 2013, MiTAC began developing our first OCP Computing Project, Leopard. <br /><br />
-Tioga Pass, MiTAC's 2nd generation, provides great improvement in power efficiency and is well recognized by world class telco companies. 
+Tioga Pass, MiTAC's 2nd generation, provides great improvement in power efficiency and is well recognized by world class telco companies.
 MiTAC was the first to provide the ESA, an Enclosure Sub Assembly, designed to enable standard 19 inch rack users to adopt OCP products and to enjoy great power saving of OCP designs. <br /><br />
 We have broadened our OCP products with a family of Mezzanine cards, and we now deliver OCP Storage solutions!
 </p>
@@ -167,11 +167,11 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 <p style="margin-bottom:30%"> </p>
 
 
-                      
+
                     </div>
                 </div>
 			<div class="col-md-6 text-center">
-			
+
 			</div>
             </div>
 
@@ -179,38 +179,38 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
         <!-- /.container -->
 
     </div>
-	
-	
+
+
 
 	<!-- tabs -->
 	<div style="background:#f8f8f8">
 	<div class="container" >
-	
+
 <ul class="nav nav-pills" style="margin:40px 0px; font-size:1.2em ">
 
   <li role="presentation" ><a href="#server">Server</a></li>
  <li role="presentation" ><a href="#storage">Storage</a></li>
- <li role="presentation" ><a href="#Solution">Solution</a></li> 
- <li role="presentation" ><a href="#rack">Rack</a></li> 
+ <li role="presentation" ><a href="#Solution">Solution</a></li>
+ <li role="presentation" ><a href="#rack">Rack</a></li>
  <li role="presentation" ><a href="#mezz">Mezzanine</a></li>
  <li role="presentation" ><a href="#partner">Partners</a></li>
 
 </ul>
 
-	
-	
+
+
 	</div>
 	</div>
-	<!-- end tabs -->	
-	
+	<!-- end tabs -->
+
 	<a name="server"></a>
 <p style="margin-top:6%"> </p>
-	
-	
+
+
 	<!--Server-->
-	
+
 <div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Server</h1>	
+<h1 class="container">Server</h1>
 	</div>
 <p style="margin-top:3%"> </p>
 
@@ -243,7 +243,7 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 
@@ -284,19 +284,19 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 
 	<a name="storage"></a>
-	<p style="margin-top:6%"> </p>	
+	<p style="margin-top:6%"> </p>
 <!--end Server-->
 
 <!--Storage-->
-	
+
 <div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Storage</h1>	
+<h1 class="container">Storage</h1>
 	</div>
 <p style="margin-top:3%"> </p>
 <div class="container">
 <div class="row">
 <div class="col-md-3">
-	<div class="pro_well" style="position:relative;" >	
+	<div class="pro_well" style="position:relative;" >
 <h4 style="text-align: center; line-height:150%"><span style="color:#0D47A1">Crystal Lake</span><br />EST1250</h4>
 <a href="/JBODJBOF_EST1250_EST1250-U" /><img src="/images/product/JBODJBOF/EST1250.jpg" class="img-responsive" /></a><br />
 <div class="sub_des" style="margin-top:5%" >OCP JBOF<br /><br /></div>
@@ -310,14 +310,14 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 	</div>
 	<div class="col-md-3">
-	<div class="pro_well" style="position:relative;" >	
+	<div class="pro_well" style="position:relative;" >
 <h4 style="text-align: center; line-height:150%"><span style="color:#0D47A1"></span><br />19" Shelf</h4>
 <a href="/JBODJBOF_EST1250_EST1250-U" /><img src="/images/product/OCPserver/2Crystal_Lake_SLEDs.jpg" class="img-responsive" /></a><br />
 <div class="sub_des" style="margin-top:5%" >2 Crystal Lake SLEDs with ESA for EIA rack</div>
 </div>
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 </div>
@@ -331,9 +331,9 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 <!--Solution-->
-	
+
 <div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Solution</h1>	
+<h1 class="container">Solution</h1>
 	</div>
 <p style="margin-top:3%"> </p>
 <div class="container">
@@ -346,13 +346,13 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 </div>
@@ -367,9 +367,9 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 <!--Rack-->
-	
+
 <div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Rack</h1>	
+<h1 class="container">Rack</h1>
 	</div>
 <p style="margin-top:3%"> </p>
 <div class="container">
@@ -382,16 +382,16 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 </div>
 
 
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 </div>
@@ -412,9 +412,9 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 <!--Mezzanine-->
-	
+
 <div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Mezzanine</h1>	
+<h1 class="container">Mezzanine</h1>
 	</div>
 <p style="margin-top:3%"> </p>
 <div class="container">
@@ -439,10 +439,10 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 <img src="/images/product/OCPMezz/ML45604-1Q.jpg" class="img-responsive" /><br />
 <div class="sub_des" style="margin-top:5%" >1 X 100G OCP 2.0<br /> Mezzanine </div>
 
-</div>	
+</div>
 	</div>
 	<div class="col-md-3">
-	
+
 	</div>
 </div>
 </div>
@@ -456,9 +456,9 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 
 
 <!--Partners-->
-	
+
 <div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Partners</h1>	
+<h1 class="container">Partners</h1>
 	</div>
 <p style="margin-top:3%"> </p>
 <div class="container">
@@ -485,12 +485,12 @@ We have broadened our OCP products with a family of Mezzanine cards, and we now 
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

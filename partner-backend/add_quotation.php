@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -93,7 +93,7 @@ while ($Type=mysqli_fetch_row($cmdType)) {
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -159,15 +159,15 @@ include("left_menu.php");
                       while ($CName=mysqli_fetch_row($cdmCName)) {
                         echo "<option  value='".$CName[0]."'>".$CName[1]."</option>";
                       }
-                      ?>						
+                      ?>
                     </select>
                   <td>
                 </tr>
                 <tr>
-                  <td><strong>To:</strong> 
+                  <td><strong>To:</strong>
                     <select id="member" class="form-control">
-                      
-			
+
+
                     </select>
                     <td>
                     </tr>
@@ -178,7 +178,7 @@ include("left_menu.php");
                       <td><strong>ID:</strong> <td>
                       </tr>
                       <tr>
-                        <td><strong>Quotation Date:</strong> 
+                        <td><strong>Quotation Date:</strong>
                           <div class="input-group">
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="ft-calendar"></i></span>
@@ -187,7 +187,7 @@ include("left_menu.php");
                           </div><td>
                         </tr>
                         <tr>
-                          <td><strong>Due Date:</strong> 
+                          <td><strong>Due Date:</strong>
                             <div class="input-group">
                               <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ft-calendar"></i></span>
@@ -203,7 +203,7 @@ include("left_menu.php");
                              <td>
                              </tr>
                              <tr>
-                              <td><strong>Remarks:</strong> 
+                              <td><strong>Remarks:</strong>
                                 <textarea id="Remarks" class="form-control"  rows="2"></textarea>
                                 <td>
                                 </tr>
@@ -211,7 +211,7 @@ include("left_menu.php");
 
                               <h2>Items:</h2>
                               <div class="alert alert-warning" role="alert">
-                                If you can't find the products you can select. Please <a href="BEproducts" />go here to add them first</a>! 
+                                If you can't find the products you can select. Please <a href="BEproducts" />go here to add them first</a>!
                               </div>
                               <!--add one product-->
                               <div class="repeater-default bg-grey bg-lighten-4 p-15">
@@ -334,7 +334,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 
 
@@ -389,7 +389,7 @@ include("footer.php");
             <option>[sales name]</option>
 
           </select>
-        </div>								 
+        </div>
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-info btn-lg" value="Save">
@@ -403,13 +403,13 @@ include("footer.php");
      <table class="table table-hover">
       <thead class="bg-grey bg-lighten-4">
         <tr>
-          <th>Sales:</th>		 		
+          <th>Sales:</th>
           <th>Update Time / Date (CST)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>[salesname]</td>		 		
+          <td>[salesname]</td>
           <td>18:35:55 2021-03-29</td>
         </tr>
       </tbody>
@@ -447,26 +447,26 @@ include("footer.php");
 <!-- END PAGE LEVEL JS-->
 
 <script>
-Date.prototype.format = function(fmt) { 
-var o = { 
-  "M+" : this.getMonth()+1,                 //月份 
-  "d+" : this.getDate(),                    //日 
+Date.prototype.format = function(fmt) {
+var o = {
+  "M+" : this.getMonth()+1,                 //月份
+  "d+" : this.getDate(),                    //日
   "h+" : this.getHours(),                   //小時
-  "m+" : this.getMinutes(),                 //分 
-  "s+" : this.getSeconds(),                 //秒 
+  "m+" : this.getMinutes(),                 //分
+  "s+" : this.getSeconds(),                 //秒
   "q+" : Math.floor((this.getMonth()+3)/3), //季
-  "S"  : this.getMilliseconds()             //毫秒 
-}; 
+  "S"  : this.getMilliseconds()             //毫秒
+};
   if(/(y+)/.test(fmt)) {
-    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
   }
   for(var k in o) {
     if(new RegExp("("+ k +")").test(fmt)){
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
     }
   }
-  return fmt; 
-}    
+  return fmt;
+}
 
 function sel_member(i){
   var ID=document.getElementById("company").value;
@@ -477,17 +477,17 @@ function sel_member(i){
   url: url,
   dataType: "html",
   data: {
-    ID : ID,   
+    ID : ID,
     kind : kind
   },
     success: function(message){
       if(message == "success"){
 
       }else{
-        document.getElementById("member").innerHTML = message; 
+        document.getElementById("member").innerHTML = message;
       }
     }
-  });   
+  });
 }
 
 $("#AddOK").click(function(){
@@ -506,7 +506,7 @@ $("#AddOK").click(function(){
   var Remarks = document.getElementById("Remarks").value;
   var Items = $('[id=d_Items]').length;
   var Order="";
-  var pr=""; 
+  var pr="";
   var Qty="";
   var UnitPrice="";
   var des="";
@@ -538,7 +538,7 @@ $("#AddOK").click(function(){
     Price +="+";
   };
   //var b =document.getElementsByName('[0][email]')[0].value;
-  
+
   var kind="addQT";
   var url = "QuotationProcess";
   $.ajax({
@@ -549,7 +549,7 @@ $("#AddOK").click(function(){
     company : company,
     member : member,
     QT_Date : QT_Date,
-    Due_Date : Due_Date,    
+    Due_Date : Due_Date,
     Terms : Terms,
     Remarks : Remarks,
     Order : Order,
@@ -572,7 +572,7 @@ $("#AddOK").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

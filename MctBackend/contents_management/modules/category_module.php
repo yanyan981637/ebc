@@ -7,7 +7,7 @@ require "../../config.php";
 include_once('../../page.class.php');
 error_reporting(0);
 
-session_set_cookie_params(8*60*60); 
+session_set_cookie_params(8*60*60);
 ini_set('session.gc_maxlifetime', '28800');
 @session_start();
 
@@ -262,7 +262,7 @@ if($kinds=="mod_categoryM"){
 
 $pt_id="";$pt_lang="";
 if(isset($_REQUEST['pt_id'])!=''){
- if(trim($_REQUEST['pt_id'])!=''){  
+ if(trim($_REQUEST['pt_id'])!=''){
   $pt_id=preg_replace("/['\"\$ \r\n\t;<>\?]/i", '', intval($_REQUEST['pt_id']));
   if($pt_id==0){
   $pt_id="";
@@ -282,7 +282,7 @@ $pt_lang="";
 }
 
 if($pt_id<>''){
-  if($pt_lang<>''){  
+  if($pt_lang<>''){
   $str1="select count(*) from category_module_las where ProdTypeID=".$pt_id." and slang='".$pt_lang."'";
   }else{
   $str1="select count(*) from category_module_las where ProdTypeID=".$pt_id;
@@ -294,7 +294,7 @@ if($pt_id<>''){
   $str1="select count(*) from category_module_las";
   }
 }
-  
+
 $list1 =mysqli_query($link_db,$str1);
 list($public_count) = mysqli_fetch_row($list1);
 ?>
@@ -315,7 +315,7 @@ list($public_count) = mysqli_fetch_row($list1);
 <script type="text/javascript" src="../../lib/calender.js"></script>
 <script language="JavaScript">
 function cookie_val(){
- 
+
  if($.cookie("CA01")!=null){
   document.getElementById("CA01").value=$.cookie("CA01");
  }
@@ -325,7 +325,7 @@ function cookie_val(){
  if($.cookie("MD01")!=null){
   document.getElementById("MD01").value=$.cookie("MD01");
  }
- 
+
 }
 function MM_o(selObj){
 window.open(document.getElementById('SEL_PTYPE').options[document.getElementById('SEL_PTYPE').selectedIndex].value,"_self");
@@ -387,11 +387,11 @@ self.location="category_module.php";
 	<?php
 	include("../../menu.php");
 	?>
-	
+
 	<div class="clear"></div>
 
 	<div id="Search" >
-		<h2>Contents &nbsp;&gt;&nbsp;  <a href="../modules.php">Modules</a>  &nbsp;&gt;&nbsp; Category Module</h2> 
+		<h2>Contents &nbsp;&gt;&nbsp;  <a href="../modules.php">Modules</a>  &nbsp;&gt;&nbsp; Category Module</h2>
 	</div>
 
 	<div id="content">
@@ -448,10 +448,10 @@ self.location="category_module.php";
 			if(empty($page))$page="1";
 
 			$read_num="10";
-			$start_num=$read_num*($page-1);			
+			$start_num=$read_num*($page-1);
 
 			if($pt_id<>''){
-				if($pt_lang<>''){  
+				if($pt_lang<>''){
 					$str="SELECT CategoryModuID, CategoryModuName, ProdTypeID, CategIntroduction, urls, slang, Meta_Des, Status, upd_d, Redirect_URL, Title, Models FROM category_module_las where ProdTypeID=".$pt_id." and slang='".$pt_lang."' ORDER BY upd_d desc limit $start_num,$read_num;";
 				}else{
 					$str="SELECT CategoryModuID, CategoryModuName, ProdTypeID, CategIntroduction, urls, slang, Meta_Des, Status, upd_d, Redirect_URL, Title, Models FROM category_module_las where ProdTypeID=".$pt_id." ORDER BY upd_d desc limit $start_num,$read_num;";
@@ -473,7 +473,7 @@ self.location="category_module.php";
 				if($ProdTypeID==55){
 					$url_link="https://datacentersolutions.mitacmct.com/";
 				}else{
-					$url_link="https://www.mitacmct.com/";
+					$url_link="https://ipc.mitacmdt.com/";
 				}
 				?>
 				<tr>
@@ -482,11 +482,11 @@ self.location="category_module.php";
 						<a href="<?=$url_link.$Redirect_URL;?>~Landing" target="_blank"><?=$Redirect_URL;?></a>
 					</td>
 					<td>
-					<?php	
+					<?php
 					$str1="select ProductTypeName from producttypes_las where ProductTypeID=".$ProdTypeID;
 					$result1=mysqli_query($link_db,$str1);
 					list($ProductTypeName)=mysqli_fetch_row($result1);
-					echo $ProductTypeName;	
+					echo $ProductTypeName;
 					?>
 					</td>
 					<td><?=$slang;?></td>
@@ -509,7 +509,7 @@ self.location="category_module.php";
 					$all_page=ceil($public_count/$read_num);
 					$pageSize=$page;
 					$total=$all_page;
-					pageft($total,$pageSize,1,0,0,15);       
+					pageft($total,$pageSize,1,0,0,15);
 					?>
 				</td>
 			</tr>
@@ -535,7 +535,7 @@ self.location="category_module.php";
 		<p class="clear">&nbsp;</p>
 
 
-<!--Add category  -->							
+<!--Add category  -->
 <div id="category_module_add" class="subsettings" style="display:none">
 	<form id="form1" name="form1" method="post" action="?kinds=add_categoryM" onsubmit="return Final_Check();">
 		<h1>Add a Category</h1>
@@ -587,7 +587,7 @@ self.location="category_module.php";
 				<td><input id="CA_R_URL" name="CA_R_URL" type="text" value="" />
 				</td>
 			</tr>
-			
+
 			<tr>
 				<th>Languages:</th>
 				<td>
@@ -628,7 +628,7 @@ self.location="category_module.php";
 						$str_pinfo="SELECT PI_id, PI_Name, slang, PI_Value, PTYPE_Value, Sorts FROM product_info_las where instr(concat(',',PTYPE_Value), concat(',','$capt_aid',','))>0";
 					}
 					$pinfo_result=mysqli_query($link_db, $str_pinfo);
-					while(list($PI_id,$PI_Name,$slang,$PI_Value,$PTYPE_Value,$Sorts)=mysqli_fetch_row($pinfo_result))      
+					while(list($PI_id,$PI_Name,$slang,$PI_Value,$PTYPE_Value,$Sorts)=mysqli_fetch_row($pinfo_result))
 					{
 						?>
 						<input name="pro_info_Tp[]" type="checkbox" value="<?=$PI_id;?>"  /> <?=$PI_Name;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -675,7 +675,7 @@ self.location="category_module.php";
 							$br02="<br />";
 						}else{
 							$br02="";
-						}  
+						}
 						?>
 						<input name="chipset_Vals_Set[]" type="checkbox" value="<?=$Chipsets_data[0];?>" />&nbsp;<?=$Chipsets_data[1];?>&nbsp;<?=$br02;?>
 						<?php
@@ -759,7 +759,7 @@ self.location="category_module.php";
 	</form>
 
 </div>
-<!--Add category END -->							
+<!--Add category END -->
 
 
 <?php
@@ -770,7 +770,7 @@ if(isset($_GET['ca_id'])<>""){
 	$mdata=mysqli_fetch_row($mcmd);
 	if($_GET['pt_mid']!=""){
 		$pt_mid=intval($_GET['pt_mid']);
-	}else{		
+	}else{
 		$pt_mid=$mdata[2];
 	}
 	?>
@@ -783,7 +783,7 @@ if(isset($_GET['ca_id'])<>""){
 				<tr>
 					<th>Product Type:  </th>
 					<td>
-						
+
 						<select id="SEL_PTYPEm" name="SEL_PTYPEm" onChange="MM_PTm(this)">
 							<option value="category_module.php?pt_mid=">Select</option>
 							<?php
@@ -795,12 +795,12 @@ if(isset($_GET['ca_id'])<>""){
 								}
 
 							?>
-							<option value="category_module.php?ca_id=<?=$ca_id01;?>&pt_mid=<?=$tpdata[0];?>" 
+							<option value="category_module.php?ca_id=<?=$ca_id01;?>&pt_mid=<?=$tpdata[0];?>"
 							<?php
 							if(isset($_REQUEST['pt_mid'])<>""){
-								if($_REQUEST['pt_mid']==$tpdata[0]){ echo "selected"; } 
+								if($_REQUEST['pt_mid']==$tpdata[0]){ echo "selected"; }
 							}else{
-								if($mdata[2]==$tpdata[0]){ echo "selected"; } 
+								if($mdata[2]==$tpdata[0]){ echo "selected"; }
 							}
 							?> ><?=$tpdata[1];?></option>
 							<?php
@@ -859,7 +859,7 @@ if(isset($_GET['ca_id'])<>""){
 						<?php
 						$str_pinfo="SELECT PI_id, PI_Name, slang, PI_Value, PTYPE_Value, Sorts FROM product_info_las where instr(concat(',',PTYPE_Value), concat(',','$pt_mid',','))>0";
 						$pinfo_result=mysqli_query($link_db, $str_pinfo);
-						while(list($PI_id,$PI_Name,$slang,$PI_Value,$PTYPE_Value,$Sorts)=mysqli_fetch_row($pinfo_result))      
+						while(list($PI_id,$PI_Name,$slang,$PI_Value,$PTYPE_Value,$Sorts)=mysqli_fetch_row($pinfo_result))
 						{
 							?>
 							<input name="pro_info_TpM[]" type="checkbox" value="<?=$PI_id;?>" <?php if(strpos($mdata[6],$PI_id.",")!='' || strpos($mdata[6],$PI_id.",")===0){ echo "checked"; } //if(eregi($mdata[6],$PTYPE_Value)!=''){ echo "checked"; } ?>  /> <?=$PI_Name;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -907,7 +907,7 @@ if(isset($_GET['ca_id'])<>""){
 									$br02="<br />";
 								}else{
 									$br02="";
-								}  
+								}
 								?>
 								<input name="chipset_Vals_Set[]" type="checkbox" value="<?=$Chipsets_data[0];?>" />&nbsp;<?=$Chipsets_data[1];?>&nbsp;<?=$br02;?>
 								<?php

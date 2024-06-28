@@ -34,15 +34,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -67,8 +67,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - POS</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - POS</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -76,7 +76,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -88,10 +88,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -124,23 +124,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -154,22 +154,22 @@ if($s_cookie!=2){
                 <div class="col-xs-12 col-sm-6 col-md-8 text-left">
                     <div class="intro-message" style="color:#ffffff">
                         <h1>Rugged Tablet</h1>
-						
+
 						<h2>MiTAC Windows 10 Rugged Tablet</h2>
 <h3>Born to be the Best Mobile Solution for Vertical and Retail Market</h3>
 <br />
 <img src="/images/logo/Apollo-Lake-Celeron.jpg" /> <img src="/images/logo/Apollo-Lake-Pentium.jpg" />
- 
+
 
 <p style="margin-bottom:10%"> </p>
 
 
-                      
+
                     </div>
                 </div>
 				<div class="col-xs-6 col-md-4 text-left" style="padding-top:3%;">
 				 <div class="well box" style="background-color: rgba(255, 255, 255, 0.9); ">
-				 
+
 				 <strong>New products:</strong><br />
 				 <div class="intro-divider "></div><br />
 				 <ul style="margin-left:15px">
@@ -183,8 +183,8 @@ if($s_cookie!=2){
 
 				</div>
 				<br />
-				
-				
+
+
 				</div>
             </div>
 
@@ -192,13 +192,13 @@ if($s_cookie!=2){
         <!-- /.container -->
 
     </div>
-	
-	
+
+
 
 	<!-- tabs -->
 	<div style="background:#f8f8f8">
 	<div class="container" >
-	
+
 <ul class="nav nav-pills" style="margin:40px 0px; ">
 
   <li role="presentation" ><a href="#Latte">Latte</a></li>
@@ -206,25 +206,25 @@ if($s_cookie!=2){
 
 </ul>
 
-	
-	
+
+
 	</div>
 	</div>
-	<!-- end tabs -->	
-	
-	
-		
+	<!-- end tabs -->
+
+
+
 	<!--Industrial Embedded System-->
 	<a name="Latte"></a>
 		<div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Latte</h1>	
-	</div>	
-	
+<h1 class="container">Latte</h1>
+	</div>
+
 	<div class="container-fluid" >
 	<p style="margin-top:5%"> </p>
 	<div class="container">
-	
-	
+
+
 	<div class="row">
 	<div class="col-md-6"><a href="/POS_Latte_Latte" target="mit" /><img src="/images/product/POS/Latte-1.jpg" class="img-responsive" /></a></div>
   <div class="col-md-6">
@@ -244,44 +244,44 @@ if($s_cookie!=2){
 <li>Accessory for Vehicle Mounting and I/O Connectivity<br /><br /> <a href="/POS_Latte_Latte" target="mit" /><button type="button" class="btn btn-default">View</button></a></li>
 
    </ul>
-   
-  
+
+
   </div>
-  
+
 </div>
-	
+
 
   </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
 	 <p style="margin-top:5%"> </p>
-	 
+
 	<!--end Industrial Embedded System-->
 <!--Commercial Embedded System-->
 	<a name="Cappu"></a>
 		<div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">Cappuccino</h1>	
-	</div>	
-	
+<h1 class="container">Cappuccino</h1>
+	</div>
+
 	<p style="margin-top:3%"> </p>
 	<div class="container-fluid" >
 	<p style="margin-top:3%"> </p>
 	<div class="container">
-	
-	
+
+
 	<div class="row">
   <div class="col-md-6">
-  
+
    <h2 class="blue_cr"><a href="/POS_Cappuccino_Cappuccino" target="mit" />Cappuccino</a></h2>
   <h3 style="">Intel® Pentium N4200 / <br />Intel® Celeron N3350 & N4100</h3>
    <ul style="margin-left:20px">
@@ -302,25 +302,25 @@ if($s_cookie!=2){
 
 
    </ul>
-  
+
   </div>
   <div class="col-md-6"><a href="/POS_Cappuccino_Cappuccino" target="mit" /><img src="/images/product/POS/Cappuccino-1.jpg" class="img-responsive" /></a></div>
 </div>
-	
-	
-	
-	
-	
-	
 
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
   </div>
   </div>
-	
-	 <p style="margin-top:6%"> </p>	
+
+	 <p style="margin-top:6%"> </p>
 	<!--end Commercial Embedded System-->
 
 
@@ -330,12 +330,12 @@ if($s_cookie!=2){
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

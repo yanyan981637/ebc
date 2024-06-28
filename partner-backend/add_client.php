@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -80,7 +80,7 @@ $Role=$_SESSION['role'];
   <link rel="shortcut icon" href="/images/ico/favicon.ico">
   <link rel="manifest" href="images/favicon/site.webmanifest">
   <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  
+
   <!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/vendors.css">
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/selects/select2.min.css">
@@ -88,7 +88,7 @@ $Role=$_SESSION['role'];
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -109,7 +109,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->  
+<!--end left menu-->
 
 <div class="app-content content">
   <div class="content-wrapper">
@@ -164,7 +164,7 @@ include("left_menu.php");
                 <div id="err_username" class="alert alert-danger mb-1" role="alert" style="display:none" >
                   Please Enter Member Name.
                 </div>
-              </div>		
+              </div>
               <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input id="email" type="" class="form-control" placeholder="" required>
@@ -207,7 +207,7 @@ include("left_menu.php");
                     <?php
                     //include("countryCode.php");
                     ?>
-                  </select> 
+                  </select>
                   <div id="err_countryCode" class="alert alert-danger mb-1" role="alert" style="display:none">
                     Please Select.
                   </div>
@@ -231,11 +231,11 @@ include("left_menu.php");
             <select id="resSales" class="form-control" >
               <option value="" selected>Please select...</option>
               <?php
-              $str_teams="SELECT ID, Team FROM partner_teams WHERE 1"; 
+              $str_teams="SELECT ID, Team FROM partner_teams WHERE 1";
               $cmd_teams=mysqli_query($link_db, $str_teams);
               while ($data_teams=mysqli_fetch_row($cmd_teams)) {
                 echo "<optgroup label='".$data_teams[1]."'>";
-                $str_sales="SELECT ID, NAME, EMAIL FROM partner_sales WHERE Team LIKE '%".$data_teams[0]."%'"; 
+                $str_sales="SELECT ID, NAME, EMAIL FROM partner_sales WHERE Team LIKE '%".$data_teams[0]."%'";
                 $cmd_sales=mysqli_query($link_db, $str_sales);
                 while ($data_sales=mysqli_fetch_row($cmd_sales)) {
                   echo "<option value='".$data_sales[0]."'>".$data_sales[1]." / ".$data_sales[2]."</option>";
@@ -274,7 +274,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 
 
@@ -384,13 +384,13 @@ $(function(){
       url: url,
       dataType: "html",
       data: {
-        companyName : companyName, 
-        companyAddress : companyAddress, 
-        username : username, 
+        companyName : companyName,
+        companyAddress : companyAddress,
+        username : username,
         email : email,
         Title : Title,
         countryCode : countryCode,
-        tel : tel, 
+        tel : tel,
         resSales : resSales,
         Region : Region,
         kind : kind

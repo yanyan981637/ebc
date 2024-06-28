@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -32,12 +32,12 @@ if($_COOKIE["status"]==""){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC provides JBOD, JBOF, NVMe-oF JBOF storage choices for data centers and enterprise systems.">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC provides JBOD, JBOF, NVMe-oF JBOF storage choices for data centers and enterprise systems." /> 
-	<meta property="og:title" content="Storage Platforms | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC provides JBOD, JBOF, NVMe-oF JBOF storage choices for data centers and enterprise systems." />
+	<meta property="og:title" content="Storage Platforms | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -79,12 +79,12 @@ a.more {color:#41b6c7}
 
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Storage Platforms | MiTAC Computing Technology</title>
-	<?php 
+	<title>Storage Platforms | MiTAC Digital Technology</title>
+	<?php
 	//************ google analytics ************
 	if($s_cookie!=2){
 	  include_once("analyticstracking.php");
@@ -105,7 +105,7 @@ a.more {color:#41b6c7}
 	?>
 	<!--end Header logo & global top menu-->
 
-	
+
 
 
 		<!-- Slider
@@ -117,37 +117,37 @@ a.more {color:#41b6c7}
 					<div class="col-lg-8 col-md-9 dark mb-5 mb-md-0 py-5" data-animate="backInLeft">
 						<h2 class="display-4" style="font-weight: 600;" >Storage Platform</h2>
 						<h3 style="color:#41b6c7; font-size:2.5rem">Diverse Storage Choices for Data Centers and Enterprise Systems.</h3>
-						
+
 						<p class="mb-5 lead text-white">
-						
 
-					
-						
-						
-						MiTAC storage platforms for datacenters and enterprise systems address a 
 
-full spectrum of needs. From attached storage (DAS), storage area networks 
 
-(SAN), and network attached storage (NAS) environments to support for a 
 
-variety of industry storage protocols including Fibre Channel, iSCSI, 
 
-SAS/SATA, NVMe and NVMe over fabric, these platforms ensure that users are 
+						MiTAC storage platforms for datacenters and enterprise systems address a
+
+full spectrum of needs. From attached storage (DAS), storage area networks
+
+(SAN), and network attached storage (NAS) environments to support for a
+
+variety of industry storage protocols including Fibre Channel, iSCSI,
+
+SAS/SATA, NVMe and NVMe over fabric, these platforms ensure that users are
 
 able to find the right solution.<br><br>
-		MiTAC Computing Technology has 40 years of experience serving the unique needs and requirements of ODM manufacturing segments. 
+		MiTAC Digital Technology has 40 years of experience serving the unique needs and requirements of ODM manufacturing segments.
 Welcome you to <a href="/EN/contact/" style="color:#41b6c7;">contact us</a> and get more details about our ODM storage solutions.
 						</p>
-						
-						
+
+
 					</div>
 					<div class="col-md-3 d-flex align-items-center col-form">
-					
-					
+
+
 					<!--<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0 op-09"  data-animate="backInRight" >
 							<div class="card-body">
-							
-							 
+
+
 								<h3 class="mb-0 center">
 									Products:
 								</h3>
@@ -158,11 +158,11 @@ Welcome you to <a href="/EN/contact/" style="color:#41b6c7;">contact us</a> and 
 								<li><i class="icon-line-chevrons-right"></i> <a href="/EN/contact/" target="mit" />FR2223 (JBOF)</a></li>
 								<li><i class="icon-line-chevrons-right"></i> <a href="/EN/contact/" target="mit" />HT2221F (NVMe-oF JBOF)</a></li>
 								</ul>
-								
-								
+
+
 							</div>
 						</div>-->
-						
+
 					</div>
 				</div>
 			</div>
@@ -224,11 +224,11 @@ Welcome you to <a href="/EN/contact/" style="color:#41b6c7;">contact us</a> and 
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -238,7 +238,7 @@ Welcome you to <a href="/EN/contact/" style="color:#41b6c7;">contact us</a> and 
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -246,7 +246,7 @@ Welcome you to <a href="/EN/contact/" style="color:#41b6c7;">contact us</a> and 
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

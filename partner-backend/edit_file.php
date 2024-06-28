@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -91,18 +91,18 @@ while ($data=mysqli_fetch_row($cdmCName)) {
 	<link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/icheck.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/custom.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/daterange/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">	
+	<link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
 	<!-- END VENDOR CSS-->
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/css/plugins/forms/checkboxes-radios.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/css/plugins/pickers/daterange/daterange.css">
-	
+
 	<!-- END Page Level CSS-->
 	<!-- BEGIN Custom CSS-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -119,8 +119,8 @@ while ($data=mysqli_fetch_row($cdmCName)) {
 	<?php
 	include("left_menu.php");
 	?>
-	<!--end left menu-->	
-	
+	<!--end left menu-->
+
 
 
 	<div class="app-content content">
@@ -256,7 +256,7 @@ while ($data=mysqli_fetch_row($cdmCName)) {
 														$selected="";
 														if($SEL_CName[5]!=""){
 															if($SEL_CName[0]==$tmp[$SEL_CName[0]]){
-															/*$con = explode($SEL_CName[0],$data[9]); 
+															/*$con = explode($SEL_CName[0],$data[9]);
 															if(count($con)>1){*/
 																$selected="selected";
 															}else{
@@ -266,7 +266,7 @@ while ($data=mysqli_fetch_row($cdmCName)) {
 															echo "<option  value='".$SEL_CName[0]."' ".$selected.">".$value."</option>";
 														}
 													}
-													?>	
+													?>
 											</select>
 											<br />
 										</div>
@@ -292,7 +292,7 @@ while ($data=mysqli_fetch_row($cdmCName)) {
 
 
 	<footer class="footer footer-static footer-dark navbar-border">
-		<p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
+		<p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Digital Technology Corporation and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
 	</footer>
 
 
@@ -329,42 +329,42 @@ while ($data=mysqli_fetch_row($cdmCName)) {
 <!-- END PAGE LEVEL JS-->
 
 <script>
-Date.prototype.format = function(fmt) { 
-var o = { 
-  "M+" : this.getMonth()+1,                 //月份 
-  "d+" : this.getDate(),                    //日 
+Date.prototype.format = function(fmt) {
+var o = {
+  "M+" : this.getMonth()+1,                 //月份
+  "d+" : this.getDate(),                    //日
   "h+" : this.getHours(),                   //小時
-  "m+" : this.getMinutes(),                 //分 
-  "s+" : this.getSeconds(),                 //秒 
+  "m+" : this.getMinutes(),                 //分
+  "s+" : this.getSeconds(),                 //秒
   "q+" : Math.floor((this.getMonth()+3)/3), //季
-  "S"  : this.getMilliseconds()             //毫秒 
-}; 
+  "S"  : this.getMilliseconds()             //毫秒
+};
   if(/(y+)/.test(fmt)) {
-  	fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+  	fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
   }
   for(var k in o) {
   	if(new RegExp("("+ k +")").test(fmt)){
   		fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
   	}
   }
-  return fmt; 
-}     
+  return fmt;
+}
 
 $("#EditFile").click(function(){
 	var FileID = document.getElementById("FileID").value;
 	var Name = document.getElementById("Name").value;
 	var sel_type = "";
 	selector1 = document.getElementById("sel_type");
-  	for (var i = 0; i < selector1.options.length; i++ ) { 
-  		if (selector1.options[i].selected) { 
+  	for (var i = 0; i < selector1.options.length; i++ ) {
+  		if (selector1.options[i].selected) {
   			if(sel_type==""){
-  				sel_type += selector1.options[i].value; 
+  				sel_type += selector1.options[i].value;
   			}else{
-  				sel_type += "/"; 
-  				sel_type += selector1.options[i].value; 
+  				sel_type += "/";
+  				sel_type += selector1.options[i].value;
   			}
-  		} 
-  	} 
+  		}
+  	}
 
 	var Des = document.getElementById("Des").value;
 	var Fsize = document.getElementById("Fsize").value;
@@ -380,17 +380,17 @@ $("#EditFile").click(function(){
     ToWho = document.getElementById("ToAll").value
   }else if(document.getElementById("ToWho").checked==true) {
     selector = document.getElementById("sel_who");
-  	for (var i = 0; i < selector.options.length; i++ ) { 
-  		if (selector.options[i].selected) { 
+  	for (var i = 0; i < selector.options.length; i++ ) {
+  		if (selector.options[i].selected) {
   			if(ToWho==""){
-  				ToWho += selector.options[i].value; 
-  				ToWho += ","; 
+  				ToWho += selector.options[i].value;
+  				ToWho += ",";
   			}else{
-  				ToWho += selector.options[i].value; 
-  				ToWho += ","; 
+  				ToWho += selector.options[i].value;
+  				ToWho += ",";
   			}
-  		} 
-  	} 
+  		}
+  	}
   }
 	var kind="editFile";
 	var url = "filesProcess";
@@ -403,7 +403,7 @@ $("#EditFile").click(function(){
   	Name : Name,
   	sel_type : sel_type,
   	Des : Des,
-  	Fsize : Fsize,  
+  	Fsize : Fsize,
   	Fdate : Fdate,
   	ImageURL : ImageURL,
   	DownloadURL : DownloadURL,
@@ -419,7 +419,7 @@ $("#EditFile").click(function(){
   		alert(message);
   	}
   }
-	}); 
+	});
 })
 </script>
 </body>

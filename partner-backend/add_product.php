@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -91,7 +91,7 @@ $Role=$_SESSION['role'];
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -173,7 +173,7 @@ include("left_menu.php");
                 <td>
                   <label>
                     <strong>Product:</strong>
-                  </label> 
+                  </label>
                   <select id="sel_product" class="select2 form-control" style="width:50%" >
                    <option>Select:</option>
                    <?php
@@ -197,7 +197,7 @@ include("left_menu.php");
           </table>
            <br />
            <div class="alert alert-warning" role="alert">
-            If you can't find the products you can select. Please <a href="BEproducts" />go here to add them first</a>! 
+            If you can't find the products you can select. Please <a href="BEproducts" />go here to add them first</a>!
           </div>
           <br />
           <div class="text-left">
@@ -218,7 +218,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/js/core/libraries/jquery.min.js"></script>
@@ -253,7 +253,7 @@ $("#AddOK").click(function(){
     dataType: "html",
     data: {
       company : company,
-      product : product, 
+      product : product,
       kind : kind
     },
     success: function(message){

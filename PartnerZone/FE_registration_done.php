@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -35,7 +35,7 @@ if(strpos(trim(getenv('REQUEST_URI')),'?')!='' || strpos(trim(getenv('REQUEST_UR
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/fonts/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/fonts/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -68,41 +68,41 @@ if(strpos(trim(getenv('REQUEST_URI')),'?')!='' || strpos(trim(getenv('REQUEST_UR
 										<div class="text-center"><a href="https://www.tyan.com/" /><button type="button"  class="btn btn-lg btn-outline-light btn-primary ">Go Back to Tyan Website</button></a></div>
 
 									</div>
-									
+
 								</div>
-								<div class="card-content">	
+								<div class="card-content">
 									<div style="margin:2% 0">&nbsp;</div>
-									<div class="copyrightText text-center">Copyright&copy; 2021-2022 MiTAC Computing Technology Corporation (MiTAC Group). All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
+									<div class="copyrightText text-center">Copyright&copy; 2021-2022 MiTAC Digital Technology Corporation. All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
 										<a href="https://www.tyan.com/EN/legal/terms_of_use/" target="tos" />Terms of Use</a>&nbsp;·&nbsp;
 										<a href="https://www.tyan.com/EN/legal/privacy_policy/" target="tos" />Privacy Policy</a>&nbsp;·&nbsp;
 										<a href="https://www.tyan.com/EN/legal/cookie_policy/" target="tos" />Cookie Policy</a>
 									</div>
-									
-									
+
+
 								</div>
 							</div>
-							
-							
-							
-							
+
+
+
+
 						</div>
-						
-						
-						
+
+
+
 					</div>
 				</section>
 			</div>
 		</div>
 	</div>
 	<!-- ////////////////////////////////////////////////////////////////////////////-->
-	
-	
-	
-	
 
 
 
-	
+
+
+
+
+
 	<!-- Repeated Company name msg Modal -->
 	<div class="modal fade text-left" id="repeated-account-msg-2" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -113,39 +113,39 @@ if(strpos(trim(getenv('REQUEST_URI')),'?')!='' || strpos(trim(getenv('REQUEST_UR
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				
-				
+
+
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-md-12">
 							This email has already been registered. Please log in MiTAC Partner Zone.
-							
+
 						</div>
-					</div>								 
+					</div>
 				</div>
 				<div class="modal-footer">
-					<a href="index.html" ><input type="submit" class="btn btn-info btn-lg" value="LOGIN"></a>							
+					<a href="index.html" ><input type="submit" class="btn btn-info btn-lg" value="LOGIN"></a>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
 	<!-- end Repeated Company name msg Modal -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

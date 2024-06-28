@@ -113,12 +113,12 @@ if(isset($_COOKIE['status'])){
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="<?=$title?>">
 <meta property="og:type" content="website" />
 <meta property="og:description" content="<?=$title?>" />
-<meta property="og:title" content="News - Press Release  | MiTAC Computing Technology" />
+<meta property="og:title" content="News - Press Release  | MiTAC Digital Technology" />
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -139,7 +139,7 @@ if(isset($_COOKIE['status'])){
 
 <!-- Document Title
 ============================================= -->
-<title>News - Press Release  | MiTAC Computing Technology</title>
+<title>News - Press Release  | MiTAC Digital Technology</title>
 
 <?php
 //************ google analytics ************

@@ -106,12 +106,12 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="Supporting latest Intel core, Intel Atom, and NXP processors, MiTAC's industrial motherboards are the ideal solution for industrial automation.">
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Supporting latest Intel core, Intel Atom, and NXP processors, MiTAC's industrial motherboards are the ideal solution for industrial automation." />
-<meta property="og:title" content="Industrial Motherboards | MiTAC Computing Technology" />
+<meta property="og:title" content="Industrial Motherboards | MiTAC Digital Technology" />
 <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -132,7 +132,7 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 
 <!-- Document Title
 ============================================= -->
-<title>Industrial Motherboards | MiTAC Computing Technology</title>
+<title>Industrial Motherboards | MiTAC Digital Technology</title>
 
 <?php
 //************ google analytics ************

@@ -3,6 +3,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
 require "../config.php";
+require "./mail_setting.php";
 
 include("./PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 //require_once __DIR__ . '/includes/recaptcha/autoload.php';
@@ -259,75 +260,28 @@ if (mysqli_query($link_db, $str_inst)) {
     $cus_body = $cus_header . $cus_content;
 
     //***************20180312 客戶通知信 *******************
-    $cus_mail = new PHPMailer(); //建立新物件
-    $cus_mail->IsSMTP(); //設定使用SMTP方式寄信
-    $cus_mail->SMTPAuth = false; //設定SMTP需要驗證
-    //$mail->SMTPSecure = "ssl"; //ssl tls
-    //$mail->SMTPDebug = 2;
-    $cus_mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
-    $cus_mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $cus_mail->CharSet = "utf-8"; //設定郵件編碼
-
-    $cus_mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
-    $cus_mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
-
-    $cus_mail->From = "noreply@mct.com"; //設定寄件者信箱
-    $cus_mail->FromName = "MiTAC Computing Technology"; //設定寄件者姓名
-
-    $cus_mail->Subject = "We have received your message"; //設定郵件標題
-    $cus_mail->Body = $cus_body; //設定郵件內容
-    $cus_mail->IsHTML(true); //設定郵件內容為HTML
-    $cus_mail->SMTPAutoTLS = false;
-    $cus_mail->AddAddress($f_Email, $f_Name); //設定收件者郵件及名稱
+    $cus_mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
+        'business@mitacmdt.com', 'MiTAC Digital Technology',
+        $f_Email, $f_Name,
+        'We have received your message', $cus_body
+    );
     if (!$cus_mail->Send()) {
-        $mail = new PHPMailer(); //建立新物件
-        $mail->IsSMTP(); //設定使用SMTP方式寄信
-        $mail->SMTPAuth = false; //設定SMTP需要驗證
-        //$mail->SMTPSecure = "ssl"; //ssl tls
-        //$mail->SMTPDebug = 2;
-        $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
-        $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-        $mail->CharSet = "utf-8"; //設定郵件編碼
-
-        $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
-        $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
-
-        $mail->From = "noreply@tyan.com"; //設定寄件者信箱
-        $mail->FromName = "Tyan Computer"; //設定寄件者姓名
-
-        $mail->Subject = "MCT contact us send customer error"; //設定郵件標題
-        $mail->Body = $cus_body; //設定郵件內容
-        $mail->IsHTML(true); //設定郵件內容為HTML
-        $mail->SMTPAutoTLS = false;
-        $mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
-        $mail->AddCC("even.syao@tyan.com.tw", "even.syao");
+        $mail = mail_setting('10.88.0.58', '25', null, null,
+            'no-reply@mitacmdt.com', 'MiTAC Digital Technology',
+            null, null,
+            'MDT IPC contact us send customer error', $cus_body,
+            true
+        );
         $mail->Send();
     } else {
     }
     //***************20180312 客戶通知信 End *******************
+    $mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
+        'business@mitacmdt.com', 'MiTAC Digital Technology',
+        'tony.wei@mic.com.tw', 'Mitac computer',
+        'Contact Us Notification - #' . $Mcount . ' ' . $now1, $body
+    );
 
-    $mail = new PHPMailer(); //建立新物件
-    $mail->IsSMTP(); //設定使用SMTP方式寄信
-    $mail->SMTPAuth = false; //設定SMTP需要驗證
-    //$mail->SMTPSecure = "ssl"; //ssl tls
-    //$mail->SMTPDebug = 2;
-    $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
-    $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $mail->CharSet = "utf-8"; //設定郵件編碼
-
-    $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
-    $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
-
-    $mail->From = "Sales_client@mic.com.tw"; //設定寄件者信箱
-    $mail->FromName = "MiTAC Computing Technology"; //設定寄件者姓名
-
-    $mail->Subject = "Contact Us Notification - #" . $Mcount . " " . $now1; //設定郵件標題
-    $mail->Body = $body; //設定郵件內容
-    $mail->IsHTML(true); //設定郵件內容為HTML
-    $mail->SMTPAutoTLS = false;
-
-    $mail->AddAddress("sales_client@mic.com.tw", "Mitac computer"); //設定收件者郵件及名稱
-    //$mail->AddAddress("nick.t@tyan.com.tw", "nick.t"); //設定收件者郵件及名稱
     if (!$mail->Send()) {
         $data = $now . " - Mail - error\n";
         $fp = fopen("../Files/maillog.txt", "a");
@@ -336,32 +290,15 @@ if (mysqli_query($link_db, $str_inst)) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
         echo "susses";
-        //echo "<script>alert('Thank you for contacting with us. We will respond to you shortly.');</script>";
-        //echo "<script>document.location.href='http://www.tyan.com/EN/contact/'</script>";
     }
 } else {
     echo "Failed to send your message. Please check your input and try again.";
-    $mail = new PHPMailer(); //建立新物件
-    $mail->IsSMTP(); //設定使用SMTP方式寄信
-    $mail->SMTPAuth = false; //設定SMTP需要驗證
-    //$mail->SMTPSecure = "ssl"; //ssl tls
-    //$mail->SMTPDebug = 2;
-    $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
-    $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $mail->CharSet = "utf-8"; //設定郵件編碼
-
-    $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
-    $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
-
-    $mail->From = "noreply@tyan.com"; //設定寄件者信箱
-    $mail->FromName = "Tyan Computer"; //設定寄件者姓名
-
-    $mail->Subject = "MCT contact us error"; //設定郵件標題
-    $mail->Body = "Insert data failed."; //設定郵件內容
-    $mail->IsHTML(true); //設定郵件內容為HTML
-    $mail->SMTPAutoTLS = false;
-    $mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
-    $mail->AddCC("even.syao@tyan.com.tw", "even.syao");
+    $mail = mail_setting('10.88.0.58', '25', null, null,
+        'no-reply@mitacmdt.com', 'MiTAC Digital Technology',
+        null, null,
+        'MDT IPC contact us error', 'Insert data failed.',
+        true
+    );
     $mail->Send();
 }
 

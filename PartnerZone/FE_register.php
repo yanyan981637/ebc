@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -74,7 +74,7 @@ if(isset($_GET['qty'])!=''){
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/fonts/style.min.css" >  
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/fonts/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -108,7 +108,7 @@ if(isset($_GET['qty'])!=''){
                   </div>
 
                 </div>
-                <div class="card-content">  
+                <div class="card-content">
                   <div class="card-body">
 
                     <form id="form1" name="form1">
@@ -152,7 +152,7 @@ if(isset($_GET['qty'])!=''){
                         </div>
                       </div>
                     </div>
-      
+
 
 
                   <!--if there is RFQ, then show this-->
@@ -171,7 +171,7 @@ if(isset($_GET['qty'])!=''){
                               <th>Product</th>
                               <th>Qty</th>
                             </tr>
-                            <?php 
+                            <?php
                             $arr_sku=explode(" ", $rfq);
                             $arr_qty=explode(" ", $qty);
                             $i=0;
@@ -202,7 +202,7 @@ if(isset($_GET['qty'])!=''){
                   <?php
                   }
                   ?>
-                  
+
                   <!--end RFQ-->
 
 
@@ -234,8 +234,8 @@ if(isset($_GET['qty'])!=''){
                   <br />
 
 
-                  This privacy policy explains how MiTAC Computing Technology Corporation and its affiliates, including but without limitation to Tyan Computer Corporation (collectively "MiTAC", "Tyan" or "We") use personal data from and about you, on the portal site operated by MiTAC, by phone, email, or otherwise when you visit our website (the "Website"), or use the services provided on and through our Website, including providing after-sales services.<br /><br />
-                  MiTAC is committed to protecting your personal data and being transparent about what information it holds. MiTAC understands its obligations to help you understand how and why MiTAC processes your personal data. This policy tells you about the why, what, how, and when in relation to MiTAC’s collection and processing of your personal data.  
+                  This privacy policy explains how MiTAC Digital Technology Corporation and its affiliates, including but without limitation to Tyan Computer Corporation (collectively "MiTAC", "Tyan" or "We") use personal data from and about you, on the portal site operated by MiTAC, by phone, email, or otherwise when you visit our website (the "Website"), or use the services provided on and through our Website, including providing after-sales services.<br /><br />
+                  MiTAC is committed to protecting your personal data and being transparent about what information it holds. MiTAC understands its obligations to help you understand how and why MiTAC processes your personal data. This policy tells you about the why, what, how, and when in relation to MiTAC’s collection and processing of your personal data.
                   <br /><br />
 
 
@@ -251,7 +251,7 @@ if(isset($_GET['qty'])!=''){
                   <ul style="margin-left:30px">
                     <li>Your name and contact information (e.g., email and phone number(s));</li>
                     <li>Business information details such as information provided in the course of the contractual relationship between you and MiTAC, or otherwise voluntarily provided by you;</li>
-                    <li>Information that is collected  when you visit on of our Website such as cookies;</li> 
+                    <li>Information that is collected  when you visit on of our Website such as cookies;</li>
                     <li>Persistent identifier such as a customer number or other information held in a cookie or IP address; and</li>
                     <li>Other information alike that helps fulfill the purpose for which it was collected.</li>
                   </ul>
@@ -294,7 +294,7 @@ if(isset($_GET['qty'])!=''){
 
                   <br />
                   <h4>TRANSFERRING PERSONAL DATA OUTSIDE THE COUNTRY</h4>
-                  Where transfers are to be made outside of the European Economic Area, MiTAC will ensure that the destination country(ies) has data protection laws assessed as adequate by the European Commission or where adequate safeguards are in place. <br /> 
+                  Where transfers are to be made outside of the European Economic Area, MiTAC will ensure that the destination country(ies) has data protection laws assessed as adequate by the European Commission or where adequate safeguards are in place. <br />
 
                   <br />
                   <h4>YOUR RIGHTS</h4>
@@ -311,7 +311,7 @@ if(isset($_GET['qty'])!=''){
                         <li>object to the processing of your personal data based on grounds other than your express consent.</li>
                       </ul>
                     </li>
-                    <li>We may use automated processing with your personal data to allow us to provide you with service and product information that is most suited for your interests. If you are unhappy with the automated decision, you can <a href="https://www.mitacmct.com/EN/contact/" target="aa" />contact us</a> and request a manual review. </li>
+                    <li>We may use automated processing with your personal data to allow us to provide you with service and product information that is most suited for your interests. If you are unhappy with the automated decision, you can <a href="https://ipc.mitacmdt.com/EN/contact/" target="aa" />contact us</a> and request a manual review. </li>
                   </ol>
 
                   <br />
@@ -348,13 +348,13 @@ if(isset($_GET['qty'])!=''){
 
                   <h4>CONTACTING US</h4>
                   If you have any concerns as to how your personal data is collected or processed or your rights, or any question about our Privacy Policy, you can contact us via the link below.<br />
-                  <a href="/EN/contact/" target="aa" />https://www.mitacmct.com/EN/contact/</a>
+                  <a href="/EN/contact/" target="aa" />https://ipc.mitacmdt.com/EN/contact/</a>
                   <br /><br />
                   <p style="color:#707070; font-style: italic;">( Last updated on Aug 2, 2018. )</p>
                   <br /><br />
 
 
-                  <hr> 
+                  <hr>
                   <h2 style="color:#004898">Cookie Policy</h2>
                   <br />
 
@@ -364,7 +364,7 @@ if(isset($_GET['qty'])!=''){
 
 
 
-                  This cookie policy ("Cookie Policy") applies to <a href="https://www.tyan.com/" />https://www.tyan.com/</a> (the "Website"). The Website is hosted by MiTAC Computing Technology Corporation ("MiTAC"/"we"/"our"/"us") a company incorporated in Taiwan (Company Number28113764 ) with registered office at 3F., No.1, R&D Road 2, Hsinchu Science Park, Hsinchu, Taiwan, R.O.C.<br /><br />
+                  This cookie policy ("Cookie Policy") applies to <a href="https://www.tyan.com/" />https://www.tyan.com/</a> (the "Website"). The Website is hosted by MiTAC Digital Technology Corporation ("MiTAC"/"we"/"our"/"us") a company incorporated in Taiwan (Company Number28113764 ) with registered office at 3F., No.1, R&D Road 2, Hsinchu Science Park, Hsinchu, Taiwan, R.O.C.<br /><br />
                   As user of the Website ("you"/"your"), you acknowledge that any use of this Website (including any transactions you make) is subject to this Cookie Policy together with other legal documents, such as the Privacy Policy and the Terms of Use ("Terms").<br /><br />
                   MiTAC does not knowingly collect data from any unsupervised person under the age of eighteen (18). If you are under the age of eighteen (18), you are not allowed to use the Website or submit any personal data to us unless you have the consent of, and are supervised by, a parent or guardian.<br /><br />
                   As we are required to provide you with clear and comprehensive information about the cookies which we use on the Website, we provide you with our Cookie Policy which sets out information about cookies and details the cookies we use. By using the Website, mobile website and Apps, you are agreeing to our Privacy Policy and Cookie Policy and you consent to the use of cookies and similar technologies by us and our carefully selected third party partners as described in these policies.
@@ -434,7 +434,7 @@ if(isset($_GET['qty'])!=''){
                     <br /><br />
                     <h2>Contact Details</h2>
                     If you have any comments or queries, please contact us via the link below:<br />
-                    <a href="https://www.mitacmct.com/EN/contact/"  />https://www.mitacmct.com/EN/contact/</a>
+                    <a href="https://ipc.mitacmdt.com/EN/contact/"  />https://ipc.mitacmdt.com/EN/contact/</a>
 
 
                     <br /><br />
@@ -442,13 +442,13 @@ if(isset($_GET['qty'])!=''){
                     <p style="color:#707070; font-style: italic;">( Last updated on Feb 1, 2021. )</p>
 
 
-                    <hr> 
+                    <hr>
                     <h2 style="color:#004898">Terms of Use</h2>
                     <br />
                     <p style="font-size:1.1em">
                       PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BEFORE USING THIS WEBSITE. ACCESSING OR USING THIS WEBSITE INDICATES THAT YOU ACCEPT THE FOLLOWING TERMS AND ALL TERMS AND CONDITIONS CONTAINED AND/OR REFERENCED HEREIN OR ANY ADDITIONAL TERMS AND CONDITIONS SET FORTH ON THIS WEBSITE ("TERMS").  IF YOU DO NOT ACCEPT THESE TERMS, DO NOT USE THIS WEBSITE.</p>
                       <br /><br />
-                      MiTAC Computing Technology Corporation and its affiliates, including but without limitation to Tyan Computer Corporation (collectively "MiTAC", "Tyan" or "We") reserves the right to update or amend the Terms at any time without notice to you. Such updated or amended Terms shall be effective upon posting on this Website.
+                      MiTAC Digital Technology Corporation and its affiliates, including but without limitation to Tyan Computer Corporation (collectively "MiTAC", "Tyan" or "We") reserves the right to update or amend the Terms at any time without notice to you. Such updated or amended Terms shall be effective upon posting on this Website.
                       <br />
 
                       <h4>USE OF WEBSITE AND CONTENT</h4>
@@ -521,13 +521,13 @@ if(isset($_GET['qty'])!=''){
                       We are committed to improving our practices to combat slavery and human trafficking. We have implemented EICC (Electronic Industry Code of Conduct) internally and also carried on a project to implement into the sub-tier suppliers by several phases. The program is to ensure MiTAC and its suppliers comply with EICC policy and regulation for a safe, eco-friendly and humane supply chain environment.<br /><br />
 
                       By accessing or using this Website, you agree to be bound by the Terms and any of its revisions updated or amended by MiTAC.
-                      Any rights not expressly granted herein are reserved 
+                      Any rights not expressly granted herein are reserved
 
                       <br />
                       <h4>CONTACT US</h4>
 
                       If you have any concerns as to how your personal data is collected or processed or your rights, or any question about our Terms of Use, you can contact us via the link below.<br />
-                      <a href="https://www.mitacmct.com/EN/contact/" target="aa" />https://www.mitacmct.com/EN/contact/</a>
+                      <a href="https://ipc.mitacmdt.com/EN/contact/" target="aa" />https://ipc.mitacmdt.com/EN/contact/</a>
 
                       <br /><br />
                       <p style="color:#707070; font-style: italic;">( Last updated on Aug 2, 2018. )</p>
@@ -550,7 +550,7 @@ if(isset($_GET['qty'])!=''){
                 <p class="text-center">Already have an account ? <a href="index.html" >Login</a></p>
 
                 <div style="margin:5% 0">&nbsp;</div>
-                <div class="copyrightText text-center">Copyright&copy; 2021-2022 MiTAC Computing Technology Corporation (MiTAC Group). All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
+                <div class="copyrightText text-center">Copyright&copy; 2021-2022 MiTAC Digital Technology Corporation. All Rights Reserved. <br />Please use the latest version of Firefox or Chrome to view this site.<br />
                   <a href="https://www.tyan.com/EN/legal/terms_of_use/" target="tos" />Terms of Use</a>&nbsp;·&nbsp;
                   <a href="https://www.tyan.com/EN/legal/privacy_policy/" target="tos" />Privacy Policy</a>&nbsp;·&nbsp;
                   <a href="https://www.tyan.com/EN/legal/cookie_policy/" target="tos" />Cookie Policy</a>
@@ -591,27 +591,27 @@ if(isset($_GET['qty'])!=''){
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
-      
+
+
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            This email is existed. Please log in MiTAC Partner Zone or <a href="https://www.mitacmct.com/EN/contact/" target="_blank ">contact us</a>.
-            
+            This email is existed. Please log in MiTAC Partner Zone or <a href="https://ipc.mitacmdt.com/EN/contact/" target="_blank ">contact us</a>.
+
           </div>
-        </div>                 
+        </div>
       </div>
       <div class="modal-footer">
-        <a href="index.html" ><input type="submit" class="btn btn-info btn-lg" value="LOGIN"></a>             
+        <a href="index.html" ><input type="submit" class="btn btn-info btn-lg" value="LOGIN"></a>
       </div>
-      
+
     </div>
   </div>
 </div>
 <!-- end Repeated Company name msg Modal -->
 
 
-  
+
 
 <script src="app-assets/js/jquery-3.5.1.min.js"></script>
 <!-- BEGIN VENDOR JS-->
@@ -650,7 +650,7 @@ $(function(){
       exit;
     }
     if($("#email").val()!=""){
-      
+
       var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
       var mail_val = $("#email").val();
       if(search_str.test(mail_val)){
@@ -688,8 +688,8 @@ $(function(){
     }else{
       var total = "";
     }
-    
-    
+
+
     var kind = "register";
     var url = "regProcess";
     $.ajax({
@@ -697,11 +697,11 @@ $(function(){
       url: url,
       dataType: "html",
       data: {
-        username : username, 
-        companyname : companyname, 
+        username : username,
+        companyname : companyname,
         email : email,
         countryCode : countryCode,
-        tel : tel, 
+        tel : tel,
         Msg : Msg,
         Quote : Quote,
         QuoteQty : QuoteQty,

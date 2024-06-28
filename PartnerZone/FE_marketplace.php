@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -29,7 +29,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -117,7 +117,7 @@ if($type!=""){
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -161,7 +161,7 @@ include("left_menu.php");
           </div>
         </div>
       </div>
-      <!--end breadcrumb--> 
+      <!--end breadcrumb-->
 
     </div>
     <div class="content-body">
@@ -219,9 +219,9 @@ include("left_menu.php");
             <?php
             }
             ?>
-            
+
            <!--end one card-->
-           
+
         </div>
       </div>
     </section>
@@ -241,7 +241,7 @@ include("footer.php");
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="app-assets/vendors/js/gallery/masonry/masonry.pkgd.min.js"></script>
 <script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe.min.js"></script>
-<script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js"></script>	
+<script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js"></script>
 
 
 <!-- END PAGE VENDOR JS-->

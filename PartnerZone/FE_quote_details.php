@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -31,7 +31,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -68,7 +68,7 @@ function dowith_sql($str)
   return $str;
 }
 
-if($_GET['QTID']!=""){ 
+if($_GET['QTID']!=""){
 	$QID=dowith_sql($_GET['QTID']);
 	$QID=filter_var($QID);
 }
@@ -105,7 +105,7 @@ $result=mysqli_fetch_row($cmd);
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -204,7 +204,7 @@ body, h1, h2, h3, h4, h5 , div {color:#000}
 							<tr><th scope="row"><?=$Items[6]?></th>
 								<td><h4><?=$Items[2].$MiTAC_PN?></h4>
 									<div style="padding:5px 15px; font-style: italic;"><?=$Items[5]?></div>
-								</td>	
+								</td>
 								<td><?=$Items[3]?></td>
 								<td><?=$Items[4]?></td>
 								<td><?=$total?></td>
@@ -219,7 +219,7 @@ body, h1, h2, h3, h4, h5 , div {color:#000}
 							</tr>
 						</thead>
 						<tbody>
-							<?php 
+							<?php
 							$j=0;
 							$strExtra="SELECT ID, QT_ID, Item, Price, Sort FROM partner_projects_extra_client WHERE QT_ID='".$QT_ID."' AND Version='".$Version."' ORDER BY Sort ASC";
 							$cmd=mysqli_query($link_db,$strExtra);
@@ -282,7 +282,7 @@ body, h1, h2, h3, h4, h5 , div {color:#000}
 
 <!--
 <footer class="footer footer-static footer-dark navbar-border">
-  <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
+  <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Digital Technology Corporation and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
 </footer>
 
 

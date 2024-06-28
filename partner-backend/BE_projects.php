@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -141,16 +141,16 @@ if($kind=="search"){
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -175,7 +175,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -221,7 +221,7 @@ include("left_menu.php");
 <!--
 <div class=" btn-group-lg" role="group" aria-label="Basic example">
    <a href="#project" /><button type="button" class="btn btn-primary">Projects Management</button></a>
-   <a href="#TC" /><button type="button" class="btn btn-primary">Terms & Conditions</button></a>                                 
+   <a href="#TC" /><button type="button" class="btn btn-primary">Terms & Conditions</button></a>
  </div>-->
 
  <div  id="project">
@@ -235,24 +235,24 @@ include("left_menu.php");
 
  						<h1>Projects Management</h1>
  						<hr>
- 						<!--search & sorting-->					
+ 						<!--search & sorting-->
  						<div class="row">
  							<div class="col-md-3">
  								<div class="form-group">
  									<select class="form-control" id="sel_sataus">
  										<option value="" selected>All Status</option>
- 										<option value="Contact" <?php if($sataus=="Contact"){echo "selected";}?>>Contact</option> 
-										<option value="RFP" <?php if($sataus=="RFP"){echo "selected";}?>>RFP / RFQ</option> 
-										<!-- <option value="Assessment" <?php //if($sataus=="Assessment"){echo "selected";}?>>Assessment</option> --> 
+ 										<option value="Contact" <?php if($sataus=="Contact"){echo "selected";}?>>Contact</option>
+										<option value="RFP" <?php if($sataus=="RFP"){echo "selected";}?>>RFP / RFQ</option>
+										<!-- <option value="Assessment" <?php //if($sataus=="Assessment"){echo "selected";}?>>Assessment</option> -->
 										<!-- <option value="RFQ" <?php //if($sataus=="RFQ"){echo "selected";}?>>RFQ</option>  -->
 										<!-- <option value="Audit" <?php //if($sataus=="Audit"){echo "selected";}?>>Audit</option>-->
-										<option value="POC" <?php if($sataus=="POC"){echo "selected";}?>>POC</option> 
+										<option value="POC" <?php if($sataus=="POC"){echo "selected";}?>>POC</option>
 										<!-- <option value="Award" <?php //if($sataus=="Award"){echo "selected";}?>>Award</option>-->
 										<option  value="Confirmed" <?php if($sataus=="Confirmed"){echo "selected";}?>>Confirmed</option>
-										<option value="Dropped" <?php if($sataus=="Dropped"){echo "selected";}?>>Dropped</option>		
+										<option value="Dropped" <?php if($sataus=="Dropped"){echo "selected";}?>>Dropped</option>
  									</select>
  								</div>
- 							</div>	
+ 							</div>
  							<div class="col-md-3"><div class="form-group">
  								<select id="sel_company" class="select2 form-control">
  									<option value="" selected>Select a company</option>
@@ -280,8 +280,8 @@ include("left_menu.php");
 	                    echo "<option  value='".$SEL_CName[0]."' ".$selected.">".$SEL_CName[1]."</option>";
 	                  }
  									}
-                  
-                  ?>								
+
+                  ?>
  								</select></div>
  							</div>
  							<!-- <div class="col-md-3">
@@ -302,18 +302,18 @@ include("left_menu.php");
 											}
 	 									}
 	 									*/
-										?>					
+										?>
 	 								</select>
 	 							</div>
 	 						</div> -->
 
  							<div class="col-md-3">
- 								<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>							
+ 								<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
  							</div>
  						</div>
- 						<!--end search & sorting-->						
- 						<!--total-->	
- 						<hr>				
+ 						<!--end search & sorting-->
+ 						<!--total-->
+ 						<hr>
  						<div class="row">
  							<div class="col-md-12">
  								<h3>Total: <span class="info darken-4 t700"><?=$total;?></span></h3>
@@ -328,7 +328,7 @@ include("left_menu.php");
 											</a>
 										</li>
 										<?php
-										for($i=1;$i<=$pages_totle;$i++) { 
+										for($i=1;$i<=$pages_totle;$i++) {
 											$pagenum=6;
 											$last=$page+10;
 											$first=$page-10;
@@ -378,15 +378,15 @@ include("left_menu.php");
  						<table class="table table-hover table-responsive">
  							<thead class="bg-grey bg-lighten-4">
  								<tr>
- 									<th>ID</th>	
- 									<th>Lead ID</th>	
+ 									<th>ID</th>
+ 									<th>Lead ID</th>
  									<th>Quotation Date</th>
  									<th>Company</th>
  									<th>Products</th>
  									<th>Amount (USD)</th>
  									<!-- <th>Sales</th>	 -->
  									<th>Status</th>
- 									<th>Approval</th>		
+ 									<th>Approval</th>
  									<th></th>
  								</tr>
  							</thead>
@@ -440,7 +440,7 @@ include("left_menu.php");
  										}
  										$Amount=$Amount+($data_items[3]*$data_items[4]);
  									}
- 									
+
  									$Approval_Y=$data[10];
  									$Approval_N=$data[11];
 
@@ -452,7 +452,7 @@ include("left_menu.php");
 									$Amount=number_format($Amount,2,'.',',');
  								?>
  								<tr>
- 									<td><a href="quoteDetails@<?=$data[1]?>" target="qt" /><?=$data[1]?></a></td>	
+ 									<td><a href="quoteDetails@<?=$data[1]?>" target="qt" /><?=$data[1]?></a></td>
  									<td><?=$data[12]?></td>
  									<td><?=$data[4]?></td>
  									<td><?=$CName[$data[2]]?></td>
@@ -461,7 +461,7 @@ include("left_menu.php");
  									<?php
  									if($data[8]=="0"){
  									?>
- 									<!-- <td> 
+ 									<!-- <td>
  										<a href="#" data-toggle="modal" data-target="#edit-sales" onclick="AssID('<?//=$data[0]?>', 'AssSales', '<?//=$data[1]?>')"/>
  											<i class="ft-edit-2"></i>assign sales
  										</a>
@@ -493,8 +493,8 @@ include("left_menu.php");
 	 								</td>
 	 								<?php
  									}
- 									
-	 								
+
+
 	 								if($Amount!="" && $Amount<1){
 	 									echo "<td></td>";
 	 								}else{
@@ -514,7 +514,7 @@ include("left_menu.php");
  								<?php
  								}
  								?>
- 								
+
  							</tbody>
  						</table>
  						<input id="prj_ID" type="hidden" value="">
@@ -528,7 +528,7 @@ include("left_menu.php");
  </div>
  <div id="TC"><div class="m-2">&nbsp;</div>
 
- <div class="row">	
+ <div class="row">
  	<div class="col-12">
 
  	</div>
@@ -546,7 +546,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!--update  quote status Modal -->
 <div class="modal fade text-left" id="quote-status" tabindex="-1" role="dialog" aria-hidden="true">
@@ -565,12 +565,12 @@ include("footer.php");
 						<div class="form-group">
 							<label for="">Select a Status:</label>
 							<select id="sel_status" class="form-control" >
-								<option value="Contact">Contact</option> 
-								<option value="RFP">RFP / RFQ</option> 
-								<!-- <option value="Assessment">Assessment</option> --> 
+								<option value="Contact">Contact</option>
+								<option value="RFP">RFP / RFQ</option>
+								<!-- <option value="Assessment">Assessment</option> -->
 								<!-- <option value="RFQ">RFQ</option>  -->
-								<!-- <option value="Audit">Audit</option> --> 
-								<option value="POC">POC</option> 
+								<!-- <option value="Audit">Audit</option> -->
+								<option value="POC">POC</option>
 								<!-- <option value="Award">Award</option> -->
 								<option value="Confirmed">Confirmed</option>
 								<option value="Dropped">Dropped</option>
@@ -583,10 +583,10 @@ include("footer.php");
 							</fieldset>
 						</div>
 					</div>
-				</div>								 
+				</div>
 			</div>
 			<div class="modal-footer">
-				<input id="StatusOK" type="button" class="btn btn-info btn-lg" value="Save">								
+				<input id="StatusOK" type="button" class="btn btn-info btn-lg" value="Save">
 			</div>
 		</form>
 	</div>
@@ -611,29 +611,29 @@ include("footer.php");
 					<table class="table table-hover ">
 						<thead class="bg-grey bg-lighten-4">
 							<tr>
-								<th>Update Time</th>		 		
+								<th>Update Time</th>
 								<th>Action</th>
-								<th>Note</th>	
+								<th>Note</th>
 							</tr>
 						</thead>
 						<tbody id="logs_content">
 							<tr>
 								<td>2021-04-4 18:35:55 </td>
 								<td>[ID]-v.2 Approval by Robby.Lin: <br />Y</td>
-								<td></td>      	  
+								<td></td>
 							</tr>
-							
+
 						</tbody>
 					</table>
 
-					
+
 				</div>
-			</div>								 
+			</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>							
+			<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
 		</div>
-		
+
 	</div>
 </div>
 </div>
@@ -653,20 +653,20 @@ include("footer.php");
 			<form action="#">
 				<div id="del_title" class="modal-body">
 
-					
+
 
 				</div>
 
 				<div class="modal-footer">
 					<input id="DelOK" type="button" class="btn btn-info " value="Yes, Delete it.">
-					<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">	
+					<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
 
-<!-- end delete quote Modal -->	
+<!-- end delete quote Modal -->
 
 
 
@@ -689,7 +689,7 @@ include("footer.php");
 							<div class="form-group">
 								<label for="">Select a sale:</label>
 								<select id="editSales" class="form-control" >
-									
+
 
 								</select>
 							</div>
@@ -700,16 +700,16 @@ include("footer.php");
 								</fieldset>
 							</div>
 						</div>
-					</div>								 
+					</div>
 				</div>
 				<div class="modal-footer">
-					<input id="SalesOK" type="button" class="btn btn-info btn-lg" value="Save">								
+					<input id="SalesOK" type="button" class="btn btn-info btn-lg" value="Save">
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-<!-- end edit-sales  Modal -->	
+<!-- end edit-sales  Modal -->
 
 <!-- BEGIN VENDOR JS-->
 
@@ -745,7 +745,7 @@ function AssID(i,j,k){
 			url: url,
 			dataType: "html",
 			data: {
-				ID : ID,  
+				ID : ID,
 				kind : kind
 			},
 			success: function(message){
@@ -755,9 +755,9 @@ function AssID(i,j,k){
 					document.getElementById("prj_ID").value=ID;
 					document.getElementById("e_sales_title").innerHTML=title;
 					document.getElementById("editSales").innerHTML=message;
-					
+
 				}
-				
+
 			}
 		});
 	}else if(kind=="Status"){
@@ -775,7 +775,7 @@ function AssID(i,j,k){
 			url: url,
 			dataType: "html",
 			data: {
-				ID : ID,  
+				ID : ID,
 				kind : kind
 			},
 			success: function(message){
@@ -784,7 +784,7 @@ function AssID(i,j,k){
 				}else{
 					document.getElementById("logs_content").innerHTML=message;
 				}
-				
+
 			}
 		});
 	}
@@ -810,7 +810,7 @@ $("#DelOK").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 
 $("#SalesOK").click(function(){
@@ -837,7 +837,7 @@ $("#SalesOK").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 
 $("#StatusOK").click(function(){
@@ -864,7 +864,7 @@ $("#StatusOK").click(function(){
       alert(message);
     }
   }
-  }); 
+  });
 })
 
 function search(){

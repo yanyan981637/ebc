@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,12 +25,12 @@ if(isset($_GET["status"])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC provides customized kiosk designs or high quality, low cost and easy maintenance.">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC provides customized kiosk designs or high quality, low cost and easy maintenance." /> 
-	<meta property="og:title" content="Custom Kiosks | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC provides customized kiosk designs or high quality, low cost and easy maintenance." />
+	<meta property="og:title" content="Custom Kiosks | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -59,16 +59,16 @@ if(isset($_GET["status"])){
 
 .padding10{padding:20px 20px}
 
-.neumorphic-box-kv {border:0px; border-radius: 50px; padding:25px 50px;background-color: rgba(0, 0, 0, 0.5); color:#ffffff; box-shadow:  10px 10px 20px rgba(104, 104, 104, 0.4), 
+.neumorphic-box-kv {border:0px; border-radius: 50px; padding:25px 50px;background-color: rgba(0, 0, 0, 0.5); color:#ffffff; box-shadow:  10px 10px 20px rgba(104, 104, 104, 0.4),
 -10px -10px 20px rgba(0, 0, 0, 0.2); }
 .txt32{color:#ffffff; font-weight:bold; font-size:2rem}
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Custom Kiosks | MiTAC Computing Technology</title>
+	<title>Custom Kiosks | MiTAC Digital Technology</title>
 
 </head>
 
@@ -85,9 +85,9 @@ if(isset($_GET["status"])){
 	?>
 	<!--end Header logo & global top menu-->
 
-	
 
-	
+
+
 
 		<!-- Slider
 		============================================= -->
@@ -98,10 +98,10 @@ if(isset($_GET["status"])){
 					<div class="col-lg-6 col-md-6 dark  mb-5 mb-md-0 py-5">
 						<h2 class="display-4  mt-2" style="font-weight: 600;" data-animate="backInLeft">A FULLY INTEGRATED KIOSK PROVIDER</h2>
 						<p class="mb-5 lead text-white" data-animate="backInLeft">MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions</p>
-						
+
 					</div>
 					<div class="col-md-6 d-flex align-self-end align-items-center align-items-lg-end col-form">
-					
+
 					</div>
 				</div>
 			</div>
@@ -115,8 +115,8 @@ if(isset($_GET["status"])){
 <div class="row">
     <div class="col-lg-8">
     <div  class="row justify-content-start">
-	
-	
+
+
 	 <div class="col-lg-3 mb-4 mb-lg-0" onclick="location.href='/products/standard-kiosks#1'">
         <div class="grid-inner shadow-sm h-shadow bg-white p-3 overflow-hidden rounded-5 text-center shadow-ts">
           <div class="row justify-content-center">
@@ -125,15 +125,15 @@ if(isset($_GET["status"])){
         </div>
 	  </div>
 
-	  
+
 	 <div class="col-lg-3 mb-4 mb-lg-0" onclick="location.href='/products/custom-kiosks#1'">
         <div  class="k-on grid-inner shadow-sm h-shadow p-3 overflow-hidden rounded-5 text-center  h-shadow-none">
           <div class="row justify-content-center">
           <div class="col-12" ><h4 class="h4 mb-0" >Custom Kiosks</h4></div>
           </div>
         </div>
-	  </div>  
-	
+	  </div>
+
     <div class="col-lg-3 mb-4 mb-lg-0" onclick="location.href='/products/kiosks-software-solution#1'">
         <div class="grid-inner shadow-sm h-shadow bg-white p-3 overflow-hidden rounded-5 text-center shadow-ts">
           <div class="row justify-content-center">
@@ -167,7 +167,7 @@ if(isset($_GET["status"])){
 
 
 
-<a name="1"></a>		
+<a name="1"></a>
 <div class="container-fluid mt-6 mb-3" >
     <div class="heading-block center">
                   <h1>Custom Kiosks</h1>
@@ -179,7 +179,7 @@ if(isset($_GET["status"])){
 
 	<div class="container-fluid" style="background:#f8f8f8;">
 	<div class="container" >
-	<div class="row"> 
+	<div class="row">
 	<p class="mt-3">&nbsp;</p>
 		  <div class="col-md-6">
 		  <h1 class="color-blue">Customer Needs Kiosk Design</h1>
@@ -192,7 +192,7 @@ if(isset($_GET["status"])){
 	</div>
 	</div>
 	</div>
-	
+
 
 	<div class="container-fluid" style="background:#ffffff; border:1px solid #ffffff">
 	<div class="container" >
@@ -202,7 +202,7 @@ if(isset($_GET["status"])){
 	<div class="center"><img src="/EN/solution/images/Custom-Kiosks-Collaboration.svg" alt="Custom Kiosks" style="width:600px" /></div>
 	<p class="mt-4">&nbsp;</p></div>
 	</div>
-	
+
 	<div class="container-fluid mb-0" style="background:#f8f8f8; border:1px solid #f8f8f8">
 	<p class="mt-2">&nbsp;</p>
 	<div class="container  mb-0" ><h1 class="color-blue">Design Thinking</h1></div>
@@ -284,11 +284,11 @@ if(isset($_GET["status"])){
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -298,7 +298,7 @@ if(isset($_GET["status"])){
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -306,7 +306,7 @@ if(isset($_GET["status"])){
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

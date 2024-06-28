@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -155,16 +155,16 @@ if($kind=="search"){
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -191,7 +191,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -212,8 +212,8 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
-	
+<!--end left menu-->
+
 
 
 <div class="app-content content">
@@ -244,7 +244,7 @@ include("left_menu.php");
 
 								<h1>Client Accounts Management</h1>
 								<hr>
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 									<div class="col-md-2">
 										<div class="form-group">
@@ -255,10 +255,10 @@ include("left_menu.php");
 												<option value="EUR" <?php if($regions=="EUR"){echo "selected";}?> >Europe</option>
 												<option value="ME" <?php if($regions=="ME"){echo "selected";}?> >Middle East / Africa</option>
 												<option value="ASIA" <?php if($regions=="ASIA"){echo "selected";}?> >Asia</option>
-												<option value="Oceania" <?php if($regions=="Oceania"){echo "selected";}?> >Oceania</option>	
+												<option value="Oceania" <?php if($regions=="Oceania"){echo "selected";}?> >Oceania</option>
 											</select>
 										</div>
-									</div>	
+									</div>
 									<!-- <div class="col-md-2">
 										<div class="form-group">
 											<select id="sel_sales" class="form-control">
@@ -276,7 +276,7 @@ include("left_menu.php");
 														echo "<option  value='".$data_sales[0]."' ".$selected.">".$data_sales[1]."</option>";
 													}
 												}*/
-												?>	
+												?>
 											</select>
 										</div>
 									</div>	 -->
@@ -291,12 +291,12 @@ include("left_menu.php");
 										</div>
 									</div>
 									<div class="col-md-2">
-										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>							
+										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
 									</div>
 								</div>
-								<!--end search & sorting-->						
-								<!--total-->	
-								<hr>				
+								<!--end search & sorting-->
+								<!--total-->
+								<hr>
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Total: <span class="info darken-4 t700"><?=$total;?></span></h3>
@@ -311,7 +311,7 @@ include("left_menu.php");
 													</a>
 												</li>
 												<?php
-												for($i=1;$i<=$pages_totle;$i++) { 
+												for($i=1;$i<=$pages_totle;$i++) {
 													$pagenum=6;
 													$last=$page+10;
 													$first=$page-10;
@@ -362,12 +362,12 @@ include("left_menu.php");
 								<table class="table table-hover table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Company ID</th>		
+											<th>Company ID</th>
 											<th>Company Name</th>
 											<th>Members</th>
 											<!-- <th>Responsible Sales</th> -->
 											<th>Region</th>
-											<th>Update Date / Time</th>			
+											<th>Update Date / Time</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -376,7 +376,7 @@ include("left_menu.php");
 										if($kind=="search"){
 										  switch ($switch) {
 										    case 'A':
-													$str="SELECT CompanyName, ID, CompanyID, CompanyAddress, Name, Email, Title, CountryCode, Tel, ResponsibleSales, C_DATE, U_DATE FROM partner_user"; 
+													$str="SELECT CompanyName, ID, CompanyID, CompanyAddress, Name, Email, Title, CountryCode, Tel, ResponsibleSales, C_DATE, U_DATE FROM partner_user";
 													$str.=" WHERE ".$noAdmin." AND CountryCode IN ('".$regionsAll."') GROUP BY CompanyID ORDER BY U_DATE DESC LIMIT $start, $per";
 										      break;
 										    case 'AB':
@@ -396,7 +396,7 @@ include("left_menu.php");
 													$str.=" WHERE ".$noAdmin." AND Email='".$mail."' GROUP BY CompanyID ORDER BY U_DATE DESC LIMIT $start, $per";
 													break;
 										    default:
-													$str="SELECT CompanyName, ID, CompanyID, CompanyAddress, Name, Email, Title, CountryCode, Tel, ResponsibleSales, C_DATE, U_DATE FROM partner_user WHERE ".$noAdmin." GROUP BY CompanyID ORDER BY U_DATE DESC LIMIT $start, $per";										      
+													$str="SELECT CompanyName, ID, CompanyID, CompanyAddress, Name, Email, Title, CountryCode, Tel, ResponsibleSales, C_DATE, U_DATE FROM partner_user WHERE ".$noAdmin." GROUP BY CompanyID ORDER BY U_DATE DESC LIMIT $start, $per";
 													break;
 										  }
 										}else{
@@ -411,14 +411,14 @@ include("left_menu.php");
 									  	}
 
 									  	if($result[9]!=""){
-									  		$ResSales=$sales[$result[9]];									  
+									  		$ResSales=$sales[$result[9]];
 									  	}else{
-									  		$ResSales="Edit";	
+									  		$ResSales="Edit";
 									  	}
 									  	$strNum="SELECT CompanyName FROM partner_user WHERE CompanyID='".$result[2]."'";
 									  	$cmdNum=mysqli_query($link_db,$strNum);
 									  	$num=mysqli_num_rows($cmdNum);
-									  	
+
 									  	if($ResSales==""){
 									  		$ResSales="Edit";
 									  	}
@@ -432,9 +432,9 @@ include("left_menu.php");
 									  	}
 									  ?>
 									  <tr>
-											<td><?=$CID;?></td>	
+											<td><?=$CID;?></td>
 											<td><?=$result[0];?></td>
-											<td><a href="clientsAccountDetails@<?=$result[2]?>"  /><?=$num;?>&nbsp;<i class="ft-edit-2"></i></a></td>								
+											<td><a href="clientsAccountDetails@<?=$result[2]?>"  /><?=$num;?>&nbsp;<i class="ft-edit-2"></i></a></td>
 											<!-- <td>
 												<a href="" data-toggle="modal" data-target="#edit-sales" / onclick="ResSales('<?//=$result[0];?>','<?//=$ResSales?>','<?//=$result[2];?>')"><?//=$ResSales?></a>
 											</td> -->
@@ -466,7 +466,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer-->	
+<!--end footer-->
 
 
 <!--edit sales Modal -->
@@ -481,8 +481,8 @@ include("footer.php");
 			</div>
 			<div class="modal-body">
 				<div id="Sales_content" class="form-group">
-					
-				</div>								 
+
+				</div>
 			</div>
 			<div class="modal-footer">
 				<input id="resSalesOK" type="submit" class="btn btn-info btn-lg" value="Save">
@@ -495,12 +495,12 @@ include("footer.php");
 				<table class="table table-hover">
 					<thead class="bg-grey bg-lighten-4">
 						<tr>
-							<th>Sales:</th>		 		
+							<th>Sales:</th>
 							<th>Update Time / Date </th>
 						</tr>
 					</thead>
 					<tbody id="logs">
-						
+
 					</tbody>
 				</table>
 			</div>
@@ -550,9 +550,9 @@ function ResSales(i, j, k){
 		url: url,
 		dataType: "html",
 		data: {
-			companyID : companyID,  
-			companyName : companyName,  
-			sales : sales, 
+			companyID : companyID,
+			companyName : companyName,
+			sales : sales,
 			kind : kind
 		},
 		success: function(message){
@@ -562,7 +562,7 @@ function ResSales(i, j, k){
 				document.getElementById("salesModal").innerHTML=title;
 				document.getElementById("Sales_content").innerHTML=message;
 			}
-			
+
 		}
 	});
 
@@ -574,7 +574,7 @@ function ResSales(i, j, k){
 		dataType: "html",
 		data: {
 			companyID : companyID,
-			companyName : companyName,  
+			companyName : companyName,
 			kind : kind
 		},
 		success: function(message){
@@ -584,7 +584,7 @@ function ResSales(i, j, k){
 				document.getElementById("logs").innerHTML=message;
 			}
 		}
-	});    
+	});
 }
 
 $("#resSalesOK").click(function(){
@@ -600,7 +600,7 @@ $("#resSalesOK").click(function(){
   data: {
   	CompanyID : CompanyID,
   	Company : Company,
-  	res_sales : res_sales,    
+  	res_sales : res_sales,
   	kind : kind
   },
   success: function(message){
@@ -611,7 +611,7 @@ $("#resSalesOK").click(function(){
   		alert(message);
   	}
   }
-	}); 
+	});
 })
 
 function search(){

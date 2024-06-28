@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -135,32 +135,32 @@ if($kind=="addFile"){
   foreach ($tmp as $key => $value) {
 
     if($value!=""){
-      $strFile="SELECT a.ID, a.Name, a.FileType, b.ID, b.FileType FROM partner_files a INNER JOIN partner_files_type b ON a.FileType=b.ID WHERE a.ID='".$value."'"; 
+      $strFile="SELECT a.ID, a.Name, a.FileType, b.ID, b.FileType FROM partner_files a INNER JOIN partner_files_type b ON a.FileType=b.ID WHERE a.ID='".$value."'";
       $cmdFile =mysqli_query($link_db,$strFile);
       $dataFile = mysqli_fetch_row($cmdFile);
       $filecontent.="<p>".$dataFile[1]." (".$dataFile[4].")</p>";
     }
   }
-  
+
   echo $filecontent;
   mysqli_close($link_db);
   exit();
 }
 
 if($kind=="addGroup"){
-  if($_POST['SKUID']!=""){ 
+  if($_POST['SKUID']!=""){
     $SKUID=dowith_sql($_POST['SKUID']);
     $SKUID=filter_var($SKUID);
   }else{
     $SKUID="";
   }
-  if($_POST['companyID']!=""){ 
+  if($_POST['companyID']!=""){
     $companyID=dowith_sql($_POST['companyID']);
     $companyID=filter_var($companyID);
   }else{
     $companyID="";
   }
-  if($_POST['FileID']!=""){ 
+  if($_POST['FileID']!=""){
     $FileID=dowith_sql($_POST['FileID']);
     $FileID=filter_var($FileID);
   }else{
@@ -184,7 +184,7 @@ if($kind=="addGroup"){
   while ($dataFILE=mysqli_fetch_row($cmdFILE)) {
     $ToWHO1="";
     $FILEDID=$dataFILE[0];
-    if(strpos($ToWHO,$dataFILE[1]) !== false){ 
+    if(strpos($ToWHO,$dataFILE[1]) !== false){
       $ToWHO1=$ToWHO;
     }else{
       $ToWHO1=$dataFILE[1].$ToWHO;
@@ -207,7 +207,7 @@ if($kind=="addGroup"){
 }
 
 if($kind=="delGroup"){
-  if($_POST['FileID']!=""){ 
+  if($_POST['FileID']!=""){
     $FileID=dowith_sql($_POST['FileID']);
     $FileID=filter_var($FileID);
   }else{
@@ -228,25 +228,25 @@ if($kind=="delGroup"){
 }
 
 if($kind=="editGroup"){
-  if($_POST['GroupID']!=""){ 
+  if($_POST['GroupID']!=""){
     $GroupID=dowith_sql($_POST['GroupID']);
     $GroupID=filter_var($GroupID);
   }else{
     $GroupID="";
   }
-  if($_POST['SKUID']!=""){ 
+  if($_POST['SKUID']!=""){
     $SKUID=dowith_sql($_POST['SKUID']);
     $SKUID=filter_var($SKUID);
   }else{
     $SKUID="";
   }
-  if($_POST['companyID']!=""){ 
+  if($_POST['companyID']!=""){
     $companyID=dowith_sql($_POST['companyID']);
     $companyID=filter_var($companyID);
   }else{
     $companyID="";
   }
-  if($_POST['FileID']!=""){ 
+  if($_POST['FileID']!=""){
     $FileID=dowith_sql($_POST['FileID']);
     $FileID=filter_var($FileID);
   }else{
@@ -271,7 +271,7 @@ if($kind=="editGroup"){
     $ToWHO1="";
 
     $FILEDID=$dataFILE[0];
-    if(strpos($ToWHO,$dataFILE[1]) !== false){ 
+    if(strpos($ToWHO,$dataFILE[1]) !== false){
       $ToWHO1=$ToWHO;
     }else{
       $ToWHO1=$dataFILE[1].$ToWHO;

@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -79,16 +79,16 @@ if($kind=="cancelCard"){
   }
   $str="UPDATE partner_user SET IndexCard='1' WHERE ID='".$UID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Update Company error";
     mysqli_close($link_db);
     exit();
-  }  
+  }
 }
 
 if($kind=="ann"){
@@ -106,34 +106,34 @@ if($kind=="ann"){
   }
   $str="SELECT IndexAnn FROM partner_user WHERE ID='".$UID."'";
   $cmd=mysqli_query($link_db,$str);
-  $data=mysqli_fetch_row($cmd);  
+  $data=mysqli_fetch_row($cmd);
   if($data[0]==""){
     $up_str="UPDATE partner_user SET IndexAnn='".$cardID."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Noticeboard error";
       mysqli_close($link_db);
       exit();
-    }  
+    }
   }else{
     $cardID1=$data[0].",".$cardID;
     $up_str="UPDATE partner_user SET IndexAnn='".$cardID1."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Noticeboard error";
       mysqli_close($link_db);
       exit();
-    } 
+    }
   }
 }
 
@@ -187,34 +187,34 @@ if($kind=="release"){
   }
   $str="SELECT IndexRelease FROM partner_user WHERE ID='".$UID."'";
   $cmd=mysqli_query($link_db,$str);
-  $data=mysqli_fetch_row($cmd);  
+  $data=mysqli_fetch_row($cmd);
   if($data[0]==""){
     $up_str="UPDATE partner_user SET IndexRelease='".$cardID."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Release error";
       mysqli_close($link_db);
       exit();
-    }  
+    }
   }else{
     $cardID1=$data[0].",".$cardID;
     $up_str="UPDATE partner_user SET IndexRelease='".$cardID1."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Release error";
       mysqli_close($link_db);
       exit();
-    } 
+    }
   }
 }
 
@@ -268,34 +268,34 @@ if($kind=="quote"){
   }
   $str="SELECT IndexQuote FROM partner_user WHERE ID='".$UID."'";
   $cmd=mysqli_query($link_db,$str);
-  $data=mysqli_fetch_row($cmd);  
+  $data=mysqli_fetch_row($cmd);
   if($data[0]==""){
     $up_str="UPDATE partner_user SET IndexQuote='".$cardID."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Quote error";
       mysqli_close($link_db);
       exit();
-    }  
+    }
   }else{
     $cardID1=$data[0].",".$cardID;
     $up_str="UPDATE partner_user SET IndexQuote='".$cardID1."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Quote error";
       mysqli_close($link_db);
       exit();
-    } 
+    }
   }
 }
 
@@ -392,34 +392,34 @@ if($kind=="file"){
   }
   $str="SELECT IndexProduct FROM partner_user WHERE ID='".$UID."'";
   $cmd=mysqli_query($link_db,$str);
-  $data=mysqli_fetch_row($cmd);  
+  $data=mysqli_fetch_row($cmd);
   if($data[0]==""){
     $up_str="UPDATE partner_user SET IndexProduct='".$cardID."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Product error";
       mysqli_close($link_db);
       exit();
-    }  
+    }
   }else{
     $cardID1=$data[0].",".$cardID;
     $up_str="UPDATE partner_user SET IndexProduct='".$cardID1."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Product error";
       mysqli_close($link_db);
       exit();
-    } 
+    }
   }
 }
 
@@ -438,34 +438,34 @@ if($kind=="FGroup"){
   }
   $str="SELECT IndexFGroup FROM partner_user WHERE ID='".$UID."'";
   $cmd=mysqli_query($link_db,$str);
-  $data=mysqli_fetch_row($cmd);  
+  $data=mysqli_fetch_row($cmd);
   if($data[0]==""){
     $up_str="UPDATE partner_user SET IndexFGroup='".$cardID."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Product error";
       mysqli_close($link_db);
       exit();
-    }  
+    }
   }else{
     $cardID1=$data[0].",".$cardID;
     $up_str="UPDATE partner_user SET IndexFGroup='".$cardID1."' WHERE ID='".$UID."'";
     $up_cmd=mysqli_query($link_db,$up_str);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       echo "success";
       mysqli_close($link_db);
-      exit(); 
-    }else{  
+      exit();
+    }else{
       echo "Update Product error";
       mysqli_close($link_db);
       exit();
-    } 
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -18,7 +18,7 @@ session_start();
 }*/
 
 require "../config.php";
-include("../PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別  
+include("../PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 
 $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
@@ -70,7 +70,7 @@ if($_POST['QT']!=""){ // 非QT_ID
 }else{
   $QT="";
 }
-if($_POST['QT_ID']!=""){ 
+if($_POST['QT_ID']!=""){
   $QT_ID=dowith_sql($_POST['QT_ID']);
   $QT_ID=filter_var($QT_ID);
 }else{
@@ -84,7 +84,7 @@ if($_POST['kind']!=""){
 }
 
 if($kind=="N"){
-  
+
   $update="UPDATE partner_projects_tmp SET Approval_N='1' WHERE ID='".$QT."'";
   $cmd_up=mysqli_query($link_db,$update);
 
@@ -103,7 +103,7 @@ if($kind=="N"){
   exit();
 
 }else{
-  
+
   $update="UPDATE partner_projects_tmp SET Approval_Y='1' WHERE ID='".$QT."'";
   $cmd_up=mysqli_query($link_db,$update);
 
@@ -137,32 +137,32 @@ if($kind=="N"){
   $Insert="INSERT INTO partner_projects_client (QT_ID, Company, ToUser, QT_DATE, Due_DATE, Terms, Remarks, Sales, STATUS, Approval_Y, Approval_N, Version, LeadsID, C_DATE, U_DATE)";
   $Insert.=" VALUES ('".$QT_ID."', '".$dataQT[2]."', '".$dataQT[3]."', '".$dataQT[4]."', '".$dataQT[5]."', '".$dataQT[6]."', '".$dataQT[7]."', '".$dataQT[8]."', '".$dataQT[9]."', '".$dataQT[10]."', '".$dataQT[11]."', '".$user_version."', '".$dataQT[13]."', '".$now."', '".$now."')";
   $cmd=mysqli_query($link_db,$Insert);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
 
-  }else{  
+  }else{
     echo "Projects error";
     mysqli_close($link_db);
     exit();
-  } 
+  }
 
 
   // items
   $str_I="SELECT ID, QT_ID, ProductTypeID, ModelID, Products, Qty, UnitPrice, Description, Version, Sort, C_DATE, MiTAC_PN FROM partner_projects_items_tmp WHERE QT_ID='".$QT_ID."' AND Version='".$dataQT[12]."'";
-  $cmdQT_I=mysqli_query($link_db,$str_I);  
+  $cmdQT_I=mysqli_query($link_db,$str_I);
   while ($dataQT_I=mysqli_fetch_row($cmdQT_I)) {
     $Insert_I="INSERT INTO partner_projects_items_client (QT_ID, ProductTypeID, ModelID, Products, MiTAC_PN, Qty, UnitPrice, Description, Version, Sort, C_DATE)";
     $Insert_I.=" VALUES ('".$dataQT_I[1]."', '".$dataQT_I[2]."', '".$dataQT_I[3]."', '".$dataQT_I[4]."', '".$dataQT_I[11]."', '".$dataQT_I[5]."','".$dataQT_I[6]."','".$dataQT_I[7]."','".$user_version."','".$dataQT_I[9]."', '".$now."')";
     $cmd_I=mysqli_query($link_db,$Insert_I);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
 
-    }else{  
+    }else{
       echo "Projects items error";
       mysqli_close($link_db);
       exit();
-    } 
-  } 
+    }
+  }
   // items end
 
   // extra
@@ -172,14 +172,14 @@ if($kind=="N"){
     $Insert_E="INSERT INTO partner_projects_extra_client (QT_ID, Item, Price, Version, Sort, C_DATE)";
     $Insert_E.=" VALUES ('".$dataQT_E[1]."', '".$dataQT_E[2]."', '".$dataQT_E[3]."', '".$user_version."', '".$dataQT_E[5]."', '".$now."')";
     $cmd=mysqli_query($link_db,$Insert_E);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
 
-    }else{  
+    }else{
       echo "Projects extra error";
       mysqli_close($link_db);
       exit();
-    } 
+    }
   }
   // extra end
 
@@ -190,7 +190,7 @@ if($kind=="N"){
   $username=$data_user[0];
   $user_content = "
   <body style='margin: 0;padding: 0;'>
-  
+
   <table style='width: 100%;margin: 0;padding: 0;-premailer-width: 100%;-premailer-cellpadding: 0;-premailer-cellspacing: 0;background-color: #F2F4F6;' width='100%' cellpadding='0' cellspacing='0'>
   <tr>
   <td align='center'>
@@ -217,7 +217,7 @@ if($kind=="N"){
 
   <p style='font-family: arial; line-height:130%;  text-align:left; font-size:16px'>
 
-  There is a quotation - ".$QT_ID." sent to you from MiTAC Partner Zone. 
+  There is a quotation - ".$QT_ID." sent to you from MiTAC Partner Zone.
   Please log in MiTAC Partner Zone to check it.
 
   </p>
@@ -232,13 +232,13 @@ if($kind=="N"){
   <td align='center'>
   <table border='0' cellspacing='0' cellpadding='0'>
   <tr> <td>
-  <a href='https://www.mitacmct.com/PartnerZone/' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
+  <a href='https://ipc.mitacmdt.com/PartnerZone/' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' target='_blank'>LOG IN</a>
   </td>
   </tr>
   </table>
   </td>
   </tr>
-  </table>    
+  </table>
   <p style='font-family: arial; line-height:130%; font-size:16px; text-align:left;'>Thanks!<br>MiTAC Partner Zone</p>
   <!-- Sub copy -->
 
@@ -266,7 +266,7 @@ if($kind=="N"){
   <table style='width: 570px;  margin: 0 auto;  padding: 0;  -premailer-width: 570px;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='570' cellpadding='0' cellspacing='0'>
   <tr>
   <td style='padding: 35px;' align='center'>
-  <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. <br />All Rights Reserved.</p>
+  <p style='font-family: arial; line-height:130%; font-size: 12px;text-align: center;'>&copy; MiTAC Digital Technology Corporation and/or any of its affiliates. <br />All Rights Reserved.</p>
 
   </td>
   </tr>
@@ -274,63 +274,63 @@ if($kind=="N"){
   </body>";
 
     //****** To USER *******
-    $mail= new PHPMailer(); //建立新物件   
-    $mail->IsSMTP(); //設定使用SMTP方式寄信   
-    $mail->SMTPAuth = false; //設定SMTP需要驗證   
+    $mail= new PHPMailer(); //建立新物件
+    $mail->IsSMTP(); //設定使用SMTP方式寄信
+    $mail->SMTPAuth = false; //設定SMTP需要驗證
     //$mail->SMTPSecure = "ssl"; //ssl tls
     //$mail->SMTPDebug = 2;
     $mail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
     $mail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-    $mail->CharSet = "utf-8"; //設定郵件編碼   
+    $mail->CharSet = "utf-8"; //設定郵件編碼
 
     $mail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
     $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-    $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱   
-    $mail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名   
+    $mail->From = "noreply-to-tyan-partner-portal@tyan.com"; //設定寄件者信箱
+    $mail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名
 
-    $mail->Subject = "Quotation Notification"; //設定郵件標題   
-    $mail->Body = $user_content; //設定郵件內容 
-    $mail->IsHTML(true); //設定郵件內容為HTML   
-  $mail->SMTPAutoTLS = false;   
+    $mail->Subject = "Quotation Notification"; //設定郵件標題
+    $mail->Body = $user_content; //設定郵件內容
+    $mail->IsHTML(true); //設定郵件內容為HTML
+  $mail->SMTPAutoTLS = false;
 
-    $mail->AddAddress($email, $username); //設定收件者郵件及名稱 
-    //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
+    $mail->AddAddress($email, $username); //設定收件者郵件及名稱
+    //$mail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
     if(!$mail->Send()) {
       $errorMail=$mail->ErrorInfo;
 
-      $admail= new PHPMailer(); //建立新物件   
-      $admail->IsSMTP(); //設定使用SMTP方式寄信   
-      $admail->SMTPAuth = false; //設定SMTP需要驗證   
+      $admail= new PHPMailer(); //建立新物件
+      $admail->IsSMTP(); //設定使用SMTP方式寄信
+      $admail->SMTPAuth = false; //設定SMTP需要驗證
       //$mail->SMTPSecure = "ssl"; //ssl tls
       //$mail->SMTPDebug = 2;
       $admail->Host = "10.88.0.58"; //設定SMTP主機   smtp.gmail.com
       $admail->Port = 25; //設定SMTP埠位，預設為25埠   587 80
-      $admail->CharSet = "utf-8"; //設定郵件編碼   
+      $admail->CharSet = "utf-8"; //設定郵件編碼
 
       $admail->Username = "global-marketing@tyan.com"; //設定驗證帳號   tyanwebsite@gmail.com
       $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
-      $admail->From = "noreply@tyan.com"; //設定寄件者信箱   
-      $admail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名   
+      $admail->From = "noreply@tyan.com"; //設定寄件者信箱
+      $admail->FromName = "MiTAC Partner Zone"; //設定寄件者姓名
 
-      $admail->Subject = "Approval to user"; //設定郵件標題   
-      $admail->Body = $errorMail; //設定郵件內容 
-      $admail->IsHTML(true); //設定郵件內容為HTML  
-    $admail->SMTPAutoTLS = false;    
-      $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱 
-      //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");  
-      $admail->Send();   
-      echo "Mailer Error(Mapped): " . $mail->ErrorInfo;  
+      $admail->Subject = "Approval to user"; //設定郵件標題
+      $admail->Body = $errorMail; //設定郵件內容
+      $admail->IsHTML(true); //設定郵件內容為HTML
+    $admail->SMTPAutoTLS = false;
+      $admail->AddAddress("nick.t@tyan.com.tw", "Nick.t"); //設定收件者郵件及名稱
+      //$admail->AddCC("even.syao@tyan.com.tw", "even.syao");
+      $admail->Send();
+      echo "Mailer Error(Mapped): " . $mail->ErrorInfo;
       mysqli_close($link_db);
-      exit(); 
-    }else{   
+      exit();
+    }else{
       echo "success";
       mysqli_close($link_db);
       exit();
     }
     //****** To USER END*******
-    
+
 
 }
 

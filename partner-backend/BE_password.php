@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -23,7 +23,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -80,7 +80,7 @@ function dowith_sql($str)
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -100,7 +100,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->  
+<!--end left menu-->
 
 
 
@@ -115,20 +115,20 @@ include("left_menu.php");
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="BEdashboard">Dashboard</a>
             </li>
-            
+
             <li class="breadcrumb-item active">Password Change
             </li>
           </ol>
         </div>
       </div>
     </div>
-    
+
   </div>
   <div class="content-body">
-    
-    
-    
-    
+
+
+
+
     <div class="row">
       <div class="col-xl-4 col-lg-6 col-md-12">
         <div class="card no-border box-shadow-1"><div class="card">
@@ -136,8 +136,8 @@ include("left_menu.php");
             <div class="card-body">
               <h1 class="card-header ">Change Password</h1>
               <hr>
-              
-              
+
+
               <form class="form-horizontal form-simple" action="#" novalidate>
                 <fieldset class="form-group position-relative has-icon-left">
                   <input id="password1" type="password" class="form-control form-control-lg input-lg" placeholder="Enter New Password" required minlength="8">
@@ -157,22 +157,22 @@ include("left_menu.php");
                  Passwords don't match. Please enter your password again to confirm it.
                </div>
              </fieldset>
-             
+
              <button id="changeOK" type="button" class="btn btn-info btn-lg btn-block"><i class="fa fa-floppy-o"></i> Save</button>
              <input id="UID" type="hidden" value="<?=$ID?>">
            </form>
-           
+
          </div>
        </div>
      </div></div>
    </div>
    <div class="col-xl-4 col-lg-6 col-md-12">
-     
+
    </div>
    <div class="col-xl-4 col-lg-12 col-md-12">
-     
+
    </div>
- </div>	
+ </div>
 </div>
 </div>
 </div>
@@ -183,7 +183,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/vendors/js/vendors.min.js"></script>
@@ -228,7 +228,7 @@ $("#changeOK").click(function(){
       exit;
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

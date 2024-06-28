@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -96,7 +96,7 @@ if($kind=="changeType"){
   	$str="SELECT ID, ProductType, Model, SKU, MiTAC_PN, CATEGORY_NAME, C_DATE, U_DATE FROM partner_model WHERE ID='".$ID."'";
     $cmd=mysqli_query($link_db,$str);
 		$result=mysqli_fetch_row($cmd);
-		$content="	
+		$content="
 	  <option value=''>Select...</option>
 	  <option value='ADD' class='red'>Add New</option>";
     $strModel="SELECT ID, Model, SKU, ProductType FROM partner_model WHERE ProductType='".$ID."' GROUP BY Model";
@@ -150,12 +150,12 @@ if($kind=="AddType"){
 
   $str="INSERT INTO partner_products_type (ProductTypeID, Type, C_DATE) VALUES ('".$ProductTypeID."', '".$Type."', '".$now."')";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Insert type error";
     mysqli_close($link_db);
     exit();
@@ -187,12 +187,12 @@ if($kind=="EditType"){
 
   $str="UPDATE partner_products_type SET Type='".$Type."', U_DATE='".$now."' WHERE ID='".$ID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Insert type error";
     mysqli_close($link_db);
     exit();
@@ -280,31 +280,31 @@ if($kind=="AddPR"){
       exit();
     }
   }
-	
+
 
   $str="INSERT INTO partner_model (Model, SKU, ProductType, MiTAC_PN, CATEGORY_NAME,  C_DATE)";
   $str.=" VALUES ('".$Model."','".$SKU."', '".$Type."', '".$MiTAC."', '".$Cate."','".$now."')";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit();  
-  }else{  
+    exit();
+  }else{
     echo "Insert model error";
     mysqli_close($link_db);
     exit();
   }
- 
+
   /*$str="INSERT INTO partner_products (ProductType, Model, SKU, MiTAC_PN, Category, SalesID, C_DATE)";
   $str.=" VALUES ('".$Type."', '".$Model."','".$SKU."','".$MiTAC."','".$Cate."','".$ID."','".$now."')";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Insert product error";
     mysqli_close($link_db);
     exit();
@@ -384,25 +384,25 @@ if($kind=="EditPR"){
 
   $str="UPDATE partner_model SET Model='".$Model."', SKU='".$SKU."', ProductType='".$Type."', MiTAC_PN='".$MiTAC."', CATEGORY_NAME='".$Cate."', U_DATE='".$now."' WHERE ID='".$prid."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){ 
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
     exit();
-  }else{  
+  }else{
     echo "Update model error";
     mysqli_close($link_db);
     exit();
   }
- 
+
   /*$str="UPDATE partner_products SET ProductType='".$Type."', Model='".$Model."', SKU='".$SKU."', MiTAC_PN='".$MiTAC."', Category='".$Cate."', SalesID='".$ID."', U_DATE='".$now."' WHERE ID='".$prid."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Upate product error";
     mysqli_close($link_db);
     exit();
@@ -435,13 +435,13 @@ if($kind=="editList"){
       foreach ($type as $key => $value) {
         if($value!=""){
           if($result[1]==$key){
-            $status="selected"; 
+            $status="selected";
             $typeID=$key;
           }else{
             $status="";
           }
         }
-        
+
         $content.="<option value='".$key."' ".$status.">".$value."</option>";
       }
       $display="";
@@ -499,12 +499,12 @@ if($kind=="editList"){
   exit();
   /*$str="UPDATE partner_products_type SET Type='".$Type."', U_DATE='".$now."' WHERE ID='".$ID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Insert type error";
     mysqli_close($link_db);
     exit();
@@ -518,15 +518,15 @@ if($kind=="DelPR"){
   }else{
     $prid="";
   }
- 
+
   $str="DELETE FROM partner_model WHERE ID='".$prid."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Delete products error";
     mysqli_close($link_db);
     exit();
@@ -540,15 +540,15 @@ if($kind=="DelType"){
   }else{
     $EditTypeID="";
   }
- 
+
   $str="DELETE FROM partner_products_type WHERE ID='".$EditTypeID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
-    exit(); 
-  }else{  
+    exit();
+  }else{
     echo "Delete type error";
     mysqli_close($link_db);
     exit();

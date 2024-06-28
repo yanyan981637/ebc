@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -90,7 +90,7 @@ $now=date("Y/m/d H:i:s");
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -112,7 +112,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 <div class="app-content content">
 	<div class="content-wrapper">
@@ -168,9 +168,9 @@ include("left_menu.php");
 												echo "<option value='".$data[2]."'>".$data[2]."</option>";
 											}
 											?>
-										</select>	
+										</select>
 									</div>
-								</div>	
+								</div>
 								<div class="form-group" style="background:#eee; padding:10px 20px">
 									<label><strong>Release Schedule:</strong></label>
 
@@ -236,7 +236,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer-->	
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/js/core/libraries/jquery.min.js"></script>
@@ -264,49 +264,49 @@ include("footer.php");
 <!-- END PAGE LEVEL JS-->
 <script>
 
-Date.prototype.format = function(fmt) { 
-var o = { 
-  "M+" : this.getMonth()+1,                 //月份 
-  "d+" : this.getDate(),                    //日 
+Date.prototype.format = function(fmt) {
+var o = {
+  "M+" : this.getMonth()+1,                 //月份
+  "d+" : this.getDate(),                    //日
   "h+" : this.getHours(),                   //小時
-  "m+" : this.getMinutes(),                 //分 
-  "s+" : this.getSeconds(),                 //秒 
+  "m+" : this.getMinutes(),                 //分
+  "s+" : this.getSeconds(),                 //秒
   "q+" : Math.floor((this.getMonth()+3)/3), //季
-  "S"  : this.getMilliseconds()             //毫秒 
-}; 
+  "S"  : this.getMilliseconds()             //毫秒
+};
   if(/(y+)/.test(fmt)) {
-  	fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+  	fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
   }
   for(var k in o) {
   	if(new RegExp("("+ k +")").test(fmt)){
   		fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
   	}
   }
-  return fmt; 
-}     
+  return fmt;
+}
 
 $("#Add").click(function(){
 	var title = document.getElementById("title").value;
 	var release="";
 	if (document.getElementById("releaseAll").checked==true) {
-    release =document.getElementById("releaseAll").value; 
+    release =document.getElementById("releaseAll").value;
   }else if(document.getElementById("releaseTO").checked==true){
   	selector = document.getElementById("sel_release");
-  	for (var i = 0; i < selector.options.length; i++ ) { 
-  		if (selector.options[i].selected) { 
+  	for (var i = 0; i < selector.options.length; i++ ) {
+  		if (selector.options[i].selected) {
   			if(release==""){
-  				release += selector.options[i].value; 
+  				release += selector.options[i].value;
   			}else{
-  				release += "/"; 
-  				release += selector.options[i].value; 
+  				release += "/";
+  				release += selector.options[i].value;
   			}
-  		} 
-  	} 
+  		}
+  	}
   }
 
   var schedule="";
   if (document.getElementById("ReleaseNow").checked==true) {
-    schedule =document.getElementById("ReleaseNow").value; 
+    schedule =document.getElementById("ReleaseNow").value;
   }else if(document.getElementById("radioSchedule").checked==true){
   	date=document.getElementById("scheduleDate").value;
   	time=document.getElementById("scheduleTime").value;
@@ -326,9 +326,9 @@ $("#Add").click(function(){
   url: url,
   dataType: "html",
   data: {
-  	title : title,  
-  	release : release,  
-  	schedule : schedule,  
+  	title : title,
+  	release : release,
+  	schedule : schedule,
   	message : message,
   	sel_status : sel_status,
   	kind : kind
@@ -341,7 +341,7 @@ $("#Add").click(function(){
   		alert(message);
   	}
   }
-	}); 
+	});
 })
 </script>
 </body>

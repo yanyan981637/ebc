@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -102,7 +102,7 @@ while ($data_team=mysqli_fetch_row($cmd_team)) {
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -123,7 +123,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->  
+<!--end left menu-->
 
 <div class="app-content content">
   <div class="content-wrapper">
@@ -189,7 +189,7 @@ include("left_menu.php");
 
   <!--select Date Range, default is one month-->
   <form id="top_report" name="top_report" method="post" enctype="multipart/form-data" action="excel.php">
-  <div class="row">	
+  <div class="row">
     <!-- <div class="col-xl-2 col-lg-12">
       <br/>
       <div class="form-group">
@@ -221,13 +221,13 @@ include("left_menu.php");
             }
             echo "<option  value='".$data_sales[0]."' ".$select.">".$data_sales[1]."</option>";
           }*/
-          ?> 
+          ?>
         </select>
       </div>
     </div> -->
 
     <div class="col-xl-3 col-lg-12">
-      <div class="">		
+      <div class="">
         <div class="form-group">
           <label></label>
           <div class='input-group'>
@@ -273,7 +273,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/vendors/js/vendors.min.js"></script>

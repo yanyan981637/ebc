@@ -34,15 +34,15 @@ function dowith_sql($str)
    $str = str_replace("=","",$str);
    $str = str_replace("?","",$str);
    $str = str_replace("%","",$str);
-   $str = str_replace("0x02BC","",$str);   
+   $str = str_replace("0x02BC","",$str);
    return $str;
 }
 
 
-if(isset($_REQUEST['PLang'])!=''){  
+if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql($_REQUEST['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="EN" || $PLang_si==""){
    $PLang_si01="EN";
    $PLang_si="en-US";
@@ -67,8 +67,8 @@ if(isset($_GET["status"])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">	
-    <title>MiTAC Computing Technology Corp. - OCP: SEBA Solution</title>
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <title>MiTAC Digital Technology Corp. - OCP: SEBA Solution</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/gtm/modernizr.custom.63321.js"></script>
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -76,7 +76,7 @@ if(isset($_GET["status"])){
     <link href="/css/style.css" rel="stylesheet">
 
     <link href="/css/fhmm.css" rel="stylesheet">
-	
+
 <!--news-->
 <script type="text/javascript">
 	function AutoScroll(obj){
@@ -88,10 +88,10 @@ if(isset($_GET["status"])){
 	}
 	$(document).ready(function(){
 		setInterval('AutoScroll("#s1")',5000);
-	});	
+	});
 
 </script>
-<style type="text/css"> 
+<style type="text/css">
 *{margin:0;padding:0;}
 .scrollDiv{width:700px;height:25px;line-height:25px;border:#ccc 0px solid;overflow:hidden;/* 必要元素 */}
 .scrollDiv li{height:25px;padding-left:10px;padding-top:4px;}
@@ -124,23 +124,23 @@ if(isset($_GET["status"])){
 	   ( event.keyCode > 57 && event.keyCode < 64) || // 64=@
        ( event.keyCode > 90 && event.keyCode < 97) ||
 	   ( event.keyCode > 123 && event.keyCode < 127)) { // 124=~,125=},126=|
-       event.returnValue = false; 
+       event.returnValue = false;
        }
 	}
 </script>
 
-<?php 
+<?php
 //************ google analytics ************
 if($s_cookie!=2){
   include_once("../analyticstracking.php");
 }
 ?>
 </head>
-<body> 
+<body>
  <!--Header logo-->
 	<?php
   include("../top.htm");
-  
+
 	?>
  <!--end Header logo-->
 
@@ -161,19 +161,19 @@ OCP Solutions</h3>
 <p style="margin-bottom:10%"> </p>
 
 
-                      
+
                     </div>
                 </div>
-			
+
             </div>
 
         </div>
         <!-- /.container -->
 
     </div>
-	
+
 	<div class="container-fluid" style="background:#0D47A1; color:#ffffff" >
-<h1 class="container">OCP - SEBA&#8482; Solution</h1>	
+<h1 class="container">OCP - SEBA&#8482; Solution</h1>
 	</div>
 <div class="container-fluid" style="background-color:#ffffff">
 <div class="container" >
@@ -228,8 +228,8 @@ OCP Solutions</h3>
 
 <p style="margin-top:6%"> </p>
 </div>
-</div>	
-	
+</div>
+
 	<div class="container-fluid" style="background:#7bad2d; color:#ffffff" ><p style="margin-top:2%"> </p>
 	<div class="container">
 	<div class="row">
@@ -254,14 +254,14 @@ OCP Solutions</h3>
 <div><img src="/images/product/OCPserver/OCP_SEBA-icon5.gif" alt="OCP SEBA Solution" class="img-responsive"></div>
 <p style="margin:2% 0">Vendor Lock-in Free</p>
 </div>
-<div class="col-sm-1"></div>	
+<div class="col-sm-1"></div>
 	</div></div>
-	<p style="margin-top:2%"> </p></div>	
-	
-	
-	
+	<p style="margin-top:2%"> </p></div>
+
+
+
 	<div class="container-fluid" style="background-color:#f8f8f8"><p style="margin-top:6%"> </p>
-<div class="container" >	
+<div class="container" >
 <h2 class="blue_cr">Toward the Next Generation Central Office</h2>
 
 <div class="row"  style="">
@@ -287,17 +287,17 @@ hardware deployed as a cloud infrastructure.
 <div class="row">
 <div class="col-sm-6"><img src="/images/product/OCPserver/OCP_SEBA-1.gif" alt="OCP SEBA Solution" class="img-responsive"></div>
 <div class="col-sm-6"><img src="/images/product/OCPserver/OCP_SEBA-2.jpg" alt="OCP SEBA Solution" class="img-responsive"></div>
-</div>	
-</div><p style="margin-top:5%"> </p>		
-</div>	
-	
+</div>
+</div><p style="margin-top:5%"> </p>
+</div>
+
 
 <div class="container-fluid" style="background-color:#ffffff"><p style="margin-top:6%"> </p>
 <div class="container" >
 <div class="row">
 <div class="col-sm-6">
 <p style="margin-top:3%"> </p>
-<h2 class="blue_cr" style="border-bottom: 1px dotted #898989">Partnership<br /><br /></h2>	
+<h2 class="blue_cr" style="border-bottom: 1px dotted #898989">Partnership<br /><br /></h2>
 <div class="row">
 <div class="col-sm-4">
 <img  src="/images/product/OCPserver/OCP_logo-1.gif" alt="OCP SEBA Solution" class="img-responsive" style="margin:0%">
@@ -331,32 +331,32 @@ with optimized power efficiency.</p>
 
 </div>
 </div>
-	
+
 	<!--
 <div class="container-fluid" style="background-color:#f8f8f8"><p style="margin-top:6%"> </p>
-<div class="container text-center" >	
+<div class="container text-center" >
 	<iframe width="920" height="517" src="https://www.youtube.com/embed/0Luqzy0JiD0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	
-	
-	
+
+
+
 </div><p style="margin-top:6%"> </p>
-</div>-->	
+</div>-->
 <div class="container-fluid" style="background:#7bad2d; color:#ffffff"><p style="margin-top:2%"> </p>
-<div class="container" >	
+<div class="container" >
 	<h3>Any questions, welcome to contact with us!&nbsp;&nbsp;&nbsp;&nbsp;<a href="/EN/contact/" /><button type="button" class="btn btn-default" style="font-size:26px; border:1px solid #626262; ">&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</button></a></h3>
 </div><p style="margin-top:2%"> </p>
-</div>	
+</div>
 
 
 <!-- middles end-->
 
 
-<!-- FOOTER -->	  
+<!-- FOOTER -->
 <?php
 include("../foot.htm");
 ?>
 <!-- FOOTER End
- -->   
+ -->
 <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->

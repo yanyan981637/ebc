@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -101,16 +101,16 @@ if($kind=="search"){
       $str_count="SELECT COUNT(*) FROM partner_model WHERE ProductType='".$type1."'";
       break;
     case 'B':
-			$str_count="SELECT COUNT(*) FROM partner_model WHERE SKU='".$input."'";    
-			$cmd_count=mysqli_query($link_db,$str_count);  
+			$str_count="SELECT COUNT(*) FROM partner_model WHERE SKU='".$input."'";
+			$cmd_count=mysqli_query($link_db,$str_count);
 			$num=mysqli_fetch_row($cmd_count);
 			if($num[0]<="0"){
-				$str_count="SELECT COUNT(*) FROM partner_model WHERE Model='".$input."'";    
-				$cmd_count=mysqli_query($link_db,$str_count);  
+				$str_count="SELECT COUNT(*) FROM partner_model WHERE Model='".$input."'";
+				$cmd_count=mysqli_query($link_db,$str_count);
 				$num=mysqli_fetch_row($cmd_count);
 				if($num[0]<="0"){
-					$str_count="SELECT COUNT(*) FROM partner_model WHERE MiTAC_PN='".$input."'";    
-					//$cmd_count=mysqli_query($link_db,$str_count);  
+					$str_count="SELECT COUNT(*) FROM partner_model WHERE MiTAC_PN='".$input."'";
+					//$cmd_count=mysqli_query($link_db,$str_count);
 					//$num=mysqli_num_rows($cmd_count);
 				}
 			}
@@ -125,16 +125,16 @@ if($kind=="search"){
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -161,7 +161,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -216,7 +216,7 @@ include("left_menu.php");
 							<div class="card-body">
 								<h1>Products:</h1>
 								<hr>
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 									<div class="col-md-3">
 										<select id="sel_type" class="form-control">
@@ -225,7 +225,7 @@ include("left_menu.php");
 											foreach ($type as $key => $value) {
 												echo "<option value=".$key.">".$value."</option>";
 											}
-											?>	
+											?>
 										</select>
 									</div>
 									<div class="col-md-5">
@@ -234,12 +234,12 @@ include("left_menu.php");
 										</div>
 									</div>
 									<div class="col-md-4">
-										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>							
+										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
 									</div>
 								</div>
-								<!--end search & sorting-->						
-								<!--total-->	
-								<hr>				
+								<!--end search & sorting-->
+								<!--total-->
+								<hr>
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Total: <span class="info darken-4 t700"><?=$total;?></span></h3>
@@ -254,7 +254,7 @@ include("left_menu.php");
 													</a>
 												</li>
 												<?php
-												for($i=1;$i<=$pages_totle;$i++) { 
+												for($i=1;$i<=$pages_totle;$i++) {
 													$pagenum=6;
 													$last=$page+2;
 													$first=$page-2;
@@ -302,7 +302,7 @@ include("left_menu.php");
 										<tr>
 											<th>Type</th>
 											<th>SKU (Model)</th>
-											<th>Category (MiTAC P/N)</th>		
+											<th>Category (MiTAC P/N)</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -315,15 +315,15 @@ include("left_menu.php");
 										      break;
 										    case 'B':
 													$str_table="SELECT ID, ProductType, Model, SKU, MiTAC_PN, CATEGORY_NAME, C_DATE, U_DATE, Import_BE FROM partner_model WHERE SKU='".$input."' ORDER BY C_DATE DESC LIMIT $start, $per";
-													$cmd_table=mysqli_query($link_db,$str_table);  
+													$cmd_table=mysqli_query($link_db,$str_table);
 													$num=mysqli_num_rows($cmd_table);
 													if($num<="0"){
 														$str_table="SELECT ID, ProductType, Model, SKU, MiTAC_PN, CATEGORY_NAME, C_DATE, U_DATE, Import_BE FROM partner_model WHERE Model='".$input."' ORDER BY C_DATE DESC LIMIT $start, $per";
-														$cmd_table=mysqli_query($link_db,$str_table);  
+														$cmd_table=mysqli_query($link_db,$str_table);
 														$num=mysqli_num_rows($cmd_table);
 														if($num<="0"){
 															$str_table="SELECT ID, ProductType, Model, SKU, MiTAC_PN, CATEGORY_NAME, C_DATE, U_DATE, Import_BE FROM partner_model WHERE MiTAC_PN='".$input."' ORDER BY C_DATE DESC LIMIT $start, $per";
-															//$cmd_table=mysqli_query($link_db,$str_table);  
+															//$cmd_table=mysqli_query($link_db,$str_table);
 															//$num=mysqli_fetch_row($cmd_count);
 														}
 													}
@@ -383,13 +383,13 @@ include("left_menu.php");
 								<div class="badge badge-pill badge-primary mr-b-2">
 									<h5 class="m-5-p-5">
 										<a href="" data-toggle="modal" data-target="#edit-tag" onclick="editToID(<?=$key?>, 'Type')" />
-											<?=$value?> (<?=$num1;?>) 
+											<?=$value?> (<?=$num1;?>)
 										</a> &nbsp;&nbsp;&nbsp;
 										<?php
 										if($num1=="0"){
 											echo "<a href='' data-toggle='modal' data-target='#del-type' onclick=editToID('".$key."','typeN','".$value."') ><i class='ft-x'></i></a>";
 										}
-										?>	
+										?>
 									</h5>
 								</div>
 								<?php
@@ -410,7 +410,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 
 
@@ -426,13 +426,13 @@ include("footer.php");
 				</div>
 				<form action="#">
 					<div id="dTypeN" class="modal-body">
-						
+
 
 					</div>
 
 					<div class="modal-footer">
 						<input id="delTypeOK" type="button" class="btn btn-info " value="Yes, Delete it.">
-						<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" value="No">	
+						<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" value="No">
 					</div>
 				</form>
 			</div>
@@ -456,13 +456,13 @@ include("footer.php");
 					</div>
 					<form action="#">
 						<div id="del_title" class="modal-body">
-							
+
 
 						</div>
 
 						<div class="modal-footer">
 							<input id="delOK" type="button" class="btn btn-info " value="Yes, Delete it." >
-							<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">	
+							<input type="button" class="btn btn-secondary " data-dismiss="modal" aria-label="Close" value="No">
 						</div>
 					</form>
 				</div>
@@ -486,7 +486,7 @@ include("footer.php");
 					<form action="#">
 						<div class="modal-body">
 							<div class="form-group">
-								<label>Product Type: </label>								
+								<label>Product Type: </label>
 								<select id="s_aType" class="form-control" onchange="changeType()">
 									<option value="">Select...</option>
 									<?php
@@ -499,7 +499,7 @@ include("footer.php");
 							<div id="div_aModel" class="form-group">
 								<label>Model Name: </label>
 								<select id="s_aModel" class="form-control">
-									
+
 								</select>
 								<input id="aModel" type="text" placeholder="" class="form-control" value="" style="display:none" >
 								<!-- <div id="err_aModel" class="alert alert-danger mb-1" role="alert" style="display:none" >
@@ -544,19 +544,19 @@ include("footer.php");
 					</div>
 					<form action="#">
 						<div id="edit_list" class="modal-body">
-							
+
 						</div>
 						<div class="modal-footer">
 							<input id="editOK" type="button" class="btn btn-info btn-lg" value="Save">
 						</div>
-					</form>										 
+					</form>
 				</div>
 
 			</div>
 		</div>
 	</div>
 
-	<!--end edit a single product Modal -->	
+	<!--end edit a single product Modal -->
 
 
 
@@ -619,7 +619,7 @@ include("footer.php");
 		</div>
 	</div>
 
-	<!--end edit a type Modal -->	
+	<!--end edit a type Modal -->
 
 
 
@@ -671,7 +671,7 @@ $("#addType").click(function(){
     url: url,
     dataType: "html",
     data: {
-      Type : Type, 
+      Type : Type,
       kind : kind
     },
     success: function(message){
@@ -697,8 +697,8 @@ $("#EditType").click(function(){
     url: url,
     dataType: "html",
     data: {
-    	ID : ID, 
-      Type : Type, 
+    	ID : ID,
+      Type : Type,
       kind : kind
     },
     success: function(message){
@@ -725,19 +725,19 @@ function editToID(i,j,k){
     url: url,
     dataType: "html",
     data: {
-    	EditTypeID : EditTypeID,  
+    	EditTypeID : EditTypeID,
       kind : kind
     },
 	    success: function(message){
 	    	if(message == "success"){
 
 	    	}else{
-	    		
+
 	    		document.getElementById("e_type").value=message;
 	    		document.getElementById("EditTypeID").value=EditTypeID;
 	    	}
 			}
-		});  	
+		});
 	}else if(kind=="del"){
 		var EditID=i;
 		var SKU=k;
@@ -750,7 +750,7 @@ function editToID(i,j,k){
 		var title="Are you sure you want to delete "+TypeN+" ?";
 		document.getElementById("EditTypeID").value=EditID;
 		document.getElementById("dTypeN").innerHTML=title;
-	} 
+	}
 }
 
 function editList(i){
@@ -762,7 +762,7 @@ function editList(i){
   url: url,
   dataType: "html",
   data: {
-  	EditID : EditID,  
+  	EditID : EditID,
     kind : kind
   },
     success: function(message){
@@ -770,10 +770,10 @@ function editList(i){
 
     	}else{
     		document.getElementById("pr_ID").value=EditID;
-    		document.getElementById("edit_list").innerHTML = message; 
+    		document.getElementById("edit_list").innerHTML = message;
     	}
 		}
-	}); 	
+	});
 }
 
 $("#addOK").click(function(){
@@ -793,10 +793,10 @@ $("#addOK").click(function(){
     dataType: "html",
     data: {
       Type : Type,
-      Model : Model, 
-      SKU : SKU, 
-      MiTAC : MiTAC, 
-      Cate : Cate, 
+      Model : Model,
+      SKU : SKU,
+      MiTAC : MiTAC,
+      Cate : Cate,
       kind : kind
     },
     success: function(message){
@@ -833,10 +833,10 @@ $("#editOK").click(function(){
     data: {
     	prid : prid,
       Type : Type,
-      Model : Model, 
-      SKU : SKU, 
-      MiTAC : MiTAC, 
-      Cate : Cate, 
+      Model : Model,
+      SKU : SKU,
+      MiTAC : MiTAC,
+      Cate : Cate,
       kind : kind
     },
     success: function(message){
@@ -887,7 +887,7 @@ function changeType(i){
 		var ID=document.getElementById("s_aType").value;
 	}
 	var prid=document.getElementById("pr_ID").value;
-	
+
 	var kind="changeType";
 	var url = "ProductProcess";
 	$.ajax({
@@ -895,21 +895,21 @@ function changeType(i){
   url: url,
   dataType: "html",
   data: {
-  	ID : ID,  
+  	ID : ID,
   	tmp : tmp,
-  	prid : prid,  
+  	prid : prid,
     kind : kind
   },
     success: function(message){
     	if(message == "success"){
 
     	}else{
-    		document.getElementById("s_aModel").innerHTML = message; 
+    		document.getElementById("s_aModel").innerHTML = message;
     		document.getElementById("s_eModel").innerHTML = message;
     	}
 		}
 
-	}); 	
+	});
 	if(tmp=="e"){
 		if(ID==1 || ID==2){
 			document.getElementById("div_eModel").style.display="none";
@@ -935,7 +935,7 @@ function changeType(i){
 			document.getElementById("div_aCate").style.display="none";
 		}
 	}
-	
+
 }
 
 function search(){

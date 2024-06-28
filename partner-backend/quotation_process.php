@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -131,51 +131,51 @@ if($kind=="addQT"){
   }else{
     $Remarks="";
   }
-  if($_POST['Order']!=""){ 
+  if($_POST['Order']!=""){
     $Order=dowith_sql($_POST['Order']);
     $Order=filter_var($Order);
   }else{
     $Order="";
   }
-  if($_POST['pr']!=""){ 
+  if($_POST['pr']!=""){
     $pr=dowith_sql($_POST['pr']);
     $pr=filter_var($pr);
   }else{
     $pr="";
   }
-  if($_POST['Qty']!=""){ 
+  if($_POST['Qty']!=""){
     $Qty=dowith_sql($_POST['Qty']);
     $Qty=filter_var($Qty);
   }else{
     $Qty="";
   }
-  if($_POST['UnitPrice']!=""){ 
+  if($_POST['UnitPrice']!=""){
     $UnitPrice=dowith_sql($_POST['UnitPrice']);
     $UnitPrice=filter_var($UnitPrice);
     $UnitPrice=str_replace(",","",$UnitPrice);
   }else{
     $UnitPrice="";
   }
-  if($_POST['des']!=""){ 
+  if($_POST['des']!=""){
     $des=dowith_sql($_POST['des']);
     $des=filter_var($des);
   }else{
     $des="";
   }
-  if($_POST['Item']!=""){ 
+  if($_POST['Item']!=""){
     $Item=dowith_sql($_POST['Item']);
     $Item=filter_var($Item);
   }else{
     $Item="";
   }
-  if($_POST['Price']!=""){ 
+  if($_POST['Price']!=""){
     $Price=dowith_sql($_POST['Price']);
     $Price=filter_var($Price);
     $Price=str_replace(",","",$Price);
   }else{
     $Price="";
   }
-  if($_POST['ex_Order']!=""){ 
+  if($_POST['ex_Order']!=""){
     $ex_Order=dowith_sql($_POST['ex_Order']);
     $ex_Order=filter_var($ex_Order);
   }else{
@@ -220,10 +220,10 @@ if($kind=="addQT"){
   $str="INSERT INTO partner_projects (QT_ID, Company, ToUser, QT_DATE, Due_DATE, Terms, Remarks, Sales, STATUS, C_DATE)";
   $str.=" VALUES('".$QuoteID."', '".$company."', '".$member."', '".$QT_Date."', '".$Due_Date."', '".$Terms."', '".$Remarks."', '".$salesid."', 'Contact', '".$now."')";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
 
-  }else{  
+  }else{
     echo "Insert projects error";
     mysqli_close($link_db);
     exit();
@@ -235,7 +235,7 @@ if($kind=="addQT"){
   $tmp_UnitPrice=explode("+",$UnitPrice);
   $tmp_des=explode("+",$des);
 
-  
+
   for($i=0; $i < $Items; $i++){
     $strSKU="SELECT ID, SKU, CATEGORY_NAME, ProductType, MiTAC_PN FROM partner_model WHERE ID ='".$tmp_pr[$i]."'";
     $cmdSKU=mysqli_query($link_db, $strSKU);
@@ -249,20 +249,20 @@ if($kind=="addQT"){
       $MiTAC_PN="";
       $ProductTypeID=$dataSKU[3];
     }
- 
+
     $str1="INSERT INTO partner_projects_items (QT_ID, ProductTypeID, ModelID, Products, MiTAC_PN, Qty, UnitPrice, Description, Sort, C_DATE)";
     $str1.=" VALUES('".$QuoteID."', '".$ProductTypeID."', '".$dataSKU[0]."', '".$products."', '".$MiTAC_PN."', '".$tmp_Qty[$i]."', '".$tmp_UnitPrice[$i]."', '".$tmp_des[$i]."', '".$tmp_Order[$i]."', '".$now."');";
     $cmd1=mysqli_query($link_db,$str1);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       $str1="";
-    }else{  
+    }else{
       echo "Insert projects items error";
       mysqli_close($link_db);
       exit();
     }
   }
-  
+
   $tmp_ex_Order=explode("+",$ex_Order);
   $tmp_Item=explode("+",$Item);
   $tmp_Price=explode("+",$Price);
@@ -270,17 +270,17 @@ if($kind=="addQT"){
     $str2="INSERT INTO partner_projects_extra (QT_ID, Item, Price, Sort, C_DATE)";
     $str2.=" VALUES('".$QuoteID."', '".$tmp_Item[$i]."', '".$tmp_Price[$i]."', '".$tmp_ex_Order[$i]."', '".$now."');";
     $cmd2=mysqli_query($link_db,$str2);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       $str2="";
-    }else{  
+    }else{
       echo "Insert projects extra error";
       mysqli_close($link_db);
       exit();
     }
   }
-  
-  
+
+
   echo "success";
   mysqli_close($link_db);
   exit();
@@ -335,51 +335,51 @@ if($kind=="editQT"){
   }else{
     $Remarks="";
   }
-  if($_POST['Order']!=""){ 
+  if($_POST['Order']!=""){
     $Order=dowith_sql($_POST['Order']);
     $Order=filter_var($Order);
   }else{
     $Order="";
   }
-  if($_POST['pr']!=""){ 
+  if($_POST['pr']!=""){
     $pr=dowith_sql($_POST['pr']);
     $pr=filter_var($pr);
   }else{
     $pr="";
   }
-  if($_POST['Qty']!=""){ 
+  if($_POST['Qty']!=""){
     $Qty=dowith_sql($_POST['Qty']);
     $Qty=filter_var($Qty);
   }else{
     $Qty="";
   }
-  if($_POST['UnitPrice']!=""){ 
+  if($_POST['UnitPrice']!=""){
     $UnitPrice=dowith_sql($_POST['UnitPrice']);
     $UnitPrice=filter_var($UnitPrice);
     $UnitPrice=str_replace(",","",$UnitPrice);
   }else{
     $UnitPrice="";
   }
-  if($_POST['des']!=""){ 
+  if($_POST['des']!=""){
     $des=dowith_sql($_POST['des']);
     $des=filter_var($des);
   }else{
     $des="";
   }
-  if($_POST['Item']!=""){ 
+  if($_POST['Item']!=""){
     $Item=dowith_sql($_POST['Item']);
     $Item=filter_var($Item);
   }else{
     $Item="";
   }
-  if($_POST['Price']!=""){ 
+  if($_POST['Price']!=""){
     $Price=dowith_sql($_POST['Price']);
     $Price=filter_var($Price);
     $Price=str_replace(",","",$Price);
   }else{
     $Price="";
   }
-  if($_POST['ex_Order']!=""){ 
+  if($_POST['ex_Order']!=""){
     $ex_Order=dowith_sql($_POST['ex_Order']);
     $ex_Order=filter_var($ex_Order);
   }else{
@@ -398,13 +398,13 @@ if($kind=="editQT"){
     $Extra="";
   }
 
- 
+
   $str="UPDATE partner_projects SET Company='".$company."', ToUser='".$member."', QT_DATE='".$QT_Date."', Due_DATE='".$Due_Date."', Terms='".$Terms."', Remarks='".$Remarks."', U_DATE='".$now."' WHERE ID='".$editID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
 
-  }else{  
+  }else{
     echo "UPDATE projects error";
     mysqli_close($link_db);
     exit();
@@ -418,7 +418,7 @@ if($kind=="editQT"){
 
   $delItems="DELETE FROM partner_projects_items WHERE QT_ID='".$QT_ID."'";
   mysqli_query($link_db,$delItems);
-  
+
   for($i=0; $i < $Items; $i++){
     $strSKU="SELECT ID, SKU, CATEGORY_NAME, ProductType, MiTAC_PN FROM partner_model WHERE ID ='".$tmp_pr[$i]."'";
     $cmdSKU=mysqli_query($link_db, $strSKU);
@@ -435,10 +435,10 @@ if($kind=="editQT"){
     $str1="INSERT INTO partner_projects_items (QT_ID, ProductTypeID, ModelID, Products, MiTAC_PN, Qty, UnitPrice, Description, Sort, C_DATE)";
     $str1.=" VALUES('".$QT_ID."', '".$ProductTypeID."', '".$dataSKU[0]."', '".$products."', '".$MiTAC_PN."', '".$tmp_Qty[$i]."', '".$tmp_UnitPrice[$i]."', '".$tmp_des[$i]."', '".$tmp_Order[$i]."', '".$now."');";
     $cmd=mysqli_query($link_db,$str1);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       $str1="";
-    }else{  
+    }else{
       echo "Insert projects items error";
       mysqli_close($link_db);
       exit();
@@ -454,17 +454,17 @@ if($kind=="editQT"){
     $str2="INSERT INTO partner_projects_extra (QT_ID, Item, Price, Sort, C_DATE)";
     $str2.=" VALUES('".$QT_ID."', '".$tmp_Item[$i]."', '".$tmp_Price[$i]."', '".$tmp_ex_Order[$i]."', '".$now."');";
     $cmd=mysqli_query($link_db,$str2);
-    $result=mysqli_affected_rows($link_db);  
-    if($result>0){  
+    $result=mysqli_affected_rows($link_db);
+    if($result>0){
       $str2="";
-    }else{  
+    }else{
       echo "Insert projects extra error";
       mysqli_close($link_db);
       exit();
     }
   }
-  
-  
+
+
   echo "success";
   mysqli_close($link_db);
   exit();
@@ -488,8 +488,8 @@ if($kind=="delQT"){
   $cmd1=mysqli_query($link_db,$str);
   $result=mysqli_affected_rows($link_db);
   if($result>0){
-    
-  }else{ 
+
+  }else{
     /*echo "Delete projects error";
     mysqli_close($link_db);
     exit();*/
@@ -500,8 +500,8 @@ if($kind=="delQT"){
   $delItems1="DELETE FROM partner_projects_items_client WHERE QT_ID='".$QT_ID."'";
   mysqli_query($link_db,$delItems1);
   if($result>0){
-    
-  }else{ 
+
+  }else{
     /*echo "Delete projects error";
     mysqli_close($link_db);
     exit();*/
@@ -517,12 +517,12 @@ if($kind=="delQT"){
     echo "success";
     mysqli_close($link_db);
     exit();
-  }else{ 
+  }else{
     echo "Delete projects error";
     mysqli_close($link_db);
     exit();
   }
-  
+
 }
 
 
@@ -544,21 +544,21 @@ if($kind=="Sales"){
   $str_teams="SELECT ID, Team FROM partner_teams WHERE 1";
   $cmd_teams=mysqli_query($link_db,$str_teams);
   while ($result_teams=mysqli_fetch_row($cmd_teams)) {
-    
+
     $content.="<optgroup label='".$result_teams[1]."'>";
 
     $str_sales="SELECT ID, NAME, EMAIL FROM partner_sales WHERE Team='".$result_teams[0]."'";
     $cmd_sales=mysqli_query($link_db,$str_sales);
-    while ($result_sales=mysqli_fetch_row($cmd_sales)) { 
+    while ($result_sales=mysqli_fetch_row($cmd_sales)) {
       if($Sales==$result_sales[0]){
         $status="selected";
       }else{
         $status="";
       }
-      $content.="<option value='".$result_sales[0]."' ".$status.">".$result_sales[1]." / ".$result_sales[2]."</option>"; 
+      $content.="<option value='".$result_sales[0]."' ".$status.">".$result_sales[1]." / ".$result_sales[2]."</option>";
     }
     $content.="</optgroup>";
-    
+
   }
   $content.="</select>";
   echo $content;
@@ -584,7 +584,7 @@ if($kind=="assSales"){
     $sales_note=filter_var($sales_note);
   }else{
     $sales_note="";
-  }  
+  }
 
   /*$str1="SELECT ToUser, LeadsID FROM partner_projects WHERE ID='".$ID."'";
   $cmd1=mysqli_query($link_db,$str1);
@@ -594,10 +594,10 @@ if($kind=="assSales"){
 
   $str="UPDATE partner_projects SET Sales='".$editSales."' WHERE ID='".$ID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
 
-  }else{  
+  }else{
     echo "Update Sales error";
     mysqli_close($link_db);
     exit();
@@ -614,12 +614,12 @@ if($kind=="assSales"){
 
   $str="INSERT INTO partner_projects_log (QT_ID, Action, Note, U_DATE) VALUES ('".$QT_ID[0]."','".$action."','".$sales_note."','".$now."')";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
     exit();
-  }else{  
+  }else{
     echo "Insert log(sales) error";
     mysqli_close($link_db);
     exit();
@@ -645,19 +645,19 @@ if($kind=="Status"){
     $status_note=filter_var($status_note);
   }else{
     $status_note="";
-  }  
+  }
 
   $str="UPDATE partner_projects SET STATUS='".$sel_status."' WHERE ID='".$ID."'";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
 
-  }else{  
+  }else{
     echo "Update Status error";
     mysqli_close($link_db);
     exit();
   }
-  
+
   $action="Status: ".$sel_status;
 
   $str="SELECT QT_ID FROM partner_projects WHERE ID='".$ID."'";
@@ -680,7 +680,7 @@ if($kind=="Status"){
           $SKU=$result2[3];
           $Insert="INSERT INTO partner_myproducts (CompanyID, ModelID, Model, SKU, SalesID, C_DATE) VALUES ('".$result1[2]."', '".$ModelID."', '".$Model."', '".$SKU."', '".$result1[3]."', '".$now."')";
           $cmd3=mysqli_query($link_db,$Insert);
-          $result=mysqli_affected_rows($link_db); 
+          $result=mysqli_affected_rows($link_db);
         }else{
           $Model=$result2[1];
           $SKU=$result2[2];
@@ -690,15 +690,15 @@ if($kind=="Status"){
           if($result3[0]==""){
             $Insert="INSERT INTO partner_myproducts (CompanyID, ModelID, Model, SKU, SalesID, C_DATE) VALUES ('".$result1[2]."', '".$ModelID."', '".$Model."', '".$SKU."', '".$result1[3]."', '".$now."')";
             $cmd3=mysqli_query($link_db,$Insert);
-            $result=mysqli_affected_rows($link_db);  
-            
+            $result=mysqli_affected_rows($link_db);
+
           }
         }
       }
-      
-      if($result>0){  
 
-      }else{  
+      if($result>0){
+
+      }else{
         echo "INSERT partner_myproducts error";
         mysqli_close($link_db);
         exit();
@@ -721,12 +721,12 @@ if($kind=="Status"){
 
   $str="INSERT INTO partner_projects_log (QT_ID, Action, Note, U_DATE) VALUES ('".$QT_ID."','".$action."','".$status_note."','".$now."')";
   $cmd=mysqli_query($link_db,$str);
-  $result=mysqli_affected_rows($link_db);  
-  if($result>0){  
+  $result=mysqli_affected_rows($link_db);
+  if($result>0){
     echo "success";
     mysqli_close($link_db);
     exit();
-  }else{  
+  }else{
     echo "Insert log(status) error";
     mysqli_close($link_db);
     exit();

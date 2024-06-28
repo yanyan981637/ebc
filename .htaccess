@@ -114,8 +114,8 @@ Redirect "/EN/solution/intel-ice-lake" /EN/products/intel-ice-lake/
 Redirect "/products/storage_platform" /EN/products/storage_platform/
 Redirect "/products/OCP" /EN/products/OCP/
 
-# Redirect "/zh-TW" https://www.mitacmct.com
-# Redirect "/zh-CN" https://www.mitacmct.com
+# Redirect "/zh-TW" https://ipc.mitacmdt.com
+# Redirect "/zh-CN" https://ipc.mitacmdt.com
 
 Redirect "/IndustrialMotherboard_Ainstein-H8_Ainstein-H8" /IndustrialMotherboard_MiAi-H8_MiAi-H8?
 
@@ -178,6 +178,6 @@ RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).pjpeg$ /support_center/
 RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).gif$ /support_center/images/upload/$1.gif? [QSA,L]
 RewriteRule ^SupportCenter/image/upload/([a-zA-Z0-9_-]+).png$ /support_center/images/upload/$1.png? [QSA,L]
 
-Redirect "/5GEdgeComputing_WS1S12_WS1S12" https://www.mitacmct.com/5GEdgeComputing_WS1S11_WS1S11?
+Redirect "/5GEdgeComputing_WS1S12_WS1S12" https://ipc.mitacmdt.com/5GEdgeComputing_WS1S11_WS1S11?
 
 Require all granted

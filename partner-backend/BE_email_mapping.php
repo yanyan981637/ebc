@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -20,7 +20,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -80,15 +80,15 @@ if($Search!=""){
           $a.=$Total_count_ID[0];
           $arrID[$Total_count_ID[0]]=$Total_count_ID[0];
           $i++;
-        }   
-      } 
+        }
+      }
     }
   }
   $Total_count=$i;
 }else{
   $str_count="SELECT count(ID) FROM `partner_mapping` WHERE 1";
   $list1 =mysqli_query($link_db,$str_count);
-  list($Total_count) = mysqli_fetch_row($list1);  
+  list($Total_count) = mysqli_fetch_row($list1);
 }
 ?>
 <!DOCTYPE html>
@@ -113,7 +113,7 @@ if($Search!=""){
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -135,7 +135,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 
 
@@ -164,7 +164,7 @@ include("left_menu.php");
       <h1>Settings for receiving email notifications from different regions/countries</h1>
 
       <hr>
-      <!--search & sorting-->					
+      <!--search & sorting-->
       <div class="row">
        <div class="col-md-10">
         <select id="search_country" class="select2 form-control"  multiple="multiple" style="width: 100%">
@@ -175,12 +175,12 @@ include("left_menu.php");
 
       </div>
     <div class="col-md-2">
-      <button id="SearchOK" type="button" class="btn btn-info mr-1 mb-1">Search</button>							
+      <button id="SearchOK" type="button" class="btn btn-info mr-1 mb-1">Search</button>
     </div>
   </div>
-  <!--end search & sorting-->						
-  <!--total-->	
-  <hr>				
+  <!--end search & sorting-->
+  <!--total-->
+  <hr>
   <div class="row">
    <div class="col-md-12">
 
@@ -204,7 +204,7 @@ include("left_menu.php");
          <table class="table table-hover table-responsive">
           <thead class="bg-grey bg-lighten-4">
             <tr>
-              <th>Received E-mail Accounts</th>		
+              <th>Received E-mail Accounts</th>
               <th>Regions / Countries</th>
               <th></th>
             </tr>
@@ -218,10 +218,10 @@ include("left_menu.php");
                   $strList="SELECT ID, Sales, CountryCode FROM `partner_mapping` WHERE ID='".$value."' ORDER BY U_DATE DESC";
                   $cmdList=mysqli_query($link_db,$strList);
                   while ($dataList = mysqli_fetch_row($cmdList)) {
-                    $sales=str_replace(",", "<br>",$dataList[1]);                  
+                    $sales=str_replace(",", "<br>",$dataList[1]);
                     ?>
                     <tr>
-                      <td><?=$sales;?></td> 
+                      <td><?=$sales;?></td>
                       <td><?=$dataList[2];?></td>
                       <td>
                         <a href="editemail_mapping@<?=$dataList[0];?>"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1">Edit</button></a>
@@ -235,16 +235,16 @@ include("left_menu.php");
                   }
                 }
               }
-              
+
             }else{
               $i=0;
               $strList="SELECT ID, Sales, CountryCode FROM `partner_mapping` WHERE 1 ORDER BY U_DATE DESC";
               $cmdList=mysqli_query($link_db,$strList);
               while ($dataList = mysqli_fetch_row($cmdList)) {
-                $sales=str_replace(",", "<br>",$dataList[1]);                  
+                $sales=str_replace(",", "<br>",$dataList[1]);
                 ?>
                 <tr>
-                  <td><?=$sales;?></td> 
+                  <td><?=$sales;?></td>
                   <td><?=$dataList[2];?></td>
                   <td>
                     <a href="editemail_mapping@<?=$dataList[0];?>"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1">Edit</button></a>
@@ -282,7 +282,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 
 <!--delete email mapping Modal -->
@@ -303,14 +303,14 @@ include("footer.php");
 
      <div class="modal-footer">
       <input id="Del_Y" type="submit" class="btn btn-info " value="Yes, Delete it." onclick="DelMapping()">
-      <input type="submit" class="btn btn-secondary " data-dismiss="modal" value="No">	
+      <input type="submit" class="btn btn-secondary " data-dismiss="modal" value="No">
     </div>
   </form>
 </div>
 </div>
 </div>
 
-<!-- end delete email mapping Modal -->	
+<!-- end delete email mapping Modal -->
 
 
 
@@ -362,7 +362,7 @@ $("#SearchOK").click(function(){
   }
   //alert(country);
   document.location.href=country+"@BEemail_mapping";
-  
+
 })
 
 function delID(i){
@@ -380,19 +380,19 @@ function DelMapping(){
     url: url,
     dataType: "html",
     data: {
-      DelID : DelID, 
+      DelID : DelID,
       kind : kind
     },
     success: function(message){
       if(message == "success"){
         alert("Delete Done.");
-        location.reload(); 
+        location.reload();
       }else{
        alert(message);
      }
    }
  });
- 
+
 }
 </script>
 </body>

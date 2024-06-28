@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src *; img-src *; frame-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src *; img-src *; frame-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; report-uri https://ipc.mitacmdt.com");
 // 禁止缓存目前檔案:
 header('Content-Type: text/html; charset=utf-8');
 /* 避免產生回上一頁 err_cache_miss 錯誤 */
@@ -235,7 +235,7 @@ $sortVl01_RACM="";$sortVl01_SerT="";$sortVl01_AdpT="";$sortVl01_HddT="";$sortVl0
     $sortVl01_StorT="StorT1A";$sortVl01_StorBT="StorBT1A";
     $sortVl01_PSU="PSU1A";$sortVl01_OtheT="OtheT1A";
     $sortVl01_Type="Type1A";
-  }  
+  }
 
 }else{
   $sortVl01="";
@@ -253,7 +253,7 @@ $sortVl01_RACM="";$sortVl01_SerT="";$sortVl01_AdpT="";$sortVl01_HddT="";$sortVl0
   $sortVl01_Type="Type1A";
 }*/
 
-if(isset($_GET['PLang'])!=''){  
+if(isset($_GET['PLang'])!=''){
   $PLang_si=dowith_sql($_GET['PLang']);
   $PLang_si=str_replace(".php","",$PLang_si);
 
@@ -294,12 +294,12 @@ if(isset($_COOKIE['status'])){
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" /> 
-<meta property="og:title" content="Search Results  | MiTAC Computing Technology" />
+<meta property="og:description" content="" />
+<meta property="og:title" content="Search Results  | MiTAC Digital Technology" />
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -317,9 +317,9 @@ if(isset($_COOKIE['status'])){
 <script src="js1/jquery.js"></script>
 <!-- Document Title
 ============================================= -->
-<title>Search Results  | MiTAC Computing Technology</title>
+<title>Search Results  | MiTAC Digital Technology</title>
 
-<?php 
+<?php
 //************google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
@@ -410,7 +410,7 @@ if($s_cookie!=2){
                             $Embedded_url="EmbeddedSystem_".$MCODE41."_".$SKUs41;
                           }
                         }else{
-                          $Embedded_url="EmbeddedSystem_".$MCODE41."_".$SKUs41; 
+                          $Embedded_url="EmbeddedSystem_".$MCODE41."_".$SKUs41;
                         }
 
                       }else if($PLang_si01=="CN" || $PLang_si01=="JP" || $PLang_si01=="ZH"){
@@ -418,7 +418,7 @@ if($s_cookie!=2){
                       ?>
                       <tr onclick="javascript:self.location='./<?=rawurlencode($Embedded_url);?>'">
                         <td><a href="<?=rawurlencode($Embedded_url);?>"><?=$MCODE41;?> / <?=$SKUs41;?></a> &nbsp;
-                          <?php 
+                          <?php
                           if($IsnewUp41=='1'){
                             echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                           }
@@ -430,20 +430,20 @@ if($s_cookie!=2){
                             }else{
                               echo "<span class='badge bg-primary'>BTO</span>&nbsp;";
                             }
-                            
+
                           }
                           ?>
-                        </td>  
+                        </td>
                       </tr>
                     <?php
                     }
-                    ?> 
+                    ?>
                   </tbody>
                 </table>
               </div>
             </div>
             <!--end one product type card-->
-            
+
             <?php
             }//end Embedded System
 
@@ -496,7 +496,7 @@ if($s_cookie!=2){
                       <tr onclick="javascript:self.location='./<?=rawurlencode($IPanelPC_url);?>'">
                         <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/serverbarebones/".$IMG51);?>" alt="<?=$SKUs51;?>"></td>-->
                         <td><a href="<?=rawurlencode($IPanelPC_url);?>"><?=$MCODE51;?> / <?=$SKUs51;?></a> &nbsp;
-                          <?php 
+                          <?php
                           if($IsnewUp51=='1'){
                             echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                           }
@@ -514,7 +514,7 @@ if($s_cookie!=2){
                       </tr>
                     <?php
                     }
-                    ?>            
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -567,7 +567,7 @@ if($s_cookie!=2){
 
                         }else{
                           $IndustrialMB_url="IndustrialMotherboard_".$MCODE61."_".$SKUs61;
-                        } 
+                        }
 
                       }else if($PLang_si01=="CN" || $PLang_si01=="JP" || $PLang_si01=="ZH"){
                       }
@@ -575,7 +575,7 @@ if($s_cookie!=2){
                       <tr onclick="javascript:self.location='./<?=rawurlencode($IndustrialMB_url);?>'">
                         <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG61);?>" alt="<?=$SKUs61;?>"></td>-->
                         <td><a href="<?=rawurlencode($IndustrialMB_url);?>"><?=$MCODE61;?> / <?=$SKUs61;?></a> &nbsp;
-                          <?php 
+                          <?php
                           if($IsnewUp61=='1'){
                             echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                           }
@@ -589,11 +589,11 @@ if($s_cookie!=2){
                             }
                           }
                           ?>
-                        </td> 
+                        </td>
                       </tr>
                     <?php
                     }
-                    ?>    
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -644,7 +644,7 @@ if($s_cookie!=2){
 
                         }else{
                           $ocpServer_url="OCPserver_".$MCODE81."_".$SKUs81;
-                        } 
+                        }
 
                       }else if($PLang_si01=="CN" || $PLang_si01=="JP" || $PLang_si01=="ZH"){
                       }
@@ -653,7 +653,7 @@ if($s_cookie!=2){
                     <tr onclick="javascript:self.location='./<?=rawurlencode($ocpServer_url);?>'">
                       <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG81);?>" alt="<?=$SKUs81;?>"></td>-->
                       <td><a href="<?=rawurlencode($ocpServer_url);?>"><?=$MCODE81;?> / <?=$SKUs81;?></a> &nbsp;
-                        <?php 
+                        <?php
                         if($IsnewUp81=='1'){
                           echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                         }
@@ -671,7 +671,7 @@ if($s_cookie!=2){
                     </tr>
                     <?php
                     }
-                    ?>    
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -720,17 +720,17 @@ if($s_cookie!=2){
                             $ocpmezz_url="OCPMezz_".$MCODE91."_".$SKUs91;
                           } else {
                             $ocpmezz_url="OCPMezz=".$MCODE91."=".$SKUs91."=description=EN";
-                          }   
+                          }
                         }else{
                           $ocpmezz_url="OCPMezz_".$MCODE91."_".$SKUs91;
-                        } 
+                        }
 
                       }
                       ?>
                       <tr onclick="javascript:self.location='./<?=rawurlencode($ocpmezz_url);?>'">
                         <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG91);?>" alt="<?=$SKUs91;?>"></td>-->
                         <td><a href="<?=rawurlencode($ocpmezz_url);?>"><?=$MCODE91;?> / <?=$SKUs91;?></a> &nbsp;
-                          <?php 
+                          <?php
                           if($IsnewUp91=='1'){
                             echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                           }
@@ -749,7 +749,7 @@ if($s_cookie!=2){
                       </tr>
                       <?php
                       }
-                      ?>    
+                      ?>
                   </tbody>
                 </table>
               </div>
@@ -799,17 +799,17 @@ if($s_cookie!=2){
                             $jbodjbof_url="JBODJBOF_".$MCODE101."_".$SKUs101;
                           } else {
                             $jbodjbof_url="JBODJBOF=".$MCODE101."=".$SKUs101."=description=EN";
-                          }   
+                          }
                         }else{
                           $jbodjbof_url="JBODJBOF_".$MCODE101."_".$SKUs101;
-                        } 
+                        }
 
                       }
                     ?>
                     <tr onclick="javascript:self.location='./<?=rawurlencode($jbodjbof_url);?>'">
                       <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG101);?>" alt="<?=$SKUs101;?>"></td>-->
                       <td><a href="<?=rawurlencode($jbodjbof_url);?>"><?=$MCODE101;?> / <?=$SKUs101;?></a> &nbsp;
-                        <?php 
+                        <?php
                         if($IsnewUp101=='1'){
                            echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                         }
@@ -827,7 +827,7 @@ if($s_cookie!=2){
                     </tr>
                     <?php
                     }
-                    ?>    
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -875,17 +875,17 @@ if($s_cookie!=2){
                             $ocprack_url="OCPRack_".$MCODE111."_".$SKUs111;
                           } else {
                             $ocprack_url="OCPRack=".$MCODE111."=".$SKUs111."=description=EN";
-                          }   
+                          }
                         }else{
                           $ocprack_url="OCPRack".$MCODE111."_".$SKUs111;
-                        } 
+                        }
 
                       }
                     ?>
                     <tr onclick="javascript:self.location='./<?=rawurlencode($ocprack_url);?>'">
                       <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG111);?>" alt="<?=$SKUs111;?>"></td>-->
                       <td><a href="<?=rawurlencode($ocprack_url);?>"><?=$MCODE111;?> / <?=$SKUs111;?></a> &nbsp;
-                        <?php 
+                        <?php
                         if($IsnewUp111=='1'){
                            echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                         }
@@ -897,7 +897,7 @@ if($s_cookie!=2){
                     </tr>
                     <?php
                     }
-                    ?>    
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -945,17 +945,17 @@ if($s_cookie!=2){
                             $pos_url="POS_".$MCODE112."_".$SKUs112;
                           } else {
                             $pos_url="POS=".$MCODE112."=".$SKUs112."=description=EN";
-                          }   
+                          }
                         }else{
                           $pos_url="POS_".$MCODE112."_".$SKUs112;
-                        } 
+                        }
 
                       }
                     ?>
                     <tr onclick="javascript:self.location='./<?=rawurlencode($pos_url);?>'">
                       <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG112);?>" alt="<?=$SKUs112;?>"></td>-->
                       <td><a href="<?=rawurlencode($pos_url);?>"><?=$MCODE112;?> / <?=$SKUs112;?></a> &nbsp;
-                        <?php 
+                        <?php
                         if($IsnewUp112=='1'){
                            echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                         }
@@ -967,7 +967,7 @@ if($s_cookie!=2){
                     </tr>
                     <?php
                     }
-                    ?>    
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -1015,17 +1015,17 @@ if($s_cookie!=2){
                             $pos_url="5GEdgeComputing_".$MCODE113."_".$SKUs113;
                           } else {
                             $pos_url="5GEdgeComputing_=".$MCODE113."=".$SKUs113."=description=EN";
-                          }   
+                          }
                         }else{
                           $pos_url="5GEdgeComputing_".$MCODE113."_".$SKUs113;
-                        } 
+                        }
 
                       }
                     ?>
                     <tr onclick="javascript:self.location='./<?=rawurlencode($pos_url);?>'">
                       <!--<td><img class="media-object" src="<?=str_replace('~','.',"./images/jbod/".$IMG113);?>" alt="<?=$SKUs113;?>"></td>-->
                       <td><a href="<?=rawurlencode($pos_url);?>"><?=$MCODE113;?> / <?=$SKUs113;?></a> &nbsp;
-                        <?php 
+                        <?php
                         if($IsnewUp113=='1'){
                            echo "<span class='badge bg-danger'>NEW!</span>&nbsp;";
                         }
@@ -1037,7 +1037,7 @@ if($s_cookie!=2){
                     </tr>
                     <?php
                     }
-                    ?>    
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -1067,7 +1067,7 @@ if($s_cookie!=2){
               <h1 class="card-title">Press Release</h1>
               <table class="table table-striped table-hover">
                 <tbody>
-                  <?php     
+                  <?php
                   $cmdPR=mysqli_query($link_db,$strPR);
                   while($dataPR=mysqli_fetch_row($cmdPR)){//常數狀態 MYSQLI_ASSOC, MYSQLI_NUM, and MYSQLI_BOTH
                     $id=$dataPR[0];
@@ -1134,11 +1134,11 @@ if($s_cookie!=2){
 
 
 
-    <!-- FOOTER -->	  
+    <!-- FOOTER -->
     <?php
     include("foot1.htm");
     ?>
-    <!-- FOOTER end -->	  
+    <!-- FOOTER end -->
 
   </div><!-- #wrapper end -->
 

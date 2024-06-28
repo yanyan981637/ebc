@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -17,7 +17,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -96,7 +96,7 @@ $CompanyName=$result[0];
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="../app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="../app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="../app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -130,7 +130,7 @@ if($Approval_Y!=1 && $Approval_N!=1){
 
 <div class="app-content content">
 	<div class="content-wrapper">
-		
+
 		<div class="content-body">
 
 			<section class="card">
@@ -141,7 +141,7 @@ if($Approval_Y!=1 && $Approval_N!=1){
 							<div class="media">
 								<img src="../images/tyan-logo.png">
 								<div class="media-body">
-									
+
 								</div>
 							</div>
 						</div>
@@ -206,7 +206,7 @@ if($Approval_Y!=1 && $Approval_N!=1){
 											<tr><th scope="row"><?=$Items[6]?></th>
 												<td><h4><?=$Items[2].$MiTAC_PN?></h4>
 													<div style="padding:5px 15px; font-style: italic;"><?=$Items[5]?></div>
-												</td>	
+												</td>
 												<td><?=$Items[3]?></td>
 												<td><?=$Items[4]?></td>
 												<td><?=$total?></td>
@@ -222,7 +222,7 @@ if($Approval_Y!=1 && $Approval_N!=1){
 											</tr>
 										</thead>
 										<tbody>
-											<?php 
+											<?php
 											$j=1;
 											$strExtra="SELECT ID, QT_ID, Item, Price, Sort FROM partner_projects_extra_tmp WHERE QT_ID='".$QTID."' AND Version='".$Version."' ORDER BY Sort ASC";
 											$cmd=mysqli_query($link_db,$strExtra);
@@ -257,36 +257,36 @@ if($Approval_Y!=1 && $Approval_N!=1){
 												</td>
 											</tr>
 										</tbody>
-										
-										
+
+
 									</table>
-									
+
 									<div class="text-center">
 										Thank you for your interest in Tyan products!
 									</div>
 
 								</div>
 							</div>
-							
-							
-							
-							
+
+
+
+
 						</div>
 
-						
+
 
 					</div>
 
 				</section>
 			</div>
 		</div>
-		
+
 	</div>
 	<!-- ////////////////////////////////////////////////////////////////////////////-->
 
 <!--
   <footer class="footer footer-static footer-dark navbar-border">
-    <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
+    <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Digital Technology Corporation and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
   </footer>
 
 <script src="app-assets/js/core/libraries/jquery.min.js"></script>
@@ -338,7 +338,7 @@ function approval(i,j){
 		      exit;
 		    }
 	  }
-  }); 
+  });
 }
 </script>
 </body>

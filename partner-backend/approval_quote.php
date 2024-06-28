@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-  
+
 function dowith_sql($str)
 {
 /*$str = str_replace("and","",$str);
@@ -94,7 +94,7 @@ $result=mysqli_fetch_row($cmd);
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -159,8 +159,8 @@ include("left_menu.php");
 		</div>
 		<div class="col-md-6 col-sm-12 text-center text-md-right">
 			<h2>ID: <?=$QTID?></h2>
-			
-			
+
+
 		</div>
 	</div>
 	<!--/ Company Details -->
@@ -217,7 +217,7 @@ include("left_menu.php");
 							<tr><th scope="row"><?=$Items[6]?></th>
 								<td><h4><?=$Items[2].$MiTAC_PN?></h4>
 									<div style="padding:5px 15px; font-style: italic;"><?=$Items[5]?></div>
-								</td>	
+								</td>
 								<td><?=$Items[3]?></td>
 								<td><?=$Items[4]?></td>
 								<td><?=$total?></td>
@@ -232,7 +232,7 @@ include("left_menu.php");
 							</tr>
 						</thead>
 						<tbody>
-							<?php 
+							<?php
 							$strExtra="SELECT ID, QT_ID, Item, Price, Sort FROM partner_projects_extra WHERE QT_ID='".$QTID."' ORDER BY Sort ASC";
               $cmd=mysqli_query($link_db,$strExtra);
               while($Extra=mysqli_fetch_row($cmd)) {
@@ -273,15 +273,15 @@ include("left_menu.php");
 
 </section>
 
-<div class="my-1">&nbsp;</div>		
+<div class="my-1">&nbsp;</div>
 
 </div>
 
 </div>
 
 
-<!--form-->	
-<form>	
+<!--form-->
+<form>
 <div class="row bg-purple " style="padding:20px 60px">
 	<div class="col-4">
 
@@ -305,7 +305,7 @@ include("left_menu.php");
 	</div>
 </div>
 </form>
-<!--end form-->	
+<!--end form-->
 
 
 
@@ -318,7 +318,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!--confirm Modal -->
 <div class="modal fade text-left" id="send-confirm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -336,7 +336,7 @@ include("footer.php");
 
 				<div class="modal-footer">
 					<input id="sendQT" type="button" class="btn btn-info " value="Yes, Send it."><br>
-					<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">	
+					<input type="button" class="btn btn-secondary " value="No" data-dismiss="modal" aria-label="Close">
 				</div>
 			</form>
 		</div>
@@ -391,7 +391,7 @@ $("#sendQT").click(function(){
 })
 
 function sel_ad(i){
-	document.getElementById("Send").disabled = true; 
+	document.getElementById("Send").disabled = true;
 	var QT=i;
 	var e = document.getElementById("s_AD");
 	var selAD = e.options[e.selectedIndex].text;
@@ -400,7 +400,7 @@ function sel_ad(i){
 	}
 	var title ="Are you sure you want to send "+QT+" to "+selAD+" for approval?"
 	document.getElementById("title").innerHTML = title;
-	document.getElementById("Send").disabled = false; 
+	document.getElementById("Send").disabled = false;
 }
 </script>
 </body>

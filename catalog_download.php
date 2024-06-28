@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header('Content-Type: text/html; charset=utf-8');
 header("Cache-control: private");
 
@@ -25,9 +25,9 @@ session_start();
 
 if(isset($_SESSION["Checknum"])!=''){
   if($_SESSION["Checknum"]==$_POST['Checknum1'] ){
- }else{ 
-   echo "Wrong Security Code! Please enter again.";  
-   exit(); 
+ }else{
+   echo "Wrong Security Code! Please enter again.";
+   exit();
  }
 }
 
@@ -118,11 +118,11 @@ if($_POST['cateName']!=""){
 $str_inst_sq="INSERT INTO downloadcatalog(Name, Company, Mail, Region, Type, Newsletter_Subscription, Source, C_DATE)";
 $str_inst_sq.=" VALUES ('".$name."','".$company."','".$mail."','".$region."','".$type."','".$News_S."','".$cateName."','".$now."')";
 $cmd_sq=mysqli_query($link_db,$str_inst_sq);
-$result=mysqli_affected_rows($link_db);  
-if($result>0){  
+$result=mysqli_affected_rows($link_db);
+if($result>0){
  echo "success";
  exit();
-}else{  
+}else{
 	echo "Insert download catalog error";
 	mysqli_close($link_db);
 	exit();

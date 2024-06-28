@@ -32,7 +32,7 @@ $_SESSION['csrf_token'] = md5(uniqid());
                 <div class="label">NAME:*</div>
                 <input type="text" name="name" v-model="form.name">
             </div>
-            
+
             <div class="form-input">
                 <div class="label">AREA:*</div>
                 <select name="area" v-model="form.area">
@@ -61,7 +61,7 @@ $_SESSION['csrf_token'] = md5(uniqid());
                 <img src="/icon-youtube.c3d60e93.png" alt=""></a></div>
         <div class="term-section">
             <div class="title">Terms of Use.Privacy Policy.Cookie Policy</div>
-            <div class="description">Copyright© 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or
+            <div class="description">Copyright© 2004-2021 MiTAC Digital Technology Corporation and/or
                 any of its affiliates. All Rights Reserved.Information published on TYAN.com is subject to change
                 without notice. All other trademarks are property of their respective companies.This site is best viewed
                 using the latest versions of Internet Explorer, Firefox, and Chrome.

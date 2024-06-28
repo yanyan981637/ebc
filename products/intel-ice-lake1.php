@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,12 +25,12 @@ if(isset($_GET["status"])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC's 3rd Gen Intel Xeon Scalable platforms deliver high performance for AI and 5G applications.">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC's 3rd Gen Intel Xeon Scalable platforms deliver high performance for AI and 5G applications." /> 
-	<meta property="og:title" content="Intel Ice Lake 5G Edge Computing Platforms | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC's 3rd Gen Intel Xeon Scalable platforms deliver high performance for AI and 5G applications." />
+	<meta property="og:title" content="Intel Ice Lake 5G Edge Computing Platforms | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -72,11 +72,11 @@ a.more {color:#41b6c7}
 
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Intel Ice Lake 5G Edge Computing Platforms | MiTAC Computing Technology</title>
+	<title>Intel Ice Lake 5G Edge Computing Platforms | MiTAC Digital Technology</title>
 
 </head>
 
@@ -93,7 +93,7 @@ a.more {color:#41b6c7}
 	?>
 	<!--end Header logo & global top menu-->
 
-	
+
 
 
 		<!-- Slider
@@ -108,21 +108,21 @@ a.more {color:#41b6c7}
 						<h4 style="font-weight:300; font-size:2rem">Aowanda Family - MEC, CU & DU All in One</h4>
 						<p class="mb-5 lead text-white">
 						3<sup>rd</sup> Gen Intel<sup>®</sup> Xeon<sup>®</sup> Scalable processors provide an  advanced security capabilities, optimized for the most demanding workload requirements, including databases, HPC, hypervisors, AI and 5G applications. With supporting 3<sup>rd</sup> Gen Intel<sup>®</sup> Xeon<sup>®</sup> Scalable processors , MiTAC 5G edge computing platforms deliver higher performance on a range of broadly-deployed network and 5G workloads to shortened time-to-deployment for RANs, NFVI, CDN and more. <br /><br />
-	
-	
+
+
 	More info for <a href="/products/5G_edge_computing_platform" class="more" />MiTAC 5G edge computing platforms</a> and <a href="/EN/solution/5G_edge_computing_solution" class="more" />solutions</a>!
-	
+
 						</p>
-						
-						
+
+
 					</div>
 					<div class="col-md-3 d-flex align-items-center col-form">
-					
-					
+
+
 					<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0"  data-animate="backInRight" >
 							<div class="card-body">
 							 <div class="center mb-5"><img src="/EN/solution/images/intel-ice-lake-logo.jpg" /></div>
-							 
+
 								<h3 class="mb-0 center">
 									Product:
 								</h3>
@@ -130,11 +130,11 @@ a.more {color:#41b6c7}
 								<ul class="iconlist">
 								<li><i class="icon-line-chevrons-right"></i> <a href="/5GEdgeComputing_AD211_AD1S01"  />AD211 (2U3N)</a></li>
 								</ul>
-								
-								
+
+
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -154,7 +154,7 @@ a.more {color:#41b6c7}
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Aowanda Family - MEC, CU & DU All in One</h1>	
+	<h1 class="center">Aowanda Family - MEC, CU & DU All in One</h1>
 	</div>
 
 
@@ -171,11 +171,11 @@ a.more {color:#41b6c7}
 <li>Enhance Power Efficiency through centralized Power Supply design</li>
 <li>RMC design for Centralize Server Management</li>
 <li>NEBS Compliance</li>
-		
+
 </ul>	<p class="mt-1 mb-1">
 
 <a href="/5GEdgeComputing_AD211_AD1S01" class="button button-xlarge button-border button-rounded text-end">View SPEC<i class="icon-circle-arrow-right"></i></a>
-</p>	
+</p>
 
 </div>
 <div class="col-lg-6">
@@ -183,7 +183,7 @@ a.more {color:#41b6c7}
 <div ><img src="/images/logo/Xeon_Processor_Scalable_Family.jpg" > <img src="/images/logo/redfish.gif" ></div>
 </div>
 
-	
+
 </div><p class="mb-5">&nbsp;</p>
 </div>
 </div>
@@ -196,7 +196,7 @@ a.more {color:#41b6c7}
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">Powered by AMI TruE™ Trusted Environment Platform Security Solution</h1>	
+	<h1 class="center">Powered by AMI TruE™ Trusted Environment Platform Security Solution</h1>
 	</div>
 
 <div class="container-fluid m-0 border-0" style="padding: 80px 0">
@@ -209,8 +209,8 @@ a.more {color:#41b6c7}
   AMI and MiTAC are collaborators of the NIST® National Cybersecurity Center of Excellence (NCCoE) 5G Cybersecurity. In collaboration with AMI and NCCoE 5G teams, the Aowanda AD211 with support for 3rd Gen Intel® Xeon® Scalable processors delivers a true trusted 5G and edge computing environment.
 			<p class="mt-5 mb-1">
 			<a href="/en-US@Aowanda_AD211_Edge_Server_to_Add_AMI_TruE_for_5G_Cybersecurity~PRDetail" class="button button-xlarge button-border button-rounded text-end">View Press Release<i class="icon-circle-arrow-right"></i></a>
-			</p>	
-		
+			</p>
+
 
 
 </div>
@@ -218,7 +218,7 @@ a.more {color:#41b6c7}
 <a href="/en-US@Aowanda_AD211_Edge_Server_to_Add_AMI_TruE_for_5G_Cybersecurity~PRDetail" target="mtc"  /><img src="/images/pressroom_pic/PR-AD211-AMI-TruE.jpg" class="img-fluid" /></a>
 </div>
 
-	
+
 </div>
 
 <p class="mb-5">&nbsp;</p>
@@ -256,11 +256,11 @@ a.more {color:#41b6c7}
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -270,7 +270,7 @@ a.more {color:#41b6c7}
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -278,7 +278,7 @@ a.more {color:#41b6c7}
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

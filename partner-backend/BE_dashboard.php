@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -167,7 +167,7 @@ if($Role=="SUAD" || $Role=="AD"){
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -188,7 +188,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->  
+<!--end left menu-->
 
 <div class="app-content content">
   <div class="content-wrapper">
@@ -214,15 +214,15 @@ include("left_menu.php");
 
         <div class="card-content collapse show">
          <div class="card-body">
-          
+
           <form action="#">
            <div class="row">
             <div class="col-md-6 col-sm-6 col-12">
-             
+
             </div>
             <div class="col-md-6 col-sm-6 col-12">
-             
-             
+
+
              <div class="form-group">
               <label></label>
               <div class="row" >
@@ -247,7 +247,7 @@ include("left_menu.php");
          </div>
        </div>
      </div>
-     
+
    </div>
  </div>
 </div>
@@ -260,14 +260,14 @@ include("left_menu.php");
 
 
 <!--select Date Range, default is one month-->
-<div class="row">	
+<div class="row">
   <div class="col-xl-2 col-lg-12">
     <br/>
     <div class="form-group">
      <select class="form-control" id="s_teams">
       <option value="" selected>All Teams</option>
       <?php
-      for ($k=0; $k < $j ; $k++) { 
+      for ($k=0; $k < $j ; $k++) {
       ?>
       <option value="<?=$teamID[$k]?>" <?php if($s_teams==$teamID[$k]){echo "selected";}?>><?=$teamName[$k]?></option>
       <?php
@@ -275,7 +275,7 @@ include("left_menu.php");
       ?>
      </select>
    </div>
- </div>	
+ </div>
  <!-- <div class="col-xl-2 col-lg-12">
   <br/>
   <div class="form-group">
@@ -292,14 +292,14 @@ include("left_menu.php");
         }
         echo "<option  value='".$data_sales[0]."' ".$select.">".$data_sales[1]."</option>";
       }*/
-      ?>  
+      ?>
     </select>
    </div>
   </div> -->
 
-<div class="col-xl-3 col-lg-12">		
+<div class="col-xl-3 col-lg-12">
   <section id="daterange">
-    <div class="form">		
+    <div class="form">
       <div class="form-group">
         <label></label>
         <div class='input-group'>
@@ -310,17 +310,17 @@ include("left_menu.php");
          </span>
        </div>
      </div>
-     
+
    </div>
- </div>							
-</section>		
+ </div>
+</section>
 </div>
 <div class="col-xl-5 col-lg-12">
   <br/>
   <button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
-</div>		
-</div>	
-<!--end Date Range-->	
+</div>
+</div>
+<!--end Date Range-->
 
 <br>
 <!--4 small info cards-->
@@ -483,7 +483,7 @@ list($Leads_count) = mysqli_fetch_row($list1);
       $Invalid=$Status_L[0];
     }
   }
-  
+
   $Conversion_Leads=$Verified * 100 / ($Processing + $Pending + $Verified + $Invalid);
   $Conversion_Leads=number_format($Conversion_Leads, 2);
   if($Conversion_Leads=="nan"){
@@ -569,7 +569,7 @@ list($Leads_count) = mysqli_fetch_row($list1);
   <br>
 
 
-  <!--Line chart for leads and clients-->		
+  <!--Line chart for leads and clients-->
 <!--<div class="row">
 <div class="col-12">
     <div class="card no-border box-shadow-1">
@@ -583,7 +583,7 @@ list($Leads_count) = mysqli_fetch_row($list1);
 
     </div>
 </div>
-</div>	
+</div>
 <!--end Line chart-->
 <br>
 
@@ -601,7 +601,7 @@ list($Leads_count) = mysqli_fetch_row($list1);
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/vendors/js/vendors.min.js"></script>
@@ -627,26 +627,26 @@ include("footer.php");
 <!-- END PAGE LEVEL JS-->
 <script type="text/javascript">
 
-Date.prototype.format = function(fmt) { 
-var o = { 
-  "M+" : this.getMonth()+1,                 //月份 
-  "d+" : this.getDate(),                    //日 
+Date.prototype.format = function(fmt) {
+var o = {
+  "M+" : this.getMonth()+1,                 //月份
+  "d+" : this.getDate(),                    //日
   "h+" : this.getHours(),                   //小時
-  "m+" : this.getMinutes(),                 //分 
-  "s+" : this.getSeconds(),                 //秒 
+  "m+" : this.getMinutes(),                 //分
+  "s+" : this.getSeconds(),                 //秒
   "q+" : Math.floor((this.getMonth()+3)/3), //季
-  "S"  : this.getMilliseconds()             //毫秒 
-}; 
+  "S"  : this.getMilliseconds()             //毫秒
+};
   if(/(y+)/.test(fmt)) {
-    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
   }
   for(var k in o) {
     if(new RegExp("("+ k +")").test(fmt)){
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
     }
   }
-  return fmt; 
-}     
+  return fmt;
+}
 function search(){
   var s_teams=$("#s_teams").val();
   var s_sales=$("#s_sales").val();
@@ -657,9 +657,9 @@ function search(){
     if(i==0){
       sDate = new Date(tmp[i]).format("yyyy-MM-dd");
     }else{
-      eDate = new Date(tmp[i]).format("yyyy-MM-dd"); 
+      eDate = new Date(tmp[i]).format("yyyy-MM-dd");
     }
-    
+
   };
   document.location.href="BEdashboard?kind=search&teams="+s_teams+"&sales="+s_sales+"&sdate="+sDate+"&edate="+eDate;
 }

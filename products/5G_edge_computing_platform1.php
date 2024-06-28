@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,12 +25,12 @@ if(isset($_GET["status"])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC's 5G edge computing platforms include 2U/1U edge servers, 2U edge storage, and multi node edge server designed for 5G, AI, and IoT applications.">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC's 5G edge computing platforms include 2U/1U edge servers, 2U edge storage, and multi node edge server designed for 5G, AI, and IoT applications." /> 
-	<meta property="og:title" content="5G Edge Computing Platforms | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC's 5G edge computing platforms include 2U/1U edge servers, 2U edge storage, and multi node edge server designed for 5G, AI, and IoT applications." />
+	<meta property="og:title" content="5G Edge Computing Platforms | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -71,11 +71,11 @@ if(isset($_GET["status"])){
 
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>5G Edge Computing Platforms | MiTAC Computing Technology</title>
+	<title>5G Edge Computing Platforms | MiTAC Digital Technology</title>
 
 </head>
 
@@ -92,7 +92,7 @@ if(isset($_GET["status"])){
 	?>
 	<!--end Header logo & global top menu-->
 
-	
+
 
 
 		<!-- Slider
@@ -105,8 +105,8 @@ if(isset($_GET["status"])){
 						<h2 class="display-4" style="font-weight: 600;" >5G Edge Computing Platform</h2>
 						<h3 style="color:#18ffff">A Low Latency, High Bandwidth and Capacity solution for network infrastructure</h3>
 						<p class="mb-5 lead text-white">MiTAC Edge Computing platforms are a key technology for service providers build up the infrastructure to enable 5G and IoT applications with networking close to the end users. AI in Edge Computing will give people a refreshing experience. It will be driving smart city, home, industry and driving to change our life. </p>
-						
-						
+
+
 					</div>
 					<div class="col-md-3 d-flex align-self-end align-items-center align-items-lg-end col-form">
 						<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0 op-1"  data-animate="backInRight">
@@ -135,9 +135,9 @@ if(isset($_GET["status"])){
 								<!--<div class="line line-sm mt-3"></div>-->
 								<ul class="iconlist">
 								<li><i class="icon-line-chevrons-right"></i> <a href="/EN/contact/" target="mit" />FS2J01 (2U JBOD)</a></li>
-										
+
 								</ul>
-								
+
 							</div>
 						</div>
 					</div>
@@ -149,7 +149,7 @@ if(isset($_GET["status"])){
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">2U Edge Server</span> - Firestone family</h1>	
+	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">2U Edge Server</span> - Firestone family</h1>
 	</div>
 
 
@@ -181,8 +181,8 @@ if(isset($_GET["status"])){
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
-</div><p class="mb-4">&nbsp;</p>	
+
+</div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
 
@@ -197,7 +197,7 @@ if(isset($_GET["status"])){
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">2U Edge Storage</span> - Firestorage family</h1>	
+	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">2U Edge Storage</span> - Firestorage family</h1>
 	</div>
 
 
@@ -209,7 +209,7 @@ if(isset($_GET["status"])){
 <div class="row">
 <div class="col-lg-4">
  <div class="course-card h-100 p-4"><div class="card-label-cs">Coming Soon!</div>
- 
+
 									<a href="/EN/contact/" target="mit" /><img class="card-img-top" src="/images/product/5G/FS2J01.png" alt="Edge JBOD FS2J01"></a>
 									<div class="card-body">
 									<h2 class="card-title fw-normal mb-2 center lh2" ><a href="/EN/contact/" target="mit" />Edge JBOD FS2J01</a></h2>
@@ -222,8 +222,8 @@ if(isset($_GET["status"])){
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
-</div><p class="mb-4">&nbsp;</p>	
+
+</div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
 
@@ -231,7 +231,7 @@ if(isset($_GET["status"])){
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">1U Edge Server </span> - Whitestone family</h1>	
+	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">1U Edge Server </span> - Whitestone family</h1>
 	</div>
 
 
@@ -252,7 +252,7 @@ if(isset($_GET["status"])){
 </div>
 <div class="col-lg-4">
 <div class="course-card h-100 p-4"><div class="card-label-cs">Coming Soon!</div>
- 
+
 									<a href="/EN/contact/" target="mit" /><img class="card-img-top" src="/images/product/5G/whitestone.png" alt="DU Server WS1S02"></a>
 									<div class="card-body">
 									<h2 class="card-title fw-normal mb-2 center lh2" ><a href="/EN/contact/" target="mit" />DU Server WS1S02</a></h2>
@@ -264,7 +264,7 @@ if(isset($_GET["status"])){
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
@@ -275,7 +275,7 @@ if(isset($_GET["status"])){
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">Multi Node Server </span> - Aowanda family </h1>	
+	<h1 class="center"><span style="font-weight:300; color:#fff; font-size:2rem">Multi Node Server </span> - Aowanda family </h1>
 	</div>
 
 
@@ -313,7 +313,7 @@ if(isset($_GET["status"])){
 </div>
 </div>
 <div class="col-lg-1"></div>
-	
+
 </div><p class="mb-4">&nbsp;</p>
 </div>
 </div>
@@ -342,11 +342,11 @@ if(isset($_GET["status"])){
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -356,7 +356,7 @@ if(isset($_GET["status"])){
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -364,7 +364,7 @@ if(isset($_GET["status"])){
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

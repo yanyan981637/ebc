@@ -105,12 +105,12 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
 <meta name="description" content="MiTAC provides industrial and commercial embedded systems with rugged, modularized, compact designed for automation, AI, IOT applications.">
 <meta property="og:type" content="website" />
 <meta property="og:description" content="MiTAC provides industrial and commercial embedded systems with rugged, modularized, compact designed for automation, AI, IOT applications." />
-<meta property="og:title" content="Embedded System | MiTAC Computing Technology" />
+<meta property="og:title" content="Embedded System | MiTAC Digital Technology" />
 <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -132,7 +132,7 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 
 <!-- Document Title
 ============================================= -->
-<title>Embedded System | MiTAC Computing Technology</title>
+<title>Embedded System | MiTAC Digital Technology</title>
 
 <?php
 //************ google analytics ************

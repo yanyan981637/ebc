@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -25,7 +25,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -99,7 +99,7 @@ $Sales=explode(",", $Sales);
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -121,7 +121,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 <div class="app-content content">
   <div class="content-wrapper">
@@ -173,7 +173,7 @@ include("left_menu.php");
                       echo "<option value='".$result[0]."' ".$status.">".$result[0]."</option>";
                     }
                     ?>
-                  </select> 
+                  </select>
 
                 </div>
                 <p><strong>Select the countries:</strong></p>
@@ -183,7 +183,7 @@ include("left_menu.php");
                   <select id="e_m_country" multiple="multiple" size="20"  class="duallistbox-multi-selection" >
                   <?php
                   //include("countryCode.php");
-                  
+
                   $str1="SELECT ID, Regions, CountryCode, CountryName, CodeNumber FROM partner_countrycode WHERE 1";
                   $cmd1=mysqli_query($link_db,$str1);
                   while ($result1=mysqli_fetch_row($cmd1)) {
@@ -193,7 +193,7 @@ include("left_menu.php");
                   </select>
                 </div>
                 <button id="editMpaaing" type="button" class="btn btn-info mr-1 mb-1"><i class="ft-save"></i> SAVE </button>
-                <a href="BEemail_mapping"  /><button type="button" class="btn btn-light mr-1 mb-1"><i class="ft-chevrons-left"></i> BACK </button></a>		
+                <a href="BEemail_mapping"  /><button type="button" class="btn btn-light mr-1 mb-1"><i class="ft-chevrons-left"></i> BACK </button></a>
 
               </div>
             </div>
@@ -210,7 +210,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/js/core/libraries/jquery.min.js"></script>
@@ -264,9 +264,9 @@ $("#editMpaaing").click(function(){
     url: url,
     dataType: "html",
     data: {
-      editID : editID, 
-      country : country, 
-      sales : sales, 
+      editID : editID,
+      country : country,
+      sales : sales,
       kind : kind
     },
     success: function(message){
@@ -278,7 +278,7 @@ $("#editMpaaing").click(function(){
      }
    }
  });
-  
+
 })
 </script>
 </body>

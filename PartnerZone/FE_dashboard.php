@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -110,7 +110,7 @@ $CompanyName=$company[1];
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -157,7 +157,7 @@ include("left_menu.php");
 	</div>
 </div>
 </div>
-<!--end breadcrumb--> 
+<!--end breadcrumb-->
 
 
 </div>
@@ -173,7 +173,7 @@ include("left_menu.php");
 	<div class="masonry-grid my-gallery mx-1" >
 		<div class="grid-sizer"></div>
 
-		<!--msg for logged in lead-->	
+		<!--msg for logged in lead-->
 		<?php
 		$str_leads="SELECT ID, MODEL, QuoteQty, CompanyID, SalesID FROM partner_leads_quote WHERE UserID='".$ID."' AND (STATUS<>'Verified' AND STATUS<>'Invalid') ORDER BY ID DESC";
 		$cmd_leads=mysqli_query($link_db,$str_leads);
@@ -208,16 +208,16 @@ include("left_menu.php");
 						</p>
 					</div>
 				</div>
-				
+
 			</figure>
 		</div>
 		<?php
 		}
 		?>
 
-		
 
-		<!--end msg for logged in lead-->	
+
+		<!--end msg for logged in lead-->
 
 
 
@@ -258,7 +258,7 @@ include("left_menu.php");
 		<?php
 		}
 		?>
-		
+
 		<!--end Greeting card-->
 
 
@@ -428,7 +428,7 @@ include("left_menu.php");
 										<ul>
 									</td>
 								</tr>-->
-								
+
 								<?php
 								//}
 							?>
@@ -464,7 +464,7 @@ include("left_menu.php");
 					<div class="">
 						<table id="Proucttable" class="table table-borderless table-hover table-responsive-lg">
 							<?php
-							// one file 
+							// one file
 							$strSKU="SELECT ID FROM partner_myproducts WHERE CompanyID='".$CompanyID."'";
 							$cmdSKU=mysqli_query($link_db,$strSKU);
 							while ($dataSKU=mysqli_fetch_row($cmdSKU)){
@@ -489,7 +489,7 @@ include("left_menu.php");
 								<?php
 								}
 							}
-							//  end one file 
+							//  end one file
 
 							// File Group
 							$str_group="SELECT ID, SKU, FileID, CompanyID FROM partner_files_group WHERE CompanyID LIKE '%".$CompanyID."%' AND ID NOT IN ('".$IndexFGroup."')";
@@ -511,7 +511,7 @@ include("left_menu.php");
 							}
 							// end File Group
 							?>
-							
+
 						</table>
 					</div>
 					<div class="card-footer text-muted border-top-0 " style="margin-bottom:3rem" >
@@ -561,7 +561,7 @@ include("left_menu.php");
 						<div class="card-footer text-muted">
 							<a href="#" onclick="window.location.href='FEmyprofile';"/><span class="float-left btn btn-outline-secondary btn-sm">Add Members</span></a>
 							<a href="#" onclick="window.location.href='FEmyprofile';"/><span class="float-right btn btn-outline-secondary btn-sm">Go To My Profile</span></a>
-						</div> 
+						</div>
 					</div>
 				</div>
 			</figure>
@@ -570,7 +570,7 @@ include("left_menu.php");
 
 	</div>
 </div>
-</section>	
+</section>
 
 
 
@@ -596,7 +596,7 @@ include("footer.php");
 <!-- BEGIN VENDOR JS-->
 <script src="app-assets/vendors/js/gallery/masonry/masonry.pkgd.min.js"></script>
 <script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe.min.js"></script>
-<script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js"></script>	
+<script src="app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js"></script>
 <!-- BEGIN PAGE VENDOR JS-->
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN ROBUST JS-->
@@ -640,11 +640,11 @@ function reload(i,j){
       $("#"+kind).append(message);
     }
   }
-  }); 
+  });
 }
 
 function leadcardhidden(i){
-	document.getElementById("leadcard").style.visibility="hidden"; 
+	document.getElementById("leadcard").style.visibility="hidden";
 }
 </script>
 </body>

@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   /*$str = str_replace("and","",$str);
@@ -75,7 +75,7 @@ while ($CName=mysqli_fetch_row($cdmCName)) {
 }
 // Find Company Name END
 
-// Find Model and SKU 
+// Find Model and SKU
 $strModel="SELECT ID, Model, SKU, ProductType, CATEGORY_NAME, MiTAC_PN FROM partner_model WHERE 1";
 $cdmModel=mysqli_query($link_db,$strModel);
 while ($Model=mysqli_fetch_row($cdmModel)) {
@@ -101,13 +101,13 @@ if($_GET['company']!="" && $_GET['company']!="none"){
 if($_GET['input']!=""){
   $input=dowith_sql($_GET['input']);
   $input=filter_var($input);
-  $str_count="SELECT ID, Model, SKU FROM partner_model WHERE Model='".$input."'";    
-	$cmd_count=mysqli_query($link_db,$str_count);  
+  $str_count="SELECT ID, Model, SKU FROM partner_model WHERE Model='".$input."'";
+	$cmd_count=mysqli_query($link_db,$str_count);
 	$num=mysqli_num_rows($cmd_count);
 
 	if($num<="0"){
-		$str_count="SELECT ID, Model, SKU FROM partner_model WHERE SKU='".$input."'";    
-		$cmd_count=mysqli_query($link_db,$str_count);  
+		$str_count="SELECT ID, Model, SKU FROM partner_model WHERE SKU='".$input."'";
+		$cmd_count=mysqli_query($link_db,$str_count);
 		$num=mysqli_num_rows($cmd_count);
   }
   $data=mysqli_fetch_row($cmd_count);
@@ -142,16 +142,16 @@ if($kind=="search"){
 $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -178,7 +178,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -228,7 +228,7 @@ include("left_menu.php");
 
 
 
-		<!--Clients' Products list table-->		
+		<!--Clients' Products list table-->
 		<div class="row ">
 			<div class="col-12">
 
@@ -240,8 +240,8 @@ include("left_menu.php");
 
 							<h1>Client's "My Products" Management:</h1>
 							<hr>
-							<!--search & sorting-->					
-							<div class="row">	
+							<!--search & sorting-->
+							<div class="row">
 								<div class="col-md-4">
 									<select id="sel_company" class="select2 form-control">
 										<option value="" selected>Select a company</option>
@@ -251,7 +251,7 @@ include("left_menu.php");
                     while ($CName=mysqli_fetch_row($cdmCName)) {
                       echo "<option  value='".$CName[0]."'>".$CName[1]."</option>";
                     }
-                    ?>				
+                    ?>
 									</select>
 								</div>
 								<div class="col-md-4">
@@ -260,12 +260,12 @@ include("left_menu.php");
 									</div>
 								</div>
 								<div class="col-md-4">
-									<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>							
+									<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
 								</div>
 							</div>
-							<!--end search & sorting-->						
-							<!--total-->	
-							<hr>				
+							<!--end search & sorting-->
+							<!--total-->
+							<hr>
 							<div class="row">
 								<div class="col-md-12">
 									<h3>Total: <span class="info darken-4 t700"><?=$total?></span></h3>
@@ -280,7 +280,7 @@ include("left_menu.php");
 													</a>
 												</li>
 												<?php
-												for($i=1;$i<=$pages_totle;$i++) { 
+												for($i=1;$i<=$pages_totle;$i++) {
 													$pagenum=6;
 													$last=$page+10;
 													$first=$page-10;
@@ -350,7 +350,7 @@ include("left_menu.php");
 									  }
 									}else{
 										$strList="SELECT ID, CompanyID, ModelID FROM partner_myproducts WHERE ".$noAdmin." AND ModelID<>'0' AND ID>'1' ORDER BY CompanyID DESC LIMIT $start, $per";
-									} 
+									}
 									$cmdList=mysqli_query($link_db,$strList);
 									while ($List=mysqli_fetch_row($cmdList)) {
 										if($arr_SKU[$List[2]]!=""){
@@ -375,7 +375,7 @@ include("left_menu.php");
 				</div>
 			</div>
 		</div>
-		<!--end Clients' Products list table-->	
+		<!--end Clients' Products list table-->
 	</div>
 </div>
 </div>
@@ -385,7 +385,7 @@ include("left_menu.php");
 <?php
 include("footer.php");
 ?>
-<!--end footer--> 
+<!--end footer-->
 
 
 <!--xx delete products Modal -->
@@ -405,7 +405,7 @@ include("footer.php");
 
 				<div class="modal-footer">
 					<input id="delOK" type="button" class="btn btn-info " value="Yes, Delete it.">
-					<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" value="No">	
+					<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" value="No">
 				</div>
 			</form>
 		</div>
@@ -417,7 +417,7 @@ include("footer.php");
 
 
 
-<!--end edit a single product Modal -->	
+<!--end edit a single product Modal -->
 <!-- BEGIN VENDOR JS-->
 
 
@@ -445,8 +445,8 @@ function D_ID(i,j,k){
   var SKU=j;
   var MODEL=k;
   var title="Are you sure you want to delete the "+SKU+" of "+MODEL+" ?"
-  document.getElementById("del_title").innerHTML = title; 
-  document.getElementById("del_ID").value = DID; 
+  document.getElementById("del_title").innerHTML = title;
+  document.getElementById("del_ID").value = DID;
 }
 $("#delOK").click(function(){
 	var prid=document.getElementById("del_ID").value;

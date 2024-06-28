@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -114,16 +114,16 @@ $list1 =mysqli_query($link_db,$str_count);
 list($public_count) = mysqli_fetch_row($list1);
 $total=$public_count;
 
-$per = 10; //每頁顯示項目數量 
+$per = 10; //每頁顯示項目數量
 $pages_totle = ceil($public_count/$per); //總頁數
 
-if(!isset($_GET["page"])){ 
-    $page=1; //設定起始頁 
-} else { 
-    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料 
-    $page = ($page > 0) ? $page : 1; //確認頁數大於零 
+if(!isset($_GET["page"])){
+    $page=1; //設定起始頁
+} else {
+    $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    $page = ($page > 0) ? $page : 1; //確認頁數大於零
     $pages=0;
-    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字 
+    $page = ($pages_totle > $page) ? $page : $pages_totle; //確認使用者沒有輸入太神奇的數字
 }
 
 $start = ($page-1)*$per; //每頁起始資料序號
@@ -150,7 +150,7 @@ $start = ($page-1)*$per; //每頁起始資料序號
 	<!-- BEGIN ROBUST CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+	<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 	<!-- END ROBUST CSS-->
 	<!-- BEGIN Page Level CSS-->
 	<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -171,7 +171,7 @@ include("top.php");
 <?php
 include("left_menu.php");
 ?>
-<!--end left menu-->	
+<!--end left menu-->
 
 <div class="app-content content">
 	<div class="content-wrapper">
@@ -203,7 +203,7 @@ include("left_menu.php");
 
 								<h1>Files Group Management</h1>
 								<hr>
-								<!--search & sorting-->					
+								<!--search & sorting-->
 								<div class="row">
 									<div class="col-md-2">
 										<div class="form-group">
@@ -220,22 +220,22 @@ include("left_menu.php");
 				                  }
 				                  echo "<option  value='".$SEL_CName[0]."' ".$selected.">".$SEL_CName[1]."</option>";
 				                }
-			                  ?>	
+			                  ?>
 											</select>
 										</div>
-									</div>		
+									</div>
 									<div class="col-md-3">
 										<div class="form-group">
 											<input id="searchSKU" type="text" class="form-control" placeholder="SKU">
 										</div>
 									</div>
 									<div class="col-md-7">
-										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>							
+										<button type="button" class="btn btn-info mr-1 mb-1" onclick="search()">Search</button>
 									</div>
 								</div>
-								<!--end search & sorting-->						
-								<!--total-->	
-								<hr>				
+								<!--end search & sorting-->
+								<!--total-->
+								<hr>
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Total: <span class="info darken-4 t700"><?=$total?></span></h3>
@@ -250,7 +250,7 @@ include("left_menu.php");
 											</a>
 										</li>
 										<?php
-										for($i=1;$i<=$pages_totle;$i++) { 
+										for($i=1;$i<=$pages_totle;$i++) {
 											$pagenum=6;
 											$last=$page+10;
 											$first=$page-10;
@@ -305,11 +305,11 @@ include("left_menu.php");
 								<table class="table table-hover table-responsive">
 									<thead class="bg-grey bg-lighten-4">
 										<tr>
-											<th>Date Created</th>		
+											<th>Date Created</th>
 											<th>Group / SKU</th>
 											<th>Clients / Companies</th>
-											<th>Files</th>		
-											<th>Update Date</th>		
+											<th>Files</th>
+											<th>Update Date</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -369,7 +369,7 @@ include("left_menu.php");
 
 										?>
 										<tr>
-											<td><?=$data_FGroup[4];?></td>	
+											<td><?=$data_FGroup[4];?></td>
 											<td><?=$data_FGroup[1];?></td>
 											<td><?=$Company?></td>
 											<td>
@@ -377,7 +377,7 @@ include("left_menu.php");
 													<?=$fileNums?>
 												</div>
 											</td>
-											<td><?=$date;?></td>	
+											<td><?=$date;?></td>
 											<td>
 												<a href="BEeditGroup@<?=$data_FGroup[0]?>"  /><button type="button" class="btn btn-outline-info btn-sm mr-b-1">Edit</button></a>
 												<a href="#" data-toggle="modal" data-target="#del-file"  /><button id="del" type="button" class="btn btn-outline-info btn-sm mr-b-1" onclick="Del('<?=$data_FGroup[0]?>', '<?=$data_FGroup[1];?>')">Delete</button></a>
@@ -421,13 +421,13 @@ include("footer.php");
 					</div>
 					<form action="#">
 						<div id="del_tile" class="modal-body">
-							
+
 
 						</div>
-						<input id="del_fileID" type="hidden" value="">	
+						<input id="del_fileID" type="hidden" value="">
 						<div class="modal-footer">
 							<input id="DelOK" type="button" class="btn btn-info " value="Yes, Delete it.">
-							<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close"  value="No">	
+							<input type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close"  value="No">
 						</div>
 					</form>
 				</div>
@@ -484,13 +484,13 @@ $("#DelOK").click(function(){
   url: url,
   dataType: "html",
   data: {
-    FileID : FileID,  
+    FileID : FileID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
       //document.location.href="BEgroupsMgt";
-      location.reload(); 
+      location.reload();
     }else{
       alert(message);
     }

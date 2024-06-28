@@ -26,12 +26,12 @@ if(isset($_GET["status"])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions">
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="MiTAC designs, engineers, assembles, deploys and supports self-service Kiosk solutions" />
-	<meta property="og:title" content="Kiosks | MiTAC Computing Technology" />
+	<meta property="og:title" content="Kiosks | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -71,7 +71,7 @@ box-shadow:  6px 6px 15px rgba(0, 0, 0, 0.2),
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>Kiosks | MiTAC Computing Technology</title>
+	<title>Kiosks | MiTAC Digital Technology</title>
 
 </head>
 

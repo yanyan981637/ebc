@@ -46,10 +46,10 @@ mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
 if(isset($_REQUEST['PLang'])!=''){
   $PLang_si=dowith_sql(trim($_REQUEST['PLang']));
   $PLang_si=str_replace(".php","",$PLang_si);
-  
+
   if($PLang_si=="en-US" || $PLang_si==""){
 	  $PLang_si01="EN";
-	  $PLang_si="en-US";	  
+	  $PLang_si="en-US";
   }else if($PLang_si=="ja-JP"){
 	  $PLang_si01="JP";
 	  $PLang_si="ja-JP";
@@ -77,12 +77,12 @@ if(isset($_COOKIE['status'])){
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name='author' content='MiTAC Computing Technology'>
-<meta name="company" content="MiTAC Computing Technology">
-<meta name="description" content="End-of-life products list of MiTAC Computing Technology">
+<meta name='author' content='MiTAC Digital Technology'>
+<meta name="company" content="MiTAC Digital Technology">
+<meta name="description" content="End-of-life products list of MiTAC Digital Technology">
 <meta property="og:type" content="website" />
-<meta property="og:description" content="End-of-life products list of MiTAC Computing Technology" /> 
-<meta property="og:title" content="Archived Products  | MiTAC Computing Technology" />
+<meta property="og:description" content="End-of-life products list of MiTAC Digital Technology" />
+<meta property="og:title" content="Archived Products  | MiTAC Digital Technology" />
   <link rel="shortcut icon" href="images/ico/favicon.ico">
 
 <!-- Stylesheets
@@ -100,10 +100,10 @@ if(isset($_COOKIE['status'])){
 <script src="js1/jquery.js"></script>
 <!-- Document Title
 ============================================= -->
-<title>Archived Products  | MiTAC Computing Technology</title>
+<title>Archived Products  | MiTAC Digital Technology</title>
 
 </head>
-<?php 
+<?php
 //************判斷語系載入 google analytics ************
 if($s_cookie!=2){
   include_once("analyticstracking.php");
@@ -141,7 +141,7 @@ if($s_cookie!=2){
 					// Type
 					$str_type="SELECT DISTINCT(a.`ProductTypeID`), a.`ProductTypeName` FROM `producttypes` a inner join (SELECT Product_SKU_Auto_ID, ProductTypeID, IS_EOL FROM product_skus) b on a.ProductTypeID=b.ProductTypeID WHERE b.IS_EOL='1'";
 					$cmd_type=mysqli_query($link_db,$str_type);
-					while($data_type=mysqli_fetch_array($cmd_type)){ 
+					while($data_type=mysqli_fetch_array($cmd_type)){
 					?>
 					<!--one product type card-->
 					<div class="card mb-5">
@@ -174,11 +174,11 @@ if($s_cookie!=2){
 		</div>
 
 		<div class="clear mb-6"></div>
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 		<?php
 		include("foot1.htm");
 		?>
-		<!-- FOOTER end -->	  
+		<!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -188,7 +188,7 @@ if($s_cookie!=2){
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -196,8 +196,8 @@ if($s_cookie!=2){
 	<script src="js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="js1/top.js"></script>
-	
+
 </body>
 </html>

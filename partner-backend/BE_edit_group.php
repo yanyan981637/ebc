@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -70,7 +70,7 @@ if($Role=="SA" ){
   echo "<script language='javascript'>self.location='BEdashboard'</script>";
 }
 
-if($_GET['FileID']!=""){ 
+if($_GET['FileID']!=""){
   $FileID=dowith_sql($_GET['FileID']);
   $FileID=filter_var($FileID);
 }else{
@@ -112,12 +112,12 @@ while($dataCID=mysqli_fetch_row($cmdCID)) {
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/icheck.css">
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/custom.css">
   <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/daterange/daterangepicker.css">
-  <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">	
+  <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
   <!-- END VENDOR CSS-->
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+  <link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
   <!-- END ROBUST CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -200,7 +200,7 @@ include("left_menu.php");
                <div class="form-group bg-grey bg-lighten-3 p-2" style="">
                 <label><strong>Files: </strong></label>
                 <button type="button" class="btn btn-outline-secondary ml-1" data-toggle="modal" data-target="#editfileForm" onclick="edit()">
-                  Edit 
+                  Edit
                 </button>
                 <input id="eFileID" type="hidden" value="<?=$editButton?>">
                 <!--show selected items-->
@@ -208,7 +208,7 @@ include("left_menu.php");
                   <?php
                   foreach ($arrFileID as $key => $value) {
                     if($value!=""){
-                      $strFile="SELECT a.ID, a.Name, a.FileType, b.ID, b.FileType FROM partner_files a INNER JOIN partner_files_type b ON a.FileType=b.ID WHERE a.ID='".$value."'"; 
+                      $strFile="SELECT a.ID, a.Name, a.FileType, b.ID, b.FileType FROM partner_files a INNER JOIN partner_files_type b ON a.FileType=b.ID WHERE a.ID='".$value."'";
                       $cmdFile =mysqli_query($link_db,$strFile);
                       $dataFile = mysqli_fetch_row($cmdFile);
                       echo "<p>".$dataFile[1]." (".$dataFile[4].")</p>";
@@ -234,7 +234,7 @@ include("left_menu.php");
                     while($dataCompany=mysqli_fetch_row($cmdCompany)) {
                       $status="";
                       $cid=$dataCompany[0]; // company ID
-                      
+
                       foreach ($tmpCID as $key => $value) {
                         if($value!=""){
                           if($cid==$value){
@@ -242,7 +242,7 @@ include("left_menu.php");
                           }
                         }
                       }
-                      
+
                       echo"<fieldset class='checkboxsas'><label><input id='CID' name='CID' type='checkbox' value='".$cid."' ".$status." > ".$arrCompany[$cid]." (".$cid.")</label></fieldset>";
                     }
                     ?>
@@ -263,7 +263,7 @@ include("left_menu.php");
         </div>
       </div>
     </div>
-    
+
 
   </div>
 
@@ -274,7 +274,7 @@ include("left_menu.php");
 
 
 <footer class="footer footer-static footer-dark navbar-border">
-  <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
+  <p class="clearfix  lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright&copy; 2004-2021 MiTAC Digital Technology Corporation and/or any of its affiliates. All Rights Reserved. Please use the latest version of Firefox or Chrome to view this site.</span></p>
 </footer>
 
 
@@ -368,13 +368,13 @@ function selSKU(){
   url: url,
   dataType: "html",
   data: {
-    ID : ID,  
-    CID : CID,  
+    ID : ID,
+    CID : CID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
-      //location.reload(); 
+      //location.reload();
     }else{
       $("#div_eClients").empty();
       $("#div_eClients").append(message);
@@ -398,12 +398,12 @@ $("#editFile").click(function(){
   url: url,
   dataType: "html",
   data: {
-    checkboxID : checkboxID,  
+    checkboxID : checkboxID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
-      //location.reload(); 
+      //location.reload();
     }else{
       $("#div_efile").empty();
       $("#div_efile").append(message);
@@ -432,17 +432,17 @@ $("#editGroup").click(function(){
   url: url,
   dataType: "html",
   data: {
-    GroupID : GroupID, 
-    SKUID : SKUID, 
-    companyID : companyID,  
-    FileID : FileID,  
+    GroupID : GroupID,
+    SKUID : SKUID,
+    companyID : companyID,
+    FileID : FileID,
     kind : kind
   },
   success: function(message){
     if(message == "success"){
       alert("Update done.");
       document.location.href="BEgroupsMgt";
-      //location.reload(); 
+      //location.reload();
     }else{
       alert(message);
     }

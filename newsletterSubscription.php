@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -38,12 +38,12 @@ if(isset($_COOKIE['status'])){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="" /> 
-	<meta property="og:title" content="404 | MiTAC Computing Technology" />
+	<meta property="og:description" content="" />
+	<meta property="og:title" content="404 | MiTAC Digital Technology" />
 	<link rel="shortcut icon" href="images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -57,11 +57,11 @@ if(isset($_COOKIE['status'])){
 	<link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/home.css " type="text/css" />
-	
+
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>MiTAC Computing Technology</title>
+	<title>MiTAC Digital Technology</title>
 
 </head>
 
@@ -107,7 +107,7 @@ if(isset($_COOKIE['status'])){
 
 				<div class="row align-items-center col-mb-80">
 
-					
+
 
 					<div class="col-lg-6">
 
@@ -115,9 +115,9 @@ if(isset($_COOKIE['status'])){
 							<h4>Want to get the latest updates? </h4>
 							<span>Enter your e-mail to subscribe MCT newsletter!</span>
 						</div>
-						
-						
-						
+
+
+
 						<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
 							<div class="input-group mx-auto">
 								<div class="input-group-text bg-transparent"><i class="icon-email2" ></i></div>
@@ -140,14 +140,14 @@ if(isset($_COOKIE['status'])){
 
 
 
-						
+
 
 					</div>
-					
+
 					<div class="col-lg-6">
 						<div class="error404 center"><i class="icon-newspaper"></i></div>
 					</div>
-					
+
 
 				</div>
 
@@ -155,11 +155,11 @@ if(isset($_COOKIE['status'])){
 		</div>
 	</section><!-- #content end -->
 
-	<!-- FOOTER -->	  
+	<!-- FOOTER -->
 	<?php
 	include("foot1.htm");
 	?>
-	<!-- FOOTER end -->	  
+	<!-- FOOTER end -->
 
 </div><!-- #wrapper end -->
 
@@ -194,7 +194,7 @@ $(function(){
 			var mail = $("#mail").val();
 			var fd = new FormData();
 			fd.append("mail", mail);
-			
+
 			$.ajax({
 				type: "post",
 				url: url,
@@ -202,7 +202,7 @@ $(function(){
 				data: fd,
 				cache: false,
 				contentType: false,
-				processData: false,  
+				processData: false,
 
 				success: function(data){
 					if(data == "refresh"){
@@ -224,8 +224,8 @@ $(function(){
 				    	$("#err_msg").hide();
 				    	$("#mail").val('');
 				    }
-				}  
-				});  
+				}
+				});
 							/* End */
 		}else{
 			//alert("mail format is incorrect!");
@@ -236,7 +236,7 @@ $(function(){
 			$("#mail").val('');
 		}
 
-	});  
+	});
 });
 </script>
 </body>

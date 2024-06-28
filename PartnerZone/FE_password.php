@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -28,7 +28,7 @@ $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
-    
+
 function dowith_sql($str)
 {
   $str = str_replace("and","",$str);
@@ -91,7 +91,7 @@ $GDPR_YN=$data[0];
 <!-- BEGIN ROBUST CSS-->
 <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="app-assets/fonts/font-awesome/css/fontawesome.css" >
-<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >	
+<link rel="stylesheet" type="text/css" href="app-assets/fonts/feather/style.min.css" >
 <!-- END ROBUST CSS-->
 <!-- BEGIN Page Level CSS-->
 <!--<link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">-->
@@ -112,14 +112,14 @@ $GDPR_YN=$data[0];
   margin:1% 0 3% 0;
 }
 
-  
+
   </style>
 </head>
 
 <body class="vertical-layout vertical-overlay-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-overlay-menu" data-col="2-columns">
 
 <!--GDPR modal-->
-<?php 
+<?php
 if($GDPR_YN==1){
 ?>
 <div id="termsModal" class="modal fade">
@@ -147,7 +147,7 @@ if($GDPR_YN==1){
   </div>
 </div>
 
-   
+
 <?php
 }
 ?>
@@ -187,7 +187,7 @@ include("left_menu.php");
           </div>
         </div>
       </div>
-      <!--end breadcrumb--> 
+      <!--end breadcrumb-->
 
 
     </div>
@@ -232,7 +232,7 @@ include("left_menu.php");
         <div class="col-xl-4 col-lg-12 col-md-12">
 
         </div>
-      </div>	
+      </div>
 
       <section class="row">
         <div class="col-sm-12">
@@ -274,7 +274,7 @@ include("footer.php");
 $(document).ready(function(){
   $("#termsModal").modal('show');
 });
-  
+
 
 $("#changeOK").click(function(){
   $("#err_PW1").hide();
@@ -309,7 +309,7 @@ $("#changeOK").click(function(){
       exit;
     }
   }
-  }); 
+  });
 })
 
 $("#GDPR_Y").click(function(){
@@ -333,7 +333,7 @@ $("#GDPR_Y").click(function(){
       exit;
     }
   }
-  }); 
+  });
 })
 
 $("#GDPR_N").click(function(){
@@ -354,7 +354,7 @@ $("#GDPR_N").click(function(){
       exit;
     }
   }
-  }); 
+  });
 })
 </script>
 </body>

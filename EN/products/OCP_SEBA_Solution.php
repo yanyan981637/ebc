@@ -1,7 +1,7 @@
 <?php
 header("X-Frame-Options: DENY");
 //header("Content-Security-Policy-Report-Only: default-src *; img-src https:; frame-src 'none'; report-uri http://www.tyan.com");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -31,12 +31,12 @@ if($_COOKIE["status"]==""){
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name='author' content='MiTAC Computing Technology'>
-	<meta name="company" content="MiTAC Computing Technology">
+	<meta name='author' content='MiTAC Digital Technology'>
+	<meta name="company" content="MiTAC Digital Technology">
 	<meta name="description" content="MiTAC's OCP SEBA Solution with more power savings, less costs, and quick adoption from edge to cloud computing applications">
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="MiTAC's OCP SEBA Solution with more power savings, less costs, and quick adoption from edge to cloud computing applications" /> 
-	<meta property="og:title" content="OCP SEBA Solution | MiTAC Computing Technology" />
+	<meta property="og:description" content="MiTAC's OCP SEBA Solution with more power savings, less costs, and quick adoption from edge to cloud computing applications" />
+	<meta property="og:title" content="OCP SEBA Solution | MiTAC Digital Technology" />
     <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
@@ -78,12 +78,12 @@ if($_COOKIE["status"]==""){
 
 
   </style>
-	
+
 	<script src="/js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
-	<title>OCP SEBA Solution | MiTAC Computing Technology</title>
-	<?php 
+	<title>OCP SEBA Solution | MiTAC Digital Technology</title>
+	<?php
 	//************ google analytics ************
 	if($s_cookie!=2){
 	  include_once("analyticstracking.php");
@@ -105,7 +105,7 @@ if($_COOKIE["status"]==""){
 	?>
 	<!--end Header logo & global top menu-->
 
-	
+
 
 
 		<!-- Slider
@@ -116,12 +116,12 @@ if($_COOKIE["status"]==""){
 				<div class="row justify-content-between align-items-center">
 					<div class="col-lg-8 col-md-9 dark mb-5 mb-md-0 py-5" data-animate="backInLeft">
 						<h2 class="display-4" style="font-weight: 600;" >OCP - SEBA™ Solution</h2>
-						
+
 						<h3 style="color:#07d8f7; font-size:2rem; font-weight:300">From Edge to Cloud New Generation Central Office with OCP Solutions</h3>
 						<h3>Toward the Next Generation Central Office</h3>
 						<p class="mb-5 lead text-white">
-						
-						
+
+
 						Telecom operators manage thousands of central offices, but
 are locked by legacy hardware and high costs. <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="CORD : Central Office Re-architected as Datacenter. CORD enables the economies of a data center and the flexibility of SDN by applying Cloud-Native Infrastructure to Central
 Office with white box solutions." style="color:#07d8f7" />CORD</a> ,
@@ -135,17 +135,17 @@ the idea of disaggregating application and function from the
 proprietary hardware platforms used to run telecom
 applications in favor of commercial off-the-shelf (COTS)
 hardware deployed as a cloud infrastructure.
-						
+
 
 						</p>
-						
-						
+
+
 					</div>
 					<div class="col-md-3 d-flex align-items-center col-form">
 						<div class="card  bg-white border-0 w-100 shadow p-3 rounded-0"  data-animate="backInRight" >
 							<div class="card-body">
-							
-							 
+
+
 								<h3 class="mb-0 center">
 									Products:
 								</h3>
@@ -156,8 +156,8 @@ hardware deployed as a cloud infrastructure.
 								<li><i class="icon-line-chevrons-right"></i> <a href="/OCPRack_ESA_ESA" target="mit" />OCP ESA Kit</a></li>
 								<li><i class="icon-line-chevrons-right"></i> <a href="/EN/contact/" target="mit" />OCP JBOF</a></li>
 								</ul>
-								
-								
+
+
 							</div>
 						</div>
 					</div>
@@ -184,7 +184,7 @@ hardware deployed as a cloud infrastructure.
 
 
 	<div class="container-fluid m-0 bg-dark-blue">
-	<h1 class="center">OCP - SEBA&#8482; Solution</h1>	
+	<h1 class="center">OCP - SEBA&#8482; Solution</h1>
 	</div>
 
 
@@ -260,7 +260,7 @@ hardware deployed as a cloud infrastructure.
 <div><img src="/images/product/OCPserver/OCP_SEBA-icon5.gif" alt="OCP SEBA Solution" class="img-fluid"></div>
 <h4 class="text-white">Vendor Lock-in Free</h4>
 </div>
-<div class="col-lg-1"></div>	
+<div class="col-lg-1"></div>
 	</div>
 
 
@@ -282,7 +282,7 @@ hardware deployed as a cloud infrastructure.
 											  <h1>Partnership</h1>
 								</div>
 								</div>
-								<div class="card-body">	
+								<div class="card-body">
 								<div class="row">
 <div class="col-md-4 p-3"><img src="/images/product/OCPserver/OCP_logo-2.gif" alt="OCP SEBA Solution"></div>
 <div class="col-md-8"><p class="card-text p-3">MiTAC and Edgecore are both Platinum
@@ -310,7 +310,7 @@ with our OCP ESA kit in the OCP <a href="https://www.opennetworking.org/seba/" t
 telecom carriers adopt OCP solutions supporting their
 service in a central office as a cloud native infrastructure
 with optimized power efficiency.</p>
-									
+
 								</div>
 </div>
 
@@ -351,11 +351,11 @@ with optimized power efficiency.</p>
 
 
 
-		<!-- FOOTER -->	  
+		<!-- FOOTER -->
 	  <?php
     include("../../foot1.htm");
 	  ?>
-	  <!-- FOOTER end -->	  
+	  <!-- FOOTER end -->
 
 	</div><!-- #wrapper end -->
 
@@ -365,7 +365,7 @@ with optimized power efficiency.</p>
 
 	<!-- JavaScripts
 	============================================= -->
-	
+
 	<script src="/js1/plugins.min.js"></script>
 
 	<!-- Footer Scripts
@@ -373,7 +373,7 @@ with optimized power efficiency.</p>
 	<script src="/js1/functions.js"></script>
 
 	<!-- ADD-ONS JS FILES -->
-	
+
 	<script src="/js1/top.js"></script>
 </body>
 </html>

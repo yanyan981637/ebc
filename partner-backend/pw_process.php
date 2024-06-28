@@ -1,6 +1,6 @@
 <?php
 header("X-Frame-Options: DENY");
-header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://www.mitacmct.com/");
+header("Content-Security-Policy-Report-Only: default-src 'none'; img-src *; frame-src *; script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; report-uri https://ipc.mitacmdt.com/");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
@@ -103,12 +103,12 @@ if($data[5]=="1"){
 $hash = password_hash($PW1, PASSWORD_DEFAULT);
 $str="UPDATE partner_sales SET PassWord='".$hash."', U_DATE='".$now."', First='0' WHERE ID='".$UID."'";
 $cmd=mysqli_query($link_db,$str);
-$result=mysqli_affected_rows($link_db);  
+$result=mysqli_affected_rows($link_db);
 if($result>0){
   echo "success";
   mysqli_close($link_db);
-  exit();  
-}else{  
+  exit();
+}else{
   echo "Update error";
   mysqli_close($link_db);
   exit();

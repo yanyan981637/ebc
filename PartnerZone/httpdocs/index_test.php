@@ -129,7 +129,7 @@ a:hover{color:#00a0e9; }
 			<div style="background:#01204c; ">
 				<div style="margin-top:25px">&nbsp;</div>
 
-				
+
 
 				<div id="oc-posts" class="owl-carousel posts-carousel carousel-widget posts-md" data-pagi="false" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="4" >
 
@@ -158,7 +158,7 @@ a:hover{color:#00a0e9; }
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="oc-item">
 						<div class="entry">
 							<div class="entry-image">
@@ -171,7 +171,7 @@ a:hover{color:#00a0e9; }
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="oc-item">
 						<div class="entry">
 							<div class="entry-image">
@@ -184,7 +184,7 @@ a:hover{color:#00a0e9; }
 							</div>
 						</div>
 					</div>
-					
+
 
 					<div class="oc-item">
 						<div class="entry">
@@ -211,10 +211,10 @@ a:hover{color:#00a0e9; }
 							</div>
 						</div>
 					</div>
-					
-					
-					
-					
+
+
+
+
 					<div class="oc-item">
 						<div class="entry">
 							<div class="entry-image">
@@ -227,7 +227,7 @@ a:hover{color:#00a0e9; }
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="oc-item">
 						<div class="entry">
 							<div class="entry-image">
@@ -260,7 +260,7 @@ a:hover{color:#00a0e9; }
 
 		<div id="footer" >
 			<div class="row container">
-				<div class="col-md-9">Copyright© 2004-2021 MiTAC Computing Technology Corporation (MiTAC Group) and/or any of its affiliates. All Rights Reserved.Information published on TYAN.com is subject to change without notice. All other trademarks are property of their respective companies.This site is best viewed using the latest versions of Internet Explorer, Firefox, and Chrome.</div>
+				<div class="col-md-9">Copyright© 2004-2021 MiTAC Digital Technology Corporation and/or any of its affiliates. All Rights Reserved.Information published on TYAN.com is subject to change without notice. All other trademarks are property of their respective companies.This site is best viewed using the latest versions of Internet Explorer, Firefox, and Chrome.</div>
 				<div class="col-md-3 ">
 					<div class="d-flex  justify-content-center justify-content-md-end">
 
@@ -275,7 +275,7 @@ a:hover{color:#00a0e9; }
 						<a href="https://www.linkedin.com/company/tyan-computer" target="cc" class="social-icon si-small si-borderless si-linkedin">
 							<i class="icon-linkedin"></i>
 							<i class="icon-linkedin"></i>
-						</a>				
+						</a>
 						<a href="https://www.youtube.com/c/tyancomputer/videos" target="cc" class="social-icon si-small si-borderless si-facebook">
 							<i class="icon-youtube"></i>
 							<i class="icon-youtube"></i>
@@ -284,7 +284,7 @@ a:hover{color:#00a0e9; }
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 
 
