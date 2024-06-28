@@ -259,38 +259,40 @@ if (mysqli_query($link_db, $str_inst)) {
 
     $cus_body = $cus_header . $cus_content;
 
-    //***************20180312 客戶通知信 *******************
-    $cus_mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
-        'business@mitacmdt.com', 'MiTAC Digital Technology',
-        $f_Email, $f_Name,
-        'We have received your message', $cus_body
-    );
-    if (!$cus_mail->Send()) {
-        $mail = mail_setting('10.88.0.58', '25', null, null,
-            'no-reply@mitacmdt.com', 'MiTAC Digital Technology',
-            null, null,
-            'MDT IPC contact us send customer error', $cus_body,
-            true
+    # ***************20240628 客戶通知信 *******************
+        $cus_mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
+            'business@mitacmdt.com', 'MiTAC Digital Technology',
+            $f_Email, $f_Name,
+            'We have received your message', $cus_body
         );
-        $mail->Send();
-    } else {
-    }
-    //***************20180312 客戶通知信 End *******************
-    $mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
-        'business@mitacmdt.com', 'MiTAC Digital Technology',
-        'tony.wei@mic.com.tw', 'Mitac computer',
-        'Contact Us Notification - #' . $Mcount . ' ' . $now1, $body
-    );
+        if (!$cus_mail->Send()) {
+            $mail = mail_setting('10.88.0.58', '25', null, null,
+                'no-reply@mitacmdt.com', 'MiTAC Digital Technology',
+                null, null,
+                'MDT IPC contact us send customer error', $cus_body,
+                true
+            );
+            $mail->Send();
+        } else {
+        }
+    # ***************20240628 客戶通知信 End *******************
+    # ***************20240628 窗口通知信 *******************
+        $mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
+            'business@mitacmdt.com', 'MiTAC Digital Technology',
+            'Sales_client@mic.com.tw', 'Mitac computer',
+            'Contact Us Notification - #' . $Mcount . ' ' . $now1, $body
+        );
 
-    if (!$mail->Send()) {
-        $data = $now . " - Mail - error\n";
-        $fp = fopen("../Files/maillog.txt", "a");
-        fwrite($fp, $data);
-        fclose($fp);
-        echo "Mailer Error: " . $mail->ErrorInfo;
-    } else {
-        echo "susses";
-    }
+        if (!$mail->Send()) {
+            $data = $now . " - Mail - error\n";
+            $fp = fopen("../Files/maillog.txt", "a");
+            fwrite($fp, $data);
+            fclose($fp);
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+            echo "susses";
+        }
+    # ***************20240628 窗口通知信 End *******************
 } else {
     echo "Failed to send your message. Please check your input and try again.";
     $mail = mail_setting('10.88.0.58', '25', null, null,
