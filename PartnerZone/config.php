@@ -9,6 +9,11 @@ $db_user="sa";
 $db_pwd="Kazumi2008";
 $dataBase="tony_ebc1";
 
+$mail_host = "email-smtp.us-east-1.amazonaws.com";
+$mail_port = "587";
+$mail_user = "AKIAI42EEMNDM2OMFQRA";
+$mail_pwd = "BFrFD5EU7Ci4qFeuzIRZELVI+9WOicehBG4IQErP9VTZ";
+
 function encrypt($data, $key)
 {
 	$key    =   md5($key);

@@ -3,7 +3,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header('Content-Type: text/html; charset=utf-8');
 require "../config.php";
-require "./mail_setting.php";
+require "../mail_setting.php";
 
 include("./PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 //require_once __DIR__ . '/includes/recaptcha/autoload.php';
