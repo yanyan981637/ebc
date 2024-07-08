@@ -487,6 +487,7 @@ foreach ($cateID as $key => $value) {
       var nums =j;
       if(nums=="0"){
         Cookies.remove("type");
+        window.location.href = '/';
       }
 
       var getUrlString = location.href;

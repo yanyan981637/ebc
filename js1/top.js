@@ -18,7 +18,7 @@ function eDM(i, j, k, l){
   }else{
     $("#ebuurl").val(i);
     $("#e_cateName").val(l);
-    
+
   }
 }
 // download catelog 點選後給值到表單 end
@@ -64,7 +64,7 @@ $(function(){
         data: fd,
         cache: false,
         contentType: false,
-        processData: false,  
+        processData: false,
 
         success: function(data){
           if(data == "refresh"){
@@ -86,8 +86,8 @@ $(function(){
               $("#err_msg").hide();
               $("#mail").val('');
             }
-          }  
-      });  
+          }
+      });
               /* End */
     }else{
       //alert("mail format is incorrect!");
@@ -96,16 +96,16 @@ $(function(){
       $("#exist_msg").hide();
       $("#err_msg").show();
       $("#mail").val('');
-      
+
     }
 
-  });  
+  });
 });
 // Subscribe End
 
 //captcha
 $(function(){
-    $("#re_catelog").click(function() { 
+    $("#re_catelog").click(function() {
        var obj = document.getElementById("rand-img");
        var i=Math.floor((Math.random() * 10) + 1);;
        obj.src=null;
@@ -126,7 +126,7 @@ $(function(){
    });
 })
 $(function(){
-    $("#re_catelog_E").click(function() { 
+    $("#re_catelog_E").click(function() {
        var obj = document.getElementById("e_rand-img");
        var i=Math.floor((Math.random() * 10) + 1);;
        obj.src=null;
@@ -150,7 +150,7 @@ $(function(){
 
 // top catalog
 function catalog(i,j){
-  
+
   var name=document.getElementById(i+"_name").value;
   if(name==""){
     $("#"+i+"_err_Name").show();
@@ -181,14 +181,14 @@ function catalog(i,j){
       $("#"+i+"_err_Name").hide();
       $("#"+i+"_err_cName").hide();
       $("#"+i+"_err_Email").show();
-      $("#"+i+"_err_nlang").hide(); 
+      $("#"+i+"_err_nlang").hide();
       exit;
     }
   }else{
     $("#"+i+"_err_Name").hide();
     $("#"+i+"_err_cName").hide();
     $("#"+i+"_err_Email").show();
-    $("#"+i+"_err_nlang").hide(); 
+    $("#"+i+"_err_nlang").hide();
     exit;
   }
 
@@ -217,10 +217,10 @@ function catalog(i,j){
         data: fd,
         cache: false,
         contentType: false,
-        processData: false,  
+        processData: false,
 
         success: function(data){
-        }  
+        }
       })
     }else{
     }
@@ -230,7 +230,7 @@ function catalog(i,j){
     var urlDownload = document.getElementById("ebuurl").value;
     var cateName = document.getElementById("e_cateName").value;
   }
-  
+
   var Checknum1 = document.getElementById(i+"_checknum").value;
   var url1="/catalog";
   var type=i;
@@ -251,21 +251,21 @@ function catalog(i,j){
         data: fd1,
         cache: false,
         contentType: false,
-        processData: false,  
+        processData: false,
 
         success: function(data){
           if(data=="success"){
             self.location.href=urlDownload;
           }else{
           }
-        } 
-      }) 
+        }
+      })
 }
 // top catalog end
 
 //captcha
 $(function(){
-    $("#refresh").click(function() { 
+    $("#refresh").click(function() {
        var obj = document.getElementById("rand-img");
        var i=Math.floor((Math.random() * 10) + 1);;
        obj.src=null;
@@ -287,15 +287,15 @@ $(function(){
 })
 //captcha end
 
-// div login <-> FPW 
+// div login <-> FPW
 $(function(){
-  $("#FPW").click(function() { 
+  $("#FPW").click(function() {
     document.getElementById("loginDiv").style.display="none";
     document.getElementById("FPWDiv").style.display="";
   });
 })
 $(function(){
-  $("#B_login").click(function() { 
+  $("#B_login").click(function() {
     document.getElementById("loginDiv").style.display="";
     document.getElementById("FPWDiv").style.display="none";
   });
@@ -307,7 +307,7 @@ $(function(){
   $("#resetPW").click(function() {
     var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     var mail_val = $("#FPW_mail").val();
-    
+
     if(mail_val==""){
       $("#errMsg").show();
       $("#sucMsg").hide();
@@ -333,7 +333,7 @@ $(function(){
       data: fd,
       cache: false,
       contentType: false,
-      processData: false,  
+      processData: false,
 
       success: function(data){
         if(data == "success"){
@@ -343,9 +343,9 @@ $(function(){
           $("#rest_errMsg").show();
           $("#rest_sucMsg").hide();
         }
-      } 
-    }); 
-  });  
+      }
+    });
+  });
 });
 // reset PW end
 
@@ -396,11 +396,11 @@ $(function(){
       data: fd,
       cache: false,
       contentType: false,
-      processData: false,  
+      processData: false,
 
       success: function(data){
         if(data == "success"){
-          document.location.href="/PartnerZone/FEdashboard";         
+          document.location.href="/PartnerZone/FEdashboard";
         }else if(data == "captacha"){
           $("#err_captacha").show();
           $("#err_Email").hide();
@@ -424,10 +424,10 @@ $(function(){
         }else{
           alert(data);
         }
-      } 
-    }); 
+      }
+    });
     exit;
-  });  
+  });
 });
 // topLogin end
 
@@ -451,7 +451,7 @@ function removeRFQ(i,j){
       }else{
         newSKU+=tmpsku[i];
         j++;
-      }   
+      }
     }
   };
   document.cookie = "RFQsku="+ newSKU + ";path=/";
@@ -471,11 +471,11 @@ $("#RFQOK").click(function(){
       RFQ_SKU = $("#RFQ_SKU_"+i).html();
       Qnum = $("#Qnum_"+i).val();
     }else{
-      RFQ_SKU += $("#RFQ_SKU_"+i).html(); 
+      RFQ_SKU += $("#RFQ_SKU_"+i).html();
       RFQ_SKU += "+";
       Qnum += $("#Qnum_"+i).val();
       Qnum += "+";
-    } 
+    }
   };
 
   document.cookie = "RFQnum="+ Qnum + ";path=/";
@@ -510,7 +510,7 @@ $("#RFQOK").click(function(){
     //Cookies.remove("RFQnum");
     location.href="https://partner.tyan.com/loginRFQ@"+RFQ_SKU+"@"+Qnum;
     //window.open("https://partner.tyan.com/FEregister@"+RFQ_SKU+"@"+Qnum);
-  } 
+  }
 })
 
 
@@ -518,12 +518,12 @@ function AddRFQ(i, j){
   $("#addqtomsg").modal('show');
 
   var cRFQSKU=Cookies.get("RFQsku");
-  var sku=i; 
-  
+  var sku=i;
+
   if(cRFQSKU!=undefined || cRFQSKU==""){
     if(cRFQSKU.indexOf(sku) != -1){
       exit;
-    } 
+    }
 
     var items = Cookies.get("RFQsku");
 
@@ -533,7 +533,7 @@ function AddRFQ(i, j){
       if(items[i]==sku){
         //exit;
       }
-      
+
     };
       var nums =items.length;
       if(items!=""){
@@ -569,7 +569,7 @@ function add_compare(i, j){
     exit;
   }
 
-  if(cSKU!=undefined || cSKU==""){    
+  if(cSKU!=undefined || cSKU==""){
     var items = Cookies.get("sku");
     items = items.split(",");
 
@@ -577,7 +577,7 @@ function add_compare(i, j){
       if(items[i]==sku){
         exit;
       }
-      
+
     };
 
       var nums =items.length;
@@ -631,7 +631,7 @@ function reomve_dialog(){
   Cookies.remove("sku");
   Cookies.remove("type");
   $("#compare-msg1").modal("hide");
-  location.reload(); 
+  location.reload();
 }
 // Compare end
 
@@ -647,7 +647,7 @@ function getCookie(cookieName) {
 }
   //var a= document.cookie;
   //alert(a);
-  document.cookie = "tmpsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT"; 
+  document.cookie = "tmpsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
   //Cookies.remove("tmpsku");
   var cSKU=getCookie("sku");
   var cTYPE=getCookie("type");
@@ -657,7 +657,7 @@ function getCookie(cookieName) {
     cSKU = cSKU.split(",");
       var nums =cSKU.length;
   }else{
-    document.cookie = "sku=; expires=Thu, 01 Jan 1970 00:00:00 GMT"; 
+    document.cookie = "sku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     //Cookies.remove("sku");
     //delCookie("sku");
     var nums=0;
@@ -667,7 +667,7 @@ function getCookie(cookieName) {
     cRFQSKU = cRFQSKU.split(",");
       var RFQnums =cRFQSKU.length;
   }else{
-    document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT"; 
+    document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     //Cookies.remove("sku");
     //delCookie("sku");
     var RFQnums=0;
@@ -695,4 +695,4 @@ function getCookie(cookieName) {
   document.getElementById("compare_process").innerHTML="Compare ("+nums+"/10)&nbsp;&nbsp;&nbsp;";
   document.getElementById("RFQnum").innerHTML="<i class='icon-line-dollar-sign me-1 position-relative' style='top: 1px;'></i>Quote ("+RFQnums+")&nbsp;&nbsp;&nbsp;";
 
-  document.getElementById("cmsg2Modal").href="/prcompare@"+url+"@"+cTYPE+"@"+lang;
+  // document.getElementById("cmsg2Modal").href="/prcompare@"+url+"@"+cTYPE+"@"+lang;
