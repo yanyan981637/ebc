@@ -7,4 +7,6 @@ EN/solution/images/*
 /.vscode
 /vendor/*
 /var/log/*
+config.php
+/*/config.php
 ray.php
