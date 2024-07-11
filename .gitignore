@@ -10,3 +10,5 @@ EN/solution/images/*
 config.php
 /*/config.php
 ray.php
+fiveserver.config.js
+.php_tmp

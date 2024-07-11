@@ -11,8 +11,10 @@ header("HTTP/1.1 301 Moved Permanently");
 header("Location: /404.htm");
 exit;
 }
+// 使用 __DIR__ 確保正確引入 config.php
+require(__DIR__ . '/config.php'); 
+// require "./config.php";
 
-require "./config.php";
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
@@ -51,6 +53,7 @@ if($_COOKIE["status"]==""){
 	<link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/home.css " type="text/css" />
+	<link rel="stylesheet" href="css1/stylesheet1.css" rel="preload" as="style"> 
 
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
