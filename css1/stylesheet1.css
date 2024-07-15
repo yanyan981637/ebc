@@ -1,3 +1,27 @@
+.close_cross {
+    position: absolute;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.3;
+}
+.close_cross:hover {
+    opacity: 1;
+}
+.close_cross:before, .close_cross:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 46px;
+    width: 4px;
+    background-color: #fff;
+}
+.close_cross:before {
+    transform: rotate(45deg);
+}
+.close_cross:after {
+    transform: rotate(-45deg);
+}
 .slider-caption {
     padding-top: 100px;
     max-width: 655px;
