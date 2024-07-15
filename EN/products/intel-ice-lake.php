@@ -49,8 +49,7 @@ if($_COOKIE["status"]==""){
 	<link rel="stylesheet" href="/css1/animate.css" type="text/css" />
 	<link rel="stylesheet" href="/css1/magnific-popup.css" type="text/css" />
 	<link rel="stylesheet" href="/css1/custom.css" type="text/css" />
-
-
+	<link rel="stylesheet" href="/css1/stylesheet1.css" type="text/css" />
   <style>
 
 .bg-dark-blue {background-color:#0D47A1; border:1px solid #0D47A1}

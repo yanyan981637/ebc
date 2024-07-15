@@ -196,6 +196,7 @@ foreach ($cateID as $key => $value) {
   <link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
   <link rel="stylesheet" href="css1/custom.css" type="text/css" />
   <link rel="stylesheet" href="css1/quote.css" type="text/css" />
+  <link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
 
   <!-- compare css ============================================ -->
   <link rel="stylesheet" href="/css1/compare/tabella.css">

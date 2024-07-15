@@ -75,6 +75,7 @@ if(isset($_GET["status"])){
     <link href="css/style.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/fhmm.css" rel="stylesheet">
+    <link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
 
 <!--news-->
 <script type="text/javascript">

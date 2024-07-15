@@ -132,6 +132,7 @@ if(isset($_COOKIE['status'])){
 <link rel="stylesheet" href="css1/magnific-popup.css" type="text/css" />
 <link rel="stylesheet" href="css1/custom.css" type="text/css" />
 <link rel="stylesheet" href="css1/news.css" type="text/css" />
+<link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
 
 <script src="js1/jquery.js"></script>
 

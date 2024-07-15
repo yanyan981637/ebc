@@ -724,3 +724,11 @@ if($userName!=""){
     </div>
     <!--end compare alert modal-->
 </header><!-- #header end -->
+
+
+<script>
+    document.getElementById('removeClassButton').addEventListener('click', function() {
+        var menuItem = document.getElementById('menuItemOver');
+        menuItem.classList.remove('over');
+    });
+</script>

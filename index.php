@@ -113,13 +113,5 @@ if($_COOKIE["status"]==""){
 
 	<script src="js1/top.js"></script>
 
-
-    <script>
-        document.getElementById('removeClassButton').addEventListener('click', function() {
-            var menuItem = document.getElementById('menuItemOver');
-            menuItem.classList.remove('over');
-        });
-    </script>
-
 </body>
 </html>

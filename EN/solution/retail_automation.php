@@ -46,6 +46,7 @@ if ($_COOKIE["status"] == "") {
     <link rel="stylesheet" href="/css1/magnific-popup.css" type="text/css" />
     <link rel="stylesheet" href="/css1/custom.css" type="text/css" />
     <link rel="stylesheet" href="/css1/kiosks.css" type="text/css" />
+    <link rel="stylesheet" href="/css1/stylesheet1.css" type="text/css" />
     <style>
         .card-solution {
             margin-top: 3rem;

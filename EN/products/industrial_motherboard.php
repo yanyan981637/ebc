@@ -125,6 +125,7 @@ while ($dataInfo=mysqli_fetch_array($cmdInfo)) {
 <link rel="stylesheet" href="/css1/magnific-popup.css" type="text/css" />
 <link rel="stylesheet" href="/css1/custom.css" type="text/css" />
 <link rel="stylesheet" href="/css1/product-landing.css" type="text/css" />
+<link rel="stylesheet" href="/css1/stylesheet1.css" type="text/css" />
 <script src="/js1/jquery.js"></script>
 
 
@@ -201,188 +202,55 @@ if($s_cookie!=2){
 
 	<div class="section m-0 border-0" style="padding: 30px 30px 15px 30px; background:#c9c9c9">
 		<div class="container center clearfix" >
+			<?php
+				function generateSelectOptions($link_db, $PI_id, $info, $select_id, $select_label) {
+					$options = '';
+					$str = "SELECT PIV_id, PIV_Value FROM product_infovalue_las WHERE PI_id='$PI_id'";
+					$cmd = mysqli_query($link_db, $str);
+					while ($data = mysqli_fetch_array($cmd)) {
+						$selected = ($info == $data[0]) ? 'selected' : '';
+						$options .= "<option value='{$data[0]}' {$selected}>{$data[1]}</option>";
+					}
+					echo "<select id='{$select_id}' class='sm-form-control' onchange=\"search('{$select_id}')\">
+							<option value=''>{$select_label}:</option>
+							{$options}
+						</select>";
+				}
+			?>
 			<div class="row">
 				<div class="col-lg-4 form-group">
-					<select id="sleFF" class="sm-form-control" onchange="search('sleFF')">
-					<?php
-						//Form Factor ID 1
-						echo "<option value=''>Form Factor:</option>";
-						$strFF = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='1'";
-						$cmdFF = mysqli_query($link_db, $strFF);
-						while ($dataFF = mysqli_fetch_array($cmdFF)){
-							$selected = ($info == $dataFF[0]) ? 'selected' : '';
-							echo "<option value='".$dataFF[0]."' ".$selected.">".$dataFF[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '1', $info, 'sleFF', 'Form Factor'); ?>
 				</div>
 				<div class="col-lg-4 form-group">
-					<select id="slePro" class="sm-form-control" onchange="search('slePro')">
-						<option value="">Processor:</option>
-						<?php
-						//Processor ID 2
-						$strPr = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='2'";
-						$cmdPr = mysqli_query($link_db, $strPr);
-						while ($dataPr = mysqli_fetch_array($cmdPr)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataPr[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataPr[0]."' ".$selected.">".$dataPr[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '2', $info, 'slePro', 'Processor'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="sleLAN" class="sm-form-control" onchange="search('sleLAN')">
-						<option value="">LAN:</option>
-						<?php
-						//LAN ID 3
-						$strLAN = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='3'";
-						$cmdLAN = mysqli_query($link_db, $strLAN);
-						while ($dataLAN = mysqli_fetch_array($cmdLAN)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataLAN[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataLAN[0]."' ".$selected.">".$dataLAN[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '3', $info, 'sleLAN', 'LAN'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="sleCOM" class="sm-form-control" onchange="search('sleCOM')">
-						<option value="">COM:</option>
-						<?php
-						//COM ID 4
-						$strCOM = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='4'";
-						$cmdCOM = mysqli_query($link_db, $strCOM);
-						while ($dataCOM = mysqli_fetch_array($cmdCOM)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataCOM[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataCOM[0]."' ".$selected.">".$dataCOM[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '4', $info, 'sleCOM', 'COM'); ?>
 				</div>
-
 			</div>
-
 			<div class="row">
 				<div class="col-lg-2 form-group">
-					<select id="sleUSB" class="sm-form-control" onchange="search('sleUSB')">
-						<option value="">USB:</option>
-						<?php
-						// USB ID 5
-						$strUSB = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='5'";
-						$cmdUSB = mysqli_query($link_db, $strUSB);
-						while ($dataUSB = mysqli_fetch_array($cmdUSB)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataUSB[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataUSB[0]."' ".$selected.">".$dataUSB[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '5', $info, 'sleUSB', 'USB'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="sleSATA" class="sm-form-control" onchange="search('sleSATA')">
-						<option value="">SATA:</option>
-						<?php
-						// SATA ID 6
-						$strSATA = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='6'";
-						$cmdSATA = mysqli_query($link_db, $strSATA);
-						while ($dataSATA = mysqli_fetch_array($cmdSATA)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataSATA[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataSATA[0]."' ".$selected.">".$dataSATA[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '6', $info, 'sleSATA', 'SATA'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="sleM2S" class="sm-form-control" onchange="search('sleM2S')">
-						<option value="">M.2 Slot:</option>
-						<?php
-						// M.2 Slot ID 7
-						$strM2S = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='7'";
-						$cmdM2S = mysqli_query($link_db, $strM2S);
-						while ($dataM2S = mysqli_fetch_array($cmdM2S)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataM2S[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataM2S[0]."' ".$selected.">".$dataM2S[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '7', $info, 'sleM2S', 'M.2 Slot'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="sleMini" class="sm-form-control" onchange="search('sleMini')">
-						<option value="">Mini PCIe:</option>
-						<?php
-						// Mini PCIe ID 8
-						$strMini = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='8'";
-						$cmdMini = mysqli_query($link_db, $strMini);
-						while ($dataMini = mysqli_fetch_array($cmdMini)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataMini[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataMini[0]."' ".$selected.">".$dataMini[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '8', $info, 'sleMini', 'Mini PCIe'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="slePCIe" class="sm-form-control" onchange="search('slePCIe')">
-						<option value="">PCIe Slot:</option>
-						<?php
-						// PCIe Slot ID 9
-						$strPCIe = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='9'";
-						$cmdPCIe = mysqli_query($link_db, $strPCIe);
-						while ($dataPCIe = mysqli_fetch_array($cmdPCIe)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataPCIe[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataPCIe[0]."' ".$selected.">".$dataPCIe[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '9', $info, 'slePCIe', 'PCIe Slot'); ?>
 				</div>
-
 				<div class="col-lg-2 form-group">
-					<select id="slePower" class="sm-form-control" onchange="search('slePower')">
-						<option value="">Power:</option>
-						<?php
-						// Power ID 10
-						$strPower = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='10'";
-						$cmdPower = mysqli_query($link_db, $strPower);
-						while ($dataPower = mysqli_fetch_array($cmdPower)){
-							// Determine if this option should be selected
-							$selected = ($info == $dataPower[0]) ? 'selected' : '';
-
-							// Output the option
-							echo "<option value='".$dataPower[0]."' ".$selected.">".$dataPower[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '10', $info, 'slePower', 'Power'); ?>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 	<!--end filter-->

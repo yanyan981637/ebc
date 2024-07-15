@@ -731,7 +731,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="" />
 	<meta property="og:title" content="<?=$meta_des;?> | MiTAC Digital Technology" />
-  <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
 
 	<!-- Stylesheets
 	============================================= -->
@@ -747,6 +747,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/product.css" type="text/css" />
+    <link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
 
 	<!-- Document Title
 	============================================= -->

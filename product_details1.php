@@ -746,6 +746,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/product.css" type="text/css" />
+	<link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
 
 	<!-- Document Title
 	============================================= -->
