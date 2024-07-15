@@ -203,140 +203,185 @@ if($s_cookie!=2){
 		<div class="container center clearfix" >
 			<div class="row">
 				<div class="col-lg-4 form-group">
-					<select id="sleFF" class=" sm-form-control" onchange="search('sleFF')" >
-						<option value="">Form Factor:</option>
-						<?php
-						//product_info_las
+					<select id="sleFF" class="sm-form-control" onchange="search('sleFF')">
+					<?php
 						//Form Factor ID 1
-						$strFF="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='1'";
-						$cmdFF=mysqli_query($link_db,$strFF);
-						while ($dataFF=mysqli_fetch_array($cmdFF)){
-							echo "<option value='".$dataFF[0]."'>".$dataFF[2]."</option>";
+						echo "<option value=''>Form Factor:</option>";
+						$strFF = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='1'";
+						$cmdFF = mysqli_query($link_db, $strFF);
+						while ($dataFF = mysqli_fetch_array($cmdFF)){
+							$selected = ($info == $dataFF[0]) ? 'selected' : '';
+							echo "<option value='".$dataFF[0]."' ".$selected.">".$dataFF[2]."</option>";
 						}
 						?>
 					</select>
 				</div>
 				<div class="col-lg-4 form-group">
-					<select id="slePro" class=" sm-form-control" onchange="search('slePro')"  >
+					<select id="slePro" class="sm-form-control" onchange="search('slePro')">
 						<option value="">Processor:</option>
 						<?php
 						//Processor ID 2
-						$strPr="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='2'";
-						$cmdPr=mysqli_query($link_db,$strPr);
-						while ($dataPr=mysqli_fetch_array($cmdPr)){
-							echo "<option value='".$dataPr[0]."'>".$dataPr[2]."</option>";
+						$strPr = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='2'";
+						$cmdPr = mysqli_query($link_db, $strPr);
+						while ($dataPr = mysqli_fetch_array($cmdPr)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataPr[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataPr[0]."' ".$selected.">".$dataPr[2]."</option>";
 						}
 						?>
 					</select>
 				</div>
+
 				<div class="col-lg-2 form-group">
-					<select id="sleLAN" class=" sm-form-control" onchange="search('sleLAN')">
+					<select id="sleLAN" class="sm-form-control" onchange="search('sleLAN')">
 						<option value="">LAN:</option>
 						<?php
 						//LAN ID 3
-						$strLAN="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='3'";
-						$cmdLAN=mysqli_query($link_db,$strLAN);
-						while ($dataLAN=mysqli_fetch_array($cmdLAN)){
-							echo "<option value='".$dataLAN[0]."'>".$dataLAN[2]."</option>";
+						$strLAN = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='3'";
+						$cmdLAN = mysqli_query($link_db, $strLAN);
+						while ($dataLAN = mysqli_fetch_array($cmdLAN)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataLAN[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataLAN[0]."' ".$selected.">".$dataLAN[2]."</option>";
 						}
 						?>
 					</select>
 				</div>
+
 				<div class="col-lg-2 form-group">
-					<select id="sleCOM" class=" sm-form-control" onchange="search('sleCOM')">
+					<select id="sleCOM" class="sm-form-control" onchange="search('sleCOM')">
 						<option value="">COM:</option>
 						<?php
 						//COM ID 4
-						$strCOM="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='4'";
-						$cmdCOM=mysqli_query($link_db,$strCOM);
-						while ($dataCOM=mysqli_fetch_array($cmdCOM)){
-							echo "<option value='".$dataCOM[0]."'>".$dataCOM[2]."</option>";
+						$strCOM = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='4'";
+						$cmdCOM = mysqli_query($link_db, $strCOM);
+						while ($dataCOM = mysqli_fetch_array($cmdCOM)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataCOM[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataCOM[0]."' ".$selected.">".$dataCOM[2]."</option>";
+						}
+						?>
+					</select>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-lg-2 form-group">
+					<select id="sleUSB" class="sm-form-control" onchange="search('sleUSB')">
+						<option value="">USB:</option>
+						<?php
+						// USB ID 5
+						$strUSB = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='5'";
+						$cmdUSB = mysqli_query($link_db, $strUSB);
+						while ($dataUSB = mysqli_fetch_array($cmdUSB)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataUSB[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataUSB[0]."' ".$selected.">".$dataUSB[2]."</option>";
+						}
+						?>
+					</select>
+				</div>
+
+				<div class="col-lg-2 form-group">
+					<select id="sleSATA" class="sm-form-control" onchange="search('sleSATA')">
+						<option value="">SATA:</option>
+						<?php
+						// SATA ID 6
+						$strSATA = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='6'";
+						$cmdSATA = mysqli_query($link_db, $strSATA);
+						while ($dataSATA = mysqli_fetch_array($cmdSATA)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataSATA[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataSATA[0]."' ".$selected.">".$dataSATA[2]."</option>";
+						}
+						?>
+					</select>
+				</div>
+
+				<div class="col-lg-2 form-group">
+					<select id="sleM2S" class="sm-form-control" onchange="search('sleM2S')">
+						<option value="">M.2 Slot:</option>
+						<?php
+						// M.2 Slot ID 7
+						$strM2S = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='7'";
+						$cmdM2S = mysqli_query($link_db, $strM2S);
+						while ($dataM2S = mysqli_fetch_array($cmdM2S)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataM2S[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataM2S[0]."' ".$selected.">".$dataM2S[2]."</option>";
+						}
+						?>
+					</select>
+				</div>
+
+				<div class="col-lg-2 form-group">
+					<select id="sleMini" class="sm-form-control" onchange="search('sleMini')">
+						<option value="">Mini PCIe:</option>
+						<?php
+						// Mini PCIe ID 8
+						$strMini = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='8'";
+						$cmdMini = mysqli_query($link_db, $strMini);
+						while ($dataMini = mysqli_fetch_array($cmdMini)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataMini[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataMini[0]."' ".$selected.">".$dataMini[2]."</option>";
+						}
+						?>
+					</select>
+				</div>
+
+				<div class="col-lg-2 form-group">
+					<select id="slePCIe" class="sm-form-control" onchange="search('slePCIe')">
+						<option value="">PCIe Slot:</option>
+						<?php
+						// PCIe Slot ID 9
+						$strPCIe = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='9'";
+						$cmdPCIe = mysqli_query($link_db, $strPCIe);
+						while ($dataPCIe = mysqli_fetch_array($cmdPCIe)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataPCIe[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataPCIe[0]."' ".$selected.">".$dataPCIe[2]."</option>";
+						}
+						?>
+					</select>
+				</div>
+
+				<div class="col-lg-2 form-group">
+					<select id="slePower" class="sm-form-control" onchange="search('slePower')">
+						<option value="">Power:</option>
+						<?php
+						// Power ID 10
+						$strPower = "SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='10'";
+						$cmdPower = mysqli_query($link_db, $strPower);
+						while ($dataPower = mysqli_fetch_array($cmdPower)){
+							// Determine if this option should be selected
+							$selected = ($info == $dataPower[0]) ? 'selected' : '';
+
+							// Output the option
+							echo "<option value='".$dataPower[0]."' ".$selected.">".$dataPower[2]."</option>";
 						}
 						?>
 					</select>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-lg-2 form-group">
-					<select id="sleUSB" class=" sm-form-control" onchange="search('sleUSB')">
-						<option value="">USB:</option>
-						<?php
-						//USB ID 5
-						$strUSB="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='5'";
-						$cmdUSB=mysqli_query($link_db,$strUSB);
-						while ($dataUSB=mysqli_fetch_array($cmdUSB)){
-							echo "<option value='".$dataUSB[0]."'>".$dataUSB[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-				<div class="col-lg-2 form-group">
-					<select id="sleSATA" class=" sm-form-control" onchange="search('sleSATA')">
-						<option value="">SATA:</option>
-						<?php
-						//SATA ID 6
-						$strSATA="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='6'";
-						$cmdSATA=mysqli_query($link_db,$strSATA);
-						while ($dataSATA=mysqli_fetch_array($cmdSATA)){
-							echo "<option value='".$dataSATA[0]."'>".$dataSATA[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-				<div class="col-lg-2 form-group">
-					<select id="sleM2S" class=" sm-form-control" onchange="search('sleM2S')">
-						<option value="">M.2 Slot:</option>
-						<?php
-						//M.2 Slot ID 7
-						$strM2S="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='7'";
-						$cmdM2S=mysqli_query($link_db,$strM2S);
-						while ($dataM2S=mysqli_fetch_array($cmdM2S)){
-							echo "<option value='".$dataM2S[0]."'>".$dataM2S[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-				<div class="col-lg-2 form-group">
-					<select id="sleMini" class=" sm-form-control" onchange="search('sleMini')">
-						<option value="">Mini PCIe:</option>
-						<?php
-						//Mini PCIe ID 8
-						$strMini="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='8'";
-						$cmdMini=mysqli_query($link_db,$strMini);
-						while ($dataMini=mysqli_fetch_array($cmdMini)){
-							echo "<option value='".$dataMini[0]."'>".$dataMini[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-				<div class="col-lg-2 form-group">
-					<select id="slePCIe" class=" sm-form-control" onchange="search('slePCIe')">
-						<option value="">PCIe Slot:</option>
-						<?php
-						//Mini PCIe ID 9
-						$strMini="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='9'";
-						$cmdMini=mysqli_query($link_db,$strMini);
-						while ($dataMini=mysqli_fetch_array($cmdMini)){
-							echo "<option value='".$dataMini[0]."'>".$dataMini[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-				<div class="col-lg-2 form-group">
-					<select id="slePower" class=" sm-form-control" onchange="search('slePower')">
-						<option value="">Power:</option>
-						<?php
-						//Power ID 10
-						$strPower="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='10'";
-						$cmdPower=mysqli_query($link_db,$strPower);
-						while ($dataPower=mysqli_fetch_array($cmdPower)){
-							echo "<option value='".$dataPower[0]."'>".$dataPower[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-			</div>
 
 		</div>
 	</div>
@@ -605,6 +650,14 @@ jQuery(window).on( 'pluginIsotopeReady',  function(){
 		var s_val=document.getElementById(i).value;
 		document.location.href="/EN/products/industrial_motherboard@"+s_val+"=Search";
 	}
+	function updateSelectedOption() {
+        var selectElement = document.getElementById('sleFF');
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        var selectedName = selectedOption.textContent.trim();
+
+        // You can do something with the selected name if needed
+        console.log("Selected Option: " + selectedName);
+    }
 
 </script>
 
