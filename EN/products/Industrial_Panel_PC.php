@@ -201,86 +201,39 @@ if($s_cookie!=2){
 
 	<div class="section m-0 border-0" style="padding: 30px 30px 15px 30px; background:#c9c9c9">
 		<div class="container center clearfix" >
+			<?php
+				function generateSelectOptions($link_db, $PI_id, $info, $select_id, $select_label) {
+					$options = '';
+					$str = "SELECT PIV_id, PIV_Value FROM product_infovalue_las WHERE PI_id='$PI_id'";
+					$cmd = mysqli_query($link_db, $str);
+					while ($data = mysqli_fetch_array($cmd)) {
+						$selected = ($info == $data[0]) ? 'selected' : '';
+						$options .= "<option value='{$data[0]}' {$selected}>{$data[1]}</option>";
+					}
+					echo "<select id='{$select_id}' class='sm-form-control' onchange=\"search('{$select_id}')\">
+							<option value=''>{$select_label}:</option>
+							{$options}
+						</select>";
+				}
+			?>
 			<div class="row">
 				<div class="col-lg-2 form-group">
-					<select id="sleType" class=" sm-form-control" onchange="search('sleType')" >
-						<option value="">Type:</option>
-						<?php
-						//product_info_las
-						//Industrial_Panel_PC Type ID 20
-						$strType="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='20'";
-						$cmdType=mysqli_query($link_db,$strType);
-						while ($dataType=mysqli_fetch_array($cmdType)){
-							echo "<option value='".$dataType[0]."'>".$dataType[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '20', $info, 'sleType', 'Type'); ?>
 				</div>
 				<div class="col-lg-2 form-group">
-					<select id="slePro" class=" sm-form-control" onchange="search('slePro')"  >
-						<option value="">Processor:</option>
-						<?php
-						//Embedded Processor ID 18
-						$strPro="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='18'";
-						$cmdPro=mysqli_query($link_db,$strPro);
-						while ($dataPro=mysqli_fetch_array($cmdPro)){
-							echo "<option value='".$dataPro[0]."'>".$dataPro[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '18', $info, 'slePro', 'Processor'); ?>
 				</div>
 				<div class="col-lg-2 form-group">
-					<select id="sleFF" class="sm-form-control " onchange="search('sleFF')">
-						<option value="">Fanless:</option>
-						<?php
-						//Fanless ID 11
-						$strFF="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='11'";
-						$cmdFF=mysqli_query($link_db,$strFF);
-						while ($dataFF=mysqli_fetch_array($cmdFF)){
-							echo "<option value='".$dataFF[0]."'>".$dataFF[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '11', $info, 'sleFF', 'Fanless'); ?>
 				</div>
 				<div class="col-lg-2 form-group">
-					<select id="slePS" class=" sm-form-control" onchange="search('slePS')">
-						<option value="">Panel Size:</option>
-						<?php
-						//Panel Size ID 14
-						$strPS="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='14'";
-						$cmdPS=mysqli_query($link_db,$strPS);
-						while ($dataPS=mysqli_fetch_array($cmdPS)){
-							echo "<option value='".$dataPS[0]."'>".$dataPS[2]."</option>";
-						}
-						?>
-					</select>
-				</div>
-
-				<div class="col-lg-2 form-group">
-					<select id="slePow" class=" sm-form-control" onchange="search('slePow')">
-						<option value="">Power:</option>
-						<?php
-						//Power ID 16
-						$strPow="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='16'";
-						$cmdPow=mysqli_query($link_db,$strPow);
-						while ($dataPow=mysqli_fetch_array($cmdPow)){
-							echo "<option value='".$dataPow[0]."'>".$dataPow[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '14', $info, 'slePS', 'Panel Size'); ?>
 				</div>
 				<div class="col-lg-2 form-group">
-					<select id="sleWT" class=" sm-form-control" onchange="search('sleWT')">
-						<option value="">Wide Temperature:</option>
-						<?php
-						//Widge Temperature ID 13
-						$strWT="SELECT PIV_id, PI_id, PIV_Value, PIV_Sort FROM product_infovalue_las WHERE PI_id='13'";
-						$cmdWT=mysqli_query($link_db,$strWT);
-						while ($dataWT=mysqli_fetch_array($cmdWT)){
-							echo "<option value='".$dataWT[0]."'>".$dataWT[2]."</option>";
-						}
-						?>
-					</select>
+					<?php generateSelectOptions($link_db, '16', $info, 'slePow', 'Power'); ?>
+				</div>
+				<div class="col-lg-2 form-group">
+					<?php generateSelectOptions($link_db, '13', $info, 'sleWT', 'Wide Temperature'); ?>
 				</div>
 			</div>
 		</div>
