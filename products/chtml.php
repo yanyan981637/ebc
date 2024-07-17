@@ -13,7 +13,7 @@ if(isset($_REQUEST['PSKUs'])!=''){
 $m_PSKUs=trim($_REQUEST['PSKUs']);
 }
 
-$url_front="http://www.tyan.com/product_details.php";
+$url_front="https://ipc.mitacmdt.com/product_details.php";
 $url=$url_front."?PType=".$m_Ptype."&PMCode=".$m_PMCode."&PSKUs=".$m_PSKUs;
 
 function CHtml($fromUrl,$ToHtml){
@@ -27,6 +27,6 @@ CHtml($url,$m_Ptype."_".$m_PMCode."_".$m_PSKUs.".html");
 copy($m_Ptype."_".$m_PMCode."_".$m_PSKUs.".html","../".$m_Ptype."-".$m_PMCode."-".$m_PSKUs.".htm");
 unlink($m_Ptype."_".$m_PMCode."_".$m_PSKUs.".html");
 
-echo "<script>alert(\"Automatically Generated!\");self.location='../TyanBackend/contents_management/default.php'</script>";
+echo "<script>alert(\"Automatically Generated!\");self.location='../MctBackend/contents_management/default.php'</script>";
 exit();
 ?>
