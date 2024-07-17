@@ -480,7 +480,7 @@ if($userName!=""){
                                         <ul class="sub-menu-container mega-menu-column col" style="margin-top:10px">
                                             <li class="menu-item">
                                                 <div class="row clearfix justify-content-center">
-                                                    <div class="col-1 hidden_element"></div>
+                                                    <div class="col-2 hidden_element"></div>
                                                     <div class="col-3 product_toggle">
                                                         <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
                                                             <a class="menu-link" href="/EN/products/industrial_motherboard/">
@@ -612,7 +612,7 @@ if($userName!=""){
                                                             </div><!--end one column-->
                                                         </div>
                                                     </div>
-                                                    <div class="col-1 hidden_element"></div>
+                                                    <div class="col-2 hidden_element"></div>
                                                     <a href="#" id="removeClassButton" class="close_cross"></a>
                                                 </div>
                                             </li>
@@ -621,14 +621,14 @@ if($userName!=""){
                                     <div class="row mt-4" style="border-top:1px solid #626262">
                                         <ul class="sub-menu-container mega-menu-column col">
                                             <li class="menu-item">
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-2"></div>
-                                                    <div class="col-lg-10"><a href="/catalogs">
+                                                <div class="row clearfix justify-content-center">
+                                                    <div class="col-2 hidden_element"></div>
+                                                    <div class="col-8 product_catalogs"><a href="/catalogs">
                                                             <h5><i class="icon-cloud-download"
                                                                     style="font-size:1rem;"></i>&nbsp;&nbsp;&nbsp;Download
                                                                 Catalogs</h5>
                                                         </a></div>
-                                                    <div class="col-lg-2"></div>
+                                                    <div class="col-2 hidden_element"></div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -730,9 +730,9 @@ if($userName!=""){
         var menuItem = document.getElementById('menuItemOver');
         menuItem.classList.remove('over');
     });
-
     function handleResize(event) {
         const elements = document.querySelectorAll('.product_toggle');
+        const elements_catalogs = document.querySelectorAll('.product_catalogs');
         elements.forEach(element => {
             if (event.matches) {
                 element.classList.remove('col-3');
@@ -740,6 +740,15 @@ if($userName!=""){
             } else {
                 element.classList.remove('col-2');
                 element.classList.add('col-3');
+            }
+        });
+        elements_catalogs.forEach(element => {
+            if (event.matches) {
+                element.classList.remove('col-12');
+                element.classList.add('col-10');
+            } else {
+                element.classList.remove('col-10');
+                element.classList.add('col-12');
             }
         });
     }
