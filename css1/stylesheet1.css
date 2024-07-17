@@ -1,6 +1,7 @@
 .close_cross {
     position: absolute;
-    right: 50px;
+    top: 0px;
+    right: 0px;
     width: 50px;
     height: 50px;
     opacity: 0.3;
@@ -12,8 +13,8 @@
     position: absolute;
     left: 15px;
     content: ' ';
-    height: 46px;
-    width: 4px;
+    height: 44px;
+    width: 6px;
     background-color: #fff;
 }
 .close_cross:before {
@@ -66,9 +67,36 @@
 .button_detail_margin{
     margin-top: 6%;
 }
+.hidden_element{
+    display: block;
+}
+@media (width <= 1440px) {
+    .hidden_element{
+        display: none;
+    }
+    .close_cross {
+        position: absolute;
+        top:-30px;
+        right: 0px;
+        width: 25px;
+        height: 25px;
+        opacity: 0.3;
+    }
+    .close_cross:before, .close_cross:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 21px;
+        width: 4px;
+        background-color: #fff;
+    }
+}
 @media (width <= 992px) {
     .slider-caption {
         padding-top: 0;
+    }
+    .close_cross{
+        display: none;
     }
 }
 @media (height <= 844px) {
