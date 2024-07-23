@@ -747,7 +747,7 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/product.css" type="text/css" />
-    <link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
+    <link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" />
 
 	<!-- Document Title
 	============================================= -->
@@ -924,28 +924,28 @@ if($PType_si == "IndustrialPanelPC" || $PType_si == "EmbeddedSystem" || $PType_s
 							<!--Icons Bottom-->
 							<div class="topmargin-sm bottommargin-sm">
 								<?php
-								// $PIcons_split_b=explode(",",$PIcons_data[1],-1);
-								// //***************2018.02.12 修改icon排序***************
-								// $a="";
-								// foreach ($PIcons_split_b as $PIcons_split_all_b) {
-								// 	if($a==Null){
-								// 		$a = "'./images/logo/".$PIcons_split_all_b."'";
-								// 	}else{
-								// 		$a.= ",'./images/logo/".$PIcons_split_all_b."'";
-								// 	}
-								// }
-								// $CPS_b_str="SELECT `img`, `url`, `tooltips` FROM `c_sp_icon` where `img` IN (".$a.") ORDER BY `c_sp_icon`.`order` ASC";
-								// $CPS_b_cmd=mysqli_query($link_db,$CPS_b_str);
-								// while($CPS_b_result=mysqli_fetch_row($CPS_b_cmd)){
-								// 	if(trim($CPS_b_result[1])!='' && $CPS_b_result[1]!='http://'){
-								// 		$imgname=str_replace("./","",$CPS_b_result[0]);
-								// 		echo "<a href='".$CPS_b_result[1]."' target='icons' /><img src=".$imgname." data-bs-toggle='tooltip' data-bs-placement='top'/></a>&nbsp;";
-								// 	}else{
-								// 		$imgname=str_replace("./","",$CPS_b_result[0]);
-								// 		//echo "<img src=".$imgname." data-toggle='tooltip' data-placement='bottom' data-html='true' title='$CPS_b_result[2]'>&nbsp;";
-								// 		echo "<img src=".$imgname." data-bs-toggle='tooltip' data-bs-placement='top' title='$CPS_b_result[2]'>&nbsp;";
-								// 	}
-								// }
+								$PIcons_split_b=explode(",",$PIcons_data[1],-1);
+								//***************2018.02.12 修改icon排序***************
+								$a="";
+								foreach ($PIcons_split_b as $PIcons_split_all_b) {
+									if($a==Null){
+										$a = "'./images/logo/".$PIcons_split_all_b."'";
+									}else{
+										$a.= ",'./images/logo/".$PIcons_split_all_b."'";
+									}
+								}
+								$CPS_b_str="SELECT `img`, `url`, `tooltips` FROM `c_sp_icon` where `img` IN (".$a.") ORDER BY `c_sp_icon`.`order` ASC";
+								$CPS_b_cmd=mysqli_query($link_db,$CPS_b_str);
+								while($CPS_b_result=mysqli_fetch_row($CPS_b_cmd)){
+									if(trim($CPS_b_result[1])!='' && $CPS_b_result[1]!='http://'){
+										$imgname=str_replace("./","",$CPS_b_result[0]);
+										echo "<a href='".$CPS_b_result[1]."' target='icons' /><img src=".$imgname." data-bs-toggle='tooltip' data-bs-placement='top'/></a>&nbsp;";
+									}else{
+										$imgname=str_replace("./","",$CPS_b_result[0]);
+										//echo "<img src=".$imgname." data-toggle='tooltip' data-placement='bottom' data-html='true' title='$CPS_b_result[2]'>&nbsp;";
+										echo "<img src=".$imgname." data-bs-toggle='tooltip' data-bs-placement='top' title='$CPS_b_result[2]'>&nbsp;";
+									}
+								}
 								?>
 							</div>
 							<!--end Icons Bottom-->
