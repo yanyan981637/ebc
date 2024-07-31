@@ -468,25 +468,22 @@ if($userName!=""){
 
 
                 <nav class="primary-menu me-lg-auto">
-
-                    <ul class="menu-container">
-                        <li id="menuItemOver" class="menu-item  mega-menu mega-menu-full">
+                    <ul class="menu-container" style="display: block;">
+                        <li id="menuItemOver" class="menu-item mega-menu mega-menu-full sub-menu">
                             <a class="menu-link" href="#">
                                 <div style="font-size:1.2rem">Products</div>
                             </a>
+
+
                             <div class="mega-menu-content mega-menu-style-2">
                                 <div class="container-fluid">
-                                    <div class="row">
-                                        <ul class="sub-menu-container mega-menu-column col" style="margin-top:10px">
-                                            <li class="menu-item">
+                                    <div class="row" style="padding-top:10px">
+                                        <ul class="sub-menu-container mega-menu-column col">
+                                            <li class="menu-item sub-menu">
                                                 <div class="row clearfix justify-content-center">
-                                                    <div class="col-2 hidden_element"></div>
-                                                    <div class="col-3 product_toggle">
-                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
-                                                            <a class="menu-link" href="/EN/products/industrial_motherboard/">
-                                                                <div>Industrial Motherboard</div>
-                                                            </a>
-                                                        </h4>
+                                                    <div class="col-xl-2 hidden_element"></div>
+                                                    <div class="col-xl-3 product_toggle">
+                                                        <a href="/EN/products/industrial_motherboard/" target="_blank"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">Industrial Motherboard</h4></a>
                                                         <div class="row">
                                                             <!--one column-->
                                                             <div class="col">
@@ -530,12 +527,8 @@ if($userName!=""){
                                                             </div><!--end one column-->
                                                         </div>
                                                     </div>
-                                                    <div class="col-3 product_toggle">
-                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
-                                                            <a class="menu-link" href="/EN/products/embedded_system/">
-                                                                <div>Embedded System</div>
-                                                            </a>
-                                                        </h4>
+                                                    <div class="col-xl-3 product_toggle">
+                                                        <a href="/EN/products/embedded_system/" target="_blank"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">Embedded System</h4></a>
                                                         <div class="row">
                                                             <!--one column-->
                                                             <div class="col">
@@ -564,12 +557,8 @@ if($userName!=""){
                                                             </div><!--end one column-->
                                                         </div>
                                                     </div>
-                                                    <div class="col-3 product_toggle">
-                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
-                                                            <a class="menu-link" href="/EN/products/Industrial_Panel_PC/">
-                                                                <div>Industrial Panel PC</div>
-                                                            </a>
-                                                        </h4>
+                                                    <div class="col-xl-3 product_toggle">
+                                                        <a href="/EN/products/Industrial_Panel_PC/" target="_blank"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">Industrial Panel PC</h4></a>
                                                         <div class="row">
                                                             <!--one column-->
                                                             <div class="col">
@@ -588,12 +577,8 @@ if($userName!=""){
                                                             </div><!--end one column-->
                                                         </div>
                                                     </div>
-                                                    <div class="col-3 product_toggle">
-                                                        <h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">
-                                                            <a class="menu-link" href="javascript:void();">
-                                                                <div>Tablet/Kiosk</div>
-                                                            </a>
-                                                        </h4>
+                                                    <div class="col-xl-3 product_toggle">
+                                                        <a href="javascript:void();" target="_blank"><h4 style="background-color:#00b7ee; padding:0.5rem 0.8rem; color:#ffffff; border-radius: 5px;">Tablet/Kiosk</h4></a>
                                                         <div class="row">
                                                             <!--one column-->
                                                             <div class="col">
@@ -612,7 +597,7 @@ if($userName!=""){
                                                             </div><!--end one column-->
                                                         </div>
                                                     </div>
-                                                    <div class="col-2 hidden_element"></div>
+                                                    <div class="col-xl-2 hidden_element"></div>
                                                     <a href="#" id="removeClassButton" class="close_cross"></a>
                                                 </div>
                                             </li>
@@ -621,10 +606,10 @@ if($userName!=""){
                                     <div class="row mt-4" style="border-top:1px solid #626262">
                                         <ul class="sub-menu-container mega-menu-column col">
                                             <li class="menu-item">
-                                                <div class="row clearfix justify-content-center">
+                                                <div class="row clearfix">
                                                     <div class="col-2 hidden_element"></div>
-                                                    <div class="col-8 product_catalogs"><a href="/catalogs">
-                                                            <h5><i class="icon-cloud-download"
+                                                    <div class="col-8 product_catalogs col-xl-12"><a href="/catalogs">
+                                                            <h5  style="line-height: 45px;margin: 0;"><i class="icon-cloud-download"
                                                                     style="font-size:1rem;"></i>&nbsp;&nbsp;&nbsp;Download
                                                                 Catalogs</h5>
                                                         </a></div>
@@ -735,20 +720,20 @@ if($userName!=""){
         const elements_catalogs = document.querySelectorAll('.product_catalogs');
         elements.forEach(element => {
             if (event.matches) {
-                element.classList.remove('col-3');
-                element.classList.add('col-2');
+                element.classList.remove('col-xl-3');
+                element.classList.add('col-xl-2');
             } else {
-                element.classList.remove('col-2');
-                element.classList.add('col-3');
+                element.classList.remove('col-xl-2');
+                element.classList.add('col-xl-3');
             }
         });
         elements_catalogs.forEach(element => {
             if (event.matches) {
-                element.classList.remove('col-12');
-                element.classList.add('col-10');
+                element.classList.remove('col-xl-12');
+                element.classList.add('col-xl-10');
             } else {
-                element.classList.remove('col-10');
-                element.classList.add('col-12');
+                element.classList.remove('col-xl-10');
+                element.classList.add('col-xl-12');
             }
         });
     }
