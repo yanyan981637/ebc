@@ -203,6 +203,22 @@ include_once("analyticstracking.php");
 								<article class="entry col-12 mb-3">
 									<div class="grid-inner row gutter-20">
 										<div class="col-md-1">
+											<a href="https://embeddedcomputing.com/technology/ai-machine-learning/computer-vision-speech-processing/mitacs-ma1-serves-as-the-people-monitoring-hub-at-this-years-paris-olympics" target="min"><img src="/images/pressroom_pic/PRIM-embedded.gif" alt=""  ></a>
+										</div>
+										<div class="col-md-11">
+											<div class="entry-title title-xs">
+												<span class="badge rounded-pill bg-info">2024/07/19</span><br>
+												<h2><a href="https://embeddedcomputing.com/technology/ai-machine-learning/computer-vision-speech-processing/mitacs-ma1-serves-as-the-people-monitoring-hub-at-this-years-paris-olympics" target="min">MiTAC’s MA1 Serves as the People-Monitoring Hub at this Year’s Paris Olympics</a></h2>
+												<!--Contents--><span></span><!--end Contents-->
+											</div>
+										</div>
+									</div>
+								</article>
+							<!--end one -->
+							<!--one -->
+								<article class="entry col-12 mb-3">
+									<div class="grid-inner row gutter-20">
+										<div class="col-md-1">
 											<a href="https://embeddedcomputing.com/technology/iot/edge-computing/deploy-aoi-with-ai-capabilities-through-an-on-prem-next-gen-edge-computer" target="min"><img src="/images/pressroom_pic/PRIM-embedded.gif" alt=""  ></a>
 										</div>
 										<div class="col-md-11">
