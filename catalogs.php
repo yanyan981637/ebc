@@ -74,7 +74,7 @@ if (isset($_GET["status"])) {
 						<h2>Embedded:</h2>
 						<div class="row justify-content-center col-mb-50">
 							<div class="col-sm-6 col-md-4 col-lg-4">
-								<a href="https://download.mitacmct.com/Files/Catalog/Edge-AI-Catalog.pdf" target="_blank"><img src="/images/catalog/Edge-AI-Catalog-2023-cover.jpg" class="img-fluid"></a><br>
+								<a href="https://dl-mio.akamaized.net/ebc/product-info/File/2024-Edge%20AI_DM.pdf" target="_blank"><img src="/images/catalog/Edge-AI-Catalog-2023-cover.jpg" class="img-fluid"></a><br>
 								<h5>Edge AI Catalog</h5>
 							</div>
 							<div class="col-sm-6 col-md-4 col-lg-4">
