@@ -139,37 +139,57 @@ if($s_cookie!=2){
 				<div class="col-2"></div>
 				<div class="col-8">
 					<?php
-					// Type
-					$str_type="SELECT DISTINCT(a.`ProductTypeID`), a.`ProductTypeName` FROM `producttypes` a inner join (SELECT Product_SKU_Auto_ID, ProductTypeID, IS_EOL FROM product_skus) b on a.ProductTypeID=b.ProductTypeID WHERE b.IS_EOL='1'";
-					$cmd_type=mysqli_query($link_db,$str_type);
-					while($data_type=mysqli_fetch_array($cmd_type)){
+					// Fetch distinct product types that are marked as EOL
+					$str_type = "
+						SELECT DISTINCT pt.ProductTypeID, pt.ProductTypeName 
+						FROM producttypes pt
+						INNER JOIN product_skus ps ON pt.ProductTypeID = ps.ProductTypeID
+						WHERE ps.IS_EOL = '1'
+					";
+					$cmd_type = mysqli_query($link_db, $str_type);
+
+					while ($data_type = mysqli_fetch_assoc($cmd_type)) {
+						$productTypeID = $data_type['ProductTypeID'];
+						$productTypeName = preg_replace('/\s(?=)/', '', $data_type['ProductTypeName']);
 					?>
-					<!--one product type card-->
-					<div class="card mb-5">
-						<div class="card-body">
-							<h1 class="card-title"><?=$data_type[1];?></h1>
-							<table class="table table-striped table-hover">
-								<tbody>
-									<?php
-									$str_EOL="SELECT a.`SKU`, a.`MODELCODE` FROM contents_product_skus a inner join (SELECT Product_SKU_Auto_ID, ProductTypeID, IS_EOL FROM product_skus) b on a.Product_SContents_Auto_ID=b.Product_SKU_Auto_ID WHERE a.STATUS='1' AND b.IS_EOL='1' AND b.ProductTypeID='".$data_type[0]."'";
-									$cmd_EOL=mysqli_query($link_db,$str_EOL);
-									while($data_EOL=mysqli_fetch_row($cmd_EOL)){
-										$type=preg_replace('/\s(?=)/', '', $data_type[1]);
-										$url=$type."_".$data_EOL[1]."_".$data_EOL[0];
-									?>
-									<tr><td><a href="./<?=$url;?>" ><?=$data_EOL[0];?></a> / <a href="./<?=$url;?>" ><?=$data_EOL[1];?></a>&nbsp;<span class="badge bg-secondary">EOL</span></td></tr>
-									<?php
-									}
-									?>
-								</tbody>
-							</table>
+						<!-- One product type card -->
+						<div class="card mb-5">
+							<div class="card-body">
+								<h1 class="card-title"><?= htmlspecialchars($data_type['ProductTypeName']); ?></h1>
+								<table class="table table-striped table-hover">
+									<tbody>
+										<?php
+										// Fetch EOL products for the current product type
+										$str_EOL = "
+											SELECT c.SKU, c.MODELCODE 
+											FROM contents_product_skus c
+											INNER JOIN product_skus ps ON c.Product_SContents_Auto_ID = ps.Product_SKU_Auto_ID
+											WHERE c.STATUS = '1' AND ps.IS_EOL = '1' AND ps.ProductTypeID = '$productTypeID'
+											ORDER BY c.SKU ASC
+										";
+										$cmd_EOL = mysqli_query($link_db, $str_EOL);
+
+										while ($data_EOL = mysqli_fetch_assoc($cmd_EOL)) {
+											$sku = htmlspecialchars($data_EOL['SKU']);
+											$modelCode = htmlspecialchars($data_EOL['MODELCODE']);
+											$url = "{$productTypeName}_{$modelCode}_{$sku}";
+										?>
+										<tr>
+											<td>
+												<a href="./<?= $url; ?>"><?= $sku; ?></a> / 
+												<a href="./<?= $url; ?>"><?= $modelCode; ?></a>
+												&nbsp;<span class="badge bg-secondary">EOL</span>
+											</td>
+										</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
-					<!--end one product type card-->
-					<?php
-					}
-					?>
+						<!-- End one product type card -->
+					<?php } ?>
 				</div>
+
 				<div class="col-2"></div>
 			</div>
 		</div>
