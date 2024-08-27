@@ -151,6 +151,19 @@ if($s_cookie!=2){
 					while ($data_type = mysqli_fetch_assoc($cmd_type)) {
 						$productTypeID = $data_type['ProductTypeID'];
 						$productTypeName = preg_replace('/\s(?=)/', '', $data_type['ProductTypeName']);
+
+						// Fetch EOL products for the current product type
+						$str_EOL = "
+							SELECT c.SKU, c.MODELCODE 
+							FROM contents_product_skus c
+							INNER JOIN product_skus ps ON c.Product_SContents_Auto_ID = ps.Product_SKU_Auto_ID
+							WHERE c.STATUS = '1' AND ps.IS_EOL = '1' AND ps.ProductTypeID = '$productTypeID'
+							ORDER BY c.SKU ASC
+						";
+						$cmd_EOL = mysqli_query($link_db, $str_EOL);
+
+						// Check if there are any EOL products
+						if (mysqli_num_rows($cmd_EOL) > 0) {
 					?>
 						<!-- One product type card -->
 						<div class="card mb-5">
@@ -159,16 +172,6 @@ if($s_cookie!=2){
 								<table class="table table-striped table-hover">
 									<tbody>
 										<?php
-										// Fetch EOL products for the current product type
-										$str_EOL = "
-											SELECT c.SKU, c.MODELCODE 
-											FROM contents_product_skus c
-											INNER JOIN product_skus ps ON c.Product_SContents_Auto_ID = ps.Product_SKU_Auto_ID
-											WHERE c.STATUS = '1' AND ps.IS_EOL = '1' AND ps.ProductTypeID = '$productTypeID'
-											ORDER BY c.SKU ASC
-										";
-										$cmd_EOL = mysqli_query($link_db, $str_EOL);
-
 										while ($data_EOL = mysqli_fetch_assoc($cmd_EOL)) {
 											$sku = htmlspecialchars($data_EOL['SKU']);
 											$modelCode = htmlspecialchars($data_EOL['MODELCODE']);
@@ -187,20 +190,18 @@ if($s_cookie!=2){
 							</div>
 						</div>
 						<!-- End one product type card -->
-					<?php } ?>
+					<?php
+						}
+					} 
+					?>
 				</div>
-
 				<div class="col-2"></div>
 			</div>
 		</div>
-
 		<div class="clear mb-6"></div>
 		<!-- FOOTER -->
-		<?php
-		include("foot1.htm");
-		?>
+		<?php include("foot1.htm"); ?>
 		<!-- FOOTER end -->
-
 	</div><!-- #wrapper end -->
 
 	<!-- Go To Top
