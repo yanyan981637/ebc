@@ -101,11 +101,11 @@ if($kind=="RFQ"){
         $arrMODEL.=$result[2].",";
 
         if($result[3]==107){ //Industrial Panel PC
-            $mail="Sales_client@mic.com.tw";
+            $mail="ebc@mitacmdt.com";
           }elseif ($result[3]==108) {  //Embedded System
-            $mail="Sales_client@mic.com.tw";
+            $mail="ebc@mitacmdt.com";
           }elseif ($result[3]==109) {  //Industrial Motherboard
-            $mail="Sales_client@mic.com.tw";
+            $mail="ebc@mitacmdt.com";
           }elseif ($result[3]==110) {  //OCP Server
             $mail="Sales_enterprise@mic.com.tw";
           }elseif ($result[3]==111) {  //OCP Mezz
@@ -115,7 +115,7 @@ if($kind=="RFQ"){
           }elseif ($result[3]==113) {  //OCP Rack
             $mail="Sales_enterprise@mic.com.tw";
           }elseif ($result[3]==114) {  //POS
-            $mail="Sales_client@mic.com.tw";
+            $mail="ebc@mitacmdt.com";
           }elseif ($result[3]==115) {  //5G Edge Computing
             $mail="Sales_enterprise@mic.com.tw";
           }
