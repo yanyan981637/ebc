@@ -279,7 +279,7 @@ if (mysqli_query($link_db, $str_inst)) {
     # ***************20240628 窗口通知信 *******************
         $mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
             'business@mitacmdt.com', 'MiTAC Digital Technology',
-            'ebc@mitacmdt.com', 'Mitac computer',
+            'sales_client@mitacmdt.com', 'Mitac computer',
             'Contact Us Notification - #' . $Mcount . ' ' . $now1, $body
         );
 

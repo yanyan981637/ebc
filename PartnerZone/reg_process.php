@@ -184,11 +184,11 @@ if ($kind == "register") {
                 $arrSKU .= $result[1] . ",";
                 $arrMODEL .= $result[2] . ",";
                 if ($result[3] == 107) { //Industrial Panel PC
-                    $mail = "ebc@mitacmdt.com";
+                    $mail = "sales_client@mitacmdt.com";
                 } elseif ($result[3] == 108) {  //Embedded System
-                    $mail = "ebc@mitacmdt.com";
+                    $mail = "sales_client@mitacmdt.com";
                 } elseif ($result[3] == 109) {  //Industrial Motherboard
-                    $mail = "ebc@mitacmdt.com";
+                    $mail = "sales_client@mitacmdt.com";
                 } elseif ($result[3] == 110) {  //OCP Server
                     $mail = "Sales_enterprise@mic.com.tw";
                 } elseif ($result[3] == 111) {  //OCP Mezz
@@ -198,7 +198,7 @@ if ($kind == "register") {
                 } elseif ($result[3] == 113) {  //OCP Rack
                     $mail = "Sales_enterprise@mic.com.tw";
                 } elseif ($result[3] == 114) {  //POS
-                    $mail = "ebc@mitacmdt.com";
+                    $mail = "sales_client@mitacmdt.com";
                 } elseif ($result[3] == 115) {  //5G Edge Computing
                     $mail = "Sales_enterprise@mic.com.tw";
                 }
@@ -447,7 +447,7 @@ if ($kind == "register") {
         # ***************20240628 窗口通知信 *******************
             $mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
                 'business@mitacmdt.com', 'MCT Partner Zone',
-                'ebc@mitacmdt.com', 'Mitac computer',
+                'sales_client@mitacmdt.com', 'Mitac computer',
                 'New lead notification', $Sales_content
             );
 
