@@ -10,6 +10,8 @@ exit();
 }
 require "../config.php";
 
+// ini_set('display_errors', TRUE);
+
 $link_db=mysqli_connect($db_host,$db_user,$db_pwd,$dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
@@ -138,6 +140,13 @@ foreach($_POST['op_sku'] as $op_sku01){
 }else{
  $op_skulist="";
 }
+
+// 20241126 初始化 $m_data
+if (!isset($m_data) || !is_array($m_data)) {
+    $m_data = [""];
+}
+
+
 $tt=$mm_modellist.$mb_modellist.$nh_modellist.$as_modellist.$mm_skulist.$mb_skulist.$chs_skulist.$nh_skulist.$as_skulist.$jbo_modellist.$jbo_skulist.$tpm_modellist.$tpm_skulist.$op_modellist.$op_skulist;
 echo "<script language='Javascript'>parent.document.forms['form1'].relProd_val.value='".$tt."';";
 /*echo "<script language='Javascript'>";
@@ -421,12 +430,47 @@ $cdata=mysqli_fetch_row($count_result);
         	<!--<p><input name="" type="checkbox" value="" /> [Model]: (<input name="" type="checkbox" value="" /> SKU,&nbsp;<input name="" type="checkbox" value="" /> SKU,)</p>-->
 			<li><?php
 				$str_MM_model="SELECT `ModelID`, `ModelCode`, `ProductCateID` FROM `product_models` where `ProductCateID` in (1) GROUP BY `ModelCode` order by `ModelCode`"; //cateID table : productcategories
+				
+				// 檢查是否成功執行
+				$result = mysqli_query($link_db, $str_MM_model);
+				if (!$result) {
+					die("SQL Query Failed: " . mysqli_error($link_db));
+				}
+
 				$MM_model_record=mysqli_query($link_db,$str_MM_model);
 				$m=0;
 				while($MM_model_data=mysqli_fetch_row($MM_model_record)){
 				$m+=1;
 				?>
-				<input id="mm_model[]" name="mm_model[]" type="checkbox" value="S.<?=$MM_model_data[1];?>" <?php if(strpos($m_data[0],"S.".$MM_model_data[1].",")!='' || strpos($m_data[0],"S.".$MM_model_data[1].",")===0){ echo "checked"; } ?> /> <?=$MM_model_data[1];?>
+				<!-- <input id="mm_model[]" name="mm_model[]" type="checkbox" value="S.<?=$MM_model_data[1];?>" <?php if(strpos($m_data[0],"S.".$MM_model_data[1].",")!='' || strpos($m_data[0],"S.".$MM_model_data[1].",")===0){ echo "checked"; } ?> /> <?=$MM_model_data[1];?> -->
+				<?php
+					// 確保 $m_data 是陣列且已初始化
+					if (!isset($m_data) || !is_array($m_data)) {
+						$m_data = [""];
+					}
+
+					// 確保 $MM_model_data 是否已定義並包含索引 1
+					if (isset($MM_model_data[1])) {
+						?>
+						<input id="mm_model[]" 
+							name="mm_model[]" 
+							type="checkbox" 
+							value="S.<?=$MM_model_data[1];?>" 
+							<?php 
+							// 判斷 $m_data[0] 是否包含 "S.".$MM_model_data[1]
+							if (strpos($m_data[0], "S." . $MM_model_data[1] . ",") !== false || strpos($m_data[0], "S." . $MM_model_data[1] . ",") === 0) { 
+								echo "checked"; 
+							} 
+							?> 
+						/> <?=$MM_model_data[1];?>
+						<?php
+					} else {
+						// 若 $MM_model_data 未定義或缺少索引，顯示提示訊息
+						echo "資料錯誤，無法顯示";
+					}
+					?>
+
+
 				  <?php if($MM_model_data==true){?>
 			  
 				  <?php
@@ -448,7 +492,17 @@ $cdata=mysqli_fetch_row($count_result);
 				  $MM_data[2]=preg_replace('/\s(?=)/', '', trim($MM_data[2]));
 				  //$MM_data_Re=str_replace('[BTO]','',$MM_data[2]);
 				  ?>
-				  <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>" <?php if(strpos($m_data[0], $MM_data[2].",")!="" || strpos($m_data[0], $MM_data[2].",")===0){ echo "checked"; } //if(preg_match("/\b".$MM_data[2].",\b/i",$prod_data[14]) || preg_match("/\b".$MM_data_Re."[[:upper:]],/i",$prod_data[14])) {echo "checked";} ?> /> <?=$MM_data[2];?>,&nbsp;
+				  <!-- <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>" <?php if(strpos($m_data[0], $MM_data[2].",")!="" || strpos($m_data[0], $MM_data[2].",")===0){ echo "checked"; } //if(preg_match("/\b".$MM_data[2].",\b/i",$prod_data[14]) || preg_match("/\b".$MM_data_Re."[[:upper:]],/i",$prod_data[14])) {echo "checked";} ?> /> <?=$MM_data[2];?>,&nbsp; -->
+				  
+				  <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" 
+						title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>"
+					<?php
+					// 檢查 $m_data 和 $MM_data 是否正確
+					if (isset($m_data[0]) && (strpos($m_data[0], $MM_data[2] . ",") !== false || strpos($m_data[0], $MM_data[2] . ",") === 0)) {
+						echo "checked";
+					}
+					?> /> <?=$MM_data[2];?>,&nbsp;
+
 				  <?php
 				  }
 				  ?>
@@ -474,8 +528,16 @@ $cdata=mysqli_fetch_row($count_result);
 				while($MM_model_data=mysqli_fetch_row($MM_model_record)){
 				$m+=1;
 				?>
-				<input id="mm_model[]" name="mm_model[]" type="checkbox" value="S.<?=$MM_model_data[1];?>" <?php if(strpos($m_data[0],"S.".$MM_model_data[1].",")!='' || strpos($m_data[0],"S.".$MM_model_data[1].",")===0){ echo "checked"; } ?> /> <?=$MM_model_data[1];?>
-				  <?php if($MM_model_data==true){?>
+				<input id="mm_model[]" name="mm_model[]" type="checkbox" 
+						value="S.<?=$MM_model_data[1];?>"
+					<?php
+					// 在使用 $m_data[0] 前進行檢查
+					if (isset($m_data[0]) && (strpos($m_data[0], "S." . $MM_model_data[1] . ",") !== false || strpos($m_data[0], "S." . $MM_model_data[1] . ",") === 0)) {
+						echo "checked";
+					}
+					?> /> <?=$MM_model_data[1];?>				  
+					
+					<?php if($MM_model_data==true){?>
 			  
 				  <?php
 				  //$str_MM="SELECT `Product_SKU_Auto_ID`, `ProductTypeID`, `SKU`, `MODELCODE` FROM `product_skus` WHERE `Web_Disable`=0 and `MODELCODE`='".$MM_model_data[1]."' ORDER BY `MODELCODE`";
@@ -496,7 +558,16 @@ $cdata=mysqli_fetch_row($count_result);
 				  $MM_data[2]=preg_replace('/\s(?=)/', '', trim($MM_data[2]));
 				  //$MM_data_Re=str_replace('[BTO]','',$MM_data[2]);
 				  ?>
-				  <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>" <?php if(strpos($m_data[0], $MM_data[2].",")!="" || strpos($m_data[0], $MM_data[2].",")===0){ echo "checked"; } //if(preg_match("/\b".$MM_data[2].",\b/i",$prod_data[14]) || preg_match("/\b".$MM_data_Re."[[:upper:]],/i",$prod_data[14])) {echo "checked";} ?> /> <?=$MM_data[2];?>,&nbsp;
+				  <!-- <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>" <?php if(strpos($m_data[0], $MM_data[2].",")!="" || strpos($m_data[0], $MM_data[2].",")===0){ echo "checked"; } //if(preg_match("/\b".$MM_data[2].",\b/i",$prod_data[14]) || preg_match("/\b".$MM_data_Re."[[:upper:]],/i",$prod_data[14])) {echo "checked";} ?> /> <?=$MM_data[2];?>,&nbsp; -->
+				  <input id="mm_model[]" name="mm_model[]" type="checkbox"
+						value="S.<?=$MM_model_data[1];?>"
+					<?php
+					// 在使用 $m_data[0] 前檢查
+					if (isset($m_data[0]) && (strpos($m_data[0], "S." . $MM_model_data[1] . ",") !== false || strpos($m_data[0], "S." . $MM_model_data[1] . ",") === 0)) {
+						echo "checked";
+					}
+					?> /> <?=$MM_model_data[1];?>
+
 				  <?php
 				  }
 				  ?>
@@ -522,8 +593,19 @@ $cdata=mysqli_fetch_row($count_result);
 				while($MM_model_data=mysqli_fetch_row($MM_model_record)){
 				$m+=1;
 				?>
-				<input id="mm_model[]" name="mm_model[]" type="checkbox" value="S.<?=$MM_model_data[1];?>" <?php if(strpos($m_data[0],"S.".$MM_model_data[1].",")!='' || strpos($m_data[0],"S.".$MM_model_data[1].",")===0){ echo "checked"; } ?> /> <?=$MM_model_data[1];?>
-				  <?php if($MM_model_data==true){?>
+				<!-- <input id="mm_model[]" name="mm_model[]" type="checkbox" value="S.<?=$MM_model_data[1];?>" <?php if(strpos($m_data[0],"S.".$MM_model_data[1].",")!='' || strpos($m_data[0],"S.".$MM_model_data[1].",")===0){ echo "checked"; } ?> /> <?=$MM_model_data[1];?> -->
+
+				<input id="mm_model[]" name="mm_model[]" type="checkbox" 
+					value="S.<?=$MM_model_data[1];?>"
+				<?php
+				// 檢查 $m_data[0] 是否設定，並判斷是否應該勾選
+				if (isset($m_data[0]) && (strpos($m_data[0], "S." . $MM_model_data[1] . ",") !== false || strpos($m_data[0], "S." . $MM_model_data[1] . ",") === 0)) {
+					echo "checked";
+				}
+				?> /> <?=$MM_model_data[1];?>
+				  
+				
+				<?php if($MM_model_data==true){?>
 			  
 				  <?php
 				  //$str_MM="SELECT `Product_SKU_Auto_ID`, `ProductTypeID`, `SKU`, `MODELCODE` FROM `product_skus` WHERE `Web_Disable`=0 and `MODELCODE`='".$MM_model_data[1]."' ORDER BY `MODELCODE`";
@@ -544,7 +626,37 @@ $cdata=mysqli_fetch_row($count_result);
 				  $MM_data[2]=preg_replace('/\s(?=)/', '', trim($MM_data[2]));
 				  //$MM_data_Re=str_replace('[BTO]','',$MM_data[2]);
 				  ?>
-				  <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>" <?php if(strpos($m_data[0], $MM_data[2].",")!="" || strpos($m_data[0], $MM_data[2].",")===0){ echo "checked"; } //if(preg_match("/\b".$MM_data[2].",\b/i",$prod_data[14]) || preg_match("/\b".$MM_data_Re."[[:upper:]],/i",$prod_data[14])) {echo "checked";} ?> /> <?=$MM_data[2];?>,&nbsp;
+				  <!-- <input class="SeMo_Sub<?=$MM_model_data[0];?>" id="mm_sku[]" name="mm_sku[]" type="checkbox" title="<?=$MM_model_data[0];?>" value="<?=$MM_data[2];?>" <?php if(strpos($m_data[0], $MM_data[2].",")!="" || strpos($m_data[0], $MM_data[2].",")===0){ echo "checked"; } //if(preg_match("/\b".$MM_data[2].",\b/i",$prod_data[14]) || preg_match("/\b".$MM_data_Re."[[:upper:]],/i",$prod_data[14])) {echo "checked";} ?> /> <?=$MM_data[2];?>,&nbsp; -->
+
+				  <?php
+					// 確保 $m_data 為陣列並且包含索引 0
+					if (!isset($m_data) || !is_array($m_data)) {
+						$m_data = [""];
+					}
+
+					// 確保 $MM_model_data 和 $MM_data 是否存在並包含需要的索引
+					if (isset($MM_model_data[0]) && isset($MM_data[2])) {
+						?>
+						<input class="SeMo_Sub<?=$MM_model_data[0];?>" 
+							id="mm_sku[]" 
+							name="mm_sku[]" 
+							type="checkbox" 
+							title="<?=$MM_model_data[0];?>" 
+							value="<?=$MM_data[2];?>" 
+							<?php 
+							// 判斷 $m_data[0] 是否包含 $MM_data[2]
+							if (strpos($m_data[0], $MM_data[2] . ",") !== false || strpos($m_data[0], $MM_data[2] . ",") === 0) { 
+								echo "checked"; 
+							} 
+							?> 
+						/> <?=$MM_data[2];?>,&nbsp;
+						<?php
+					} else {
+						// 如果變數未設定，顯示錯誤提示或初始化變數以避免中斷
+						echo "資料錯誤，無法顯示";
+					}
+					?>
+
 				  <?php
 				  }
 				  ?>
