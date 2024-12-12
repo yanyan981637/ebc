@@ -14,13 +14,14 @@ $mail="";
 
 $mail01=preg_replace("/['\"\~\%\$ \r\n\t;<>\?]/i", '', $_POST['mail']);
 $mail=filter_var($mail01);
+$mail = str_replace("@", "%40", $mail);
 
 $post=[
-    'refresh_token'=>'1000.6deae81624b7300d9021d5d3f7f12f01.09e8b43ace670b4691bce42aa498f13b',
+    'refresh_token'=>'1000.b90e9f57ef1b3faf62a475fc3d2cc64b.b1a124a94b3ba9a655b9789141221762',
     'redirect_uri'=>'',
-    'client_id'=>'1000.TBTIYFLTQ50HHLCNB5M75SY7ETKLYG',
+    'client_id'=>'1000.D10R9STXEK86WUBAA3WQKQHG386G2Z',
     'grant_type'=>'refresh_token',
-    'client_secret'=>'90994963b99b7707c212c7d4033a6ce4b84973cfba'
+    'client_secret'=>'cb9a671b0aebccd7093c64397590f54329a4ba4e0d'
 ];
 
 //'refresh_token'=>'1000.b15ea7a31a209ff6dc0492cada2a01c3.eeb273fdd1a72b0515d0a9cd27a454ef',
@@ -38,15 +39,16 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form
 $result2 = curl_exec($ch);
 $result2 = json_decode($result2, true);
 $accessToken=$result2['access_token'];
-
+// echo $accessToken;
 
 $token=$accessToken;
-$listkey="3z32bfcb27da1e6fb87fb3c01da2a3122759c16181c3b9b6ac4d0e152cfb03d30e";
+$listkey="3za212eae4c1d60dd8157259c5a142bff340bf2eba9f48d1b29455bab8e40f7607";
+$url="https://campaigns.zoho.com/api/v1.1/json/listsubscribe?resfmt=JSON&listkey=".$listkey."&contactinfo=%7BContact+Email%3A%22".$mail."%22%7D";
 
+// https://campaigns.zoho.com/api/v1.1/json/listsubscribe?resfmt=JSON&contactinfo=%7B%22First+Name%22%3A%22mac%22%2C%22Last+Name%22%3A%22Last+Name%22%2C%22Contact+Email%22%3A%22yanyan.mitac%40gmail.com%22%7D&listkey=3za212eae4c1d60dd8157259c5a142bff340bf2eba9f48d1b29455bab8e40f7607
+// $url="https://campaigns.zoho.com/api/v1.1/json/listsubscribe?resfmt=JSON&emailids=".$mail."&listkey=".$listkey;
 
-$url="https://campaigns.zoho.com/api/v1.1/addlistsubscribersinbulk?resfmt=JSON&emailids=".$mail."&listkey=".$listkey;
-
-$headers[]  =  "Content-Type: application/json";
+$headers[]  =  "Content-Type: application/x-www-form-urlencoded";
 $headers[]  =  "Authorization:Zoho-oauthtoken ".$token;
 
 $ch = curl_init();
@@ -59,6 +61,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $result2 = curl_exec($ch);
 $result2 = json_decode($result2, true);
 $status=$result2['status'];
+
 if($status=="success"){
     echo "refresh";
     exit();
