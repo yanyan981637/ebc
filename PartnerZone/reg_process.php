@@ -125,6 +125,8 @@ if ($kind == "register") {
     // }
     $Verification = date("Y/m/d H:i:s", strtotime("+1 months", strtotime($now)));
     //******** rand 產生新密碼 ********
+    // 在產生新密碼之前先初始化
+    $password = "";
     $random = 6; //亂數長度
     for ($i = 1; $i <= $random; $i++) {
         $c = rand(1, 3);
@@ -143,6 +145,17 @@ if ($kind == "register") {
         $password = $password . $b;
     }
     //**********************************
+
+    // 初始化累加字串變數，避免後續使用時未定義
+    $arrPID = "";
+    $arrPTID = "";
+    $arrSKU = "";
+    $arrMODEL = "";
+    $UserID = "";
+    // 若有使用陣列來記錄數量，請也初始化，例如：
+    $arrQty = [];   // 若要累計或儲存數量
+    $new_arrQty = []; // 若之後有使用此變數存放數量資訊
+
     $strCompanyID = "SELECT CompanyID FROM partner_user WHERE 1 ORDER BY CompanyID DESC";
     $cmdCompanyID = mysqli_query($link_db, $strCompanyID);
     $resultCompanyID = mysqli_fetch_row($cmdCompanyID);
@@ -210,6 +223,41 @@ if ($kind == "register") {
             }
             $j++;
         }
+
+
+        $add_quote_list_sql = "INSERT INTO quote_list (
+          Name, 
+          Company, 
+          Email, 
+          Region, 
+          Tel, 
+          Message, 
+          Product_ID, 
+          ProductTypeID, 
+          Model, 
+          SKU, 
+          CreateDate
+        ) VALUES (
+            '" . mysqli_real_escape_string($link_db, $username) . "',
+            '" . mysqli_real_escape_string($link_db, $companyname) . "',
+            '" . mysqli_real_escape_string($link_db, $email) . "',
+            '" . mysqli_real_escape_string($link_db, $countryCode) . "',
+            '" . mysqli_real_escape_string($link_db, $tel) . "',
+            '" . mysqli_real_escape_string($link_db, $Msg) . "',
+            '" . mysqli_real_escape_string($link_db, $arrPID) . "',
+            '" . mysqli_real_escape_string($link_db, $arrPTID) . "',
+            '" . mysqli_real_escape_string($link_db, $arrMODEL) . "',
+            '" . mysqli_real_escape_string($link_db, $arrSKU) . "',
+            '" . mysqli_real_escape_string($link_db, $now) . "'
+        )";
+        
+        $quote_list_result = mysqli_query($link_db, $add_quote_list_sql);
+        if ($quote_list_result) {
+            echo "資料已成功存入 quote_list 資料表";
+        } else {
+            echo "資料存入失敗，錯誤訊息：" . mysqli_error($link_db);
+        }
+
         $strQuoteID = "SELECT ID FROM partner_leads_quote WHERE 1 ORDER BY ID DESC";
         $cmdQuoteID = mysqli_query($link_db, $strQuoteID);
         $resultQuoteID = mysqli_fetch_row($cmdQuoteID);
@@ -224,6 +272,7 @@ if ($kind == "register") {
         $str_inst_sq .= " VALUES ('" . $QuoteID . "','0','" . $UserID . "','" . $CompanyID . "','" . $arrPID . "','" . $arrPTID . "','" . $arrMODEL . "','" . $arrSKU . "','" . $arrQty . "','" . $Verification . "','Processing','1','" . $now . "')";
         $cmd_sq = mysqli_query($link_db, $str_inst_sq);
         $result = mysqli_affected_rows($link_db);
+
         if ($result > 0) {
             //setcookie("RFQsku","",time()-3600*24*7, "/");
         } else {
@@ -275,11 +324,25 @@ if ($kind == "register") {
                                 ";
         $tmp_sku = explode(",", $arrSKU);
         $tmp_MODEL = explode(",", $arrMODEL);
-        foreach ($tmp_sku as $key => $value) {
-            if ($value != "") {
-                $user_content .= "<tr><td style='padding:5px; border-bottom:1px solid #eee'>" . $value . " (" . $tmp_MODEL[$key] . ")</td><td style='padding:5px; border-bottom:1px solid #eee'>" . $new_arrQty[$value] . "</td></tr>";
-            }
-        }
+        // foreach ($tmp_sku as $key => $value) {
+        //     if ($value != "") {
+        //         $user_content .= "<tr><td style='padding:5px; border-bottom:1px solid #eee'>" . $value . " (" . $tmp_MODEL[$key] . ")</td><td style='padding:5px; border-bottom:1px solid #eee'>" . $new_arrQty[$value] . "</td></tr>";
+        //     }
+        // }
+        foreach ($tmp_sku as $key => $sku) {
+          if ($sku != "") {
+              // 取得對應的 Model，若不存在則設為空字串
+              $model = isset($tmp_MODEL[$key]) ? $tmp_MODEL[$key] : "";
+              // 取得數量，若 $new_arrQty 對應 $sku 不存在則預設為 0
+              $qty = isset($new_arrQty[$sku]) ? $new_arrQty[$sku] : 0;
+              
+              // 將資料轉換為 HTML 安全字串後再輸出
+              $user_content .= "<tr>
+                  <td style='padding:5px; border-bottom:1px solid #eee'>" . htmlspecialchars($sku) . " (" . htmlspecialchars($model) . ")</td>
+                  <td style='padding:5px; border-bottom:1px solid #eee'>" . htmlspecialchars($qty) . "</td>
+              </tr>";
+          }
+      }
         $user_content .= "
                               </table>
                               <!--end RFQ-->
