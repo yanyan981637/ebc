@@ -10,7 +10,7 @@ function mail_setting(
     $mail_to_name = null,
     $mail_subject,
     $mail_content,
-    $fail_back = false
+    $fail_back = true
 ) {
     $instance = new PHPMailer(); //建立新物件
     // Enable verbose debug output, 3 is debug mode
@@ -41,8 +41,9 @@ function mail_setting(
     $instance->SMTPAutoTLS = false;
 
     if ($fail_back) {
-        $instance->AddAddress('tony.wei@mic.com.tw', 'tony.wei (魏東明 - MDT)');
-        $instance->AddAddress('ling.huang@mic.com.tw', 'ling.huang (黃苑菱 - MDT)');
+        $instance->AddAddress('tony.wei@mitacmdt.com', 'tony.wei (魏東明 - MDT)');
+        $instance->AddAddress('ling.huang@mitacmdt.com', 'ling.huang (黃苑菱 - MDT)');
+        $instance->AddAddress('yanyan.lin@mitacmdt.com', 'yanyan.lin (林彥廷 - MDT)');
     } else {
         $instance->AddAddress($mail_to, $mail_to_name);
     }
