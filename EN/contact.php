@@ -193,6 +193,28 @@ if (isset($_GET["status"])) {
                 </div>
             </div>
         </section><!-- #content end -->
+
+        <div id="myModal2" class="modal fade confirm-quote" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                        <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="center" style="padding: 50px;">
+                            <h3>Submit Successfully!</h3>
+                            <p class="mb-0">Thank you for your interest in MiTAC Digital Technology.
+                                We will contact with you ASAP.
+                            </p>
+                        </div>
+                        <div class="section center m-0" style="padding: 30px;">
+                            <a href="/" class="button">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- FOOTER -->
         <?php
         include("../foot1.htm");
@@ -234,6 +256,10 @@ if (isset($_GET["status"])) {
         });
     </script>
     <script type="text/javascript">
+        // 當 modal 隱藏後，轉到首頁
+        $("#myModal2").on('hidden.bs.modal', function () {
+            window.location.href = '/';
+        });
         $(function() {
             $("#add").click(function() {
                 if ($("#f_Name").val() == "") {
@@ -393,8 +419,9 @@ if (isset($_GET["status"])) {
                         cache: false,
                         success: function(message) {
                             if (message == "susses") {
-                                alert('Thank you for contacting with us. We will respond to you shortly.');
-                                document.location.href = '/EN/contact/';
+						        $("#myModal2").modal('show');
+                                // alert('Thank you for contacting with us. We will respond to you shortly.');
+                                // document.location.href = '/EN/contact/';
                             } else {
                                 // alert(message);
                                 alert("Error: " + message);

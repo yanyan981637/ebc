@@ -398,6 +398,10 @@ $arr_sku = explode(",", $RFQsku);
 	<!-- ADD-ONS JS FILES -->
 	<script src="js1/top.js"></script>
 	<script>
+        // 當 modal 隱藏後，轉到首頁
+        $("#myModal2").on('hidden.bs.modal', function () {
+            window.location.href = '/';
+        });
 		$("#RFQ_OK").click(function() {
 			var num = $("#pr_num").val();
 			var kind = "";
