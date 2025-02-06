@@ -12,17 +12,19 @@ require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 // }
 // error_reporting(1);
 // session_start();
-if (isset($_SESSION["Checknum"]) != '') {
-    if ($_SESSION["Checknum"] == $_POST['Checknum']) {
-        //$msg = "You enter the correct verification code！";
-        //echo "susses";
-    } else {
-        //$msg = "Wrong Security Code! Please enter again.";
-        //echo "<script>alert('".$msg."');history.go(-1);</script>";
-        echo "Wrong Security Code! Please enter again.";
-        exit();
-    }
-}
+
+// if (isset($_SESSION["Checknum"]) != '') {
+//     if ($_SESSION["Checknum"] == $_POST['Checknum']) {
+//         //$msg = "You enter the correct verification code！";
+//         //echo "susses";
+//     } else {
+//         //$msg = "Wrong Security Code! Please enter again.";
+//         //echo "<script>alert('".$msg."');history.go(-1);</script>";
+//         echo "Wrong Security Code! Please enter again.";
+//         exit();
+//     }
+// }
+
 require "config.php";
 require "countryCodeReplace.php";
 require "../mail_setting.php";
@@ -253,7 +255,7 @@ if ($kind == "register") {
         
         $quote_list_result = mysqli_query($link_db, $add_quote_list_sql);
         if ($quote_list_result) {
-            echo "資料已成功存入 quote_list 資料表";
+            // echo "資料已成功存入 quote_list 資料表";
         } else {
             echo "資料存入失敗，錯誤訊息：" . mysqli_error($link_db);
         }

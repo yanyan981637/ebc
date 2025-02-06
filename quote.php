@@ -93,6 +93,9 @@ $arr_sku = explode(",", $RFQsku);
 	<link rel="stylesheet" href="css1/custom.css" type="text/css" />
 	<link rel="stylesheet" href="css1/quote.css" type="text/css" />
 	<link rel="stylesheet" href="css1/stylesheet1.css" type="text/css" /> 
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 	<script src="js1/jquery.js"></script>
 	<!-- Document Title
 	============================================= -->
@@ -333,14 +336,32 @@ $arr_sku = explode(",", $RFQsku);
 												<?php
 												}
 												?>
+
+												<!-- Google reCAPTCHA v2 核取方塊 -->
+                                                <div class="form-group" style="margin:15px 0;">
+                                                    <div class="g-recaptcha" data-sitekey="<?php echo $google_recaptcha_web_key; ?>"></div>
+                                                </div>
+                                                <!-- End Google reCAPTCHA -->
+
+												
+												<!-- Google Invisible reCAPTCHA v2 -->
+												<!-- <div class="form-group" style="margin:15px 0;">
+                                                    <div class="g-recaptcha"
+                                                         data-sitekey="<?php echo $google_recaptcha_web_key; ?>"
+                                                         data-size="invisible"
+                                                         data-callback="onSubmit">
+                                                    </div>
+                                                </div> -->
+                                                <!-- End Google Invisible reCAPTCHA -->
+
 												<!--recaptcha-->
-												<div class="row" style="margin:5px 0px 15px 0px; font-size:1rem">
+												<!-- <div class="row" style="margin:5px 0px 15px 0px; font-size:1rem">
 													<div id="vals-img" style="width: 100px;">
 														<img src="/captcha@1" id="rand-img1" border="0" width="150" style="cursor: pointer; cursor: hand;">
 													</div>
 													<a href="" id="refresh1" onclick="return false">Refresh</a><br>
 													<input type="text" id="Checknum" name="Checknum" class="form-control not-dark required" placeholder="Type the text from image">
-												</div>
+												</div> -->
 												<!--end recaptcha-->
 												<div class="form-check">
 													<input type="checkbox" class="form-check-input" id="terms">
@@ -405,98 +426,296 @@ $arr_sku = explode(",", $RFQsku);
 				}
 			});
 		})
-		$(function() {
-			$("#register").click(function() {
-				if ($("#username").val() == "") {
-					eval("document.form1['username'].focus()");
-					exit;
-				}
-				if ($("#companyname").val() == "") {
-					eval("document.form1['companyname'].focus()");
-					exit;
-				}
-				if ($("#email").val() != "") {
-					var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-					var mail_val = $("#email").val();
-					if (search_str.test(mail_val)) {
-						$("#err_Email").hide();
-					} else {
-						$("#err_Email").show();
-						eval("document.form1['email'].focus()");
-						exit;
-					}
-				} else if ($("#email").val() == "") {
-					eval("document.form1['email'].focus()");
-					$("#err_Email").show();
-					exit;
-				}
-				if ($("#countryCode").val() == "") {
-					eval("document.form1['countryCode'].focus()");
-					exit;
-				}
-				if ($("#tel").val() == "") {
-					eval("document.form1['tel'].focus()");
-					exit;
-				}
-				var username = $("#username").val();
-				var companyname = $("#companyname").val();
-				var email = $("#email").val();
-				var countryCode = $("#countryCode").val();
-				var S_News = $("#S_News").is(":checked");
-				//newsletter
-				if (S_News == true) {
-					var url = "/subscription";
-					var mail = $("#email").val();
-					var fd = new FormData();
-					fd.append("mail", mail);
-					$.ajax({
-						type: "post",
-						url: url,
-						dataType: "html",
-						data: fd,
-						cache: false,
-						contentType: false,
-						processData: false,
-						success: function(data) {
-							if (data == "refresh") {} else {}
-						}
-					});
-				}
-				//newsletter end
-				var tel = $("#tel").val();
-				var Msg = $("#re_message").val();
-				var Checknum = $("#Checknum").val();
-				var kind = "register";
-				var url = "PartnerZone/regProcess";
-				$.ajax({
-					type: "post",
-					url: url,
-					dataType: "html",
-					data: {
-						username: username,
-						companyname: companyname,
-						email: email,
-						countryCode: countryCode,
-						tel: tel,
-						Msg: Msg,
-						Checknum: Checknum,
-						kind: kind
-					},
-					success: function(message) {
-						if (message == "email") {
-							$('#err_Email1').show();
-							exit;
-						} else if (message == "success") {
-							$("#RFQmodal").modal('hide');
-							document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-							$("#myModal2").modal('show');
-						} else {
-							alert(message);
-						}
-					}
-				});
-			});
-		});
+
+		
+		// $(function() {
+		// 	$("#register").click(function() {
+		// 		if ($("#username").val() == "") {
+		// 			eval("document.form1['username'].focus()");
+		// 			exit;
+		// 		}
+		// 		if ($("#companyname").val() == "") {
+		// 			eval("document.form1['companyname'].focus()");
+		// 			exit;
+		// 		}
+		// 		if ($("#email").val() != "") {
+		// 			var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+		// 			var mail_val = $("#email").val();
+		// 			if (search_str.test(mail_val)) {
+		// 				$("#err_Email").hide();
+		// 			} else {
+		// 				$("#err_Email").show();
+		// 				eval("document.form1['email'].focus()");
+		// 				exit;
+		// 			}
+		// 		} else if ($("#email").val() == "") {
+		// 			eval("document.form1['email'].focus()");
+		// 			$("#err_Email").show();
+		// 			exit;
+		// 		}
+		// 		if ($("#countryCode").val() == "") {
+		// 			eval("document.form1['countryCode'].focus()");
+		// 			exit;
+		// 		}
+		// 		if ($("#tel").val() == "") {
+		// 			eval("document.form1['tel'].focus()");
+		// 			exit;
+		// 		}
+		// 		var username = $("#username").val();
+		// 		var companyname = $("#companyname").val();
+		// 		var email = $("#email").val();
+		// 		var countryCode = $("#countryCode").val();
+		// 		var S_News = $("#S_News").is(":checked");
+		// 		//newsletter
+		// 		if (S_News == true) {
+		// 			var url = "/subscription";
+		// 			var mail = $("#email").val();
+		// 			var fd = new FormData();
+		// 			fd.append("mail", mail);
+		// 			$.ajax({
+		// 				type: "post",
+		// 				url: url,
+		// 				dataType: "html",
+		// 				data: fd,
+		// 				cache: false,
+		// 				contentType: false,
+		// 				processData: false,
+		// 				success: function(data) {
+		// 					if (data == "refresh") {} else {}
+		// 				}
+		// 			});
+		// 		}
+		// 		//newsletter end
+		// 		var tel = $("#tel").val();
+		// 		var Msg = $("#re_message").val();
+		// 		var Checknum = $("#Checknum").val();
+		// 		var kind = "register";
+		// 		var url = "PartnerZone/regProcess";
+		// 		$.ajax({
+		// 			type: "post",
+		// 			url: url,
+		// 			dataType: "html",
+		// 			data: {
+		// 				username: username,
+		// 				companyname: companyname,
+		// 				email: email,
+		// 				countryCode: countryCode,
+		// 				tel: tel,
+		// 				Msg: Msg,
+		// 				Checknum: Checknum,
+		// 				kind: kind
+		// 			},
+		// 			success: function(message) {
+		// 				if (message == "email") {
+		// 					$('#err_Email1').show();
+		// 					exit;
+		// 				} else if (message == "success") {
+		// 					$("#RFQmodal").modal('hide');
+		// 					document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+		// 					$("#myModal2").modal('show');
+		// 				} else {
+		// 					alert(message);
+		// 				}
+		// 			}
+		// 		});
+		// 	});
+		// });
+
+		// 修改 #register 按鈕點擊事件：先進行欄位驗證，再檢查 reCAPTCHA 是否完成，完成後以 Ajax 送出表單
+        $(function() {
+            $("#register").click(function() {
+                if ($("#username").val() == "") {
+                    $("#username").focus();
+                    return;
+                }
+                if ($("#companyname").val() == "") {
+                    $("#companyname").focus();
+                    return;
+                }
+                if ($("#email").val() != "") {
+                    var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+                    var mail_val = $("#email").val();
+                    if (!search_str.test(mail_val)) {
+                        $("#err_Email").show();
+                        $("#email").focus();
+                        return;
+                    } else {
+                        $("#err_Email").hide();
+                    }
+                } else {
+                    $("#email").focus();
+                    $("#err_Email").show();
+                    return;
+                }
+                if ($("#tel").val() == "") {
+                    $("#tel").focus();
+                    return;
+                }
+                if ($("#countryCode").val() == "") {
+                    $("#countryCode").focus();
+                    return;
+                }
+                // 檢查 reCAPTCHA 是否有回傳值（使用者是否已勾選）
+                if ($("#g-recaptcha-response").val() == "") {
+                    alert("Please complete the reCAPTCHA verification.");
+                    return;
+                }
+                // 收集欄位資料，並以 Ajax 送出
+                var username = $("#username").val();
+                var companyname = $("#companyname").val();
+                var email = $("#email").val();
+                var countryCode = $("#countryCode").val();
+                var tel = $("#tel").val();
+                var Msg = $("#re_message").val();
+                var kind = "register";
+                var url = "PartnerZone/regProcess";
+
+				$("#register").attr("disabled", "disabled");
+
+                // 若 newsletter 被勾選，另行發送訂閱請求（保留原有 newsletter 程式碼）
+                if ($("#S_News").is(":checked")) {
+                    var url_sub = "/subscription";
+                    var mail = $("#email").val();
+                    var fd = new FormData();
+                    fd.append("mail", mail);
+                    $.ajax({
+                        type: "post",
+                        url: url_sub,
+                        dataType: "html",
+                        data: fd,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function(data) { }
+                    });
+                }
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    dataType: "html",
+                    data: {
+                        username: username,
+                        companyname: companyname,
+                        email: email,
+                        countryCode: countryCode,
+                        tel: tel,
+                        Msg: Msg,
+                        kind: kind
+                    },
+                    success: function(message) {
+                        if (message == "email") {
+                            $('#err_Email1').show();
+                            return;
+                        } else if (message == "success") {
+                            $("#RFQmodal").modal('hide');
+                            document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                            $("#myModal2").modal('show');
+                        } else {
+                            alert(message);
+                        }
+                    }
+                });
+            });
+        });
+
+		// // 修改 #register 按鈕點擊事件：先進行欄位驗證，驗證通過後呼叫 recaptcha 執行
+        // $(function() {
+        //     $("#register").click(function() {
+        //         if ($("#username").val() == "") {
+        //             $("#username").focus();
+        //             return;
+        //         }
+        //         if ($("#companyname").val() == "") {
+        //             $("#companyname").focus();
+        //             return;
+        //         }
+        //         if ($("#email").val() != "") {
+        //             var search_str = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+        //             var mail_val = $("#email").val();
+        //             if (!search_str.test(mail_val)) {
+        //                 $("#err_Email").show();
+        //                 $("#email").focus();
+        //                 return;
+        //             } else {
+        //                 $("#err_Email").hide();
+        //             }
+        //         } else {
+        //             $("#email").focus();
+        //             $("#err_Email").show();
+        //             return;
+        //         }
+        //         if ($("#countryCode").val() == "") {
+        //             $("#countryCode").focus();
+        //             return;
+        //         }
+        //         if ($("#tel").val() == "") {
+        //             $("#tel").focus();
+        //             return;
+        //         }
+        //         // 若欄位驗證通過，執行 Invisible reCAPTCHA 驗證
+        //         grecaptcha.execute();
+        //     });
+        // });
+
+        // // reCAPTCHA 驗證成功後的回呼函數
+        // function onSubmit(token) {
+        //     // 取得表單欄位值，並透過 Ajax 將資料送出
+        //     var username = $("#username").val();
+        //     var companyname = $("#companyname").val();
+        //     var email = $("#email").val();
+        //     var countryCode = $("#countryCode").val();
+        //     var tel = $("#tel").val();
+        //     var Msg = $("#re_message").val();
+        //     var kind = "register";
+        //     var url = "PartnerZone/regProcess";
+
+        //     // 若 newsletter 被勾選，另行發送訂閱請求（原有 newsletter 程式碼保留）
+        //     if ($("#S_News").is(":checked")) {
+        //         var url_sub = "/subscription";
+        //         var mail = $("#email").val();
+        //         var fd = new FormData();
+        //         fd.append("mail", mail);
+        //         $.ajax({
+        //             type: "post",
+        //             url: url_sub,
+        //             dataType: "html",
+        //             data: fd,
+        //             cache: false,
+        //             contentType: false,
+        //             processData: false,
+        //             success: function(data) { }
+        //         });
+        //     }
+        //     // 以 Ajax 送出註冊資料
+        //     $.ajax({
+        //         type: "post",
+        //         url: url,
+        //         dataType: "html",
+        //         data: {
+        //             username: username,
+        //             companyname: companyname,
+        //             email: email,
+        //             countryCode: countryCode,
+        //             tel: tel,
+        //             Msg: Msg,
+        //             kind: kind
+        //         },
+        //         success: function(message) {
+        //             if (message == "email") {
+        //                 $('#err_Email1').show();
+        //                 return;
+        //             } else if (message == "success") {
+        //                 $("#RFQmodal").modal('hide');
+        //                 document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        //                 $("#myModal2").modal('show');
+        //             } else {
+        //                 alert(message);
+        //             }
+        //         }
+        //     });
+        // }
+
+
 		//captcha
 		$(function() {
 			$("#refresh1").click(function() {
