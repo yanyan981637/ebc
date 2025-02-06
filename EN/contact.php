@@ -46,6 +46,9 @@ if (isset($_GET["status"])) {
     <link rel="stylesheet" href="/css1/custom.css" type="text/css" />
     <link rel="stylesheet" href="/css1/home.css " type="text/css" />
     <link rel="stylesheet" href="/css1/stylesheet1.css" type="text/css" /> 
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script src="/js1/jquery.js"></script>
     <!-- Document Title
     ============================================= -->
@@ -156,14 +159,21 @@ if (isset($_GET["status"])) {
                                         <div class="col-12 form-group d-none">
                                             <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
                                         </div>
-                                        <div class="col-12 form-group">
+                                        <!-- <div class="col-12 form-group">
                                             <label for="">Verify the code:</label>
                                             <div id="vals-img" style="width: 200px;">
                                                 <img src="/captcha@1" id="rand-img1" border="0" width="200" style="cursor: pointer; cursor: hand;">
                                             </div>
                                             <a href="#" id="refresh1">Refresh</a><br>
                                             <input type="text" name="checknum" id="checknum" size="12" maxlength="12">
+                                        </div> -->
+                                        
+                                        <!-- 使用 Google reCAPTCHA v2 核取方塊 替換後的程式碼 -->
+                                        <div class="col-12 form-group">
+                                            <label for="">Verify:</label>
+                                            <div class="g-recaptcha" data-sitekey="<?php echo $google_recaptcha_web_key; ?>"></div>
                                         </div>
+
                                         <div class="col-12 mt-4 mb-4">
                                             <div class="alert alert-info">Clicking <strong>"SUBMIT"</strong>, you agree to the
                                                 <a href="https://www.mitacmdt.com/en/terms-of-use.php" target="terms" />Terms of Use</a>,
@@ -327,6 +337,15 @@ if (isset($_GET["status"])) {
                     $("#f_Message").focus();
                     exit;
                 } else {
+
+                    // 驗證 reCAPTCHA 是否完成
+                    var recaptchaResponse = $("#g-recaptcha-response").val();
+                    console.log("reCAPTCHA response:", recaptchaResponse);
+                    if (recaptchaResponse === "") {
+                        alert("Please complete the reCAPTCHA verification.");
+                        return;
+                    }
+
                     if (document.getElementById("check_news").checked == true) {
                         var email = $("#f_Email").val();
                         var url = "/subscription";
@@ -377,8 +396,14 @@ if (isset($_GET["status"])) {
                                 alert('Thank you for contacting with us. We will respond to you shortly.');
                                 document.location.href = '/EN/contact/';
                             } else {
-                                alert(message);
+                                // alert(message);
+                                alert("Error: " + message);
+                                $("#add").prop("disabled", false);
                             }
+                        },
+                        error: function(xhr, status, error) {
+                            alert("An error occurred: " + error);
+                            $("#add").prop("disabled", false);
                         }
                     });
                 }

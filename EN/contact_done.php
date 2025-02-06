@@ -11,17 +11,17 @@ include("./PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 session_cache_limiter('private, must-revalidate');
 session_start();
 
-if (isset($_SESSION["Checknum"]) != '') {
-    if ($_SESSION["Checknum"] == $_POST['Checknum1']) {
-        //$msg = "You enter the correct verification code！";
-        //echo "susses";
-    } else {
-        //$msg = "Wrong Security Code! Please enter again.";
-        //echo "<script>alert('".$msg."');history.go(-1);</script>";
-        echo "Wrong Security Code! Please enter again.";
-        exit();
-    }
-}
+// if (isset($_SESSION["Checknum"]) != '') {
+//     if ($_SESSION["Checknum"] == $_POST['Checknum1']) {
+//         //$msg = "You enter the correct verification code！";
+//         //echo "susses";
+//     } else {
+//         //$msg = "Wrong Security Code! Please enter again.";
+//         //echo "<script>alert('".$msg."');history.go(-1);</script>";
+//         echo "Wrong Security Code! Please enter again.";
+//         exit();
+//     }
+// }
 
 $link_db = mysqli_connect($db_host, $db_user, $db_pwd, $dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
