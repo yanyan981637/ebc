@@ -235,6 +235,12 @@ $arr_sku = explode(",", $RFQsku);
 							<?php
 							}
 							?>
+
+							<!-- loading 覆蓋層 -->
+							<div id="loadingOverlay">
+								<div class="lds-dual-ring"></div>
+							</div>
+
 							<div id="myModal2" class="modal fade confirm-quote" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -398,10 +404,14 @@ $arr_sku = explode(",", $RFQsku);
 	<!-- ADD-ONS JS FILES -->
 	<script src="js1/top.js"></script>
 	<script>
+		// 取得按鈕和 loading 層的 DOM 物件
+		const overlay = document.getElementById('loadingOverlay');
+
         // 當 modal 隱藏後，轉到首頁
         $("#myModal2").on('hidden.bs.modal', function () {
             window.location.href = '/';
         });
+
 		$("#RFQ_OK").click(function() {
 			var num = $("#pr_num").val();
 			var kind = "";
@@ -430,7 +440,6 @@ $arr_sku = explode(",", $RFQsku);
 				}
 			});
 		})
-
 		
 		// $(function() {
 		// 	$("#register").click(function() {
@@ -528,6 +537,7 @@ $arr_sku = explode(",", $RFQsku);
 		// 修改 #register 按鈕點擊事件：先進行欄位驗證，再檢查 reCAPTCHA 是否完成，完成後以 Ajax 送出表單
         $(function() {
             $("#register").click(function() {
+				// 檢查必填欄位是否有填寫
                 if ($("#username").val() == "") {
                     $("#username").focus();
                     return;
@@ -576,6 +586,9 @@ $arr_sku = explode(",", $RFQsku);
 
 				$("#register").attr("disabled", "disabled");
 
+				// 顯示 loading 特效覆蓋層
+				overlay.style.display = 'flex';
+
                 // 若 newsletter 被勾選，另行發送訂閱請求（保留原有 newsletter 程式碼）
                 if ($("#S_News").is(":checked")) {
                     var url_sub = "/subscription";
@@ -613,6 +626,8 @@ $arr_sku = explode(",", $RFQsku);
                         } else if (message == "success") {
                             $("#RFQmodal").modal('hide');
                             document.cookie = "RFQsku=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+							// 關閉 loading 覆蓋層
+							overlay.style.display = 'none';
                             $("#myModal2").modal('show');
                         } else {
                             alert(message);

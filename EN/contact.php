@@ -194,6 +194,11 @@ if (isset($_GET["status"])) {
             </div>
         </section><!-- #content end -->
 
+        <!-- loading 覆蓋層 -->
+        <div id="loadingOverlay">
+            <div class="lds-dual-ring"></div>
+        </div>
+
         <div id="myModal2" class="modal fade confirm-quote" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -256,6 +261,10 @@ if (isset($_GET["status"])) {
         });
     </script>
     <script type="text/javascript">
+
+        // 取得按鈕和 loading 層的 DOM 物件
+        const overlay = document.getElementById('loadingOverlay');
+
         // 當 modal 隱藏後，轉到首頁
         $("#myModal2").on('hidden.bs.modal', function () {
             window.location.href = '/';
@@ -372,6 +381,9 @@ if (isset($_GET["status"])) {
                         return;
                     }
 
+                    // 顯示 loading 特效覆蓋層
+                    overlay.style.display = 'flex';
+
                     if (document.getElementById("check_news").checked == true) {
                         var email = $("#f_Email").val();
                         var url = "/subscription";
@@ -420,6 +432,10 @@ if (isset($_GET["status"])) {
                         success: function(message) {
                             if (message == "susses") {
 						        $("#myModal2").modal('show');
+                                
+                                // 關閉 loading 覆蓋層
+                                overlay.style.display = 'none';
+
                                 // alert('Thank you for contacting with us. We will respond to you shortly.');
                                 // document.location.href = '/EN/contact/';
                             } else {
