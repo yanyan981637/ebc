@@ -421,6 +421,8 @@ if (isset($_GET["status"])) {
                     fd.append("s_Type", s_Type);
                     fd.append("fMessage", fMessage);
                     fd.append("Checknum1", Checknum1);
+                    // 加入 reCAPTCHA response
+					fd.append("g-recaptcha-response", $("#g-recaptcha-response").val());
                     $.ajax({
                         type: "post",
                         url: url,

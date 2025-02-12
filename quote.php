@@ -595,6 +595,7 @@ $arr_sku = explode(",", $RFQsku);
                     var mail = $("#email").val();
                     var fd = new FormData();
                     fd.append("mail", mail);
+					// fd.append("g-recaptcha-response", $("#g-recaptcha-response").val());
                     $.ajax({
                         type: "post",
                         url: url_sub,
@@ -617,7 +618,8 @@ $arr_sku = explode(",", $RFQsku);
                         countryCode: countryCode,
                         tel: tel,
                         Msg: Msg,
-                        kind: kind
+                        kind: kind,
+						"g-recaptcha-response": $("#g-recaptcha-response").val()
                     },
                     success: function(message) {
                         if (message == "email") {

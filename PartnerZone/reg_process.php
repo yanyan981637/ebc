@@ -34,6 +34,36 @@ $link_db = mysqli_connect($db_host, $db_user, $db_pwd, $dataBase);
 mysqli_query($link_db, 'SET NAMES utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_CLIENT=utf8');
 mysqli_query($link_db, 'SET CHARACTER_SET_RESULTS=utf8');
+
+// 新增 reCAPTCHA 驗證
+if (!isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
+  echo "recaptcha_missing";
+  exit;
+}
+
+// 發送驗證請求至 Google reCAPTCHA API
+$verify_url = "https://www.google.com/recaptcha/api/siteverify";
+$data = array(
+  'secret'   => $google_recaptcha_secret,
+  'response' => $_POST['g-recaptcha-response'],
+  'remoteip' => $_SERVER['REMOTE_ADDR']
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $verify_url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$recaptcha_verify_response = curl_exec($ch);
+curl_close($ch);
+
+$recaptcha_result = json_decode($recaptcha_verify_response, true);
+if (!isset($recaptcha_result['success']) || $recaptcha_result['success'] !== true) {
+  echo "recaptcha_failed";
+  exit;
+}
+
+// 防止 SQL Injection
 function dowith_sql($str)
 {
     $str = str_replace("and", "", $str);
@@ -534,5 +564,7 @@ if ($kind == "register") {
         echo "success";
         mysqli_close($link_db);
         exit();
+    }else{
+      echo "rfq fail";
     }
 }

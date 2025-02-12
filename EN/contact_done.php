@@ -11,6 +11,34 @@ include("./PHPMailer-master/PHPMailerAutoload.php"); //匯入PHPMailer類別
 session_cache_limiter('private, must-revalidate');
 session_start();
 
+// 新增 reCAPTCHA 驗證
+if (!isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
+    echo "recaptcha_missing";
+    exit;
+}
+
+// 發送驗證請求至 Google reCAPTCHA API
+$verify_url = "https://www.google.com/recaptcha/api/siteverify";
+$data = array(
+    'secret'   => $google_recaptcha_secret,
+    'response' => $_POST['g-recaptcha-response'],
+    'remoteip' => $_SERVER['REMOTE_ADDR']
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $verify_url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$recaptcha_verify_response = curl_exec($ch);
+curl_close($ch);
+
+$recaptcha_result = json_decode($recaptcha_verify_response, true);
+    if (!isset($recaptcha_result['success']) || $recaptcha_result['success'] !== true) {
+    echo "recaptcha_failed";
+    exit;
+}
+
 // if (isset($_SESSION["Checknum"]) != '') {
 //     if ($_SESSION["Checknum"] == $_POST['Checknum1']) {
 //         //$msg = "You enter the correct verification code！";
