@@ -546,9 +546,9 @@ if ($kind == "register") {
                 'New lead notification', $Sales_content
             );
             
-            // 加入 cc 收件者
-            $mail->addCC('ling.huang@mitacmdt.com', 'ling.huang (黃苑菱 - MDT)');
-            $mail->addCC('yanyan.lin@mitacmdt.com', 'yanyan.lin (林彥廷 - MDT)');
+            // 加入 bcc 收件者
+            $mail->addBCC('ling.huang@mitacmdt.com', 'ling.huang (黃苑菱 - MDT)');
+            $mail->addBCC('yanyan.lin@mitacmdt.com', 'yanyan.lin (林彥廷 - MDT)');
 
             if (!$mail->Send()) {
                 echo "Failed to send your message. Please check your input and try again.";
