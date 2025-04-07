@@ -16801,4 +16801,27 @@ label.checkbox { padding-left: 20px; }
 	animation-name: fadeOutUpSmall;
 }
 
-
+/* 768px 以上時顯示，以下時隱藏 */
+@media (min-width: 768px) {
+	.desktop-show {
+	  display: block; /* 根據實際情況也可用 inline-block、flex 等 */
+	}
+  }
+  @media (max-width: 767px) {
+	.desktop-show {
+	  display: none;
+	}
+  }
+  
+  /* 768px 以下時顯示，以上時隱藏 */
+  @media (max-width: 767px) {
+	.mobile-show {
+	  display: block; /* 根據需要可調整 */
+	}
+  }
+  @media (min-width: 768px) {
+	.mobile-show {
+	  display: none;
+	}
+  }
+  
