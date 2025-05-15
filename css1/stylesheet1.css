@@ -37,6 +37,18 @@
     line-height:3rem;
     font-weight:700;
 }
+.slider_caption_title_gen2{
+    text-decoration:none;
+    color:#ffffff;
+    font-size:48px;
+    line-height:3rem;
+    font-weight:700;
+}
+.slider_caption_title_gen2_highlight{
+    font-size: 96px;
+    color: #03ffff;
+    font-weight: 900;
+}
 .slider_caption_subtitle{
     color:#07f1fa;
     font-size:2.5rem;
@@ -48,6 +60,13 @@
     color:#ffffff; 
     margin:4% 0 8% 4%;
     line-height: 1.8rem;
+}
+.slider_caption_list_gen2_12{
+    font-size:26px;
+    color:#ffffff; 
+    margin:4% 0 4% 4%;
+    line-height: 35px;
+    font-weight: 200;
 }
 .slider_caption_list_15{
     font-size:1.5rem;
@@ -69,6 +88,10 @@
 }
 .hidden_element{
     display: block;
+}
+.slider_caption_gen2_mt{
+    width: 70vw;
+    margin-top: 75px;
 }
 @media (width <= 1440px) {
     .hidden_element{
@@ -98,6 +121,9 @@
     .close_cross{
         display: none;
     }
+    .slider_caption_gen2_mt{
+        margin-top: 165px;
+    }
 }
 @media (height <= 844px) {
     .slider_caption_marginbottom_20{
@@ -113,6 +139,12 @@
         margin:2% 0;
     }
     .slider_caption_list_12{
+        font-size:1.2rem;
+        color:#ffffff; 
+        margin:3% 0 3% 3%;
+        line-height: 1.8rem;
+    }
+    .slider_caption_list_gen2_12{
         font-size:1.2rem;
         color:#ffffff; 
         margin:3% 0 3% 3%;
@@ -142,6 +174,43 @@
         line-height: 24px;
     }
 }
+
+@media (width <= 768px) {
+    .slider_caption_title_gen2{
+        text-decoration:none;
+        color:#ffffff;
+        font-size:30px;
+        line-height:2rem;
+        font-weight:700;
+    }
+    .slider_caption_title_gen2_highlight{
+        font-size: 60px;
+        color: #03ffff;
+        font-weight: 900;
+    }
+    .slider_caption_list_gen2_12{
+        font-size:20px;
+        margin:3% 0 3% 3%;
+        line-height: 26px;
+    }
+
+}
+@media (width <= 575px) {
+    .slider_caption_gen2_mt{
+        width: 90vw;
+        padding-left: 10px;
+    }
+    .slider_caption_title_gen2_highlight{
+        font-size: 60px;
+        color: #03ffff;
+        font-weight: 900;
+    }
+    .slider_caption_list_gen2_12{
+        padding-left: 10px;
+    }
+
+}
+
 
 /* loading 覆蓋層的樣式 */
 #loadingOverlay {
