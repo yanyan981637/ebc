@@ -222,13 +222,13 @@ if($kind=="reset"){
   <tr>
   <td style='padding: 35px;'>
   <h1 style='font-family: Arial; line-height:130%; text-align:left; font-size:16px'>Hi ".$username.",</h1>
-  <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Your password for logging in the back-end of MCT Partner Zone has been reset to:<br /><span style='font-weight:bold; color:#000000; font-size:14px'>".$password."</span></p>
+  <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Your password for logging in the back-end of MDT Partner Zone has been reset to:<br /><span style='font-weight:bold; color:#000000; font-size:14px'>".$password."</span></p>
   <!-- Action -->
   <table style='width: 100%;  margin: 30px auto;  padding: 0;  -premailer-width: 100%;  -premailer-cellpadding: 0;  -premailer-cellspacing: 0;  text-align: center;' align='center' width='100%' cellpadding='0' cellspacing='0'>
   <tr>
   <td align='center'>
 
-  <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Please use this new password to log in the back-end of MCT Partner Zone. For your account security, please change your password after login. </p>
+  <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Please use this new password to log in the back-end of MDT Partner Zone. For your account security, please change your password after login. </p>
   <br />
   <table width='100%' border='0' cellspacing='0' cellpadding='0'>
   <tr>
@@ -243,7 +243,7 @@ if($kind=="reset"){
   </tr>
   </table>
   <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>Thanks,
-  <br>MCT Partner Zone</p>
+  <br>MDT Partner Zone</p>
   <!-- Sub copy -->
 
   </td>

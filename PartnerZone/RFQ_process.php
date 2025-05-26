@@ -361,7 +361,7 @@ if($kind=="RFQ"){
 
                               <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>
 
-                              There is a new request from MCT Partner Zone.
+                              There is a new request from MDT Partner Zone.
                               <br />
                               Here are the details.<br /><br />
                               =============================<br />
@@ -394,14 +394,6 @@ if($kind=="RFQ"){
 
                             <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>
                               Please contact with the client ASAP. If there is no action for this request after 3 days, the system will update it to 'Invalid' status automatically. <br /><br />
-
-                              You can <a href='https://ipc.mitacmdt.com/partner-backend/login' />log into MCT Partner Zone Back-end</a> and go to <strong>'Leads Mgt'</strong> to check / proceed this request.
-
-
-
-
-
-
                             </p>
                             <br /><br />
                             <table width='100%' border='0' cellspacing='0' cellpadding='0'>
@@ -417,7 +409,7 @@ if($kind=="RFQ"){
                             </tr>
                           </table>
                           <br /><br />
-                          <p style='font-family: arial; line-height:130%; font-size:12px; text-align:left;'>MCT Partner Zone</p>
+                          <p style='font-family: arial; line-height:130%; font-size:12px; text-align:left;'>MDT Partner Zone</p>
                           <!-- Sub copy -->
 
                         </td>
@@ -463,7 +455,7 @@ if($kind=="RFQ"){
       $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
       $mail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
-      $mail->FromName = "MCT Partner Zone"; //設定寄件者姓名
+      $mail->FromName = "MDT Partner Zone"; //設定寄件者姓名
 
       $mail->Subject = "New lead notification"; //設定郵件標題
       $mail->Body = $Sales_content; //設定郵件內容
@@ -490,7 +482,7 @@ if($kind=="RFQ"){
         $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
         $admail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
-        $admail->FromName = "MCT Partner Zone"; //設定寄件者姓名
+        $admail->FromName = "MDT Partner Zone"; //設定寄件者姓名
 
         $admail->Subject = "New lead notification(TO Sales)"; //設定郵件標題
         $admail->Body = $errorMail; //設定郵件內容

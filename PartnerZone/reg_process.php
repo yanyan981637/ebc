@@ -464,7 +464,7 @@ if ($kind == "register") {
                           <tr>
                             <td align='center'>
                               <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>
-                              There is a new request from MCT Partner Zone.
+                              There is a new request from MDT Partner Zone.
                               <br />
                               Here are the details.<br /><br />
                               =============================<br />
@@ -493,7 +493,6 @@ if ($kind == "register") {
                             <br /><br />
                             <p style='font-family: arial; line-height:130%;  text-align:left; font-size:14px'>
                               Please contact with the client ASAP. If there is no action for this request after 3 days, the system will update it to 'Invalid' status automatically. <br /><br />
-                              You can <a href='https://ipc.mitacmdt.com/partner-backend/login' />log into MCT Partner Zone Back-end</a> and go to <strong>'Leads Mgt'</strong> to check / proceed this request.
                             </p>
                             <br /><br />
                             <table width='100%' border='0' cellspacing='0' cellpadding='0'>
@@ -509,7 +508,7 @@ if ($kind == "register") {
                             </tr>
                           </table>
                           <br /><br />
-                          <p style='font-family: arial; line-height:130%; font-size:12px; text-align:left;'>MCT Partner Zone</p>
+                          <p style='font-family: arial; line-height:130%; font-size:12px; text-align:left;'>MDT Partner Zone</p>
                           <!-- Sub copy -->
                         </td>
                       </tr>
@@ -541,7 +540,7 @@ if ($kind == "register") {
       </body>";
         # ***************20240628 窗口通知信 *******************
             $mail = mail_setting($mail_host, $mail_port, $mail_user, $mail_pwd,
-                'business@mitacmdt.com', 'MCT Partner Zone',
+                'business@mitacmdt.com', 'MDT Partner Zone',
                 'sales_client@mitacmdt.com', 'Mitac computer',
                 'New lead notification', $Sales_content
             );
@@ -554,7 +553,7 @@ if ($kind == "register") {
                 echo "Failed to send your message. Please check your input and try again.";
                 $errorMail = $mail->ErrorInfo;
                 $adminMail = mail_setting('10.88.0.58', '25', null, null,
-                    'business@mitacmdt.com', 'MCT Partner Zone',
+                    'business@mitacmdt.com', 'MDT Partner Zone',
                     null, null,
                     'New lead notification(TO Sales)', 'Insert data failed.',
                     true

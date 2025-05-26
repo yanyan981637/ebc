@@ -361,7 +361,7 @@ if($kind=="reset"){
   $mail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
   $mail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
-  $mail->FromName = "MCT Partner Zone"; //設定寄件者姓名
+  $mail->FromName = "MDT Partner Zone"; //設定寄件者姓名
 
   $mail->Subject = "Your password has been reset."; //設定郵件標題
   $mail->Body = $content; //設定郵件內容
@@ -386,7 +386,7 @@ if($kind=="reset"){
     $admail->Password = "Tyan1989@"; //設定驗證密碼   9ijnmklp0
 
     $admail->From = "noreply-to-partner-zone@mitacmct.com"; //設定寄件者信箱
-    $admail->FromName = "MCT Partner Zone";; //設定寄件者姓名
+    $admail->FromName = "MDT Partner Zone";; //設定寄件者姓名
 
     $admail->Subject = "Your password has been reset."; //設定郵件標題
     $admail->Body = $errorMail; //設定郵件內容
