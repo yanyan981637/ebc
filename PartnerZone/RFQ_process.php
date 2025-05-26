@@ -396,19 +396,6 @@ if($kind=="RFQ"){
                               Please contact with the client ASAP. If there is no action for this request after 3 days, the system will update it to 'Invalid' status automatically. <br /><br />
                             </p>
                             <br /><br />
-                            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                              <tr>
-                                <td align='center'>
-                                  <table border='0' cellspacing='0' cellpadding='0'>
-                                    <tr> <td>
-                                      <a href='https://ipc.mitacmdt.com/partner-backend/login' style='font-family: arial; line-height:130%; background-color: #3869D4; border-top: 10px solid #3869D4; border-right: 18px solid #3869D4;border-bottom: 10px solid #3869D4;border-left: 18px solid #3869D4;display: inline-block;color: #FFF;text-decoration: none;border-radius: 3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);-webkit-text-size-adjust: none;' >LOG IN</a>
-                                    </td>
-                                  </tr>
-                                </table>
-                              </td>
-                            </tr>
-                          </table>
-                          <br /><br />
                           <p style='font-family: arial; line-height:130%; font-size:12px; text-align:left;'>MDT Partner Zone</p>
                           <!-- Sub copy -->
 
